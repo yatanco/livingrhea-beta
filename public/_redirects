@@ -6,5 +6,8 @@
 /feed/              /blog/rss.xml  301
 /feed/rss/          /blog/rss.xml  301
 /blog/feed/         /blog/rss.xml  301
+# Old WP permalink structures for posts → the /blog/ routes.
+/recipes/*          /blog/:splat   301
+/category/*         /blog/         301
 # TODO: diff the full old WP URL list (XML export) against Astro routes and add
 # 301s for anything else that moved. See MIGRATION-TODO #8.

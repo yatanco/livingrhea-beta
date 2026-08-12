@@ -64,6 +64,25 @@ function parseAttrs(attrString) {
   return attrs;
 }
 
+// WordPress-only <head> autodiscovery links that are meaningless (and dead) on
+// the static site: RSD/EditURI, XML-RPC, WP REST link, shortlink, oEmbed
+// endpoints, the WP feeds (we ship our own /blog/rss.xml), and w.org
+// dns-prefetch. Removing them avoids broken-link/crawler noise.
+function stripWpHeadCruft(head) {
+  return head
+    .replace(/<link[^>]*rel=["']EditURI["'][^>]*>/gi, '')
+    .replace(/<link[^>]*rel=["']https:\/\/api\.w\.org\/["'][^>]*>/gi, '')
+    .replace(/<link[^>]*rel=["']shortlink["'][^>]*>/gi, '')
+    .replace(/<link[^>]*rel=["']pingback["'][^>]*>/gi, '')
+    .replace(/<link[^>]*rel=["']wlwmanifest["'][^>]*>/gi, '')
+    .replace(/<link[^>]*rel=["']dns-prefetch["'][^>]*>/gi, '')
+    // oEmbed + wp-json + RSS feed autodiscovery (rel="alternate", various types)
+    .replace(
+      /<link[^>]*type=["'](?:application\/json(?:\+oembed)?|text\/xml\+oembed|application\/rss\+xml)["'][^>]*>/gi,
+      '',
+    );
+}
+
 // One shell per source URL. Each WP page has its own header treatment (the
 // home page's header is transparent to overlay the hero; interior pages use a
 // solid header), body classes, and per-page CSS — so we capture each page's
@@ -98,6 +117,7 @@ export async function getSalientShell(pageUrl = SHELL_SOURCE_URL) {
     .replace(/<style[^>]*data-type=["']vc_shortcodes-custom-css["'][^>]*>[\s\S]*?<\/style>/i, '')
     // Point the Google Fonts <link> at our self-hosted copy.
     .replace(/https:\/\/fonts\.googleapis\.com\/css[^"'>]+/i, GOOGLE_FONTS_LOCAL);
+  headHtml = stripWpHeadCruft(headHtml);
   headHtml = toLocal(headHtml);
   // Non-critical CSS is deferred in the postbuild pass (scripts/
   // reconcile-assets.mjs), which sees the whole document (some styles are

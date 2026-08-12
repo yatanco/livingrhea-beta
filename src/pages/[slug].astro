@@ -1,6 +1,7 @@
 ---
 import Base from '../layouts/Base.astro';
-import { getAllPages, getPageBySlug, heroImage } from '../lib/wordpress.js';
+import WpContent from '../components/WpContent.astro';
+import { getAllPages, heroImage } from '../lib/wordpress.js';
 
 export async function getStaticPaths() {
   const pages = await getAllPages();
@@ -18,15 +19,8 @@ const { page } = Astro.props;
 ---
 <Base title={page.title.rendered} description={page.excerpt?.rendered} headCss={page.wpb_custom_css} pageUrl={page.link} preloadImage={heroImage(page)}>
   <h1 set:html={page.title.rendered} />
-  <!--
-    This renders WPBakery's output HTML as-is (it's just HTML/CSS
-    classes once WPBakery has rendered it server-side — WPBakery's
-    react/vc_row shortcodes are resolved by WP before the REST API
-    ever returns content.rendered). Sliders, testimonial carousels,
-    and the pricing/package grid on /coaching/ will show as static
-    HTML, not interactive — rebuild those as real Astro components
-    once you see which pages need it (coaching page's PACKAGES section
-    is the main one). See MIGRATION-TODO.md #5.
-  -->
-  <div class="wp-content" set:html={page.content.rendered} />
+  {/* WPBakery output HTML (rendered server-side by WP). Sliders / testimonial
+      carousels / the coaching PACKAGES grid render as static HTML — candidates
+      to rebuild as Astro components later. See MIGRATION-TODO.md #5. */}
+  <WpContent html={page.content.rendered} />
 </Base>
