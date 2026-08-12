@@ -1,0 +1,14 @@
+
+# --- Caching (fixes "Use efficient cache lifetimes") ---
+# Content-hashed Astro output + stable self-hosted fonts/vendor: cache forever.
+/_astro/*
+  Cache-Control: public, max-age=31536000, immutable
+/fonts/*
+  Cache-Control: public, max-age=31536000, immutable
+/vendor/*
+  Cache-Control: public, max-age=31536000, immutable
+# Mirrored WP assets: long but not immutable (filenames can be reused in WP).
+/wp-content/*
+  Cache-Control: public, max-age=604800
+/wp-includes/*
+  Cache-Control: public, max-age=604800
