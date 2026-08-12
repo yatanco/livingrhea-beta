@@ -1,13 +1,13 @@
 ---
 import Base from '../layouts/Base.astro';
-import { getPageBySlug } from '../lib/wordpress.js';
+import { getPageBySlug, heroImage } from '../lib/wordpress.js';
 
 // Adjust slug to match whatever the WP front page's slug actually is
 // (check Settings > Reading in wp-admin — could be "home" or the
 // literal front page id).
 const home = await getPageBySlug('livingrhea-com');
 ---
-<Base title="Home" description="PhD toxicologist & holistic health coach helping women with fertility, detox & postpartum recovery." headCss={home?.wpb_custom_css} pageUrl={home?.link}>
+<Base title="Home" description="PhD toxicologist & holistic health coach helping women with fertility, detox & postpartum recovery." headCss={home?.wpb_custom_css} pageUrl={home?.link} preloadImage={heroImage(home)}>
   <!--
     TODO: the Instagram feed grid on this page (see MIGRATION-TODO.md #3)
     and the testimonials slider (#5) are the two blocks worth rebuilding

@@ -14,8 +14,16 @@ interface Props {
    * uses a different content wrapper.
    */
   pageUrl?: string;
+  /** Above-the-fold LCP image to preload (e.g. the hero background). */
+  preloadImage?: string;
 }
-const { title, description = '', headCss = '', pageUrl = `${WP_ORIGIN}/about/` } = Astro.props;
+const {
+  title,
+  description = '',
+  headCss = '',
+  pageUrl = `${WP_ORIGIN}/about/`,
+  preloadImage,
+} = Astro.props;
 
 // Salient theme shell (header, footer, mobile menu, body classes, CSS + JS
 // stack) captured from the live WP page. Reproduces the chrome the REST
@@ -33,6 +41,10 @@ const shell = await getSalientShell(pageUrl);
          noindex,nofollow. Remove that (or keep it) deliberately, don't
          let it carry over by accident. -->
     <link rel="alternate" type="application/rss+xml" title="Blog" href="/blog/rss.xml" />
+
+    <!-- Preload the LCP image (Salient applies hero images as CSS backgrounds,
+         which the browser won't discover early on its own). -->
+    {preloadImage && <link rel="preload" as="image" href={preloadImage} fetchpriority="high" />}
 
     <!-- Salient/WPBakery CSS, fonts and head assets, captured from live WP. -->
     <Fragment set:html={shell.headHtml} />

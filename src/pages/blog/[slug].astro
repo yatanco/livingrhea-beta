@@ -9,7 +9,7 @@ export async function getStaticPaths() {
 
 const { post } = Astro.props;
 ---
-<Base title={post.title.rendered} description={post.excerpt?.rendered} headCss={post.wpb_custom_css}>
+<Base title={post.title.rendered} description={post.excerpt?.rendered} headCss={post.wpb_custom_css} preloadImage={featuredImage(post)}>
   <article>
     <h1 set:html={post.title.rendered} />
     {featuredImage(post) && <img src={featuredImage(post)} alt="" />}

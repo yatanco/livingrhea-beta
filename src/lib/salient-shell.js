@@ -99,6 +99,9 @@ export async function getSalientShell(pageUrl = SHELL_SOURCE_URL) {
     // Point the Google Fonts <link> at our self-hosted copy.
     .replace(/https:\/\/fonts\.googleapis\.com\/css[^"'>]+/i, GOOGLE_FONTS_LOCAL);
   headHtml = toLocal(headHtml);
+  // Non-critical CSS is deferred in the postbuild pass (scripts/
+  // reconcile-assets.mjs), which sees the whole document (some styles are
+  // enqueued in the body, not the head).
 
   // --- <body> ------------------------------------------------------------
   const bodyOpen = doc.match(/<body([^>]*)>/i);

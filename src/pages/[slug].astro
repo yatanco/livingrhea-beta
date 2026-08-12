@@ -1,6 +1,6 @@
 ---
 import Base from '../layouts/Base.astro';
-import { getAllPages, getPageBySlug } from '../lib/wordpress.js';
+import { getAllPages, getPageBySlug, heroImage } from '../lib/wordpress.js';
 
 export async function getStaticPaths() {
   const pages = await getAllPages();
@@ -16,7 +16,7 @@ export async function getStaticPaths() {
 
 const { page } = Astro.props;
 ---
-<Base title={page.title.rendered} description={page.excerpt?.rendered} headCss={page.wpb_custom_css} pageUrl={page.link}>
+<Base title={page.title.rendered} description={page.excerpt?.rendered} headCss={page.wpb_custom_css} pageUrl={page.link} preloadImage={heroImage(page)}>
   <h1 set:html={page.title.rendered} />
   <!--
     This renders WPBakery's output HTML as-is (it's just HTML/CSS

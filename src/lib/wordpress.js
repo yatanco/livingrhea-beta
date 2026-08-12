@@ -85,3 +85,15 @@ export async function getPostBySlug(slug) {
 export function featuredImage(entity) {
   return entity?._embedded?.['wp:featuredmedia']?.[0]?.source_url ?? null;
 }
+
+// Helper: the earliest content image (CSS background OR <img>) — the likely
+// above-the-fold LCP element. Preloading it (see Base.astro) fixes the slow
+// LCP caused by Salient applying hero images as CSS backgrounds, which the
+// browser otherwise discovers only after the CSS chain resolves.
+export function heroImage(entity) {
+  const html = entity?.content?.rendered || '';
+  const m = html.match(
+    /(?:background-image:\s*url\(['"]?|<img[^>]*\bsrc=["'])(\/wp-content\/uploads\/[^"')]+\.(?:webp|jpe?g|png))/i,
+  );
+  return m ? m[1] : null;
+}
