@@ -24,40 +24,6 @@ const REF_RE = /\/wp-(?:content|includes)\/[^"'\s)?]+\.[a-z0-9]{2,5}/gi;
 const sleep = (ms) => new Promise((r) => setTimeout(r, ms));
 const exists = (p) => access(p).then(() => true).catch(() => false);
 
-// Stylesheets required for the initial above-the-fold paint — everything else
-// is deferred (async) to cut render-blocking time. Substring match on href.
-const CRITICAL_CSS = [
-  'css/build/style.css',
-  'grid-system',
-  'skin-material',
-  'responsive.css',
-  'salient-dynamic-styles',
-  'js_composer.css',
-  'menu-dynamic',
-  'header-secondary-nav',
-  'uaf.css',
-  'google-fonts',
-  '/fonts/font-awesome',
-  '/fonts/salient/icomoon',
-];
-
-// Convert non-critical <link rel=stylesheet> to async (preload + onload swap)
-// with a <noscript> fallback. Leaves critical ones blocking (no FOUC above the
-// fold). Operates on the whole document — WP enqueues some styles in the body.
-function deferNonCriticalCss(html) {
-  let deferred = 0;
-  const out = html.replace(/<link\b[^>]*\brel=["']stylesheet["'][^>]*>/gi, (tag) => {
-    const href = (tag.match(/\bhref=["']([^"']+)["']/i) || [])[1] || '';
-    if (!href || CRITICAL_CSS.some((c) => href.includes(c))) return tag;
-    deferred++;
-    const asyncTag = tag
-      .replace(/\brel=["']stylesheet["']/i, 'rel="preload" as="style"')
-      .replace(/\s*\/?>\s*$/, ' onload="this.onload=null;this.rel=\'stylesheet\'">');
-    return `${asyncTag}<noscript>${tag}</noscript>`;
-  });
-  return { html: out, deferred };
-}
-
 async function walk(dir, out = []) {
   for (const name of await readdir(dir)) {
     const full = new URL(name + '', dir.href.endsWith('/') ? dir : dir + '/');
@@ -199,23 +165,6 @@ async function main() {
 
   if (failed.length) {
     console.warn(`! reconcile could not fetch ${failed.length} (stripped from HTML).`);
-  }
-
-  // Defer non-critical CSS on every page to cut render-blocking time.
-  let cssPages = 0;
-  let cssDeferred = 0;
-  for (const f of files) {
-    if (!f.pathname.endsWith('.html')) continue;
-    const before = await readFile(f, 'utf8');
-    const { html, deferred } = deferNonCriticalCss(before);
-    if (deferred && html !== before) {
-      await writeFile(f, html);
-      cssPages++;
-      cssDeferred += deferred;
-    }
-  }
-  if (cssPages) {
-    console.log(`✓ reconcile: deferred non-critical CSS (~${Math.round(cssDeferred / cssPages)}/page) on ${cssPages} page(s).`);
   }
 }
 
