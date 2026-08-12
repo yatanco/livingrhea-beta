@@ -1,0 +1,78 @@
+---
+import { getSalientShell } from '../lib/salient-shell.js';
+import { WP_ORIGIN } from '../lib/wp-url.js';
+
+interface Props {
+  title: string;
+  description?: string;
+  /** Per-page WPBakery custom CSS (from the wpb_custom_css REST field). */
+  headCss?: string;
+  /**
+   * Live WP URL whose shell (header treatment, body classes, per-page CSS)
+   * this page should adopt. Pages pass their own `link`; blog posts/archive
+   * fall back to a standard interior page (About) since their WP template
+   * uses a different content wrapper.
+   */
+  pageUrl?: string;
+}
+const { title, description = '', headCss = '', pageUrl = `${WP_ORIGIN}/about/` } = Astro.props;
+
+// Salient theme shell (header, footer, mobile menu, body classes, CSS + JS
+// stack) captured from the live WP page. Reproduces the chrome the REST
+// content field doesn't include. See src/lib/salient-shell.js.
+const shell = await getSalientShell(pageUrl);
+---
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>{title} | Rhea Mehta</title>
+    {description && <meta name="description" content={description} />}
+    <!-- TODO: decide indexing policy — the current WP site is sitewide
+         noindex,nofollow. Remove that (or keep it) deliberately, don't
+         let it carry over by accident. -->
+    <link rel="alternate" type="application/rss+xml" title="Blog" href="/blog/rss.xml" />
+
+    <!-- Salient/WPBakery CSS, fonts and head assets, captured from live WP. -->
+    <Fragment set:html={shell.headHtml} />
+
+    <!-- Self-hosted FontAwesome, loaded AFTER the shell so its same-origin
+         @font-face overrides WP's copy. WP-hosted webfonts fail CORS when the
+         page and the CMS are on different origins (localhost now, and root vs
+         cms.livingrhea.com in production), which renders icons as empty boxes.
+         See MIGRATION-TODO. -->
+    <link rel="stylesheet" href="/fonts/font-awesome/css/font-awesome.min.css" />
+    <link rel="stylesheet" href="/fonts/salient/icomoon.css" />
+
+    <!-- Per-page WPBakery custom CSS (design set in the editor; not in any
+         global stylesheet). Injected verbatim, so keep it un-scoped. -->
+    {headCss && <style is:inline set:html={headCss} />}
+  </head>
+  <body {...shell.bodyAttrs}>
+    <!-- Live Salient chrome: skip link, off-canvas wraps, header, and the
+         opening content wrappers (#ajax-content-wrap → .row). -->
+    <Fragment set:html={shell.preContent} />
+
+    <!-- REST-sourced page content sits inside Salient's .row, exactly where
+         WordPress would render it. -->
+    <slot />
+
+    <!-- Closing content wrappers + live footer + mobile slide-out menu +
+         closing #ajax-content-wrap/.ocm-effect-wrap. -->
+    <Fragment set:html={shell.postContent} />
+
+    <!-- Full Salient/WPBakery/plugin JS stack, in the live load order, as real
+         script tags so they execute (jQuery first, then Salient init, sliders,
+         superfish dropdowns, WPBakery front, etc.). -->
+    {
+      shell.scripts.map((s) =>
+        s.src ? (
+          <script is:inline src={s.src} defer={s.defer} async={s.async} id={s.id}></script>
+        ) : (
+          <script is:inline id={s.id} type={s.type} set:html={s.code}></script>
+        ),
+      )
+    }
+  </body>
+</html>

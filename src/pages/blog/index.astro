@@ -1,0 +1,20 @@
+---
+import Base from '../../layouts/Base.astro';
+import { getAllPosts, featuredImage } from '../../lib/wordpress.js';
+
+const posts = await getAllPosts();
+---
+<Base title="Blog">
+  <h1>Blog</h1>
+  <ul>
+    {posts.map((post) => (
+      <li>
+        <a href={`/blog/${post.slug}/`}>
+          {featuredImage(post) && <img src={featuredImage(post)} alt="" />}
+          <h2 set:html={post.title.rendered} />
+        </a>
+        <p set:html={post.excerpt.rendered} />
+      </li>
+    ))}
+  </ul>
+</Base>

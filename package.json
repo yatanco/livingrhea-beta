@@ -1,0 +1,16 @@
+{
+  "name": "livingrhea-astro",
+  "type": "module",
+  "version": "0.1.0",
+  "scripts": {
+    "dev": "astro dev",
+    "mirror": "node scripts/mirror-wp-assets.mjs",
+    "prebuild": "node scripts/mirror-wp-assets.mjs",
+    "build": "astro build",
+    "postbuild": "node scripts/reconcile-assets.mjs",
+    "preview": "astro preview"
+  },
+  "dependencies": {
+    "astro": "^4.15.0"
+  }
+}

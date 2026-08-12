@@ -1,0 +1,26 @@
+---
+import Base from '../../layouts/Base.astro';
+import { getAllPosts, getPostBySlug, featuredImage } from '../../lib/wordpress.js';
+
+export async function getStaticPaths() {
+  const posts = await getAllPosts();
+  return posts.map((post) => ({ params: { slug: post.slug }, props: { post } }));
+}
+
+const { post } = Astro.props;
+---
+<Base title={post.title.rendered} description={post.excerpt?.rendered} headCss={post.wpb_custom_css}>
+  <article>
+    <h1 set:html={post.title.rendered} />
+    {featuredImage(post) && <img src={featuredImage(post)} alt="" />}
+    <div class="wp-content" set:html={post.content.rendered} />
+
+    <!--
+      TODO: if WP comments are enabled on the blog and you want to keep
+      them, they don't come along for free — either point them at
+      giscus/Disqus, or embed WP's REST comments endpoint read-only and
+      drop the ability to post new ones from the static site.
+      Check first: comments may already be off.
+    -->
+  </article>
+</Base>

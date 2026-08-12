@@ -1,0 +1,10 @@
+# Cloudflare Pages redirects.
+# WP front-page slug built a duplicate at /livingrhea-com/ — send it home.
+/livingrhea-com/    /              301
+/home/              /              301
+# Old WordPress RSS feed paths → the new static feed.
+/feed/              /blog/rss.xml  301
+/feed/rss/          /blog/rss.xml  301
+/blog/feed/         /blog/rss.xml  301
+# TODO: diff the full old WP URL list (XML export) against Astro routes and add
+# 301s for anything else that moved. See MIGRATION-TODO #8.
