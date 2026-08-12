@@ -6,7 +6,14 @@
 import { toLocal } from './wp-url.js';
 import imageMap from './image-map.json';
 
-const API_URL = import.meta.env.WORDPRESS_API_URL || process.env.WORDPRESS_API_URL;
+// Falls back to the production CMS so the build never hard-crashes if the env
+// var is unset (matches scripts/mirror-wp-assets.mjs and src/lib/wp-url.js).
+// Set WORDPRESS_API_URL in the environment to point at the CMS (e.g. the
+// cms.livingrhea.com subdomain after cutover).
+const API_URL =
+  import.meta.env.WORDPRESS_API_URL ||
+  process.env.WORDPRESS_API_URL ||
+  'https://livingrhea.com/wp-json/wp/v2';
 
 // Set of image paths (lowercased) the mirror has an optimized .webp sibling
 // for (see scripts/mirror-wp-assets.mjs). We swap those references to WebP.
