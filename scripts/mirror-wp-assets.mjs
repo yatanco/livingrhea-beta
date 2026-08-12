@@ -176,19 +176,31 @@ async function mirrorGoogleFonts(homeHtml) {
 async function main() {
   console.log(`Mirroring WP assets from ${WP_ORIGIN} → public/`);
 
-  const homeHtml = await fetchResilient(`${WP_ORIGIN}/`, 'text');
-  for (const m of homeHtml.matchAll(wpUrlRe)) enqueue(m[0]);
+  // Seed failures are non-fatal: the mirrored assets are committed to the repo,
+  // so if the WP host's bot-challenge blocks discovery, the build falls back to
+  // the committed copies instead of failing.
+  let homeHtml = '';
+  try {
+    homeHtml = await fetchResilient(`${WP_ORIGIN}/`, 'text');
+    for (const m of homeHtml.matchAll(wpUrlRe)) enqueue(m[0]);
+  } catch (e) {
+    console.warn(`! home seed failed (${e.message}); using committed assets.`);
+  }
 
   const pageLinks = [];
   for (const type of ['pages', 'posts']) {
-    const items = await fetchResilient(
-      `${REST}/${type}?per_page=100&_fields=content,wpb_custom_css,link`,
-      'json',
-    );
-    for (const it of items) {
-      const blob = (it?.content?.rendered || '') + '\n' + (it?.wpb_custom_css || '');
-      for (const m of blob.matchAll(wpUrlRe)) enqueue(m[0]);
-      if (type === 'pages' && it?.link) pageLinks.push(it.link);
+    try {
+      const items = await fetchResilient(
+        `${REST}/${type}?per_page=100&_fields=content,wpb_custom_css,link`,
+        'json',
+      );
+      for (const it of items) {
+        const blob = (it?.content?.rendered || '') + '\n' + (it?.wpb_custom_css || '');
+        for (const m of blob.matchAll(wpUrlRe)) enqueue(m[0]);
+        if (type === 'pages' && it?.link) pageLinks.push(it.link);
+      }
+    } catch (e) {
+      console.warn(`! ${type} seed failed (${e.message}); using committed assets.`);
     }
   }
 

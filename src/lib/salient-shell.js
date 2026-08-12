@@ -92,14 +92,30 @@ const cache = new Map();
 export async function getSalientShell(pageUrl = SHELL_SOURCE_URL) {
   if (cache.has(pageUrl)) return cache.get(pageUrl);
 
-  const res = await fetch(pageUrl);
-  if (!res.ok) {
-    throw new Error(
-      `Salient shell fetch failed: ${res.status} ${pageUrl}. ` +
-        `The faithful-port layout needs the live WP page to build.`,
-    );
+  // Retry past the WP host's intermittent bot-challenge (HTML instead of the
+  // real page). Without this, a single challenged fetch fails the whole build
+  // on Cloudflare's build IPs.
+  let doc = '';
+  const tries = 5;
+  for (let attempt = 1; attempt <= tries; attempt++) {
+    try {
+      const res = await fetch(pageUrl, {
+        headers: { 'User-Agent': 'Mozilla/5.0 (compatible; livingrhea-build)' },
+      });
+      if (!res.ok) throw new Error(`HTTP ${res.status}`);
+      const text = await res.text();
+      if (/One moment, please|Just a moment|__cf_chl|Checking your browser/i.test(text)) {
+        throw new Error('bot challenge');
+      }
+      doc = text;
+      break;
+    } catch (e) {
+      if (attempt === tries) {
+        throw new Error(`Salient shell fetch failed for ${pageUrl}: ${e.message}`);
+      }
+      await new Promise((r) => setTimeout(r, 2000 * attempt));
+    }
   }
-  const doc = await res.text();
 
   // --- <head> ------------------------------------------------------------
   const headInner = doc.match(/<head[^>]*>([\s\S]*?)<\/head>/i)?.[1] ?? '';
