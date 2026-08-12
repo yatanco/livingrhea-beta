@@ -26,12 +26,25 @@ function preferWebp(html) {
   );
 }
 
+// Salient's CTA button (.nectar-cta) renders the visible label in a sibling
+// <span class="text"> while the actual <a class="link_text"> holds only an
+// arrow — so the link has no accessible name. Give it an aria-label from the
+// sibling label ("Links must have discernible text").
+function labelCtaLinks(html) {
+  return html.replace(
+    /(<span class="text">\s*([^<]*?)\s*<\/span>\s*<span class="link_wrap"[^>]*>\s*<a\s+)(class="link_text")/gi,
+    (m, pre, label, cls) =>
+      label ? `${pre}aria-label="${label.replace(/"/g, '&quot;')}" ${cls}` : m,
+  );
+}
+
 // Make an entity self-contained: localize every WP asset URL to its mirrored
 // /public copy, then prefer the optimized WebP variant. Nothing loads from the
 // WP origin at runtime.
 function localizeEntity(entity) {
   if (!entity || typeof entity !== 'object') return entity;
-  if (entity.content?.rendered) entity.content.rendered = preferWebp(toLocal(entity.content.rendered));
+  if (entity.content?.rendered)
+    entity.content.rendered = labelCtaLinks(preferWebp(toLocal(entity.content.rendered)));
   if (typeof entity.wpb_custom_css === 'string') entity.wpb_custom_css = toLocal(entity.wpb_custom_css);
   const media = entity._embedded?.['wp:featuredmedia']?.[0];
   if (media?.source_url) media.source_url = preferWebp(toLocal(media.source_url));
