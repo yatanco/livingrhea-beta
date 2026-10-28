@@ -1,5 +1,6 @@
 ---
 import Base from "../../layouts/Base.astro";
+import { localImage } from "../../lib/local-images";
 import WpContent from "../../components/WpContent.astro";
 import { getAllPosts, featuredImage } from "../../lib/content.js";
 
@@ -12,6 +13,8 @@ export async function getStaticPaths() {
 }
 
 const { post } = Astro.props;
+const featured = featuredImage(post);
+const source = featured ? localImage(featured) : undefined;
 ---
 
 <Base
@@ -27,7 +30,7 @@ const { post } = Astro.props;
 >
   <article>
     <h1 set:html={post.title.rendered} />
-    {featuredImage(post) && <img src={featuredImage(post)} alt="" />}
+    {featured && <img src={featured} alt={post._embedded?.["wp:featuredmedia"]?.[0]?.alt_text || ""} width={source?.width} height={source?.height} decoding="async" />}
     <WpContent html={post.content.rendered} />
     {
       /* WP comments aren't carried over; wire up giscus/Disqus later if wanted. */

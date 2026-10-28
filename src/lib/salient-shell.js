@@ -1,3 +1,4 @@
+import { optimizeStyles, prepareMarkup, versionAsset } from "./performance.js";
 // Original Salient page chrome captured once during migration. Builds are offline.
 const snapshots = import.meta.glob("../content/shells/*.json", {
   eager: true,
@@ -12,10 +13,13 @@ export async function getSalientShell(pageUrl = "https://livingrhea.com/") {
   return {
     ...shell,
     // A captured About-page shell must not give every blog post About metadata.
-    headHtml: shell.headHtml.replace(
+    headHtml: optimizeStyles(shell.headHtml).replace(
       /<meta\b[^>]*(?:property|name)=["'](?:og:|twitter:)[^"']*["'][^>]*>/gi,
       "",
     ),
-    scripts: shell.scripts.filter((s) => s.type !== "application/ld+json"),
+    preContent: await prepareMarkup(optimizeStyles(shell.preContent)),
+    postContent: await prepareMarkup(optimizeStyles(shell.postContent)),
+    scripts: shell.scripts.filter(s=>s.type!=="application/ld+json")
+      .map(s=>s.src?{...s,src:versionAsset(s.src)}:s),
   };
 }

@@ -2,11 +2,31 @@
 // Renders a local exported `content.rendered` HTML string (already localized +
 // image-optimized in src/lib/content.js). Single place that injects WP HTML,
 // so any future content post-processing lives here.
+import { prepareMarkup } from "../lib/performance.js";
+
 interface Props {
   html?: string;
   class?: string;
 }
 const { html = "", class: className = "wp-content" } = Astro.props;
+const prepared = await prepareMarkup(html, { lazyBackgrounds: true });
 ---
 
-<div class={className} set:html={html} />
+<div class={className} set:html={prepared} />
+
+<script>
+const backgrounds = document.querySelectorAll<HTMLElement>('[data-perf-background]');
+const reveal = (node: HTMLElement) => {
+  node.style.backgroundImage = node.dataset.perfBackground || '';
+  delete node.dataset.perfBackground;
+};
+if ('IntersectionObserver' in window) {
+  const observer = new IntersectionObserver(entries => {
+    for (const entry of entries) if (entry.isIntersecting) {
+      reveal(entry.target as HTMLElement);
+      observer.unobserve(entry.target);
+    }
+  }, { rootMargin: '400px 0px' });
+  backgrounds.forEach(node => observer.observe(node));
+} else backgrounds.forEach(reveal);
+</script>

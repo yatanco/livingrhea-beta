@@ -71,6 +71,9 @@ const plain = (html = "") => html.replace(/<[^>]+>/g, "").trim();
                             <img
                               class="wp-post-image"
                               src={img}
+                              width={imported?.width}
+                              height={imported?.height}
+                              decoding="async"
                               alt={plain(post.title.rendered)}
                               loading="lazy"
                             />
