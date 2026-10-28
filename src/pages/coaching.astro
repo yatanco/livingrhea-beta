@@ -1,7 +1,22 @@
 ---
 import "../styles/site/coaching.css";
-import ContentPage from "../components/ContentPage.astro";
-import { getPageBySlug } from "../lib/content.js";
-const page = await getPageBySlug("coaching");
+import Base from "../layouts/Base.astro";
+import CoachingPage from "../components/pages/CoachingPage.astro";
+import { getEntry, render } from "astro:content";
+const entry = await getEntry("pages", "coaching");
+if (!entry) throw new Error("Missing coaching content");
+const { Content } = await render(entry);
+const page = entry.data;
 ---
-<ContentPage page={page} />
+
+<Base
+  title={page.title}
+  description={page.description}
+  pageUrl={page.path}
+  preloadImage="/wp-content/uploads/2025/04/home-banner-2.webp"
+>
+  <h1>{page.title}</h1>
+  <CoachingPage page={page}>
+    <Content />
+  </CoachingPage>
+</Base>

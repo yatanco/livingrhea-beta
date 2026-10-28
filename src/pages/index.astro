@@ -1,34 +1,21 @@
 ---
 import "../styles/site/livingrhea-com.css";
 import Base from "../layouts/Base.astro";
-import HomeHero from "../components/HomeHero.astro";
-import { load } from "cheerio";
-import WpContent from "../components/WpContent.astro";
-import { getPageBySlug, heroImage } from "../lib/content.js";
-
-// Keep the original front-page slug; content is loaded from the local export.
-const home = await getPageBySlug("livingrhea-com");
-const originalHero = heroImage(home);
-// Keep the exported copy and surrounding layout; replace the one-slide engine.
-const $ = load(home.content.rendered, null, false);
-const slider = $('.nectar-slider-wrap').first();
-if (slider.find('.swiper-slide').length !== 1) throw new Error('Review the homepage hero: expected one slide.');
-const heroContent = slider.find('.content').html() || '';
-slider.replaceWith('<!--rhea-native-hero-->');
-const feed = $('#sb_instagram');
-if (feed.length !== 1) throw new Error('Expected one saved Instagram feed.');
-// Remove the entire disconnected feed row, including its fixed-height space.
-feed.closest('.wpb_row').remove();
-const homeHtml = $.html();
-
+import HomePage from "../components/pages/HomePage.astro";
+import { getEntry, render } from "astro:content";
+const entry = await getEntry("pages", "home");
+if (!entry) throw new Error("Missing home content");
+const { Content } = await render(entry);
+const page = entry.data;
 ---
 
 <Base
-  title="Home"
-  description="PhD toxicologist & holistic health coach helping women with fertility, detox & postpartum recovery."
-  pageUrl={home?.link}
-
-  socialImage={originalHero}
+  title={page.title}
+  description={page.description}
+  pageUrl={page.path}
+  socialImage={page.hero?.socialImage || page.hero?.image.src}
 >
-  <WpContent html={homeHtml}><HomeHero image={originalHero} content={heroContent} /></WpContent>
+  <HomePage page={page}>
+    <Content />
+  </HomePage>
 </Base>

@@ -1,7 +1,22 @@
 ---
 import "../styles/site/press.css";
-import ContentPage from "../components/ContentPage.astro";
-import { getPageBySlug } from "../lib/content.js";
-const page = await getPageBySlug("press");
+import Base from "../layouts/Base.astro";
+import PressPage from "../components/pages/PressPage.astro";
+import { getEntry, render } from "astro:content";
+const entry = await getEntry("pages", "press");
+if (!entry) throw new Error("Missing press content");
+const { Content } = await render(entry);
+const page = entry.data;
 ---
-<ContentPage page={page} />
+
+<Base
+  title={page.title}
+  description={page.description}
+  pageUrl={page.path}
+  preloadImage="/wp-content/uploads/2025/08/DSC09720-548-Header-scaled.webp"
+>
+  <h1>{page.title}</h1>
+  <PressPage page={page}>
+    <Content />
+  </PressPage>
+</Base>

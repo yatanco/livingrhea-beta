@@ -2,18 +2,20 @@ import test from "node:test";
 import assert from "node:assert/strict";
 import { readFile, readdir, access } from "node:fs/promises";
 import { load } from "cheerio";
+import { parse } from "yaml";
+const frontmatter = s => parse(s.match(/^---\n([\s\S]*?)\n---/)[1]);
 const json = async (p) => JSON.parse(await readFile(p, "utf8"));
 test("every exported published post has a page and an intact title", async () => {
   const original = await json("migration/wordpress-posts.json");
   assert.equal((await readdir("src/content/posts")).length, original.length);
   for (const post of original) {
-    const migrated = await json(`src/content/posts/${post.slug}.json`);
+    const migrated = frontmatter(await readFile(`src/content/posts/${post.slug}.md`, "utf8"));
     assert.equal(
-      load(migrated.title.rendered).text(),
-      load(post.title.rendered).text(),
+      migrated.title,
+      load(post.title.rendered).text().replace(/\s+/g, " ").trim(),
     );
     const $ = load(await readFile(`dist/blog/${post.slug}/index.html`, "utf8"));
-    assert.equal($("h1").first().text(), load(migrated.title.rendered).text());
+    assert.equal($("h1").first().text(), migrated.title);
     assert.ok($(".wp-content").text().trim().length > 0);
   }
 });
@@ -22,7 +24,7 @@ test("all intended pages are migrated and sample content is excluded", async () 
   for (const page of original.filter(
     (x) => !["sample-page", "blog"].includes(x.slug),
   )) {
-    await access(`src/content/pages/${page.slug}.json`);
+    await access(`src/content/pages/${page.slug === "livingrhea-com" ? "home" : page.slug}.md`);
     await access(
       page.slug === "livingrhea-com"
         ? "dist/index.html"
@@ -34,7 +36,7 @@ test("normal builds and templates have no WordPress fetch dependency", async () 
   const pkg = await json("package.json");
   assert.equal(pkg.scripts.prebuild, undefined);
   assert.equal(pkg.scripts.postbuild, undefined);
-  const content = await readFile("src/lib/content.js", "utf8");
+  const content = await readFile("src/lib/posts.js", "utf8");
   assert.doesNotMatch(content, /\bfetch\s*\(/);
   const $ = load(await readFile("dist/index.html", "utf8"));
   assert.equal(
@@ -103,10 +105,10 @@ test("native Astro hero has responsive AVIF/WebP sources and keeps its social im
 
 test("responsive blog images have generated candidates and do not enlarge their default files", async () => {
   const { stat } = await import("node:fs/promises");
-  const files = await readdir("src/content/posts");
+  const files = await readdir("migration/legacy-posts");
   const posts = new Map();
   for (const f of files) {
-    const p = await json(`src/content/posts/${f}`);
+    const p = await json(`migration/legacy-posts/${f}`);
     posts.set(String(p.id), p);
   }
   const $ = load(await readFile("dist/blog/index.html", "utf8"));

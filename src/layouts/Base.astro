@@ -1,6 +1,6 @@
 ---
-import { getSalientShell } from "../lib/salient-shell.js";
-import { WP_ORIGIN } from "../lib/wp-url.js";
+import { getSiteLayout } from "../lib/site-layout.js";
+import SiteChrome from "../components/SiteChrome.astro";
 import { plainText, pageDescriptions } from "../lib/seo.js";
 
 interface Props {
@@ -25,7 +25,7 @@ interface Props {
 const {
   title,
   description = "",
-  pageUrl = `${WP_ORIGIN}/about/`,
+  pageUrl = "/about/",
   preloadImage,
   socialImage,
   article,
@@ -34,11 +34,14 @@ const {
 // Salient theme shell (header, footer, mobile menu, body classes, CSS + JS
 // stack) saved from the original page. Reproduces the chrome the REST
 // content field doesn't include. See src/lib/salient-shell.js.
-const shell = await getSalientShell(pageUrl);
+const layout = getSiteLayout(pageUrl);
 const canonical = new URL(Astro.url.pathname, Astro.site);
 const plainTitle = plainText(title);
-const plainDescription =
-  pageDescriptions[Astro.url.pathname] || plainText(description).slice(0, 170);
+const plainDescription = (
+  plainText(description) ||
+  pageDescriptions[Astro.url.pathname] ||
+  ""
+).slice(0, 170);
 const siteUrl = new URL("/", Astro.site).href;
 const personId = `${siteUrl}#rhea-mehta`;
 const socialSource = socialImage || preloadImage;
@@ -111,54 +114,63 @@ const schema = {
 
     <!-- Preload the LCP image (Salient applies hero images as CSS backgrounds,
          which the browser won't discover early on its own). -->
-    {
-      preloadImage && (
-        <link
-          rel="preload"
-          as="image"
-          href={preloadImage}
-          fetchpriority="high"
-        />
-      )
-    }
+    {preloadImage && (
+      <link rel="preload" as="image" href={preloadImage} fetchpriority="high" />
+    )}
 
-    <link rel="preload" as="font" type="font/woff2" href="/wp-content/uploads/useanyfont/8780Ogg-Regular.woff2" crossorigin="anonymous" />
-    <link rel="preload" as="font" type="font/woff2" href="/vendor/gstatic/s/inter/v20/UcCO3FwrK3iLTeHuS_nVMrMxCp50SjIw2boKoduKmMEVuLyfAZ9hiJ-Ek-_EeA.woff2" crossorigin="anonymous" />
+    <link
+      rel="preload"
+      as="font"
+      type="font/woff2"
+      href="/wp-content/uploads/useanyfont/8780Ogg-Regular.woff2"
+      crossorigin="anonymous"
+    />
+    <link
+      rel="preload"
+      as="font"
+      type="font/woff2"
+      href="/vendor/gstatic/s/inter/v20/UcCO3FwrK3iLTeHuS_nVMrMxCp50SjIw2boKoduKmMEVuLyfAZ9hiJ-Ek-_EeA.woff2"
+      crossorigin="anonymous"
+    />
 
     <!-- Salient/WPBakery CSS, fonts and head assets, saved from the original site. -->
-    <Fragment set:html={shell.headHtml} />
-
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="32x32"
+      href="/wp-content/uploads/2025/04/cropped-LivingRheaLogo-32x32.png"
+    />
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="192x192"
+      href="/wp-content/uploads/2025/04/cropped-LivingRheaLogo-192x192.png"
+    />
+    <link
+      rel="apple-touch-icon"
+      href="/wp-content/uploads/2025/04/cropped-LivingRheaLogo-180x180.png"
+    />
   </head>
-  <body {...shell.bodyAttrs}>
-    <!-- Saved Salient chrome: skip link, off-canvas wraps, header, and the
-         opening content wrappers (#ajax-content-wrap → .row). -->
-    <Fragment set:html={shell.preContent} />
-
-    <!-- Local page content sits inside Salient's .row, exactly where
-         WordPress would render it. -->
-    <slot />
-
-    <!-- Closing content wrappers + live footer + mobile slide-out menu +
-         closing #ajax-content-wrap/.ocm-effect-wrap. -->
-    <Fragment set:html={shell.postContent} />
+  <body {...layout.bodyAttrs}>
+    <SiteChrome layout={layout}>
+      <slot />
+    </SiteChrome>
 
     <!-- Full Salient/WPBakery/plugin JS stack, in the live load order, as real
          script tags so they execute (jQuery first, then Salient init, sliders,
          superfish dropdowns, WPBakery front, etc.). -->
-    {
-      shell.scripts.map((s) =>
-        s.src ? (
-          <script
-            is:inline
-            src={s.src}
-            defer={s.defer}
-            async={s.async}
-            id={s.id}
-          />
-        ) : (
-          <script is:inline id={s.id} type={s.type} set:html={s.code} />
-        ),
-      )
-    }
+    {layout.scripts.map((s) =>
+      s.src ? (
+        <script
+          is:inline
+          src={s.src}
+          defer={s.defer}
+          async={s.async}
+          id={s.id}
+        />
+      ) : (
+        <script is:inline id={s.id} type={s.type} set:html={s.code} />
+      ),
+    )}
   </body>
 </html>

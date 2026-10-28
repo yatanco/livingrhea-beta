@@ -1,0 +1,33 @@
+---
+import social from "../content/settings/social.json";
+const { mobile = false } = Astro.props;
+const items = [
+  ["twitter", "fa-twitter", "Rhea Mehta on X (Twitter)"],
+  ["facebook", "fa-facebook", "Rhea Mehta on Facebook"],
+  ["youtube", "fa-youtube-play", "Rhea Mehta on YouTube"],
+  ["rss", "fa-rss", "Subscribe to the blog RSS feed"],
+  ["instagram", "fa-instagram", "Rhea Mehta on Instagram"],
+  ["linkedin", "fa-linkedin", "Rhea Mehta on LinkedIn"],
+];
+---
+
+<ul
+  id={mobile ? undefined : "social"}
+  class={mobile ? "off-canvas-social-links mobile-only" : undefined}
+>
+  {items
+    .filter(([key]) => social[key])
+    .map(([key, icon, label]) => (
+      <li>
+        <a
+          target="_blank"
+          rel="noopener noreferrer"
+          href={social[key]}
+          aria-label={label}
+        >
+          <span class="screen-reader-text">{key}</span>
+          <i class={`fa ${icon}`} aria-hidden="true"></i>
+        </a>
+      </li>
+    ))}
+</ul>
