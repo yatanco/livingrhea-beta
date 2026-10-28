@@ -1,9 +1,19 @@
 ---
 import ContentFrame from "../ContentFrame.astro";
 import { pageSections } from "../../lib/page-sections.js";
+import { responsiveImage } from "../../lib/responsive-image.ts";
 const { page } = Astro.props;
 const text = page.labels;
 const copy = pageSections(await Astro.slots.render("default"));
+const rheaWidths = [200, 683, 768, 1024, 1365, 1500];
+const rhea294 = await responsiveImage(
+  "/wp-content/uploads/2025/08/042_Rhea_35294.webp",
+  rheaWidths,
+);
+const rhea259 = await responsiveImage(
+  "/wp-content/uploads/2025/08/042_Rhea_35259.webp",
+  rheaWidths,
+);
 ---
 
 <ContentFrame>
@@ -103,9 +113,9 @@ const copy = pageSections(await Astro.slots.render("default"));
                       height="2250"
                       width="1500"
                       data-animation="none"
-                      src="/wp-content/uploads/2025/08/042_Rhea_35294.webp"
+                      src={rhea294.src}
                       alt=""
-                      srcset="/wp-content/uploads/2025/08/042_Rhea_35294.webp 1500w, /wp-content/uploads/2025/08/042_Rhea_35294-200x300.webp 200w, /wp-content/uploads/2025/08/042_Rhea_35294-683x1024.webp 683w, /wp-content/uploads/2025/08/042_Rhea_35294-768x1152.webp 768w, /wp-content/uploads/2025/08/042_Rhea_35294-1024x1536.webp 1024w, /wp-content/uploads/2025/08/042_Rhea_35294-1365x2048.webp 1365w"
+                      srcset={rhea294.srcset}
                       sizes="(max-width: 1500px) 100vw, 1500px"
                     />
                   </div>
@@ -244,9 +254,9 @@ const copy = pageSections(await Astro.slots.render("default"));
                       height="2250"
                       width="1500"
                       data-animation="none"
-                      src="/wp-content/uploads/2025/08/042_Rhea_35259.webp"
+                      src={rhea259.src}
                       alt=""
-                      srcset="/wp-content/uploads/2025/08/042_Rhea_35259.webp 1500w, /wp-content/uploads/2025/08/042_Rhea_35259-200x300.webp 200w, /wp-content/uploads/2025/08/042_Rhea_35259-683x1024.webp 683w, /wp-content/uploads/2025/08/042_Rhea_35259-768x1152.webp 768w, /wp-content/uploads/2025/08/042_Rhea_35259-1024x1536.webp 1024w, /wp-content/uploads/2025/08/042_Rhea_35259-1365x2048.webp 1365w"
+                      srcset={rhea259.srcset}
                       sizes="(max-width: 1500px) 100vw, 1500px"
                     />
                   </div>

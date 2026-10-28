@@ -3,17 +3,21 @@ import "../styles/site/smoothie-movement.css";
 import Base from "../layouts/Base.astro";
 import SmoothieMovementPage from "../components/pages/SmoothieMovementPage.astro";
 import { getEntry, render } from "astro:content";
+import { optimizedSrc } from "../lib/responsive-image.ts";
 const entry = await getEntry("pages", "smoothie-movement");
 if (!entry) throw new Error("Missing smoothie-movement content");
 const { Content } = await render(entry);
 const page = entry.data;
+const preloadImage = await optimizedSrc(
+  "/wp-content/uploads/2025/06/favorite-green-smoothie.webp",
+);
 ---
 
 <Base
   title={page.title}
   description={page.description}
   pageUrl={page.path}
-  preloadImage="/wp-content/uploads/2025/06/favorite-green-smoothie.webp"
+  preloadImage={preloadImage}
 >
   <h1 class="screen-reader-text">{page.title}</h1>
   <SmoothieMovementPage page={page}>

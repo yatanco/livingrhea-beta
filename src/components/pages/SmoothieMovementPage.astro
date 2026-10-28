@@ -1,9 +1,67 @@
 ---
 import ContentFrame from "../ContentFrame.astro";
 import { pageSections } from "../../lib/page-sections.js";
+import {
+  optimizedSrc,
+  responsiveImage,
+} from "../../lib/responsive-image.ts";
 const { page } = Astro.props;
 const text = page.labels;
 const copy = pageSections(await Astro.slots.render("default"));
+
+const favoriteSmoothieBg = await optimizedSrc(
+  "/wp-content/uploads/2025/06/favorite-green-smoothie.webp",
+);
+const gsdSliderWidths = [100, 140, 150, 300, 350, 500, 768, 800, 1000];
+const [gsd1, gsd2, gsd3, gsd4, gsd5] = await Promise.all(
+  ["gsd-1", "gsd-2", "gsd-3", "gsd-4", "gsd-5"].map((name) =>
+    responsiveImage(
+      `/wp-content/uploads/2025/06/${name}.webp`,
+      gsdSliderWidths,
+    ),
+  ),
+);
+const instaPost500 = await responsiveImage(
+  "/wp-content/uploads/2025/06/insta_post_48421.webp",
+  [100, 140, 150, 300, 350, 500, 768, 800, 1000, 1080],
+);
+const imgFeatured = await responsiveImage(
+  "/wp-content/uploads/2025/06/img_featured_851481-500x500.webp",
+  [100, 140, 150, 350, 500],
+);
+const [
+  gsdGallery3,
+  gsdGallery4,
+  gsdGallery5,
+  gsdGallery6,
+] = await Promise.all(
+  [
+    "/wp-content/uploads/2025/06/gsd-gallery-3.webp",
+    "/wp-content/uploads/2025/06/gsd-gallery-4.webp",
+    "/wp-content/uploads/2025/06/gsd-gallery-5.webp",
+    "/wp-content/uploads/2025/06/gsd-gallery-6-e1691422384549.webp",
+  ].map((p) => optimizedSrc(p, 600)),
+);
+const countryWidths = [300, 768, 1000];
+const [gsdCroatia, gsdKenya, gsdIndia, gsdUganda] = await Promise.all(
+  ["gsd-croatia", "gsd-kenya", "gsd-india", "gsd-uganda"].map((name) =>
+    responsiveImage(
+      `/wp-content/uploads/2025/06/${name}.webp`,
+      countryWidths,
+    ),
+  ),
+);
+const logoDummy = await responsiveImage(
+  "/wp-content/uploads/2025/05/Logo-Dummy.webp",
+  [300, 330],
+);
+const kaiPilger = await optimizedSrc(
+  "/wp-content/uploads/2019/09/kai-pilger-mgFzfrrmGKI-unsplash.webp",
+  2000,
+);
+const smoothieEbookBg = await optimizedSrc(
+  "/wp-content/uploads/2025/06/Global-Smoothie-Day-E-Book_2020-1.webp",
+);
 ---
 
 <ContentFrame>
@@ -26,7 +84,7 @@ const copy = pageSections(await Astro.slots.render("default"));
         <div
           class="row-bg viewport-desktop using-image"
           data-parallax-speed="fast"
-          style="background-image: url(/wp-content/uploads/2025/06/favorite-green-smoothie.webp); background-position: left top; background-repeat: no-repeat; "
+          style={`background-image: url(${favoriteSmoothieBg}); background-position: left top; background-repeat: no-repeat; `}
         ></div>
       </div>
       <div
@@ -504,11 +562,11 @@ const copy = pageSections(await Astro.slots.render("default"));
                             decoding="async"
                             width="1000"
                             height="1000"
-                            src="/wp-content/uploads/2025/06/gsd-1.webp"
+                            src={gsd1.src}
                             class="skip-lazy nectar-lazy attachment-full"
                             alt=""
                             title="gsd-1"
-                            srcset="/wp-content/uploads/2025/06/gsd-1.webp 1000w, /wp-content/uploads/2025/06/gsd-1-300x300.webp 300w, /wp-content/uploads/2025/06/gsd-1-150x150.webp 150w, /wp-content/uploads/2025/06/gsd-1-768x768.webp 768w, /wp-content/uploads/2025/06/gsd-1-140x140.webp 140w, /wp-content/uploads/2025/06/gsd-1-100x100.webp 100w, /wp-content/uploads/2025/06/gsd-1-500x500.webp 500w, /wp-content/uploads/2025/06/gsd-1-350x350.webp 350w, /wp-content/uploads/2025/06/gsd-1-800x800.webp 800w"
+                            srcset={gsd1.srcset}
                             sizes="(max-width: 1000px) 100vw, 1000px"
                           />
                         </div>
@@ -518,11 +576,11 @@ const copy = pageSections(await Astro.slots.render("default"));
                             decoding="async"
                             width="1000"
                             height="1000"
-                            src="/wp-content/uploads/2025/06/gsd-2.webp"
+                            src={gsd2.src}
                             class="skip-lazy nectar-lazy attachment-full"
                             alt=""
                             title="gsd-2"
-                            srcset="/wp-content/uploads/2025/06/gsd-2.webp 1000w, /wp-content/uploads/2025/06/gsd-2-300x300.webp 300w, /wp-content/uploads/2025/06/gsd-2-150x150.webp 150w, /wp-content/uploads/2025/06/gsd-2-768x768.webp 768w, /wp-content/uploads/2025/06/gsd-2-140x140.webp 140w, /wp-content/uploads/2025/06/gsd-2-100x100.webp 100w, /wp-content/uploads/2025/06/gsd-2-500x500.webp 500w, /wp-content/uploads/2025/06/gsd-2-350x350.webp 350w, /wp-content/uploads/2025/06/gsd-2-800x800.webp 800w"
+                            srcset={gsd2.srcset}
                             sizes="(max-width: 1000px) 100vw, 1000px"
                           />
                         </div>
@@ -532,11 +590,11 @@ const copy = pageSections(await Astro.slots.render("default"));
                             decoding="async"
                             width="1000"
                             height="1000"
-                            src="/wp-content/uploads/2025/06/gsd-3.webp"
+                            src={gsd3.src}
                             class="skip-lazy nectar-lazy attachment-full"
                             alt=""
                             title="gsd-3"
-                            srcset="/wp-content/uploads/2025/06/gsd-3.webp 1000w, /wp-content/uploads/2025/06/gsd-3-300x300.webp 300w, /wp-content/uploads/2025/06/gsd-3-150x150.webp 150w, /wp-content/uploads/2025/06/gsd-3-768x768.webp 768w, /wp-content/uploads/2025/06/gsd-3-140x140.webp 140w, /wp-content/uploads/2025/06/gsd-3-100x100.webp 100w, /wp-content/uploads/2025/06/gsd-3-500x500.webp 500w, /wp-content/uploads/2025/06/gsd-3-350x350.webp 350w, /wp-content/uploads/2025/06/gsd-3-800x800.webp 800w"
+                            srcset={gsd3.srcset}
                             sizes="(max-width: 1000px) 100vw, 1000px"
                           />
                         </div>
@@ -546,11 +604,11 @@ const copy = pageSections(await Astro.slots.render("default"));
                             decoding="async"
                             width="1000"
                             height="1000"
-                            src="/wp-content/uploads/2025/06/gsd-4.webp"
+                            src={gsd4.src}
                             class="skip-lazy nectar-lazy attachment-full"
                             alt=""
                             title="gsd-4"
-                            srcset="/wp-content/uploads/2025/06/gsd-4.webp 1000w, /wp-content/uploads/2025/06/gsd-4-300x300.webp 300w, /wp-content/uploads/2025/06/gsd-4-150x150.webp 150w, /wp-content/uploads/2025/06/gsd-4-768x768.webp 768w, /wp-content/uploads/2025/06/gsd-4-140x140.webp 140w, /wp-content/uploads/2025/06/gsd-4-100x100.webp 100w, /wp-content/uploads/2025/06/gsd-4-500x500.webp 500w, /wp-content/uploads/2025/06/gsd-4-350x350.webp 350w, /wp-content/uploads/2025/06/gsd-4-800x800.webp 800w"
+                            srcset={gsd4.srcset}
                             sizes="(max-width: 1000px) 100vw, 1000px"
                           />
                         </div>
@@ -560,11 +618,11 @@ const copy = pageSections(await Astro.slots.render("default"));
                             decoding="async"
                             width="1000"
                             height="1000"
-                            src="/wp-content/uploads/2025/06/gsd-5.webp"
+                            src={gsd5.src}
                             class="skip-lazy nectar-lazy attachment-full"
                             alt=""
                             title="gsd-5"
-                            srcset="/wp-content/uploads/2025/06/gsd-5.webp 1000w, /wp-content/uploads/2025/06/gsd-5-300x300.webp 300w, /wp-content/uploads/2025/06/gsd-5-150x150.webp 150w, /wp-content/uploads/2025/06/gsd-5-768x768.webp 768w, /wp-content/uploads/2025/06/gsd-5-140x140.webp 140w, /wp-content/uploads/2025/06/gsd-5-100x100.webp 100w, /wp-content/uploads/2025/06/gsd-5-500x500.webp 500w, /wp-content/uploads/2025/06/gsd-5-350x350.webp 350w, /wp-content/uploads/2025/06/gsd-5-800x800.webp 800w"
+                            srcset={gsd5.srcset}
                             sizes="(max-width: 1000px) 100vw, 1000px"
                           />
                         </div>
@@ -819,9 +877,9 @@ const copy = pageSections(await Astro.slots.render("default"));
                       height="500"
                       width="500"
                       data-animation="none"
-                      src="/wp-content/uploads/2025/06/insta_post_48421-500x500.webp"
+                      src={instaPost500.src}
                       alt=""
-                      srcset="/wp-content/uploads/2025/06/insta_post_48421-500x500.webp 500w, /wp-content/uploads/2025/06/insta_post_48421-300x300.webp 300w, /wp-content/uploads/2025/06/insta_post_48421-1024x1024.webp 1024w, /wp-content/uploads/2025/06/insta_post_48421-150x150.webp 150w, /wp-content/uploads/2025/06/insta_post_48421-768x768.webp 768w, /wp-content/uploads/2025/06/insta_post_48421-140x140.webp 140w, /wp-content/uploads/2025/06/insta_post_48421-100x100.webp 100w, /wp-content/uploads/2025/06/insta_post_48421-350x350.webp 350w, /wp-content/uploads/2025/06/insta_post_48421-1000x1000.webp 1000w, /wp-content/uploads/2025/06/insta_post_48421-800x800.webp 800w, /wp-content/uploads/2025/06/insta_post_48421.webp 1080w"
+                      srcset={instaPost500.srcset}
                       sizes="(max-width: 500px) 100vw, 500px"
                     />
                   </div>
@@ -870,9 +928,9 @@ const copy = pageSections(await Astro.slots.render("default"));
                       height="500"
                       width="500"
                       data-animation="none"
-                      src="/wp-content/uploads/2025/06/img_featured_851481-500x500.webp"
+                      src={imgFeatured.src}
                       alt=""
-                      srcset="/wp-content/uploads/2025/06/img_featured_851481-500x500.webp 500w, /wp-content/uploads/2025/06/img_featured_851481-150x150.webp 150w, /wp-content/uploads/2025/06/img_featured_851481-140x140.webp 140w, /wp-content/uploads/2025/06/img_featured_851481-100x100.webp 100w, /wp-content/uploads/2025/06/img_featured_851481-350x350.webp 350w"
+                      srcset={imgFeatured.srcset}
                       sizes="(max-width: 500px) 100vw, 500px"
                     />
                   </div>
@@ -1001,7 +1059,7 @@ const copy = pageSections(await Astro.slots.render("default"));
                               loading="lazy"
                               decoding="async"
                               class="skip-lazy top-level-image"
-                              src="/wp-content/uploads/2025/06/gsd-gallery-3-600x400.webp"
+                              src={gsdGallery3}
                               width="600"
                               height="400"
                               alt="gsd-gallery-3"
@@ -1037,7 +1095,7 @@ const copy = pageSections(await Astro.slots.render("default"));
                               loading="lazy"
                               decoding="async"
                               class="skip-lazy top-level-image"
-                              src="/wp-content/uploads/2025/06/gsd-gallery-4-600x400.webp"
+                              src={gsdGallery4}
                               width="600"
                               height="400"
                               alt="gsd-gallery-4"
@@ -1073,7 +1131,7 @@ const copy = pageSections(await Astro.slots.render("default"));
                               loading="lazy"
                               decoding="async"
                               class="skip-lazy top-level-image"
-                              src="/wp-content/uploads/2025/06/gsd-gallery-5-600x400.webp"
+                              src={gsdGallery5}
                               width="600"
                               height="400"
                               alt="gsd-gallery-5"
@@ -1109,7 +1167,7 @@ const copy = pageSections(await Astro.slots.render("default"));
                               loading="lazy"
                               decoding="async"
                               class="skip-lazy top-level-image"
-                              src="/wp-content/uploads/2025/06/gsd-gallery-6-e1691422384549-600x400.webp"
+                              src={gsdGallery6}
                               width="600"
                               height="400"
                               alt="gsd-gallery-6-e1691422384549"
@@ -1198,9 +1256,9 @@ const copy = pageSections(await Astro.slots.render("default"));
                       height="750"
                       width="1000"
                       data-animation="none"
-                      src="/wp-content/uploads/2025/06/gsd-croatia.webp"
+                      src={gsdCroatia.src}
                       alt="GSD COMMUNITY PARTY CROATIA!"
-                      srcset="/wp-content/uploads/2025/06/gsd-croatia.webp 1000w, /wp-content/uploads/2025/06/gsd-croatia-300x225.webp 300w, /wp-content/uploads/2025/06/gsd-croatia-768x576.webp 768w"
+                      srcset={gsdCroatia.srcset}
                       sizes="(max-width: 1000px) 100vw, 1000px"
                     />
                   </div>
@@ -1250,9 +1308,9 @@ const copy = pageSections(await Astro.slots.render("default"));
                       height="750"
                       width="1000"
                       data-animation="none"
-                      src="/wp-content/uploads/2025/06/gsd-kenya.webp"
+                      src={gsdKenya.src}
                       alt="GSD COMMUNITY PARTY KENYA!"
-                      srcset="/wp-content/uploads/2025/06/gsd-kenya.webp 1000w, /wp-content/uploads/2025/06/gsd-kenya-300x225.webp 300w, /wp-content/uploads/2025/06/gsd-kenya-768x576.webp 768w"
+                      srcset={gsdKenya.srcset}
                       sizes="(max-width: 1000px) 100vw, 1000px"
                     />
                   </div>
@@ -1321,9 +1379,9 @@ const copy = pageSections(await Astro.slots.render("default"));
                       height="750"
                       width="1000"
                       data-animation="none"
-                      src="/wp-content/uploads/2025/06/gsd-india.webp"
+                      src={gsdIndia.src}
                       alt="GSD COMMUNITY PARTY INDIA!"
-                      srcset="/wp-content/uploads/2025/06/gsd-india.webp 1000w, /wp-content/uploads/2025/06/gsd-india-300x225.webp 300w, /wp-content/uploads/2025/06/gsd-india-768x576.webp 768w"
+                      srcset={gsdIndia.srcset}
                       sizes="(max-width: 1000px) 100vw, 1000px"
                     />
                   </div>
@@ -1373,9 +1431,9 @@ const copy = pageSections(await Astro.slots.render("default"));
                       height="750"
                       width="1000"
                       data-animation="none"
-                      src="/wp-content/uploads/2025/06/gsd-uganda.webp"
+                      src={gsdUganda.src}
                       alt="GSD COMMUNITY PARTY UGANDA!"
-                      srcset="/wp-content/uploads/2025/06/gsd-uganda.webp 1000w, /wp-content/uploads/2025/06/gsd-uganda-300x225.webp 300w, /wp-content/uploads/2025/06/gsd-uganda-768x576.webp 768w"
+                      srcset={gsdUganda.srcset}
                       sizes="(max-width: 1000px) 100vw, 1000px"
                     />
                   </div>
@@ -1650,7 +1708,7 @@ const copy = pageSections(await Astro.slots.render("default"));
                       <div class="inner-wrap">
                         <div
                           class="column-image-bg parallax-layer"
-                          style="  ;background-image:url('/wp-content/uploads/2025/06/Global-Smoothie-Day-E-Book_2020-1.webp');"
+                          style={`  ;background-image:url('${smoothieEbookBg}');`}
                         ></div>
                       </div>
                     </div>
@@ -1812,10 +1870,10 @@ const copy = pageSections(await Astro.slots.render("default"));
                                 height="116"
                                 width="330"
                                 data-animation="grow-in"
-                                data-nectar-img-src="/wp-content/uploads/2025/05/Logo-Dummy.webp"
+                                data-nectar-img-src={logoDummy.src}
                                 src="data:image/svg+xml;charset=utf-8,%3Csvg%20xmlns%3D'http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg'%20viewBox%3D'0%200%20330%20116'%2F%3E"
                                 alt=""
-                                data-nectar-img-srcset="/wp-content/uploads/2025/05/Logo-Dummy.webp 330w, /wp-content/uploads/2025/05/Logo-Dummy-300x105.webp 300w"
+                                data-nectar-img-srcset={logoDummy.srcset}
                                 sizes="(max-width: 330px) 100vw, 330px"
                               />
                             </div>
@@ -1855,10 +1913,10 @@ const copy = pageSections(await Astro.slots.render("default"));
                                 height="116"
                                 width="330"
                                 data-animation="grow-in"
-                                data-nectar-img-src="/wp-content/uploads/2025/05/Logo-Dummy.webp"
+                                data-nectar-img-src={logoDummy.src}
                                 src="data:image/svg+xml;charset=utf-8,%3Csvg%20xmlns%3D'http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg'%20viewBox%3D'0%200%20330%20116'%2F%3E"
                                 alt=""
-                                data-nectar-img-srcset="/wp-content/uploads/2025/05/Logo-Dummy.webp 330w, /wp-content/uploads/2025/05/Logo-Dummy-300x105.webp 300w"
+                                data-nectar-img-srcset={logoDummy.srcset}
                                 sizes="(max-width: 330px) 100vw, 330px"
                               />
                             </div>
@@ -1898,10 +1956,10 @@ const copy = pageSections(await Astro.slots.render("default"));
                                 height="116"
                                 width="330"
                                 data-animation="grow-in"
-                                data-nectar-img-src="/wp-content/uploads/2025/05/Logo-Dummy.webp"
+                                data-nectar-img-src={logoDummy.src}
                                 src="data:image/svg+xml;charset=utf-8,%3Csvg%20xmlns%3D'http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg'%20viewBox%3D'0%200%20330%20116'%2F%3E"
                                 alt=""
-                                data-nectar-img-srcset="/wp-content/uploads/2025/05/Logo-Dummy.webp 330w, /wp-content/uploads/2025/05/Logo-Dummy-300x105.webp 300w"
+                                data-nectar-img-srcset={logoDummy.srcset}
                                 sizes="(max-width: 330px) 100vw, 330px"
                               />
                             </div>
@@ -1941,10 +1999,10 @@ const copy = pageSections(await Astro.slots.render("default"));
                                 height="116"
                                 width="330"
                                 data-animation="grow-in"
-                                data-nectar-img-src="/wp-content/uploads/2025/05/Logo-Dummy.webp"
+                                data-nectar-img-src={logoDummy.src}
                                 src="data:image/svg+xml;charset=utf-8,%3Csvg%20xmlns%3D'http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg'%20viewBox%3D'0%200%20330%20116'%2F%3E"
                                 alt=""
-                                data-nectar-img-srcset="/wp-content/uploads/2025/05/Logo-Dummy.webp 330w, /wp-content/uploads/2025/05/Logo-Dummy-300x105.webp 300w"
+                                data-nectar-img-srcset={logoDummy.srcset}
                                 sizes="(max-width: 330px) 100vw, 330px"
                               />
                             </div>
@@ -1984,10 +2042,10 @@ const copy = pageSections(await Astro.slots.render("default"));
                                 height="116"
                                 width="330"
                                 data-animation="grow-in"
-                                data-nectar-img-src="/wp-content/uploads/2025/05/Logo-Dummy.webp"
+                                data-nectar-img-src={logoDummy.src}
                                 src="data:image/svg+xml;charset=utf-8,%3Csvg%20xmlns%3D'http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg'%20viewBox%3D'0%200%20330%20116'%2F%3E"
                                 alt=""
-                                data-nectar-img-srcset="/wp-content/uploads/2025/05/Logo-Dummy.webp 330w, /wp-content/uploads/2025/05/Logo-Dummy-300x105.webp 300w"
+                                data-nectar-img-srcset={logoDummy.srcset}
                                 sizes="(max-width: 330px) 100vw, 330px"
                               />
                             </div>
@@ -2027,10 +2085,10 @@ const copy = pageSections(await Astro.slots.render("default"));
                                 height="116"
                                 width="330"
                                 data-animation="grow-in"
-                                data-nectar-img-src="/wp-content/uploads/2025/05/Logo-Dummy.webp"
+                                data-nectar-img-src={logoDummy.src}
                                 src="data:image/svg+xml;charset=utf-8,%3Csvg%20xmlns%3D'http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg'%20viewBox%3D'0%200%20330%20116'%2F%3E"
                                 alt=""
-                                data-nectar-img-srcset="/wp-content/uploads/2025/05/Logo-Dummy.webp 330w, /wp-content/uploads/2025/05/Logo-Dummy-300x105.webp 300w"
+                                data-nectar-img-srcset={logoDummy.srcset}
                                 sizes="(max-width: 330px) 100vw, 330px"
                               />
                             </div>
@@ -2162,7 +2220,7 @@ const copy = pageSections(await Astro.slots.render("default"));
                       height="1333"
                       width="2000"
                       data-animation="grow-in"
-                      src="/wp-content/uploads/2019/09/kai-pilger-mgFzfrrmGKI-unsplash.webp"
+                      src={kaiPilger}
                       alt=""
                     />
                   </div>

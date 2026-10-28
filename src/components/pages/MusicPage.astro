@@ -1,9 +1,20 @@
 ---
 import ContentFrame from "../ContentFrame.astro";
 import { pageSections } from "../../lib/page-sections.js";
+import {
+  optimizedSrc,
+  responsiveImage,
+} from "../../lib/responsive-image.ts";
 const { page } = Astro.props;
 const text = page.labels;
 const copy = pageSections(await Astro.slots.render("default"));
+const headerBg = await optimizedSrc(
+  "/wp-content/uploads/2025/04/mymusic-header.webp",
+);
+const covers = await responsiveImage(
+  "/wp-content/uploads/2025/08/01B-Covers.webp",
+  [100, 140, 150, 300, 350, 500, 768, 800, 1000, 1080],
+);
 ---
 
 <ContentFrame>
@@ -26,7 +37,7 @@ const copy = pageSections(await Astro.slots.render("default"));
         <div
           class="row-bg viewport-desktop using-image using-bg-color"
           data-parallax-speed="fast"
-          style="background-image: url(/wp-content/uploads/2025/04/mymusic-header.webp); background-position: center center; background-repeat: no-repeat; background-color: #566678; "
+          style={`background-image: url(${headerBg}); background-position: center center; background-repeat: no-repeat; background-color: #566678; `}
         ></div>
       </div>
       <div
@@ -288,9 +299,9 @@ const copy = pageSections(await Astro.slots.render("default"));
                       height="1080"
                       width="1080"
                       data-animation="none"
-                      src="/wp-content/uploads/2025/08/01B-Covers.webp"
+                      src={covers.src}
                       alt=""
-                      srcset="/wp-content/uploads/2025/08/01B-Covers.webp 1080w, /wp-content/uploads/2025/08/01B-Covers-300x300.webp 300w, /wp-content/uploads/2025/08/01B-Covers-1024x1024.webp 1024w, /wp-content/uploads/2025/08/01B-Covers-150x150.webp 150w, /wp-content/uploads/2025/08/01B-Covers-768x768.webp 768w, /wp-content/uploads/2025/08/01B-Covers-140x140.webp 140w, /wp-content/uploads/2025/08/01B-Covers-100x100.webp 100w, /wp-content/uploads/2025/08/01B-Covers-500x500.webp 500w, /wp-content/uploads/2025/08/01B-Covers-350x350.webp 350w, /wp-content/uploads/2025/08/01B-Covers-1000x1000.webp 1000w, /wp-content/uploads/2025/08/01B-Covers-800x800.webp 800w"
+                      srcset={covers.srcset}
                       sizes="(max-width: 1080px) 100vw, 1080px"
                     />
                   </div>

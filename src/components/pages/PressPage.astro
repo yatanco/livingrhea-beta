@@ -1,9 +1,14 @@
 ---
 import ContentFrame from "../ContentFrame.astro";
 import { pageSections } from "../../lib/page-sections.js";
+import { responsiveImage } from "../../lib/responsive-image.ts";
 const { page } = Astro.props;
 const text = page.labels;
 const copy = pageSections(await Astro.slots.render("default"));
+const dsc09720 = await responsiveImage(
+  "/wp-content/uploads/2025/08/DSC09720-548-Header-scaled.webp",
+  [300, 768, 1024, 1536, 2048, 2560],
+);
 ---
 
 <ContentFrame>
@@ -108,9 +113,9 @@ const copy = pageSections(await Astro.slots.render("default"));
                       height="1440"
                       width="2560"
                       data-animation="none"
-                      src="/wp-content/uploads/2025/08/DSC09720-548-Header-scaled.webp"
+                      src={dsc09720.src}
                       alt=""
-                      srcset="/wp-content/uploads/2025/08/DSC09720-548-Header-scaled.webp 2560w, /wp-content/uploads/2025/08/DSC09720-548-Header-300x169.webp 300w, /wp-content/uploads/2025/08/DSC09720-548-Header-1024x576.webp 1024w, /wp-content/uploads/2025/08/DSC09720-548-Header-768x432.webp 768w, /wp-content/uploads/2025/08/DSC09720-548-Header-1536x864.webp 1536w, /wp-content/uploads/2025/08/DSC09720-548-Header-2048x1152.webp 2048w"
+                      srcset={dsc09720.srcset}
                       sizes="(max-width: 2560px) 100vw, 2560px"
                     />
                   </div>
