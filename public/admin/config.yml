@@ -179,3 +179,49 @@ collections:
         label: "Smoothie Movement"
         name: smoothie-movement
         fields: *page_fields
+
+  - name: gallery
+    label: "Instagram Gallery (homepage)"
+    label_singular: Photo
+    folder: src/content/gallery
+    extension: md
+    format: frontmatter
+    create: true
+    delete: true
+    slug: "{{year}}{{month}}{{day}}-{{slug}}"
+    summary: "{{caption}}"
+    sortable_fields: [date]
+    fields:
+      - label: Photo
+        name: photo
+        widget: image
+        media_folder: "../../assets/uploads/gallery"
+        hint: >-
+          A manually-chosen photo, not a live Instagram connection — pick
+          whichever photo you want shown. It's optimized automatically, same
+          as a blog post's photo.
+      - {
+          label: "Alt text (for screen readers)",
+          name: alt,
+          widget: string,
+          required: false,
+          default: "",
+        }
+      - {
+          label: Caption,
+          name: caption,
+          widget: string,
+          required: false,
+        }
+      - {
+          label: "Link to the actual Instagram post (optional)",
+          name: instagramUrl,
+          widget: string,
+          required: false,
+        }
+      - {
+          label: "Date (defaults to today if left blank)",
+          name: date,
+          widget: datetime,
+          required: false,
+        }
