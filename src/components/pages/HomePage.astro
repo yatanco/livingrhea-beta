@@ -1264,3 +1264,19 @@ const [rheaBioCover, jeffWarrenBio, storyBg, rhea10Bg] = await Promise.all(
     </div>
   </div>
 </ContentFrame>
+
+<style>
+  /* "As seen on" press logos, at the owner's request: smaller and tighter
+     on phones so the hero reads as more dominant above it. Scoped to this
+     row's own id so nothing else on the page is affected. */
+  @media (max-width: 690px) {
+    #fws_6ae14cb638c0f {
+      padding-top: 10px !important;
+      padding-bottom: 10px !important;
+    }
+    #fws_6ae14cb638c0f img {
+      max-width: 65% !important;
+      height: auto !important;
+    }
+  }
+</style>
