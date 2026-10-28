@@ -26,6 +26,20 @@ categories:
     slug: recipes
 featuredImage: images/foffee-my-high-energy-coffee-substitute-2.webp
 featuredImageAlt: foffee_living rhea
+recipe:
+  ingredients:
+    - "2 cups warm water or tea (chaga, chai)"
+    - "1/4 cup coconut cream or unsweetened nut milk"
+    - "1 tbsp coconut oil or MCT oil"
+    - "1 tbsp raw cacao"
+    - "1 heaping tsp maca powder"
+    - "¼ tsp cinnamon, vanilla and chai powders"
+    - "Pinch cayenne pepper, pink salt, and stevia"
+    - "1 small piece of fresh ginger"
+    - "1 small piece of fresh turmeric"
+  instructions:
+    - "Add warm water or tea to a high-speed blender, followed by the remaining wet and dry ingredients."
+    - "Blend on high for 15-20 seconds and serve."
 legacyId: 5031
 legacyUrl: https://livingrhea.com/foffee-my-high-energy-coffee-substitute-2/
 legacyFeaturedImage: /wp-content/uploads/2016/12/chai.webp

@@ -27,6 +27,24 @@ categories:
     slug: recipes
 featuredImage: images/mushroom-soup.webp
 featuredImageAlt: ""
+recipe:
+  category: Recipes
+  yield: 2-3 servings
+  ingredients:
+    - "2 cups unsweetened coconut milk"
+    - "1 cup hot water"
+    - "2 cups cremini mushrooms, stems included"
+    - "2 cloves garlic"
+    - "1 tsp ginger"
+    - "2 tbsp wheat-free tamari or coconut aminos"
+    - "1/2-1 tsp lemon juice, start with less and add more to taste"
+    - "1/2 tsp sea salt and black pepper, adjust to taste"
+    - "1/2 avocado (for extra decadence)"
+    - "Optional: 1/8 cup porcini mushrooms, rehydrated in warm water for 10 minutes; 1/2 tsp red chilis, hot sauce or cayenne pepper; 1/2 shallot or pearl onion"
+  instructions:
+    - "Add all ingredients to a blender and blend on high for 1-2 minutes."
+    - "If your blender is not suitable for hot water, warm the soup on the stove over low heat to the desired temperature. For a smoother consistency, chop the garlic and ginger first or use a hand blender to break up remaining pieces."
+    - "Serve warm with savory cashew cream, gluten-free crackers, black sesame seeds, or dulse flakes if desired."
 legacyId: 5029
 legacyUrl: https://livingrhea.com/mushroom-soup/
 legacyFeaturedImage: /wp-content/uploads/2016/09/mushroom-e1484767332603.webp

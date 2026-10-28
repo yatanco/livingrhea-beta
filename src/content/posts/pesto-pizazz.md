@@ -27,6 +27,19 @@ categories:
     slug: recipes
 featuredImage: images/pesto-pizazz.webp
 featuredImageAlt: ""
+recipe:
+  ingredients:
+    - "1 cup sunflower seeds or hemp seeds"
+    - "1/2 cup spinach or arugula"
+    - "2 tightly packed cups basil or cilantro"
+    - "2 tbsp freshly squeezed lemon"
+    - "1-2 garlic cloves, pre-chopped for 5 minutes"
+    - "2 tbsp extra virgin olive oil or flax oil"
+    - "Sea salt and pepper to taste"
+    - "1/2 cup water"
+  instructions:
+    - "Grind the seeds in a food processor or blender until fine. Add the remaining ingredients, leaving water and oil until the end, and pulse on high until well mixed, scraping the sides as needed."
+    - "Pour the sauce over raw or cooked vegetables, or serve with gluten-free crackers or bread."
 legacyId: 5036
 legacyUrl: https://livingrhea.com/pesto-pizazz/
 legacyFeaturedImage: /wp-content/uploads/2016/09/pesto.webp

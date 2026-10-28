@@ -20,6 +20,13 @@ interface Props {
     datePublished: string;
     dateModified?: string;
     authorName?: string;
+    recipe?: {
+      category?: string;
+      yield?: string;
+      ingredients: string[];
+      instructions: string[];
+    };
+    recipeCategory?: string[];
   };
 }
 const {
@@ -95,6 +102,41 @@ const schema = {
           }
         : {}),
     },
+    ...(article?.recipe
+      ? [
+          {
+            "@type": "Recipe",
+            "@id": `${canonical.href}#recipe`,
+            name: plainTitle,
+            description: plainDescription,
+            url: canonical.href,
+            mainEntityOfPage: canonical.href,
+            isPartOf: { "@id": `${siteUrl}#website` },
+            ...(image ? { image } : {}),
+            author: article.authorName
+              ? { "@type": "Person", name: article.authorName }
+              : { "@id": personId },
+            datePublished: article.datePublished,
+            ...(article.dateModified
+              ? { dateModified: article.dateModified }
+              : {}),
+            ...(article.recipe.category
+              ? { recipeCategory: article.recipe.category }
+              : {}),
+            ...(article.recipe.yield
+              ? { recipeYield: article.recipe.yield }
+              : {}),
+            ...(article.recipeCategory?.length
+              ? { keywords: article.recipeCategory }
+              : {}),
+            recipeIngredient: article.recipe.ingredients,
+            recipeInstructions: article.recipe.instructions.map((text) => ({
+              "@type": "HowToStep",
+              text,
+            })),
+          },
+        ]
+      : []),
   ],
 };
 ---

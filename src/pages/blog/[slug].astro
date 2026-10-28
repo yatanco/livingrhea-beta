@@ -38,6 +38,8 @@ const { Content } = await render(post.entry);
     datePublished: post.pubDate.toISOString().replace(".000Z", "Z"),
     dateModified: post.updatedDate?.toISOString().replace(".000Z", "Z"),
     authorName: post.author,
+    recipe: post.recipe,
+    recipeCategory: post.categories.map((item) => item.name),
   }}
 >
   <header slot="article-header" class="article-hero">

@@ -27,6 +27,20 @@ categories:
     slug: recipes
 featuredImage: images/grab-goatmeal.webp
 featuredImageAlt: ""
+recipe:
+  ingredients:
+    - "¾ cup water or unsweetened nut or seed milk"
+    - "¼ cup oat or buckwheat groats, pre-rinsed with water"
+    - "2 tbsp goji berries or mulberries"
+    - "1 tbsp chia seeds"
+    - "1 tbsp shredded coconut"
+    - "1 tbsp cacao nibs or raw cacao"
+    - "1 tbsp natural sweetener (maple syrup, raw honey), xylitol or pinch stevia"
+    - "Optional: ¼ tsp ginger and cinnamon powders, 1 tbsp nut or seed butter, 1 or more tbsp protein powder"
+  instructions:
+    - "Rinse and drain buckwheat or oat groats. Add them to a wide-mouthed mason jar with the remaining ingredients, cap, and shake well."
+    - "Refrigerate for at least 6 hours or overnight."
+    - "Remove from the fridge, stir well, and serve. Garnish with fresh fruit if desired."
 legacyId: 5052
 legacyUrl: https://livingrhea.com/grab-goatmeal/
 legacyFeaturedImage: /wp-content/uploads/2016/12/oatmeal.webp

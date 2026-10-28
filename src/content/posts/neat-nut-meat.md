@@ -27,6 +27,18 @@ categories:
     slug: recipes
 featuredImage: images/neat-nut-meat.webp
 featuredImageAlt: ""
+recipe:
+  ingredients:
+    - "1 cup walnuts, pre-soaked overnight"
+    - "1 tbsp cumin powder"
+    - "1 tbsp wheat-free tamari or coconut aminos"
+    - "½ tbsp apple cider vinegar"
+    - "1 tsp extra virgin olive oil"
+    - "1 garlic clove, pre-chopped for 5 minutes"
+    - "⅛ tsp hot pepper (add more as needed)"
+  instructions:
+    - "Rinse the walnuts thoroughly and place them in a food processor with the remaining ingredients. Process or pulse for about 1 minute, until finely chopped and combined, scraping down the sides often. Avoid overprocessing."
+    - "Serve with tortilla chips or crackers, or use in Rawkin’ Vegan Tacos."
 legacyId: 5046
 legacyUrl: https://livingrhea.com/neat-nut-meat/
 legacyFeaturedImage: /wp-content/uploads/2016/08/nutmeat-e1484767504651.webp

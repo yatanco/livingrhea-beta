@@ -26,6 +26,24 @@ categories:
     slug: recipes
 featuredImage: images/heart-love-5-minute-chai-au-chocolat.webp
 featuredImageAlt: ""
+recipe:
+  category: Recipes
+  yield: 4 servings
+  ingredients:
+    - "3 cardamom pods"
+    - "2 cloves"
+    - "2 fennel seeds"
+    - "½-1 cinnamon stick (or powder)"
+    - "1 medium-sized fresh piece of organic ginger (or powder)"
+    - "2 dates, pits removed (add more as needed)"
+    - "3 tbsp organic hemp seeds"
+    - "2 tbsp raw cacao powder"
+    - "3 cups filtered water"
+    - "Optional: ½ tsp vanilla bean powder, pinch of nutmeg, 1-2 coriander seeds, 1-2 black peppercorns"
+  instructions:
+    - "Grind the cardamom, cloves, fennel, and cinnamon in a coffee grinder, food processor, or mortar and pestle."
+    - "Blend the hemp seeds with 2 cups room-temperature water on high for 1 minute or until combined."
+    - "Add the ginger, cacao, dates, vanilla, ground spices, and 1 cup filtered boiled water. Blend on high for another minute and serve."
 legacyId: 1217
 legacyUrl: https://livingrhea.com/heart-love-5-minute-chai-au-chocolat/
 legacyFeaturedImage: /wp-content/uploads/2014/08/Fuzzin-Faux-Latte-FI.webp

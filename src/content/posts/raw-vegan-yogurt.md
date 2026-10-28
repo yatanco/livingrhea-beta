@@ -27,6 +27,16 @@ categories:
     slug: recipes
 featuredImage: images/raw-vegan-yogurt.webp
 featuredImageAlt: ""
+recipe:
+  ingredients:
+    - "1 cup water"
+    - "2 cups pumpkin seeds or almonds, pre-soaked"
+    - "1 tbsp lemon juice"
+    - "½ tsp probiotic powder"
+  instructions:
+    - "Add water, nuts or seeds, and lemon juice to a high-speed blender. Blend on low, adding water as needed, until creamy."
+    - "Transfer to a glass container, add probiotic powder, and stir well."
+    - "Loosely cover the container, leaving room for airflow, and keep it in a warm place for up to 1 day. Alternatively, cover and refrigerate immediately, or serve right away."
 legacyId: 5040
 legacyUrl: https://livingrhea.com/raw-vegan-yogurt/
 legacyFeaturedImage: /wp-content/uploads/2017/01/yogurt-e1484769291350.webp

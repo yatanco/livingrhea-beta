@@ -28,6 +28,21 @@ categories:
     slug: recipes
 featuredImage: images/green-warrior-smoothie.webp
 featuredImageAlt: green smoothies living rhea
+recipe:
+  ingredients:
+    - "3 cups water"
+    - "2 cups spinach"
+    - "1/2 cup mixed berries"
+    - "1 celery stalk"
+    - "1/2 medium-sized cucumber"
+    - "1 tbsp ginger"
+    - "3 tbsp hemp seeds or 1 scoop raw, sprouted protein powder"
+    - "1/2 tsp spirulina, chlorella or superfood greens powder"
+    - "1 tbsp flax oil"
+    - "Optional: 1/2-1 ripe banana, 1 tsp lemon juice, pinch sea salt"
+  instructions:
+    - "Add all ingredients to a blender and blend on high for 15-30 seconds."
+    - "Pour into a mason jar or glass and serve."
 legacyId: 5056
 legacyUrl: https://livingrhea.com/green-warrior-smoothie/
 legacyFeaturedImage: /wp-content/uploads/2017/01/smoothies-1.webp

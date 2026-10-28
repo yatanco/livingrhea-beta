@@ -30,6 +30,25 @@ categories:
     slug: scientific-wellness
 featuredImage: images/healthy-green-smoothie-recipe.webp
 featuredImageAlt: ""
+recipe:
+  category: Recipes
+  yield: 3-4 servings
+  ingredients:
+    - "2 stalks celery"
+    - "1/2 cucumber"
+    - "1/2 bunch sunflower sprouts"
+    - "2-3 twigs cilantro or parsley"
+    - "1/2 cup spinach or romaine"
+    - "1 tsp lemon juice"
+    - "1/2 cup mixed berries, fresh or frozen"
+    - "1 tbsp flax oil"
+    - "1 scoop raw and sprouted protein powder or 4 tbsp hemp seeds"
+    - "1 tsp chia seeds"
+    - "Pinch sea salt"
+    - "Optional: 1/4 avocado; 1/2 apple; 1/2 ripe banana"
+  instructions:
+    - "Add the ingredients to a high-speed blender."
+    - "Top with water and blend."
 legacyId: 1621
 legacyUrl: https://livingrhea.com/healthy-green-smoothie-recipe/
 legacyFeaturedImage: /wp-content/uploads/2015/01/smoothies2.webp

@@ -26,6 +26,19 @@ categories:
     slug: recipes
 featuredImage: images/rawkin-vegan-tacos.webp
 featuredImageAlt: ""
+recipe:
+  ingredients:
+    - "Neat Nut Meat: 1 cup walnuts, pre-soaked overnight; 1 tbsp cumin powder; 1 tbsp wheat-free tamari or coconut aminos; ½ tbsp apple cider vinegar; 1 tsp extra virgin olive oil; 1 garlic clove, pre-chopped for 5 minutes; ⅛ tsp hot pepper."
+    - "Cashew Cream Twist: ½ cup cashews; 1 tbsp lemon juice or apple cider vinegar; ¼ cup sun-dried tomatoes, pre-soaked for 10 minutes; pinch green stevia or 1 tsp unrefined sweetener; ⅛ cup water."
+    - "Sassy Salsa: 1 cup chopped tomatoes; ¼ cup cilantro; 1-2 cloves garlic, pre-chopped for 5 minutes; 1 tbsp lemon or lime juice or apple cider vinegar; pinch green stevia or 1 tsp unrefined sweetener; 1 tbsp chia seeds; 1 tbsp extra virgin olive oil; ⅛ tsp hot pepper; sea salt and black pepper to taste."
+    - "Vegetable fillings and shells: 5-7 large romaine or collard leaves; sliced avocado; grated carrots; sprouts; julienned red pepper; finely chopped green onions."
+  instructions:
+    - "Place the taco leaves in an ice bath and keep them submerged."
+    - "Make the walnut filling: process the rinsed walnuts with the other filling ingredients until finely chopped and combined, scraping down the sides. Do not overprocess. Set aside."
+    - "Process the salsa ingredients for 15-30 seconds until combined, scraping down the sides. Set aside."
+    - "Make the cashew cream by blending the water with the remaining ingredients until smooth and creamy."
+    - "Prepare the vegetable fillings. Remove the leaves from the ice bath and pat them dry."
+    - "Fill the leaves with the vegetables and sauces, then serve."
 legacyId: 5054
 legacyUrl: https://livingrhea.com/rawkin-vegan-tacos/
 legacyFeaturedImage: /wp-content/uploads/2016/09/tacos.webp

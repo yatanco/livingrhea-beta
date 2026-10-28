@@ -26,6 +26,24 @@ categories:
     slug: recipes
 featuredImage: images/faux-fudgey-truffles.webp
 featuredImageAlt: faux fudgey truffles living rhea
+recipe:
+  ingredients:
+    - "2 cups almonds or walnuts, pre-soaked 8 hours"
+    - "2 tbsp hemp seeds"
+    - "2 tbsp coconut oil"
+    - "2 tbsp raw cacao"
+    - "1 tsp chia seeds"
+    - "1-2 tbsp almond butter"
+    - "2 tbsp goji berries, pre-soaked 10 minutes"
+    - "2 tbsp black currants"
+    - "2 tbsp maple syrup, pinch stevia or 1-2 tbsp xylitol sweetener"
+    - "2 tbsp shredded coconut"
+    - "¼ tsp ground cinnamon, vanilla, cardamom, fennel"
+    - "Pinch sea salt and cayenne"
+  instructions:
+    - "Add rinsed and drained nuts or seeds to a food processor and mix until well chopped."
+    - "Add the remaining ingredients and mix until well combined. Add water if the mixture is too dry."
+    - "Transfer to a bowl and chill for 5-10 minutes to bind, or roll into balls right away. Alternatively, spread the mixture on a flat surface and cut into squares. Garnish with shredded coconut or goji berries."
 legacyId: 5033
 legacyUrl: https://livingrhea.com/faux-fudgey-truffles/
 legacyFeaturedImage: /wp-content/uploads/2016/10/truffles.webp

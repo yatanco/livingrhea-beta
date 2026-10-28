@@ -27,6 +27,15 @@ categories:
     slug: recipes
 featuredImage: images/zenzini-pasta.webp
 featuredImageAlt: ""
+recipe:
+  ingredients:
+    - "Noodles and vegetables: 4 zucchinis, peeled or spiralized; 3 cups arugula; 1-2 carrots, grated or spiralized; 1 cup chopped green onions; 1 cup red, yellow or orange peppers, julienned or chopped; 1 cup sliced mushrooms, pre-marinated in wheat-free tamari or liquid aminos; 1 cup sliced cherry tomatoes; ½ cup chopped fresh oregano; 2 tbsp hemp seeds; 2 tbsp unrefined, cold-pressed olive oil or flax oil."
+    - "Marinara sauce: 1 cup sun-dried tomatoes, soaked for 10 minutes in warm water or overnight in the fridge; 1-2 cups chopped tomatoes; 1 tbsp fresh lemon juice or apple cider vinegar; 2-3 pitted dates, soaked for 10 minutes or longer, or 1-2 tbsp natural sweetener; 1 tbsp each fresh oregano and basil; 1 tbsp unrefined, cold-pressed olive oil or flax oil; unrefined salt and black pepper to taste; 2 tbsp water or sun-dried tomato soaking liquid. Optional: 1 tbsp fresh oregano and/or basil, 1 clove garlic, 1 chili pepper, 2 tbsp chia seeds."
+  instructions:
+    - "Spiralize or peel the zucchini into thin strips and place in a large bowl."
+    - "Prepare the carrots, bell peppers, and tomatoes. Mix them in a large bowl with olive or flax oil, then add the pre-marinated mushrooms."
+    - "Make the sauce by blending all sauce ingredients in a food processor or blender until tangy and subtly sweet. Adjust the lemon and sweetener to taste."
+    - "Arrange the noodles and vegetables over arugula. Pour the sauce over the dish and garnish with oregano, hemp seeds, and green onions."
 legacyId: 5048
 legacyUrl: https://livingrhea.com/zenzini-pasta/
 legacyFeaturedImage: /wp-content/uploads/2016/06/zenzini.webp

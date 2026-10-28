@@ -19,6 +19,14 @@ const posts = defineCollection({
           }),
         )
         .default([]),
+      recipe: z
+        .object({
+          category: z.string().optional(),
+          yield: z.string().optional(),
+          ingredients: z.array(z.string().min(1)).min(1),
+          instructions: z.array(z.string().min(1)).min(1),
+        })
+        .optional(),
       featuredImage: image().optional(),
       legacyFeaturedImage: z.string().optional(),
       draft: z.boolean().default(false),

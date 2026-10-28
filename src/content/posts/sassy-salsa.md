@@ -27,6 +27,20 @@ categories:
     slug: recipes
 featuredImage: images/sassy-salsa.webp
 featuredImageAlt: ""
+recipe:
+  ingredients:
+    - "1 cup chopped tomatoes"
+    - "¼ cup cilantro"
+    - "1-2 cloves garlic, pre-chopped for 5 minutes"
+    - "1 tbsp freshly squeezed lemon or lime juice, or 1 tbsp apple cider vinegar"
+    - "Pinch green stevia or 1 tsp unrefined sweetener of choice"
+    - "1 tbsp chia seeds"
+    - "1 tbsp extra virgin olive oil"
+    - "⅛ tsp hot pepper (add more as needed)"
+    - "Sea salt and black pepper to taste"
+  instructions:
+    - "Add all ingredients to a food processor and process for 15-30 seconds until well combined, scraping down the sides."
+    - "Serve with organic tortilla chips or as part of Rawkin’ Vegan Tacos."
 legacyId: 5044
 legacyUrl: https://livingrhea.com/sassy-salsa/
 legacyFeaturedImage: /wp-content/uploads/2017/01/salsa-e1484767145305.webp

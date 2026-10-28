@@ -27,6 +27,21 @@ categories:
     slug: recipes
 featuredImage: images/mango-tango-faux-lassi.webp
 featuredImageAlt: ""
+recipe:
+  ingredients:
+    - "2 cups water"
+    - "1 mango, peeled"
+    - "1/2 avocado"
+    - "3 tbsp hemp seeds"
+    - "2 tbsp chia seeds"
+    - "1 tbsp coconut oil"
+    - "1 tbsp ginger"
+    - "1/4 tsp cinnamon and cardamom"
+    - "Pinch sea salt, nutmeg, and cayenne pepper"
+    - "Optional: 1 tbsp natural sweetener (maple syrup, raw honey) and shredded coconut as garnish"
+  instructions:
+    - "Add all ingredients to a blender and blend on high for 15-30 seconds."
+    - "Pour into a mason jar or glass and serve."
 legacyId: 5038
 legacyUrl: https://livingrhea.com/mango-tango-faux-lassi/
 legacyFeaturedImage: /wp-content/uploads/2016/11/lassi-e1484767015963.webp
