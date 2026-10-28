@@ -111,12 +111,25 @@ production domain) will let GitHub collaborators sign in.
 
 ## What this doesn't do yet
 
-- No visual/section editing for the 8 main pages' layout (buttons,
-  testimonials, image placement) — only title, meta description, and body
-  text. See `docs/cms-editing-guide.md` for what that means day to day, and
-  `docs/native-content-target.md` for the longer-term plan to move those
-  pages to fully composable sections.
-- No image optimization for new uploads — they're served as plain files
-  under `/uploads/`, not run through Astro's build-time AVIF/WebP
-  pipeline. Fine for now; revisit if page-weight on new posts becomes a
-  measured problem.
+- No visual/section editing for the 8 main pages — only title and meta
+  description. Page *text* editing was tried first (`body` as a markdown
+  field) and pulled back: the pages' content is chunked by `# section-...`
+  heading lines that `src/lib/page-sections.js` splits and injects into
+  fixed layout positions, and the markdown editor rendered those headings
+  as indistinguishable from real content — confirmed live, not just a
+  theoretical risk. `body` is declared as `widget: hidden` on every page
+  now specifically so it round-trips unchanged (verified safe by reading
+  Sveltia's own serializer: a hidden field still populates from the
+  existing entry and gets written back as-is; omitting the field entirely
+  would have blanked the page body on the next save). The real fix is
+  reshaping page content into labeled per-section fields — tracked in
+  `docs/native-content-target.md`, not done here.
+- New post images *are* optimized: the "Featured image" field's
+  `media_folder` is a relative path (`../../assets/uploads/posts`, no
+  `public_folder` override), so Sveltia writes a frontmatter value in the
+  same shape every migrated post's `featuredImage` already uses — a real
+  source file Astro's `image()` schema helper resolves and runs through
+  its normal AVIF/WebP/responsive-size pipeline at build time, not a
+  plain served URL. `legacyFeaturedImage` (a plain `/uploads/...` path) is
+  now `hidden`: still preserved for migrated posts' social-share fallback,
+  no longer something an editor interacts with.

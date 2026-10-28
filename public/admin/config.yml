@@ -66,13 +66,21 @@ collections:
               widget: string,
             }
       - label: "Featured image"
-        name: legacyFeaturedImage
+        name: featuredImage
         widget: image
         required: false
+        # Relative, not absolute — Astro's image() schema helper resolves this
+        # the same way it resolves every migrated post's existing featuredImage
+        # (e.g. "../../assets/migrated/.../photo.webp"): as a real source file
+        # it optimizes at build time (AVIF/WebP, responsive sizes), not a plain
+        # served URL. Leaving public_folder unset makes it default to this same
+        # relative value, so the frontmatter gets a path Astro can resolve
+        # instead of a /uploads/... URL a plain <img> would need.
+        media_folder: "../../assets/uploads/posts"
         hint: >-
-          Upload a new image here. Existing migrated posts already have an
-          optimized image behind the scenes (featuredImage, hidden below) —
-          leave that one alone; this field is the one used for new uploads.
+          Upload a photo here — it goes through the same automatic
+          optimization (AVIF/WebP, responsive sizes) as every existing post's
+          image, not a plain file.
       - {
           label: "Featured image alt text",
           name: featuredImageAlt,
@@ -86,11 +94,12 @@ collections:
           widget: boolean,
           default: false,
         }
-      # Preserved verbatim, not shown: the Astro-optimized image path for
-      # migrated posts, and the original WordPress post id/URL used for
-      # redirects and structured data. Declaring them (even hidden) stops
-      # the CMS from silently dropping them when a migrated post is edited.
-      - { name: featuredImage, widget: hidden, required: false }
+      # Preserved verbatim, not shown: the original WordPress post id/URL
+      # used for redirects and structured data, and the legacy plain-URL
+      # image path migrated posts carry for their social-share fallback.
+      # Declaring them (even hidden) stops the CMS from silently dropping
+      # them when a migrated post is edited.
+      - { name: legacyFeaturedImage, widget: hidden, required: false }
       - { name: legacyId, widget: hidden, required: false }
       - { name: legacyUrl, widget: hidden, required: false }
       - { label: "Post body", name: body, widget: markdown }
@@ -112,14 +121,17 @@ collections:
           - { name: path, widget: hidden }
           - { name: labels, widget: hidden }
           - { name: hero, widget: hidden }
-          - label: "Page text"
-            name: body
-            widget: markdown
-            hint: >-
-              Do not delete or rename a "# section-..." heading line — the
-              text under each one fills a specific, already-styled spot on
-              the live page. Edit the words under a heading freely; moving
-              or removing the heading itself will leave that spot blank.
+          - name: body
+            widget: hidden
+            # The page's text is chunked by "# section-..." headings that
+            # src/lib/page-sections.js splits and injects into fixed layout
+            # positions — not plain prose. Editing it safely needs labeled,
+            # structured fields (one per section) instead of raw markdown
+            # with a convention a non-technical editor can accidentally
+            # break; that restructuring is tracked separately
+            # (docs/native-content-target.md). Hidden here only preserves
+            # the existing text unchanged when title/description are
+            # edited — it does not expose it for editing.
       - file: src/content/pages/about.md
         label: About
         name: about
@@ -132,14 +144,17 @@ collections:
             }
           - { name: path, widget: hidden }
           - { name: labels, widget: hidden }
-          - label: "Page text"
-            name: body
-            widget: markdown
-            hint: >-
-              Do not delete or rename a "# section-..." heading line — the
-              text under each one fills a specific, already-styled spot on
-              the live page. Edit the words under a heading freely; moving
-              or removing the heading itself will leave that spot blank.
+          - name: body
+            widget: hidden
+            # The page's text is chunked by "# section-..." headings that
+            # src/lib/page-sections.js splits and injects into fixed layout
+            # positions — not plain prose. Editing it safely needs labeled,
+            # structured fields (one per section) instead of raw markdown
+            # with a convention a non-technical editor can accidentally
+            # break; that restructuring is tracked separately
+            # (docs/native-content-target.md). Hidden here only preserves
+            # the existing text unchanged when title/description are
+            # edited — it does not expose it for editing.
       - file: src/content/pages/coaching.md
         label: Coaching
         name: coaching
