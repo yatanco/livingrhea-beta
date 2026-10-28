@@ -29,6 +29,6 @@ The review branch automatically gets a Cloudflare preview. After owner review, m
 
 No production DNS has been changed. The PR remains unmerged pending review.
 
-## CMS later
+## CMS
 
-CMS implementation is deferred. The existing Decap Turbo Site ID is `19346064-1322-4ff7-a71f-c72e01d44608`. Choose the content-editing model later without compromising the preserved layout. The earlier prototype editor has been removed from the published files.
+Implemented: Sveltia CMS at `/admin/`, publishing through GitHub as draft PRs. See `docs/cms-editing-guide.md` (owner) and `docs/cms-architecture.md` (setup/reuse). It covers blog posts fully and the 8 main pages' title/description/body text; page layout editing is still a developer task. Setup needs one owner action (a GitHub OAuth App) before sign-in works end to end — see `docs/cms-architecture.md`. The earlier Decap Turbo Site ID (`19346064-1322-4ff7-a71f-c72e01d44608`) is unused; Decap and Keystatic were both evaluated and Sveltia was chosen (see the architecture doc for why).

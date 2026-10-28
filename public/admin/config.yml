@@ -1,16 +1,21 @@
-# Decap CMS, backed by Decap Turbo (no OAuth app to run ourselves).
-# Turbo dashboard: https://app.decapcms.org — the site's Site ID below must
-# match a Turbo site pointed at this repo/branch with config_path admin/config.yml
-# and admin URL https://livingrhea-astro.pages.dev/admin/ (plus the production
-# domain once DNS is cut over). See docs/cms-editing-guide.md.
+# Sveltia CMS (a modern, actively maintained, Decap-config-compatible git
+# CMS). Edits are plain commits to this same GitHub repo — no database, no
+# separate CMS server. See docs/cms-editing-guide.md for the owner-facing
+# setup/editing guide and docs/cms-architecture.md for how this is wired up
+# and how to reuse it for another site.
 backend:
-  name: turbo-github
-  turbo_site_id: 19346064-1322-4ff7-a71f-c72e01d44608
+  name: github
+  repo: yatanco/livingrhea-astro
   branch: astro-headless-migration
+  # A small, open-source, shared OAuth helper (github.com/sveltia/sveltia-cms-auth)
+  # deployed on Cloudflare Workers — not a hosted SaaS, not this repo's build.
+  # The same worker can authenticate other sites too; each site's own backend.repo
+  # here is what scopes it to this repo.
+  base_url: https://sveltia-cms-auth.haneen.workers.dev
 
-# Every edit becomes its own draft (a separate branch Decap manages) instead
-# of committing straight to the production branch, so changes still go
-# through a preview before anyone chooses to publish them.
+# Every edit becomes its own draft (a separate branch + a Pull Request Sveltia
+# manages) instead of committing straight to the production branch, so a
+# change is always a reviewable preview, never an instant live publish.
 publish_mode: editorial_workflow
 
 media_folder: public/uploads
@@ -84,7 +89,7 @@ collections:
       # Preserved verbatim, not shown: the Astro-optimized image path for
       # migrated posts, and the original WordPress post id/URL used for
       # redirects and structured data. Declaring them (even hidden) stops
-      # Decap from silently dropping them when a migrated post is edited.
+      # the CMS from silently dropping them when a migrated post is edited.
       - { name: featuredImage, widget: hidden, required: false }
       - { name: legacyId, widget: hidden, required: false }
       - { name: legacyUrl, widget: hidden, required: false }

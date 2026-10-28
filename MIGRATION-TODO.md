@@ -14,7 +14,7 @@
 
 ## Not yet verified or launched
 
-Live inbox/guide delivery needs owner-controlled submissions. CMS is deferred. Production merge and DNS cutover remain pending review. See `LAUNCH-TODO.md`.
+Live inbox/guide delivery needs owner-controlled submissions. A CMS (Sveltia, at `/admin/`) is now implemented for posts and main-page text — see `docs/cms-editing-guide.md` — pending one owner setup step (`docs/cms-architecture.md`). Production merge and DNS cutover remain pending review. See `LAUNCH-TODO.md`.
 
 ## Open items confirmed during the 28 October 2026 audit
 
@@ -29,7 +29,7 @@ Live inbox/guide delivery needs owner-controlled submissions. CMS is deferred. P
 - **Instagram:** retain the existing profile link rather than maintaining a live feed plugin. The old feed's backend is not carried over.
 - **Booking/Fullscript:** supply the real destinations if separate booking or supplement ordering is intended. Some inherited links currently lead to Contact or are placeholders.
 - **Social icons:** several old header icons point to the homepage; confirm the real profiles before changing or removing them.
-- **Editing:** use Codex for small copy changes now. Add a CMS after choosing manageable content fields that preserve the existing design.
+- **Editing:** posts and main-page text are now editable at `/admin/` (Sveltia CMS). Layout/structural changes, or anything outside what the CMS exposes, still go through Codex/Claude as a small copy change.
 - **Performance:** static hosting removes PHP/database work, but keeping the existing design also retains theme CSS/JavaScript. Any future replacement of those assets should preserve appearance and be measured separately.
 - **Content:** decide whether the published `test-post-for-press-page` belongs in the archive. It was retained rather than silently deleted.
 

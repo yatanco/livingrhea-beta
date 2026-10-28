@@ -22,11 +22,20 @@ npm run dev
 - `src/lib/content.js`: reads local records, normalizes asset paths, and fixes known historical links. It makes no API calls.
 - `migration/`: original public exports and image/link recovery records for comparison.
 
-## Editing for now
+## Editing
 
-Ask Codex to change specific copy in the local content files while preserving HTML wrappers and existing design. Run `npm run check`, review the Pages preview, and publish only after review. Do not reimport WordPress over local edits.
+The owner can edit blog posts and the 8 main pages' title/description/body
+text directly at `/admin/` — a [Sveltia CMS](https://sveltiacms.app)
+instance, signed in with GitHub, publishing through the same
+branch-preview-review flow as a code change. See
+[the owner's editing guide](docs/cms-editing-guide.md) and
+[how it's wired up / how to reuse it elsewhere](docs/cms-architecture.md).
 
-CMS setup is deferred at the owner's request. The Decap Turbo site already created can be used in a later content-editing phase. No `/admin/` editor is exposed in this migration.
+For anything the CMS doesn't expose yet (page layout, new fields), ask
+Codex/Claude to change the local content files while preserving HTML
+wrappers and existing design. Run `npm run check`, review the Pages
+preview, and publish only after review. Do not reimport WordPress over
+local edits.
 
 See `LAUNCH-TODO.md` for cutover checks and `SEO-AIO-RECOVERY.md` for traffic recovery recommendations.
 
@@ -38,6 +47,8 @@ Imported source images live under `src/assets/migrated/`; the path mirrors the c
 
 ## Documentation
 
+- [CMS editing guide (for the site owner)](docs/cms-editing-guide.md)
+- [CMS architecture and how to reuse it](docs/cms-architecture.md)
 - [Migration audit and prioritized to-do list](docs/livingrhea-audit-and-todo.md)
 - [Client owner guide](docs/client-owner-guide.md)
 - [SEO/AIO recovery plan](docs/seo-aio-recovery-plan.md)
