@@ -41,3 +41,16 @@ const homeHtml = optimizedHero
   }
   <WpContent html={homeHtml} />
 </Base>
+
+<style is:global>
+/* Match Nectar's existing 900/1100 column-slider calculation before its
+   JavaScript initializes. The slider still owns its final size and behavior. */
+#nectar-slider-instance-4 { height: 900px; }
+#nectar-slider-instance-4 .swiper-container,
+#nectar-slider-instance-4 .swiper-slide { height: 901px; }
+@media (max-width: 1299px) {
+  #nectar-slider-instance-4 { height: calc(100vw * 9 / 11); }
+  #nectar-slider-instance-4 .swiper-container,
+  #nectar-slider-instance-4 .swiper-slide { height: calc(100vw * 9 / 11 + 1px); }
+}
+</style>

@@ -23,3 +23,7 @@ The review deployment already passed the three agentic audits. Preview noindex h
 `npm run check` builds all 87 pages, checks local links/assets/anchors, and passes 12 tests. Regression checks cover automatic Mailchimp loading, form actions, eager hero, background fallbacks, stylesheet fallbacks, and image dimensions throughout the output. No forms were submitted.
 
 Mailchimp’s separate marketing popup contributes approximately 1 MB of third-party images/scripts. Its timing and validation were preserved at the owner’s request. Its cache headers are controlled by Mailchimp. Remaining Salient scripts support the original interactions; removing them requires component-by-component parity work. A fresh PageSpeed run after preview deployment is required before claiming a measured gain from this pass.
+
+## First deployed measurement and correction
+
+[First run](https://pagespeed.web.dev/analysis/https-366b318d-livingrhea-astro-pages-dev/onknq894be?form_factor=mobile): FCP 3.8 s, LCP 9.6 s, payload 3,172 KiB (baseline 3,942 KiB), unused CSS 75 KiB (baseline 141 KiB). However CLS regressed to 0.514 and performance scored 40. This is not an overall success. The earlier paint exposed the original slider resizing from its default height to its mobile column aspect ratio. Reserve its existing 900/1100 responsive size in CSS before its unchanged JavaScript initializes; measure again.
