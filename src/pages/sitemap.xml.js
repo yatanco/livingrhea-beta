@@ -1,16 +1,19 @@
 // XML sitemap generated at build time from the local pages + posts. Plain XML (no
 // @astrojs/sitemap dependency). Referenced by public/robots.txt.
-import { getAllPages, getAllPosts } from "../lib/content.js";
+import { getCollection } from "astro:content";
+import { getAllPosts } from "../lib/posts.js";
 
 const EXCLUDE = ["home", "livingrhea-com", "sample-page", "blog"]; // dup/handled elsewhere
 
 export async function GET(context) {
   const site = context.site?.href || "https://livingrhea.com/";
-  const [pages, posts] = await Promise.all([getAllPages(), getAllPosts()]);
+  const [pages, posts] = await Promise.all([
+    getCollection("pages"),
+    getAllPosts(),
+  ]);
 
   const urls = new Set([site]); // home
-  for (const p of pages)
-    if (!EXCLUDE.includes(p.slug)) urls.add(new URL(`${p.slug}/`, site).href);
+  for (const p of pages) urls.add(new URL(p.data.path, site).href);
   urls.add(new URL("blog/", site).href);
   for (const p of posts) urls.add(new URL(`blog/${p.slug}/`, site).href);
 

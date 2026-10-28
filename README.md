@@ -48,3 +48,5 @@ Imported source images live under `src/assets/migrated/`; the path mirrors the c
 The audit and owner guide describe the reviewed release identified in those documents. Launch status and account checks should be confirmed before production cutover.
 
 See [Astro-native assets and editing](docs/astro-native-assets.md) for the current local CSS pipeline, native hero, popup removal, and retained service integrations.
+
+Current follow-up: [lean homepage CSS and social links](docs/lean-css-and-socials.md). The remaining [native content authoring target](docs/native-content-target.md) is explicitly documented; JSON/HTML exports are transitional.

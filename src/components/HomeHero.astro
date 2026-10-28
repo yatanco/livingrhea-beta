@@ -1,20 +1,75 @@
 ---
-import { Picture } from 'astro:assets';
-import { localImage } from '../lib/local-images';
-import '../styles/home-hero.css';
-interface Props { image: string; content: string; }
-const { image, content } = Astro.props;
-const source = localImage(image);
+import { Picture } from "astro:assets";
+import type { ImageMetadata } from "astro";
+import "../styles/home-hero.css";
+interface Props {
+  image: ImageMetadata;
+  heading: string[];
+  actionLabel: string;
+  actionHref: string;
+}
+const { image, heading, actionLabel, actionHref } = Astro.props;
+const source = image;
 if (!source) throw new Error(`Missing local hero image: ${image}`);
 ---
-<div role="region" aria-label="Introduction" id="rhea-home-hero" class="rhea-hero loaded" data-full-width="false" data-fullscreen="false" data-button-sizing="large" data-button-styling="btn_with_count">
+
+<div
+  role="region"
+  aria-label="Introduction"
+  id="rhea-home-hero"
+  class="rhea-hero loaded"
+  data-full-width="false"
+  data-fullscreen="false"
+  data-button-sizing="large"
+  data-button-styling="btn_with_count"
+>
   <div class="rhea-hero-stage">
-    <div class="rhea-hero-slide" data-color-scheme="light" data-x-pos="left" data-y-pos="middle">
+    <div
+      class="rhea-hero-slide"
+      data-color-scheme="light"
+      data-x-pos="left"
+      data-y-pos="middle"
+    >
       <div class="slide-bg-wrap">
-        <Picture src={source} formats={['avif', 'webp']} widths={[480, 800, 1200, 1800]} sizes="100vw" alt="" loading="eager" fetchpriority="high" quality={50} class="rhea-hero-image" />
+        <Picture
+          src={source}
+          formats={["avif", "webp"]}
+          widths={
+            [480, 800, 1200, 1800].filter((w) => w <= source.width).length
+              ? [480, 800, 1200, 1800].filter((w) => w <= source.width)
+              : [source.width]
+          }
+          sizes="100vw"
+          alt=""
+          priority
+          quality={50}
+          class="rhea-hero-image"
+        />
         <div class="slide-bg-overlay" aria-hidden="true"></div>
       </div>
-      <div class="container"><div class="content" set:html={content} /></div>
+      <div class="container">
+        <div class="content">
+          <p>
+            <span></span>
+          </p>
+          <h2 style="font-size:40px;line-height:50px;text-transform:none">
+            {heading.map((line, index) => (
+              <>
+                {index > 0 && <br />}
+                {line}
+              </>
+            ))}
+          </h2>
+          <p></p>
+          <div class="buttons">
+            <div class="button solid_color">
+              <a class="primary-color" href={actionHref}>
+                {actionLabel}
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
   </div>
 </div>

@@ -12,7 +12,9 @@ test('marketing popup is absent while existing forms and local validation remain
 });
 test('rendered CSS is bundled locally by Astro and cached theme scripts are versioned', async () => {
   const $ = await home();
-  assert.ok($('link[rel="stylesheet"][href^="/_astro/"]').length);
+  assert.ok($('style[data-rhea-critical]').length);
+  assert.ok($('link[rel="preload"][as="style"][href^="/_astro/"]').length);
+  assert.match($.html(), /<noscript><link[^>]+rel="stylesheet"/);
   assert.equal($('link[rel="stylesheet"]').filter((_,el)=>!$(el).attr('href').startsWith('/_astro/')).length,0);
   assert.ok($('script[src*="asset="]').length > 10);
 });
@@ -46,5 +48,35 @@ test('bundled CSS has no external imports, fonts, images or missing local assets
       assert.ok(src.startsWith('/') && !src.startsWith('//'), `${file}: ${src}`);
       await access('dist'+decodeURIComponent(src.split(/[?#]/)[0]));
     }
+  }
+});
+
+test('homepage paint CSS is substantially smaller and full styles remain available', async () => {
+  const reports=JSON.parse(await readFile('dist/_astro/critical-css-report.json','utf8'));
+  const $=await home();
+  assert.ok(reports.length);
+  for (const r of reports) {
+    assert.ok(r.criticalGzipBytes < r.fullGzipBytes * .6);
+    assert.ok(r.criticalGzipBytes < 60000);
+    const css=await readFile(`dist${r.href}`,'utf8');
+    assert.equal(Buffer.byteLength(css),r.fullBytes);
+    assert.ok($('style[data-rhea-critical]').text().includes('#rhea-home-hero'));
+  }
+});
+test('the disconnected Instagram section and draft gallery are removed', async () => {
+  const $=await home();
+  assert.equal($('#sb_instagram,.social-gallery').length,0);
+  assert.doesNotMatch($('.wp-content').text(),/Follow on Instagram/);
+  assert.ok($('#freeGuide form').length);
+});
+test('desktop and mobile social icons use the configured profile URLs', async () => {
+  const social=JSON.parse(await readFile('src/content/settings/social.json','utf8'));
+  const $=await home();
+  for (const list of ['#social','.off-canvas-social-links']) {
+    assert.equal($(list).find('a[href=""],a[href="#"]').length,0);
+    for (const key of ['twitter','facebook','youtube','instagram','linkedin','rss']) {
+      assert.ok($(list).find('a').toArray().some(el=>$(el).attr('href')===social[key]),`${list}: ${key}`);
+    }
+    assert.equal($(list).find('.fa-vine').length,0);
   }
 });

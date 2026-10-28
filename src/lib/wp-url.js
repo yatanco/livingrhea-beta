@@ -1,11 +1,5 @@
-// Localize WordPress asset URLs so the built site references its OWN copies
-// (mirrored into /public by scripts/mirror-wp-assets.mjs) instead of loading
-// them from the live WP origin at runtime. This is what makes the deployed
-// site independent of WordPress: content is pulled at build time, and every
-// CSS/JS/font/image is served from the Astro origin.
-//
-// Written to import cleanly from both Astro (import.meta.env) and a plain
-// Node script (process.env) — see the optional chaining on import.meta.env.
+// Historical export URL helper, used only by one-time migration utilities and tests.
+// Normal content rendering uses local Astro Content Collections.
 
 export const WP_ORIGIN = "https://livingrhea.com";
 export const WP_HOST = "livingrhea.com";

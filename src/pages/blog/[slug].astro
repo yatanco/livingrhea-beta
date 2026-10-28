@@ -1,9 +1,9 @@
 ---
 import "../../styles/site/about.css";
 import Base from "../../layouts/Base.astro";
-import { localImage } from "../../lib/local-images";
-import WpContent from "../../components/WpContent.astro";
-import { getAllPosts, featuredImage } from "../../lib/content.js";
+import { Image } from "astro:assets";
+import { render } from "astro:content";
+import { getAllPosts } from "../../lib/posts.js";
 
 export async function getStaticPaths() {
   const posts = await getAllPosts();
@@ -14,27 +14,37 @@ export async function getStaticPaths() {
 }
 
 const { post } = Astro.props;
-const featured = featuredImage(post);
-const source = featured ? localImage(featured) : undefined;
+const source = post.featuredImage;
+const { Content } = await render(post.entry);
 ---
 
 <Base
-  title={post.title.rendered}
-  description={post.excerpt?.rendered}
-  headCss={post.wpb_custom_css}
-  preloadImage={featuredImage(post)}
+  title={post.title}
+  description={post.description}
+  socialImage={post.legacyFeaturedImage || source?.src}
   article={{
-    datePublished: `${post.date_gmt}Z`,
-    dateModified: `${post.modified_gmt}Z`,
-    authorName: post._embedded?.author?.[0]?.name,
+    datePublished: post.pubDate.toISOString().replace(".000Z", "Z"),
+    dateModified: post.updatedDate?.toISOString().replace(".000Z", "Z"),
+    authorName: post.author,
   }}
 >
   <article>
-    <h1 set:html={post.title.rendered} />
-    {featured && <img src={featured} alt={post._embedded?.["wp:featuredmedia"]?.[0]?.alt_text || ""} width={source?.width} height={source?.height} decoding="async" />}
-    <WpContent html={post.content.rendered} />
-    {
-      /* WP comments aren't carried over; wire up giscus/Disqus later if wanted. */
-    }
+    <h1>{post.title}</h1>
+    {source && (
+      <Image
+        src={source}
+        alt={post.featuredImageAlt}
+        width={source.width}
+        widths={[480, 800, 1200, source.width].filter((w) => w <= source.width)}
+        sizes="90vw"
+        format="webp"
+        quality={80}
+        priority
+      />
+    )}
+    <div class="wp-content article-copy">
+      <Content />
+    </div>
+    {/* WP comments aren't carried over; wire up giscus/Disqus later if wanted. */}
   </article>
 </Base>

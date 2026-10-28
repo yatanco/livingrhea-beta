@@ -2,14 +2,13 @@
 import "../../styles/site/about.css";
 import Base from "../../layouts/Base.astro";
 import { Image } from "astro:assets";
-import { localImage } from "../../lib/local-images";
-import { getAllPosts, featuredImage } from "../../lib/content.js";
+import { getAllPosts } from "../../lib/posts.js";
 
 const posts = await getAllPosts();
 
-// First category term (name + slug) from the _embedded payload.
+// First validated category from the article frontmatter.
 function category(post) {
-  const term = post._embedded?.["wp:term"]?.[0]?.[0];
+  const term = post.categories[0];
   return term
     ? { name: term.name, slug: term.slug }
     : { name: "Blog", slug: "blog" };
@@ -18,11 +17,9 @@ const plain = (html = "") => html.replace(/<[^>]+>/g, "").trim();
 ---
 
 <Base title="Blog">
-  {
-    /* Reproduces Salient's masonry blog archive markup so the theme CSS/JS
+  {/* Reproduces Salient's masonry blog archive markup so the theme CSS/JS
       (masonry layout, meta-overlaid cards) styles it. Links point at the Astro
-      routes; images use the optimized/localized featured image. */
-  }
+      routes; images use the optimized/localized featured image. */}
   <div class="full-width-content blog-fullwidth-wrap meta-overlaid">
     <div
       class="post-area col span_12 col_last masonry auto_meta_overlaid_spaced"
@@ -33,73 +30,68 @@ const plain = (html = "") => html.replace(/<[^>]+>/g, "").trim();
       data-remove-post-nectar-love="0"
     >
       <div class="posts-container">
-        {
-          posts.map((post) => {
-            const cat = category(post);
-            const img = featuredImage(post);
-            const imported = img ? localImage(img) : undefined;
-            const source =
-              imported && imported.width > 800 ? imported : undefined;
-            const url = `/blog/${post.slug}/`;
-            return (
-              <article
-                class={`masonry-blog-item post-${post.id} post type-post status-publish format-standard has-post-thumbnail category-${cat.slug}`}
-              >
-                <div class="inner-wrap animated">
-                  <div class="post-content">
-                    <div class="content-inner">
-                      <a class="entire-meta-link" href={url}>
-                        <span
-                          class="screen-reader-text"
-                          set:html={post.title.rendered}
-                        />
-                      </a>
-                      {img && (
-                        <span class="post-featured-img">
-                          {source ? (
-                            <Image
-                              class="wp-post-image"
-                              src={source}
-                              alt={plain(post.title.rendered)}
-                              width={Math.min(800, source.width)}
-                              widths={[400, 800]}
-                              sizes="(max-width: 650px) 100vw, (max-width: 1000px) 50vw, 33vw"
-                              format="webp"
-                              quality={82}
-                              loading="lazy"
-                            />
-                          ) : (
-                            <img
-                              class="wp-post-image"
-                              src={img}
-                              width={imported?.width}
-                              height={imported?.height}
-                              decoding="async"
-                              alt={plain(post.title.rendered)}
-                              loading="lazy"
-                            />
-                          )}
-                        </span>
-                      )}
-                      <div class="article-content-wrap">
-                        <span class="meta-category">
-                          <a class={cat.slug} href={url}>
-                            {cat.name}
-                          </a>
-                        </span>
-                        <div class="post-header">
-                          <h3 class="title">
-                            <a href={url} set:html={post.title.rendered} />
-                          </h3>
-                        </div>
+        {posts.map((post) => {
+          const cat = category(post);
+          const imported = post.featuredImage;
+          const img = post.legacyFeaturedImage || imported?.src;
+          const source =
+            imported && imported.width > 800 ? imported : undefined;
+          const url = `/blog/${post.slug}/`;
+          return (
+            <article
+              class={`masonry-blog-item post-${post.legacyId || post.slug} post type-post status-publish format-standard has-post-thumbnail category-${cat.slug}`}
+            >
+              <div class="inner-wrap animated">
+                <div class="post-content">
+                  <div class="content-inner">
+                    <a class="entire-meta-link" href={url}>
+                      <span class="screen-reader-text">{post.title}</span>
+                    </a>
+                    {img && (
+                      <span class="post-featured-img">
+                        {source ? (
+                          <Image
+                            class="wp-post-image"
+                            src={source}
+                            alt={post.title}
+                            width={Math.min(800, source.width)}
+                            widths={[400, 800]}
+                            sizes="(max-width: 650px) 100vw, (max-width: 1000px) 50vw, 33vw"
+                            format="webp"
+                            quality={82}
+                            loading="lazy"
+                          />
+                        ) : (
+                          <img
+                            class="wp-post-image"
+                            src={img}
+                            width={imported?.width}
+                            height={imported?.height}
+                            decoding="async"
+                            alt={post.title}
+                            loading="lazy"
+                          />
+                        )}
+                      </span>
+                    )}
+                    <div class="article-content-wrap">
+                      <span class="meta-category">
+                        <a class={cat.slug} href={url}>
+                          {cat.name}
+                        </a>
+                      </span>
+                      <div class="post-header">
+                        <h3 class="title">
+                          <a href={url}>{post.title}</a>
+                        </h3>
                       </div>
                     </div>
                   </div>
                 </div>
-              </article>
-            );
-          })
-        }
+              </div>
+            </article>
+          );
+        })}
       </div>
     </div>
   </div>
