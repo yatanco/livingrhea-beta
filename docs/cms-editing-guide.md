@@ -7,31 +7,27 @@ no separate password to remember, no WordPress-style login.
 ## What you can do today
 
 - **Blog posts**: write a new post, edit an existing one, upload/replace its
-  photo, set the publish date, mark it a draft (keeps it off the live site
-  until you're ready), and set categories.
+  photo (it's automatically optimized the same way every existing post's
+  photo is — you don't need to resize or compress anything first), set the
+  publish date, mark it a draft (keeps it off the live site until you're
+  ready), and set categories.
 - **The 8 main pages** (Home, About, Coaching, Himalayan Breathwork, Music,
-  Press, Smoothie Movement, Contact): edit the page title, the short
-  description search engines show, and the page's written text.
+  Press, Smoothie Movement, Contact): edit the page title and the short
+  description search engines show.
 
 ## What's deliberately not editable here yet
 
 The 8 main pages were originally built in WordPress's drag-and-drop page
-builder, with buttons, testimonial sliders, and image layouts hand-placed
-in specific spots. That visual layout isn't exposed in the editor yet — only
-the title, meta description, and body text are. If you want to rearrange
-buttons, add a new testimonial, or change a layout, that's still a
-request to your developer for now, not a self-serve edit. Rebuilding the
-main pages as fully editable sections (so you *can* do that yourself) is
-tracked as follow-up work, not done in this first pass.
-
-## One important rule when editing a page's text
-
-Each main page's text is broken into labeled sections (you'll see headings
-like "Page text" with sub-headings in the editor). **Don't delete or rename
-a heading line** — the words under it fill one specific, already-styled
-spot on the live page. Editing the words under a heading is exactly what
-to do; moving or removing the heading itself leaves that spot blank on the
-live page.
+builder, with text, buttons, testimonial sliders, and image layouts
+hand-placed in specific spots. That content and layout isn't exposed in the
+editor yet — only the title and meta description are, for now. An earlier
+version of this editor did expose the page text directly, but it turned out
+to show confusing raw markers (like "section-as-seen-on") mixed in with the
+real words, with real risk of a non-technical editor accidentally deleting
+one and leaving a blank spot on the live page. Rather than ship that, it was
+pulled back until it can be rebuilt as clearly labeled fields (one per
+actual section) — tracked in `docs/native-content-target.md`. Until then,
+a page-text change is a request to your developer, not a self-serve edit.
 
 ## How publishing works
 
