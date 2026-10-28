@@ -2,6 +2,7 @@
 import ContentFrame from "../ContentFrame.astro";
 import { pageSections } from "../../lib/page-sections.js";
 import HomeHero from "../HomeHero.astro";
+import InstagramGallery from "../InstagramGallery.astro";
 import {
   optimizedSrc,
   responsiveImage,
@@ -1264,6 +1265,8 @@ const [rheaBioCover, jeffWarrenBio, storyBg, rhea10Bg] = await Promise.all(
     </div>
   </div>
 </ContentFrame>
+
+<InstagramGallery />
 
 <style>
   /* "As seen on" press logos, at the owner's request: smaller and tighter

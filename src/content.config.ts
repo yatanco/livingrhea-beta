@@ -46,4 +46,15 @@ const pages = defineCollection({
         .optional(),
     }),
 });
-export const collections = { posts, pages };
+const gallery = defineCollection({
+  loader: glob({ pattern: "**/*.md", base: "./src/content/gallery" }),
+  schema: ({ image }) =>
+    z.object({
+      photo: image(),
+      alt: z.string().default(""),
+      caption: z.string().optional(),
+      instagramUrl: z.string().url().optional(),
+      date: z.coerce.date().default(() => new Date()),
+    }),
+});
+export const collections = { posts, pages, gallery };

@@ -1,0 +1,79 @@
+---
+// A manually-curated photo grid, not a live Instagram feed — the original
+// Smash Balloon feed was removed because a live third-party connection is
+// something that can rate-limit, break on an API change, or just go stale.
+// These photos are real files Rhea adds through the CMS (or a developer
+// adds directly), optimized through Astro's normal image pipeline like
+// everything else on the site. Renders nothing if the collection is empty.
+import { getCollection } from "astro:content";
+import { Image } from "astro:assets";
+
+const photos = (await getCollection("gallery")).sort(
+  (a, b) => b.data.date.getTime() - a.data.date.getTime(),
+);
+---
+
+{
+  photos.length > 0 && (
+    <div class="rhea-instagram-gallery">
+      <div class="container">
+        <h2>Follow Along</h2>
+        <div class="rhea-instagram-gallery-grid">
+          {photos.map((entry) => {
+            const { photo, alt, caption, instagramUrl } = entry.data;
+            const Tag = instagramUrl ? "a" : "div";
+            return (
+              <Tag
+                class="rhea-instagram-gallery-item"
+                {...(instagramUrl
+                  ? { href: instagramUrl, target: "_blank", rel: "noopener" }
+                  : {})}
+              >
+                <Image
+                  src={photo}
+                  alt={alt || caption || ""}
+                  width={480}
+                  widths={[240, 480]}
+                  sizes="(max-width: 690px) 33vw, 240px"
+                  format="webp"
+                  quality={80}
+                  loading="lazy"
+                />
+              </Tag>
+            );
+          })}
+        </div>
+      </div>
+    </div>
+  )
+}
+
+<style>
+  .rhea-instagram-gallery {
+    padding: 60px 0;
+  }
+  .rhea-instagram-gallery h2 {
+    text-align: center;
+    margin-bottom: 30px;
+  }
+  .rhea-instagram-gallery-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+    gap: 4px;
+  }
+  .rhea-instagram-gallery-item {
+    display: block;
+    aspect-ratio: 1 / 1;
+    overflow: hidden;
+  }
+  .rhea-instagram-gallery-item :global(img) {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+    transition: transform 0.3s ease;
+  }
+  a.rhea-instagram-gallery-item:hover :global(img) {
+    transform: scale(1.05);
+  }
+</style>
