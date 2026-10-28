@@ -132,6 +132,16 @@ const schema = {
       href="/vendor/gstatic/s/inter/v20/UcCO3FwrK3iLTeHuS_nVMrMxCp50SjIw2boKoduKmMEVuLyfAZ9hiJ-Ek-_EeA.woff2"
       crossorigin="anonymous"
     />
+    <!-- The icomoon icon font (nav/social glyphs) is only discovered once the
+         browser parses icomoon.css, deep in the stylesheet chain — measured
+         500ms+ of avoidable critical-path latency. Preload it directly. -->
+    <link
+      rel="preload"
+      as="font"
+      type="font/woff"
+      href="/fonts/salient/icomoon.woff"
+      crossorigin="anonymous"
+    />
 
     <!-- Salient/WPBakery CSS, fonts and head assets, saved from the original site. -->
     <link
