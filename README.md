@@ -29,3 +29,9 @@ Ask Codex to change specific copy in the local content files while preserving HT
 CMS setup is deferred at the owner's request. The Decap Turbo site already created can be used in a later content-editing phase. No `/admin/` editor is exposed in this migration.
 
 See `LAUNCH-TODO.md` for cutover checks and `SEO-AIO-RECOVERY.md` for traffic recovery recommendations.
+
+## Native Astro images
+
+The homepage background uses `getImage()` to generate a smaller AVIF, with the existing WebP retained as a browser fallback and social image. Large blog-card photos use Astro's `Image` component with 400/800px responsive candidates; smaller photos retain their existing file. Crop and layout are unchanged.
+
+Imported source images live under `src/assets/migrated/`; the path mirrors the corresponding public compatibility asset. If a new featured image is added, put its original in that imported source tree as well to enable the same optimization, or ask Codex to do it. Images not imported there continue to work through their existing public URL.

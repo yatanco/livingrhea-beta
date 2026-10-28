@@ -17,6 +17,7 @@ interface Props {
   pageUrl?: string;
   /** Above-the-fold LCP image to preload (e.g. the hero background). */
   preloadImage?: string;
+  socialImage?: string;
   article?: {
     datePublished: string;
     dateModified?: string;
@@ -29,6 +30,7 @@ const {
   headCss = "",
   pageUrl = `${WP_ORIGIN}/about/`,
   preloadImage,
+  socialImage,
   article,
 } = Astro.props;
 
@@ -42,7 +44,8 @@ const plainDescription =
   pageDescriptions[Astro.url.pathname] || plainText(description).slice(0, 170);
 const siteUrl = new URL("/", Astro.site).href;
 const personId = `${siteUrl}#rhea-mehta`;
-const image = preloadImage ? new URL(preloadImage, Astro.site).href : undefined;
+const socialSource = socialImage || preloadImage;
+const image = socialSource ? new URL(socialSource, Astro.site).href : undefined;
 const schema = {
   "@context": "https://schema.org",
   "@graph": [

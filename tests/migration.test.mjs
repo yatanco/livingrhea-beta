@@ -83,3 +83,62 @@ test("article metadata describes the article rather than its saved About-page la
   assert.equal(article.url, canonical);
   assert.equal(article.datePublished, `${original.date_gmt}Z`);
 });
+
+test("Astro hero optimization is smaller and keeps the original fallback and social image", async () => {
+  const $ = load(await readFile("dist/index.html", "utf8"));
+  const original =
+    "/wp-content/uploads/2025/08/Rhea-Lotus-Cropped-Smoothie2.webp";
+  const optimized = $('link[rel="preload"][as="image"]').first().attr("href");
+  assert.match(optimized, /^\/_astro\/.*\.avif$/);
+  const html = $.html();
+  assert.ok(html.includes(`image-set(url('${optimized}')`));
+  assert.ok(html.includes(`url('${original}') type('image/webp')`));
+  assert.equal(
+    $('meta[property="og:image"]').attr("content"),
+    `https://livingrhea.com${original}`,
+  );
+  const { stat } = await import("node:fs/promises");
+  assert.ok(
+    (await stat(`dist${optimized}`)).size <
+      (await stat(`public${original}`)).size,
+  );
+});
+
+test("responsive blog images have generated candidates and do not enlarge their default files", async () => {
+  const { stat } = await import("node:fs/promises");
+  const files = await readdir("src/content/posts");
+  const posts = new Map();
+  for (const f of files) {
+    const p = await json(`src/content/posts/${f}`);
+    posts.set(String(p.id), p);
+  }
+  const $ = load(await readFile("dist/blog/index.html", "utf8"));
+  const cards = $(".masonry-blog-item").toArray();
+  let optimized = 0;
+  for (const card of cards) {
+    const img = $(card).find("img");
+    const src = img.attr("src");
+    if (!src?.startsWith("/_astro/")) continue;
+    optimized++;
+    assert.ok(img.attr("width") && img.attr("height") && img.attr("sizes"));
+    for (const candidate of img.attr("srcset").split(","))
+      await access(`dist${candidate.trim().split(/\s+/)[0]}`);
+    const id = $(card)
+      .attr("class")
+      .match(/post-(\d+)/)[1];
+    let old = new URL(posts.get(id)._embedded["wp:featuredmedia"][0].source_url)
+      .pathname;
+    const webp = old.replace(/\.(jpe?g|png)$/i, ".webp");
+    if (
+      await access(`public${webp}`)
+        .then(() => true)
+        .catch(() => false)
+    )
+      old = webp;
+    assert.ok(
+      (await stat(`dist${src}`)).size <= (await stat(`public${old}`)).size,
+      `Larger image for post ${id}`,
+    );
+  }
+  assert.ok(optimized > 0);
+});

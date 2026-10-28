@@ -1,10 +1,30 @@
 ---
 import Base from "../layouts/Base.astro";
+import { getImage } from "astro:assets";
+import { localImage } from "../lib/local-images";
 import WpContent from "../components/WpContent.astro";
 import { getPageBySlug, heroImage } from "../lib/content.js";
 
 // Keep the original front-page slug; content is loaded from the local export.
 const home = await getPageBySlug("livingrhea-com");
+const originalHero = heroImage(home);
+const heroSource = localImage(originalHero);
+const optimizedHero = heroSource
+  ? await getImage({ src: heroSource, format: "avif", quality: 50 })
+  : undefined;
+// Replace only the image resource; retain the original background layout/crop.
+// Browsers without AVIF support can still select the existing WebP source.
+const escapedHero = originalHero.replace(/[.*+?^${}()|[\]\\]/g, "\\$&");
+const heroBackground = new RegExp(
+  `background-image:\\s*url\\((['"]?)${escapedHero}\\1\\)`,
+  "g",
+);
+const homeHtml = optimizedHero
+  ? home.content.rendered.replace(
+      heroBackground,
+      `background-image: url('${originalHero}'); background-image: image-set(url('${optimizedHero.src}') type('image/avif'), url('${originalHero}') type('image/webp'))`,
+    )
+  : home.content.rendered;
 ---
 
 <Base
@@ -12,11 +32,12 @@ const home = await getPageBySlug("livingrhea-com");
   description="PhD toxicologist & holistic health coach helping women with fertility, detox & postpartum recovery."
   headCss={home?.wpb_custom_css}
   pageUrl={home?.link}
-  preloadImage={heroImage(home)}
+  preloadImage={optimizedHero?.src ?? originalHero}
+  socialImage={originalHero}
 >
   {
     /* TODO: the Instagram feed grid (MIGRATION-TODO #3) and the testimonials
       slider (#5) are the two blocks worth rebuilding as real components. */
   }
-  <WpContent html={home?.content?.rendered ?? ""} />
+  <WpContent html={homeHtml} />
 </Base>

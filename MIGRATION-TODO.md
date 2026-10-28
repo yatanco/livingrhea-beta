@@ -27,3 +27,9 @@ Live inbox/guide delivery needs owner-controlled submissions. CMS is deferred. P
 - **Content:** decide whether the published `test-post-for-press-page` belongs in the archive. It was retained rather than silently deleted.
 
 SEO/AIO recommendations are in `SEO-AIO-RECOVERY.md`.
+
+## Native Astro image optimization
+
+The homepage hero now uses Astro `getImage()` (AVIF with WebP fallback), reducing its generated file from 230,270 to 124,391 bytes. Fifty-eight large archive images use native Astro `Image` responsive output. Across all 74 featured images, the default files total 2,973,554 bytes instead of 4,483,838 bytes (34% less); smaller candidates can reduce transfer further depending on the viewport. Already-small images are retained rather than enlarged by re-encoding. These are file-size comparisons, not measured Core Web Vitals gains.
+
+Week-long browser caching is restored for static `/wp-content/`, `/wp-includes/`, and `/vendor/` assets. Hashed Astro assets retain immutable caching.

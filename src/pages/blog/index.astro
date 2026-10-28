@@ -1,5 +1,7 @@
 ---
 import Base from "../../layouts/Base.astro";
+import { Image } from "astro:assets";
+import { localImage } from "../../lib/local-images";
 import { getAllPosts, featuredImage } from "../../lib/content.js";
 
 const posts = await getAllPosts();
@@ -34,6 +36,9 @@ const plain = (html = "") => html.replace(/<[^>]+>/g, "").trim();
           posts.map((post) => {
             const cat = category(post);
             const img = featuredImage(post);
+            const imported = img ? localImage(img) : undefined;
+            const source =
+              imported && imported.width > 800 ? imported : undefined;
             const url = `/blog/${post.slug}/`;
             return (
               <article
@@ -50,12 +55,26 @@ const plain = (html = "") => html.replace(/<[^>]+>/g, "").trim();
                       </a>
                       {img && (
                         <span class="post-featured-img">
-                          <img
-                            class="wp-post-image"
-                            src={img}
-                            alt={plain(post.title.rendered)}
-                            loading="lazy"
-                          />
+                          {source ? (
+                            <Image
+                              class="wp-post-image"
+                              src={source}
+                              alt={plain(post.title.rendered)}
+                              width={Math.min(800, source.width)}
+                              widths={[400, 800]}
+                              sizes="(max-width: 650px) 100vw, (max-width: 1000px) 50vw, 33vw"
+                              format="webp"
+                              quality={82}
+                              loading="lazy"
+                            />
+                          ) : (
+                            <img
+                              class="wp-post-image"
+                              src={img}
+                              alt={plain(post.title.rendered)}
+                              loading="lazy"
+                            />
+                          )}
                         </span>
                       )}
                       <div class="article-content-wrap">
