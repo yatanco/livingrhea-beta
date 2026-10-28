@@ -1,0 +1,2 @@
+# Preserve the pinned vendor script byte-for-byte, including its whitespace.
+public/vendor/mailchimp/*.js -whitespace

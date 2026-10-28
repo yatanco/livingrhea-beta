@@ -10,9 +10,10 @@ interface Props {
 }
 const { html = "", class: className = "wp-content" } = Astro.props;
 const prepared = await prepareMarkup(html, { lazyBackgrounds: true });
+const parts = prepared.split("<!--rhea-native-hero-->");
 ---
 
-<div class={className} set:html={prepared} />
+<div class={className}><Fragment set:html={parts[0]} /><slot />{parts.length > 1 && <Fragment set:html={parts[1]} />}</div>
 
 <script>
 const backgrounds = document.querySelectorAll<HTMLElement>('[data-perf-background]');

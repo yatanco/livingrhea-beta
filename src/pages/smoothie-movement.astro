@@ -1,0 +1,7 @@
+---
+import "../styles/site/smoothie-movement.css";
+import ContentPage from "../components/ContentPage.astro";
+import { getPageBySlug } from "../lib/content.js";
+const page = await getPageBySlug("smoothie-movement");
+---
+<ContentPage page={page} />

@@ -1,4 +1,5 @@
 ---
+import "../styles/site/contact.css";
 import Base from "../layouts/Base.astro";
 import WpContent from "../components/WpContent.astro";
 import { getPageBySlug } from "../lib/content.js";
@@ -18,7 +19,6 @@ if (html === page.content.rendered)
   title="Contact"
   description="Get in touch with Dr. Rhea Mehta."
   pageUrl={page.link}
-  headCss={page.wpb_custom_css}
 >
   <WpContent html={html} />
 </Base>

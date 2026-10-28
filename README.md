@@ -46,3 +46,5 @@ Imported source images live under `src/assets/migrated/`; the path mirrors the c
 - [Migration status](MIGRATION-TODO.md)
 
 The audit and owner guide describe the reviewed release identified in those documents. Launch status and account checks should be confirmed before production cutover.
+
+See [Astro-native assets and editing](docs/astro-native-assets.md) for the current local CSS pipeline, native hero, popup removal, and retained service integrations.

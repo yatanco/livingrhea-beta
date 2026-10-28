@@ -80,3 +80,7 @@ The remaining larger choices—CMS, on-site search, and replacement of heavy leg
 Final image-optimized preview: https://97d9b062.livingrhea-astro.pages.dev/
 
 Source commit: `2c4e88039622fa384843b37907f6d36bb0f86e59`. GitHub validation (8 tests) and Cloudflare deployment passed. Production merge and DNS remain pending owner review.
+
+## Update: 28 October 2026
+
+The automatic marketing popup has been removed. The newsletter and free-guide forms remain. Styles, fonts and form validation are now stored with the site, and the homepage hero uses Astro responsive images. See [the current implementation and editing guide](astro-native-assets.md).

@@ -1,0 +1,13 @@
+/* Self-hosted Salient icomoon icon font. Salient maps several .fa-* social
+   and nav classes (fa-twitter, fa-facebook, fa-angle-down, …) to this font
+   instead of FontAwesome. Loading it same-origin avoids the cross-origin
+   CORS block that renders those glyphs as empty boxes. Declared last so it
+   overrides WP's cross-origin @font-face for the 'icomoon' family. */
+@font-face{font-display:swap;
+  font-family: 'icomoon';
+  src: url("/fonts/salient/icomoon.woff") format('woff'),
+       url("/fonts/salient/icomoon.ttf") format('truetype');
+  font-weight: 400;
+  font-style: normal;
+
+}

@@ -1,56 +1,34 @@
 ---
+import "../styles/site/livingrhea-com.css";
 import Base from "../layouts/Base.astro";
-import { getImage } from "astro:assets";
-import { localImage } from "../lib/local-images";
+import HomeHero from "../components/HomeHero.astro";
+import { load } from "cheerio";
 import WpContent from "../components/WpContent.astro";
 import { getPageBySlug, heroImage } from "../lib/content.js";
 
 // Keep the original front-page slug; content is loaded from the local export.
 const home = await getPageBySlug("livingrhea-com");
 const originalHero = heroImage(home);
-const heroSource = localImage(originalHero);
-const optimizedHero = heroSource
-  ? await getImage({ src: heroSource, format: "avif", quality: 50 })
-  : undefined;
-// Replace only the image resource; retain the original background layout/crop.
-// Browsers without AVIF support can still select the existing WebP source.
-const escapedHero = originalHero.replace(/[.*+?^${}()|[\]\\]/g, "\\$&");
-const heroBackground = new RegExp(
-  `background-image:\\s*url\\((['"]?)${escapedHero}\\1\\)`,
-  "g",
-);
-const homeHtml = optimizedHero
-  ? home.content.rendered.replace(
-      heroBackground,
-      `background-image: url('${originalHero}'); background-image: image-set(url('${optimizedHero.src}') type('image/avif'), url('${originalHero}') type('image/webp'))`,
-    )
-  : home.content.rendered;
+// Keep the exported copy and surrounding layout; replace the one-slide engine.
+const $ = load(home.content.rendered, null, false);
+const slider = $('.nectar-slider-wrap').first();
+if (slider.find('.swiper-slide').length !== 1) throw new Error('Review the homepage hero: expected one slide.');
+const heroContent = slider.find('.content').html() || '';
+slider.replaceWith('<!--rhea-native-hero-->');
+const homeHtml = $.html();
+
 ---
 
 <Base
   title="Home"
   description="PhD toxicologist & holistic health coach helping women with fertility, detox & postpartum recovery."
-  headCss={home?.wpb_custom_css}
   pageUrl={home?.link}
-  preloadImage={optimizedHero?.src ?? originalHero}
+
   socialImage={originalHero}
 >
   {
     /* TODO: the Instagram feed grid (MIGRATION-TODO #3) and the testimonials
       slider (#5) are the two blocks worth rebuilding as real components. */
   }
-  <WpContent html={homeHtml} />
+  <WpContent html={homeHtml}><HomeHero image={originalHero} content={heroContent} /></WpContent>
 </Base>
-
-<style is:global>
-/* Match Nectar's existing 900/1100 column-slider calculation before its
-   JavaScript initializes. The slider still owns its final size and behavior. */
-#nectar-slider-instance-4 { height: 900px; }
-#nectar-slider-instance-4 .swiper-container,
-#nectar-slider-instance-4 .swiper-slide { height: 901px; }
-@media (max-width: 1299px) {
-  #nectar-slider-instance-4 { height: calc(100vw * 9 / 11); }
-  #nectar-slider-instance-4 .swiper-container,
-  #nectar-slider-instance-4 .swiper-slide { height: calc(100vw * 9 / 11 + 1px); }
-}
-</style>

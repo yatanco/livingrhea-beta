@@ -1,0 +1,7 @@
+---
+import "../styles/site/music.css";
+import ContentPage from "../components/ContentPage.astro";
+import { getPageBySlug } from "../lib/content.js";
+const page = await getPageBySlug("music");
+---
+<ContentPage page={page} />

@@ -84,24 +84,21 @@ test("article metadata describes the article rather than its saved About-page la
   assert.equal(article.datePublished, `${original.date_gmt}Z`);
 });
 
-test("Astro hero optimization is smaller and keeps the original fallback and social image", async () => {
-  const $ = load(await readFile("dist/index.html", "utf8"));
-  const original =
-    "/wp-content/uploads/2025/08/Rhea-Lotus-Cropped-Smoothie2.webp";
-  const optimized = $('link[rel="preload"][as="image"]').first().attr("href");
-  assert.match(optimized, /^\/_astro\/.*\.avif$/);
-  const html = $.html();
-  assert.ok(html.includes(`image-set(url('${optimized}')`));
-  assert.ok(html.includes(`url('${original}') type('image/webp')`));
-  assert.equal(
-    $('meta[property="og:image"]').attr("content"),
-    `https://livingrhea.com${original}`,
-  );
-  const { stat } = await import("node:fs/promises");
-  assert.ok(
-    (await stat(`dist${optimized}`)).size <
-      (await stat(`public${original}`)).size,
-  );
+test("native Astro hero has responsive AVIF/WebP sources and keeps its social image", async () => {
+  const $ = load(await readFile('dist/index.html', 'utf8'));
+  const hero = $('#rhea-home-hero');
+  assert.equal(hero.length,1);
+  assert.equal(hero.find('img').attr('loading'),'eager');
+  assert.equal(hero.find('img').attr('fetchpriority'),'high');
+  assert.ok(hero.find('img').attr('width') && hero.find('img').attr('height'));
+  for (const format of ['image/avif','image/webp']) {
+    const candidates=hero.find(`source[type="${format}"]`).attr('srcset');
+    assert.ok(candidates.split(',').length >= 3);
+    for (const c of candidates.split(',')) await access(`dist${c.trim().split(/\s+/)[0]}`);
+  }
+  assert.equal(hero.find('a').attr('href'),'#freeGuide');
+  assert.equal($('meta[property="og:image"]').attr('content'),'https://livingrhea.com/wp-content/uploads/2025/08/Rhea-Lotus-Cropped-Smoothie2.webp');
+  assert.equal($('script[src*="nectar-slider"]').length,0);
 });
 
 test("responsive blog images have generated candidates and do not enlarge their default files", async () => {

@@ -1,5 +1,4 @@
 ---
-import "../styles/fonts.css";
 import { getSalientShell } from "../lib/salient-shell.js";
 import { WP_ORIGIN } from "../lib/wp-url.js";
 import { plainText, pageDescriptions } from "../lib/seo.js";
@@ -7,8 +6,6 @@ import { plainText, pageDescriptions } from "../lib/seo.js";
 interface Props {
   title: string;
   description?: string;
-  /** Per-page WPBakery custom CSS (from the wpb_custom_css REST field). */
-  headCss?: string;
   /**
    * Original page URL whose saved layout (header treatment, body classes, per-page CSS)
    * this page should adopt. Pages pass their own `link`; blog posts/archive
@@ -28,7 +25,6 @@ interface Props {
 const {
   title,
   description = "",
-  headCss = "",
   pageUrl = `${WP_ORIGIN}/about/`,
   preloadImage,
   socialImage,
@@ -132,20 +128,6 @@ const schema = {
     <!-- Salient/WPBakery CSS, fonts and head assets, saved from the original site. -->
     <Fragment set:html={shell.headHtml} />
 
-    <!-- Self-hosted FontAwesome, loaded AFTER the shell so its same-origin
-         @font-face overrides WP's copy. WP-hosted webfonts fail CORS when the
-         page and the CMS are on different origins (localhost now, and root vs
-         cms.livingrhea.com in production), which renders icons as empty boxes.
-         See MIGRATION-TODO. -->
-    <link
-      rel="stylesheet"
-      href="/fonts/font-awesome/css/font-awesome.min.css"
-    />
-    <link rel="stylesheet" href="/fonts/salient/icomoon.css" />
-
-    <!-- Per-page WPBakery custom CSS (design set in the editor; not in any
-         global stylesheet). Injected verbatim, so keep it un-scoped. -->
-    {headCss && <style is:inline set:html={headCss} />}
   </head>
   <body {...shell.bodyAttrs}>
     <!-- Saved Salient chrome: skip link, off-canvas wraps, header, and the
