@@ -10,6 +10,7 @@ const page = entry.data;
 ---
 
 <Base title={page.title} description={page.description} pageUrl={page.path}>
+  <h1 class="screen-reader-text">{page.title}</h1>
   <ContactPage page={page}>
     <Content />
   </ContactPage>

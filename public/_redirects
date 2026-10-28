@@ -105,3 +105,13 @@
 /post-sitemap.xml /sitemap.xml 301
 /page-sitemap.xml /sitemap.xml 301
 /wp-sitemap.xml /sitemap.xml 301
+
+# WordPress paginated the blog archive into 8 pages; the Astro archive is a
+# single page. Redirect the indexed/bookmarked paginated URLs to it.
+/blog/page/2/ /blog/ 301
+/blog/page/3/ /blog/ 301
+/blog/page/4/ /blog/ 301
+/blog/page/5/ /blog/ 301
+/blog/page/6/ /blog/ 301
+/blog/page/7/ /blog/ 301
+/blog/page/8/ /blog/ 301
