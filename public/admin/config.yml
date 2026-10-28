@@ -1,0 +1,161 @@
+# Decap CMS, backed by Decap Turbo (no OAuth app to run ourselves).
+# Turbo dashboard: https://app.decapcms.org — the site's Site ID below must
+# match a Turbo site pointed at this repo/branch with config_path admin/config.yml
+# and admin URL https://livingrhea-astro.pages.dev/admin/ (plus the production
+# domain once DNS is cut over). See docs/cms-editing-guide.md.
+backend:
+  name: turbo-github
+  turbo_site_id: 19346064-1322-4ff7-a71f-c72e01d44608
+  branch: astro-headless-migration
+
+# Every edit becomes its own draft (a separate branch Decap manages) instead
+# of committing straight to the production branch, so changes still go
+# through a preview before anyone chooses to publish them.
+publish_mode: editorial_workflow
+
+media_folder: public/uploads
+public_folder: /uploads
+
+site_url: https://livingrhea.com
+display_url: https://livingrhea.com
+logo_url: /wp-content/uploads/2025/04/cropped-LivingRheaLogo-192x192.png
+
+collections:
+  - name: posts
+    label: Blog posts
+    label_singular: Post
+    folder: src/content/posts
+    extension: md
+    format: frontmatter
+    create: true
+    slug: "{{slug}}"
+    summary: "{{title}} — {{pubDate}}"
+    sortable_fields: [pubDate, title]
+    view_filters:
+      - label: Drafts only
+        field: draft
+        pattern: "true"
+      - label: Published only
+        field: draft
+        pattern: "false"
+    fields:
+      - { label: Title, name: title, widget: string }
+      - { label: "Excerpt / description", name: description, widget: text }
+      - { label: "Publish date", name: pubDate, widget: datetime }
+      - {
+          label: "Updated date",
+          name: updatedDate,
+          widget: datetime,
+          required: false,
+        }
+      - { label: Author, name: author, widget: string, default: "Rhea Mehta" }
+      - label: Categories
+        name: categories
+        widget: list
+        required: false
+        fields:
+          - { label: Name, name: name, widget: string }
+          - {
+              label: "Slug (lowercase, hyphens only, e.g. scientific-wellness)",
+              name: slug,
+              widget: string,
+            }
+      - label: "Featured image"
+        name: legacyFeaturedImage
+        widget: image
+        required: false
+        hint: >-
+          Upload a new image here. Existing migrated posts already have an
+          optimized image behind the scenes (featuredImage, hidden below) —
+          leave that one alone; this field is the one used for new uploads.
+      - {
+          label: "Featured image alt text",
+          name: featuredImageAlt,
+          widget: string,
+          required: false,
+          default: "",
+        }
+      - {
+          label: "Save as draft (hidden from the live site)",
+          name: draft,
+          widget: boolean,
+          default: false,
+        }
+      # Preserved verbatim, not shown: the Astro-optimized image path for
+      # migrated posts, and the original WordPress post id/URL used for
+      # redirects and structured data. Declaring them (even hidden) stops
+      # Decap from silently dropping them when a migrated post is edited.
+      - { name: featuredImage, widget: hidden, required: false }
+      - { name: legacyId, widget: hidden, required: false }
+      - { name: legacyUrl, widget: hidden, required: false }
+      - { label: "Post body", name: body, widget: markdown }
+
+  - name: pages
+    label: "Main pages"
+    label_singular: Page
+    files:
+      - file: src/content/pages/home.md
+        label: Home
+        name: home
+        fields: &page_fields_with_hero
+          - { label: "Page title", name: title, widget: string }
+          - {
+              label: "Meta description (used for search engines, not shown on the page)",
+              name: description,
+              widget: text,
+            }
+          - { name: path, widget: hidden }
+          - { name: labels, widget: hidden }
+          - { name: hero, widget: hidden }
+          - label: "Page text"
+            name: body
+            widget: markdown
+            hint: >-
+              Do not delete or rename a "# section-..." heading line — the
+              text under each one fills a specific, already-styled spot on
+              the live page. Edit the words under a heading freely; moving
+              or removing the heading itself will leave that spot blank.
+      - file: src/content/pages/about.md
+        label: About
+        name: about
+        fields: &page_fields
+          - { label: "Page title", name: title, widget: string }
+          - {
+              label: "Meta description (used for search engines, not shown on the page)",
+              name: description,
+              widget: text,
+            }
+          - { name: path, widget: hidden }
+          - { name: labels, widget: hidden }
+          - label: "Page text"
+            name: body
+            widget: markdown
+            hint: >-
+              Do not delete or rename a "# section-..." heading line — the
+              text under each one fills a specific, already-styled spot on
+              the live page. Edit the words under a heading freely; moving
+              or removing the heading itself will leave that spot blank.
+      - file: src/content/pages/coaching.md
+        label: Coaching
+        name: coaching
+        fields: *page_fields
+      - file: src/content/pages/contact.md
+        label: Contact
+        name: contact
+        fields: *page_fields
+      - file: src/content/pages/himalayan-breathwork.md
+        label: "Himalayan Breathwork"
+        name: himalayan-breathwork
+        fields: *page_fields
+      - file: src/content/pages/music.md
+        label: Music
+        name: music
+        fields: *page_fields
+      - file: src/content/pages/press.md
+        label: Press
+        name: press
+        fields: *page_fields
+      - file: src/content/pages/smoothie-movement.md
+        label: "Smoothie Movement"
+        name: smoothie-movement
+        fields: *page_fields
