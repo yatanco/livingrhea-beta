@@ -142,25 +142,16 @@ const schema = {
       href="/fonts/salient/icomoon.woff"
       crossorigin="anonymous"
     />
-    <!-- Open Sans is the theme's base body-text font (the CSS reset's
-         fallback font-family) and shows up in the critical/above-the-fold
-         CSS the build already extracts — it's genuinely rendering text, not
-         dead weight — but like icomoon it's only discovered deep in the
-         stylesheet chain. Same measured 500ms+ critical-path cost. -->
-    <link
-      rel="preload"
-      as="font"
-      type="font/woff"
-      href="/wp-content/themes/salient/css/fonts/OpenSans-Regular.woff"
-      crossorigin="anonymous"
-    />
-    <link
-      rel="preload"
-      as="font"
-      type="font/woff"
-      href="/wp-content/themes/salient/css/fonts/OpenSans-Bold.woff"
-      crossorigin="anonymous"
-    />
+    <!-- Open Sans preload tried and reverted: it lowered that font's
+         discovery latency (570ms → fast) but measurably worsened CLS
+         (0.083 → 0.438, confirmed via PageSpeed's layout-shift-culprits
+         breakdown, pointing at body text reflowing as the font swaps in).
+         Loading the font faster moved its swap-triggered reflow earlier in
+         the page lifecycle — into the window Lighthouse's CLS metric
+         actually counts, instead of before first paint where it didn't.
+         Revisit only with proper fallback font-metric overrides
+         (size-adjust/ascent-override/descent-override) so the swap doesn't
+         reflow text at all; don't just re-add the preload. -->
 
     <!-- Salient/WPBakery CSS, fonts and head assets, saved from the original site. -->
     <link
