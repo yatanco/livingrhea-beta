@@ -12,3 +12,6 @@ Preserve the existing site's design. This is a migration, not a redesign. Do not
 - Preserve the existing crawler privacy policy; do not enable model-training crawlers as an assumed SEO improvement.
 - Change source, not `dist/`. Historical exports under `migration/` are reference data.
 - Run `npm run check`; verify desktop/mobile for affected visual changes. Prefer small Astro components for necessary server-feature replacements while keeping their appearance.
+
+- Site CSS is now authored in `src/styles/site/`, imported by explicit Astro routes. Snapshot CSS and old `wpb_custom_css` fields are historical; do not reintroduce their style/link tags. Keep CSS/font/image dependencies local.
+- The homepage hero is native `HomeHero.astro`; do not reintroduce the one-slide theme engine. The separate automatic Mailchimp marketing popup was removed at the user’s request. Keep the newsletter/guide forms and their local validation.

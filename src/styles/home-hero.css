@@ -2169,3 +2169,5 @@ body[data-smooth-scrolling="1"] .rhea-hero-track .slider-down-arrow {
 @media (max-width: 690px) { #rhea-home-hero .content h2 { font-size: 15px !important; line-height: 21px !important; } }
 
 #rhea-home-hero .button a.primary-color { background-color: var(--nectar-accent-color, #ff6b00); border-radius: 200px; }
+
+@media (min-width: 1000px) { #rhea-home-hero .content { top: calc(50% + 15.5px); } }

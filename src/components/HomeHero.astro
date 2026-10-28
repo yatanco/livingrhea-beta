@@ -7,7 +7,7 @@ const { image, content } = Astro.props;
 const source = localImage(image);
 if (!source) throw new Error(`Missing local hero image: ${image}`);
 ---
-<section id="rhea-home-hero" class="rhea-hero loaded" data-full-width="false" data-fullscreen="false" data-button-sizing="large" data-button-styling="btn_with_count">
+<div role="region" aria-label="Introduction" id="rhea-home-hero" class="rhea-hero loaded" data-full-width="false" data-fullscreen="false" data-button-sizing="large" data-button-styling="btn_with_count">
   <div class="rhea-hero-stage">
     <div class="rhea-hero-slide" data-color-scheme="light" data-x-pos="left" data-y-pos="middle">
       <div class="slide-bg-wrap">
@@ -17,4 +17,4 @@ if (!source) throw new Error(`Missing local hero image: ${image}`);
       <div class="container"><div class="content" set:html={content} /></div>
     </div>
   </div>
-</section>
+</div>
