@@ -1,4 +1,4 @@
-// XML sitemap generated at build time from local pages + posts. Plain XML (no
+// XML sitemap generated at build time from the local pages + posts. Plain XML (no
 // @astrojs/sitemap dependency). Referenced by public/robots.txt.
 import { getAllPages, getAllPosts } from "../lib/content.js";
 

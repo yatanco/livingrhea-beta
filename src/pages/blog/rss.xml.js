@@ -1,4 +1,4 @@
-// RSS feed for the blog, generated at build time from local journal content.
+// RSS feed for the blog, generated at build time from the local posts.
 // Plain XML (no @astrojs/rss dependency) so the build stays lean. Output path
 // is /blog/rss.xml — matches the <link rel="alternate"> in Base.astro.
 import { getAllPosts } from "../../lib/content.js";
@@ -18,9 +18,9 @@ export async function GET(context) {
   const items = posts
     .map((p) => {
       const link = new URL(`blog/${p.slug}/`, site).href;
-      const title = esc(stripTags(p.title || ""));
+      const title = esc(stripTags(p.title?.rendered || ""));
       const date = p.date ? new Date(p.date).toUTCString() : "";
-      const desc = esc(stripTags(p.description || ""));
+      const desc = esc(stripTags(p.excerpt?.rendered || ""));
       return (
         `<item><title>${title}</title><link>${link}</link>` +
         `<guid isPermaLink="true">${link}</guid>` +

@@ -8,10 +8,13 @@ test("every exported published post has a page and an intact title", async () =>
   assert.equal((await readdir("src/content/posts")).length, original.length);
   for (const post of original) {
     const migrated = await json(`src/content/posts/${post.slug}.json`);
-    assert.equal(migrated.title, load(post.title.rendered).text());
+    assert.equal(
+      load(migrated.title.rendered).text(),
+      load(post.title.rendered).text(),
+    );
     const $ = load(await readFile(`dist/blog/${post.slug}/index.html`, "utf8"));
-    assert.equal($("h1").text(), migrated.title);
-    assert.ok($(".prose").text().trim().length > 0);
+    assert.equal($("h1").first().text(), load(migrated.title.rendered).text());
+    assert.ok($(".wp-content").text().trim().length > 0);
   }
 });
 test("all intended pages are migrated and sample content is excluded", async () => {
@@ -35,7 +38,9 @@ test("normal builds and templates have no WordPress fetch dependency", async () 
   assert.doesNotMatch(content, /\bfetch\s*\(/);
   const $ = load(await readFile("dist/index.html", "utf8"));
   assert.equal(
-    $('script[src*="wp-"],link[href*="wp-"],img[src*="wp-"]').length,
+    $(
+      'script[src^="https://livingrhea.com"],link[href^="https://livingrhea.com/wp-"],img[src^="https://livingrhea.com"]',
+    ).length,
     0,
   );
   assert.equal(
@@ -46,7 +51,7 @@ test("normal builds and templates have no WordPress fetch dependency", async () 
 test("contact form cannot submit to an unconfigured placeholder", async () => {
   const settings = await json("src/content/settings/site.json");
   const $ = load(await readFile("dist/contact/index.html", "utf8"));
-  const form = $(".contact-form");
+  const form = $(".astro-contact-form");
   if (settings.contactFormAction) {
     assert.equal(form.attr("action"), settings.contactFormAction);
     assert.doesNotMatch(settings.contactFormAction, /YOUR_|PLACEHOLDER/);
@@ -61,4 +66,20 @@ test("all original post permalinks that changed have exact redirects", async () 
     if (old !== target)
       assert.ok(redirects.includes(`${old} ${target} 301`), old);
   }
+});
+
+test("article metadata describes the article rather than its saved About-page layout", async () => {
+  const original = (await json("migration/wordpress-posts.json"))[0];
+  const canonical = `https://livingrhea.com/blog/${original.slug}/`;
+  const $ = load(
+    await readFile(`dist/blog/${original.slug}/index.html`, "utf8"),
+  );
+  assert.equal($('meta[property="og:url"]').length, 1);
+  assert.equal($('meta[property="og:url"]').attr("content"), canonical);
+  const blocks = $('script[type="application/ld+json"]');
+  assert.equal(blocks.length, 1);
+  const graph = JSON.parse(blocks.text())["@graph"];
+  const article = graph.find((x) => x["@type"] === "BlogPosting");
+  assert.equal(article.url, canonical);
+  assert.equal(article.datePublished, `${original.date_gmt}Z`);
 });

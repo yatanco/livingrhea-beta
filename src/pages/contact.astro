@@ -1,60 +1,75 @@
 ---
 import Base from "../layouts/Base.astro";
+import WpContent from "../components/WpContent.astro";
+import { getPageBySlug } from "../lib/content.js";
 import settings from "../content/settings/site.json";
-import { getPageBySlug, render } from "../lib/content.js";
 const page = await getPageBySlug("contact");
+// Keep the original page markup and replace only the WordPress-backed form.
+const form = `<form class="astro-contact-form" action="${settings.contactFormAction}" method="post"><fieldset><legend>Name *</legend><div class="name-fields"><label>First name<input type="text" name="first_name" autocomplete="given-name" required></label><label>Last name<input type="text" name="last_name" autocomplete="family-name" required></label></div></fieldset><label>Email *<input type="email" name="email" autocomplete="email" required></label><label>Subject<input name="subject"></label><label>Your message<textarea name="message" rows="7" required></textarea></label><button type="submit">Submit</button></form>`;
+const html = page.content.rendered.replace(
+  /<form\b[^>]*id="wpforms-form-[^"]*"[\s\S]*?<\/form>/i,
+  form,
+);
+if (html === page.content.rendered)
+  throw new Error("The exported contact form could not be located.");
 ---
 
-<Base title={page.title} description={page.description}
-  ><section class="article-heading">
-    <p class="eyebrow">Let's connect</p><h1>{page.title}</h1><p class="intro">
-      {page.description}
-    </p>
-  </section><section class="contact-wrap">
-    <div class="contact-intro" set:html={render(page.body)} />{
-      settings.contactFormAction ? (
-        <form
-          class="contact-form"
-          method="post"
-          action={settings.contactFormAction}
-        >
-          <>
-            <label>
-              First name
-              <input name="first_name" autocomplete="given-name" required />
-            </label>
-            <label>
-              Last name
-              <input name="last_name" autocomplete="family-name" required />
-            </label>
-            <label>
-              Email
-              <input type="email" name="email" autocomplete="email" required />
-            </label>
-            <label>
-              Subject
-              <input name="subject" required />
-            </label>
-            <label class="full">
-              Your message
-              <textarea name="message" rows="7" required />
-            </label>
-            <button class="button" type="submit">
-              Send message ↗
-            </button>
-          </>
-        </form>
-      ) : (
-        <div class="contact-unconfigured">
-          <>
-            <h2>Contact form awaiting connection</h2>
-            <p>
-              This preview's contact form has not been connected yet. Please
-              contact Rhea through <a href={settings.instagram}>Instagram</a>.
-            </p>
-          </>
-        </div>
-      )
-    }
-  </section></Base
+<Base
+  title="Contact"
+  description="Get in touch with Dr. Rhea Mehta."
+  pageUrl={page.link}
+  headCss={page.wpb_custom_css}
 >
+  <WpContent html={html} />
+</Base>
+<style is:global>
+  .astro-contact-form {
+    max-width: 700px;
+    margin: 24px 0;
+  }
+  .astro-contact-form fieldset {
+    border: 0;
+    padding: 0;
+    margin: 0 0 20px;
+  }
+  .astro-contact-form legend {
+    font-weight: 600;
+    margin-bottom: 8px;
+  }
+  .astro-contact-form .name-fields {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 18px;
+  }
+  .astro-contact-form label {
+    display: block;
+    margin-bottom: 20px;
+    font-weight: 600;
+  }
+  .astro-contact-form input,
+  .astro-contact-form textarea {
+    display: block;
+    width: 100%;
+    margin-top: 8px;
+    padding: 12px;
+    border: 1px solid #ccc;
+    background: #fafafa;
+    color: #333;
+    font: inherit;
+  }
+  .astro-contact-form button {
+    cursor: pointer;
+    padding: 13px 30px;
+  }
+  .astro-contact-form input:focus-visible,
+  .astro-contact-form textarea:focus-visible {
+    outline: 2px solid #765542;
+    outline-offset: 2px;
+  }
+  @media (max-width: 600px) {
+    .astro-contact-form .name-fields {
+      grid-template-columns: 1fr;
+      gap: 0;
+    }
+  }
+</style>

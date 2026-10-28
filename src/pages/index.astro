@@ -1,56 +1,22 @@
 ---
 import Base from "../layouts/Base.astro";
-import home from "../content/settings/home.json";
-import { getPageBySlug, render } from "../lib/content.js";
-const page = await getPageBySlug("livingrhea-com");
+import WpContent from "../components/WpContent.astro";
+import { getPageBySlug, heroImage } from "../lib/content.js";
+
+// Keep the original front-page slug; content is loaded from the local export.
+const home = await getPageBySlug("livingrhea-com");
 ---
 
-<Base title="Home" preloadImage={page.hero}
-  ><section class="hero">
-    <div class="hero-copy">
-      <p class="eyebrow">{home.eyebrow}</p><h1>
-        {home.headline}<br /><em>{home.subheadline}</em>
-      </h1><p class="intro">{home.intro}</p><a
-        class="button"
-        href={home.buttonHref}>{home.buttonLabel}</a>
-    </div><img
-      src={page.hero}
-      alt={page.heroAlt || "Dr. Rhea Mehta"}
-      fetchpriority="high"
-    />
-  </section><section class="press-logos">
-    <p class="eyebrow">As seen in</p><div>
-      {
-        [
-          ["mbg", "MindBodyGreen"],
-          ["vogue-india", "Vogue India"],
-          ["forbes", "Forbes"],
-          ["Business-Insider-Logo", "Business Insider"],
-          ["thespruce", "The Spruce"],
-          ["The-Huffington-Post", "The Huffington Post"],
-        ].map(([file, alt]) => (
-          <img src={`/media/2025/08/${file}.webp`} alt={alt} loading="lazy" />
-        ))
-      }
-    </div>
-  </section><section class="pathways">
-    <p class="eyebrow">Find your way back to yourself</p><div class="cards">
-      <a href="/coaching/"
-        ><span>01 / NOURISH</span><h2>Health coaching</h2><p>
-          Personalized support, rooted in nutrition science and holistic
-          wellbeing.
-        </p><b>Discover coaching ↗</b></a
-      ><a href="/himalayan-breathwork/"
-        ><span>02 / CONNECT</span><h2>Breathwork</h2><p>
-          Reconnect with your breath, your body, and your inner knowing.
-        </p><b>Explore breathwork ↗</b></a
-      ><a href="/music/"
-        ><span>03 / LISTEN</span><h2>Soul Ceremony</h2><p>
-          Sacred mantras and modern soundscapes for presence and connection.
-        </p><b>Listen to the music ↗</b></a>
-    </div>
-  </section><section
-    class="prose home-story"
-    set:html={render(page.body)}
-  /></Base
+<Base
+  title="Home"
+  description="PhD toxicologist & holistic health coach helping women with fertility, detox & postpartum recovery."
+  headCss={home?.wpb_custom_css}
+  pageUrl={home?.link}
+  preloadImage={heroImage(home)}
 >
+  {
+    /* TODO: the Instagram feed grid (MIGRATION-TODO #3) and the testimonials
+      slider (#5) are the two blocks worth rebuilding as real components. */
+  }
+  <WpContent html={home?.content?.rendered ?? ""} />
+</Base>

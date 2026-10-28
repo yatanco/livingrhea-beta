@@ -1,10 +1,41 @@
 {
-  "title": "Superfood Greens Product Review",
+  "id": 5099,
   "slug": "superfood-greens-product-review",
-  "description": "The perks Superfood Greens are a blend of the highest quality alkalizing greens powders. They’re made up of the alkalizing grasses wheat grass, barley grass and",
+  "link": "https://livingrhea.com/superfood-greens-product-review/",
   "date": "2016-06-18T20:55:29",
-  "updated": "2016-06-18T20:55:29",
-  "hero": "",
-  "heroAlt": "",
-  "body": "**The perks**\n\nSuperfood Greens are a blend of the highest quality alkalizing greens powders. They’re made up of the alkalizing grasses wheat grass, barley grass and alfalfa and the detoxifying, mineral-enriched algae spirulina and chlorella. They also contain nutrient-dense and mega-tasty superfoods vanilla, mesquite and cinnamon. These powerhouse greens can be added to your smoothies or to a bottle of water for a super dose of energy and full body balance.\n\n**Why I love my superfood greens**\n\nIt’s so easy when you have so many detoxifying greens in one blend! Since I’m all about ease and accessibility, this product is perfect for me. Just one scoop into my pre-blended smoothie or directly into a mason jar, blend or shake, and I’ve got my daily dose of chlorophyll and a boost of energy! Food Matters also goes above and beyond to discuss the sourcing of their ingredients, which is really important from a health and trust perspective. As a result, I take comfort in knowing that whatever amount I put in, is going straight into my bloodstream and cells."
+  "date_gmt": "2016-06-18T20:55:29",
+  "modified": "2016-06-18T20:55:29",
+  "modified_gmt": "2016-06-18T20:55:29",
+  "title": {
+    "rendered": "Superfood Greens Product Review"
+  },
+  "content": {
+    "rendered": "<p><strong>The perks</strong></p>\n<p>Superfood Greens are a blend of the highest quality alkalizing greens powders. They’re made up of the alkalizing grasses wheat grass, barley grass and alfalfa and the detoxifying, mineral-enriched algae spirulina and chlorella. They also contain nutrient-dense and mega-tasty superfoods vanilla, mesquite and cinnamon. These powerhouse greens can be added to your smoothies or to a bottle of water for a super dose of energy and full body balance.</p>\n<p><strong>Why I love my superfood greens</strong></p>\n<p>It’s so easy when you have so many detoxifying greens in one blend! Since I’m all about ease and accessibility, this product is perfect for me. Just one scoop into my pre-blended smoothie or directly into a mason jar, blend or shake, and I’ve got my daily dose of chlorophyll and a boost of energy! Food Matters also goes above and beyond to discuss the sourcing of their ingredients, which is really important from a health and trust perspective. As a result, I take comfort in knowing that whatever amount I put in, is going straight into my bloodstream and cells.</p>\n",
+    "protected": false
+  },
+  "excerpt": {
+    "rendered": "<p>The perks Superfood Greens are a blend of the highest quality alkalizing greens powders. They’re made up of the alkalizing grasses wheat grass, barley grass and alfalfa and the detoxifying, mineral-enriched algae spirulina and chlorella. They also contain nutrient-dense and mega-tasty superfoods vanilla, mesquite and cinnamon. These powerhouse greens can be added to your smoothies or to a bottle of water for a super dose of energy and full body balance. Why I love my superfood greens It’s so easy when you have so many detoxifying greens in one blend! Since I’m all about ease and accessibility, this product is perfect for me. Just one scoop into my pre-blended smoothie or directly into a mason jar, blend or shake, and I’ve got my daily dose of chlorophyll and a boost of energy! Food Matters also goes above and beyond to discuss the sourcing of their ingredients, which is really important from a health and trust perspective. As a result, I take comfort in knowing that whatever amount I put in, is going straight into my bloodstream and cells.</p>\n",
+    "protected": false
+  },
+  "wpb_custom_css": "",
+  "_embedded": {
+    "wp:term": [
+      [
+        {
+          "name": "Product Reviews",
+          "slug": "product-reviews"
+        },
+        {
+          "name": "Recipes",
+          "slug": "recipes"
+        }
+      ],
+      []
+    ],
+    "author": [
+      {
+        "name": "Dr Rhea"
+      }
+    ]
+  }
 }

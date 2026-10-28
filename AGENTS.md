@@ -1,13 +1,14 @@
 # Living Rhea
 
-This is a WordPress-independent static Astro site. Never restore runtime or build-time WordPress fetching.
+Preserve the existing site's design. This is a migration, not a redesign. Do not change layout, typography, colors, imagery, or visible copy unless requested.
 
-- Content: `src/content/pages/*.json`, `src/content/posts/*.json`. `body` is Markdown, not HTML from a CMS API. Settings live in `src/content/settings/`.
-- Browser editor: Decap CMS at `/admin/`, using the hosted Turbo backend. Keep its collections synchronized with content fields.
-- Keep existing URL slugs. If renaming, update `public/_redirects` and internal links. Homepage source slug `livingrhea-com` maps to `/`.
-- Images and downloads are local in `public/media/`. New uploads go in `public/media/editor/`. Give new images descriptive alt text.
-- Do not edit `dist/` or old public export snapshots in `migration/`; change source files.
-- Use Node 24. Run `npm run check` before handing off changes. Recheck desktop/mobile when changing layout.
-- Prefer static templates and hosted forms. Avoid custom auth services, plugin-style integrations, and unnecessary dependencies.
-- No secrets belong in content or public files. The CMS Site ID is public configuration.
-- Build command: `npm run build`; output: `dist`. No WordPress environment variables or build hooks.
+- Astro is pinned to stable 7.4.2; use Node 24 and the committed lockfile.
+- Builds and runtime must not fetch WordPress. `src/lib/content.js` reads local exported records; `src/lib/salient-shell.js` reads local layout snapshots.
+- Visible content lives in `src/content/pages/*.json` and `src/content/posts/*.json`, primarily `content.rendered`. Preserve existing markup classes and wrappers when editing copy.
+- The `/wp-content/` and `/wp-includes/` paths contain static compatibility assets, not a PHP application. Avoid renaming them without a reason and redirects.
+- Keep slugs stable. Add exact redirects for renamed or retired URLs and update internal links.
+- CMS work is deferred; do not expose an incomplete editor or introduce custom auth.
+- Contact posts directly to the configured Formspree endpoint; newsletter forms post directly to the existing Mailchimp audience. Do not send test messages or subscribe addresses without explicit authorization.
+- Preserve the existing crawler privacy policy; do not enable model-training crawlers as an assumed SEO improvement.
+- Change source, not `dist/`. Historical exports under `migration/` are reference data.
+- Run `npm run check`; verify desktop/mobile for affected visual changes. Prefer small Astro components for necessary server-feature replacements while keeping their appearance.

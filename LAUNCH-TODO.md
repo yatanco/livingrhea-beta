@@ -1,49 +1,34 @@
 # Launch on Cloudflare Pages
 
-The source migration is complete and builds locally. Production launch still requires the following account configuration and checks.
+The migration is on `codex/wordpress-independent` in draft PR #1, targeting `astro-headless-migration`. It preserves the original appearance and no longer fetches WordPress during builds. Do not merge or change DNS before the owner reviews the restored preview.
 
-## Cloudflare Pages
+## Cloudflare configuration
 
-Connect `yatanco/livingrhea-astro` using Git integration:
-
-- Production branch: `astro-headless-migration` (matches the Decap configuration).
-- Build command: `npm run build`.
-- Output directory: `dist`.
-- Root directory: repository root.
-- Environment variable: `NODE_VERSION=24`.
-- Remove old `WORDPRESS_API_URL` and WordPress deploy hooks. No CMS secret is required for builds.
-
-If you later merge into `main`, change the production branch in both Pages and `public/admin/config.yml` (and in the Turbo dashboard). Keep all three aligned.
-
-## Editor
-
-Decap Turbo Site ID is configured: `19346064-1322-4ff7-a71f-c72e01d44608`.
-
-In its dashboard confirm:
+Existing project: https://livingrhea-astro.pages.dev/
 
 - Repository: `yatanco/livingrhea-astro`.
-- Branch: `astro-headless-migration`.
-- Config path: `public/admin/config.yml`.
-- Admin interface origins include `https://livingrhea.com/admin/` and the actual `https://livingrhea-astro.pages.dev/admin/` URL. Add `http://127.0.0.1:4321/admin/` if you want local testing.
-- The Turbo GitHub App has access to this repository and your account has access to this Turbo site.
+- Production branch: `astro-headless-migration` unless intentionally changed later.
+- Build: `npm run build`.
+- Output: `dist`.
+- Root: repository root.
+- Node: `24` (`.nvmrc` also declares 24).
+- No `WORDPRESS_API_URL`, WordPress deployment hook, database, or CMS secret is needed.
 
-On the deployed preview, log in, change one harmless sentence, publish, and confirm that the Git commit and Pages rebuild finish. Undo the test edit after verifying. A configured Site ID alone does not prove authentication or publishing works.
+The review branch automatically gets a Cloudflare preview. After owner review, merge the PR to publish through the configured production branch.
 
-## Contact and newsletter
+## Owner checks before switching the domain
 
-The contact form is configured to submit to `https://formspree.io/f/mzeerlkq`.
+1. Review Home, About, Coaching, Breathwork, Music, Press, Blog, and Contact on desktop and phone. Confirm the original design is retained.
+2. Submit a real contact test to `https://formspree.io/f/mzeerlkq`; verify the intended inbox receives it. No test message has been submitted by the agent.
+3. Test newsletter signup/guide delivery with an owner-controlled address. The existing Mailchimp audience is retained; its automation/delivery cannot be verified from page HTML alone.
+4. Confirm the final Pages build succeeds, historical redirects work, and sitemap/RSS return XML.
+5. In Pages → Custom domains, add `livingrhea.com` and `www.livingrhea.com`. Follow Cloudflare's exact displayed DNS instructions. Do not change email MX/TXT records.
+6. Wait for active HTTPS. Keep a single canonical hostname (the code uses `https://livingrhea.com`). Redirect www to apex in Cloudflare if desired.
+7. Verify the root site and several old article URLs on the real domain, then submit `/sitemap.xml` to Search Console and Bing Webmaster Tools.
+8. Keep the WordPress backup and previous DNS values through verification. The old hosting can be retired after checks pass; this Astro site does not depend on it.
 
-Verify the Formspree recipient is activated. Test a real delivery to the intended inbox and spam handling before switching domains. The endpoint is editable in Site settings.
+No production DNS has been changed. The PR remains unmerged pending review.
 
-The newsletter uses the existing public Mailchimp embed endpoint. Test signup and guide delivery with an owner-controlled test address. No signup was submitted during development. Confirm this audience really sends the promised guide.
+## CMS later
 
-## Domain switch
-
-1. Verify the Pages preview on desktop and phone, forms, editor publishing, media links, sitemap, RSS, and a historical blog redirect.
-2. Add `livingrhea.com` and `www.livingrhea.com` through Pages → Custom domains. Follow Cloudflare's displayed records; do not guess a Pages hostname or IP.
-3. Wait until both domains show active HTTPS. Set a single canonical hostname (the code uses the apex domain); redirect www to apex in Cloudflare if desired.
-4. Keep email MX/TXT records intact. Remove only conflicting web records indicated by Pages.
-5. Verify `https://livingrhea.com/`, `/admin/`, `/contact/`, `/blog/`, `/sitemap.xml`, and an old post URL.
-6. Keep the WordPress backup and prior DNS values until launch checks pass. WordPress hosting can then be retired; the Astro site does not use it.
-
-No production DNS records have been changed by this migration.
+CMS implementation is deferred. The existing Decap Turbo Site ID is `19346064-1322-4ff7-a71f-c72e01d44608`. Choose the content-editing model later without compromising the preserved layout. The earlier prototype editor has been removed from the published files.

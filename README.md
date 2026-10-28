@@ -1,28 +1,31 @@
-# Living Rhea — independent Astro site
+# Living Rhea — static Astro migration
 
-Content, media, and templates are local. WordPress is not used for editing, builds, or serving visitors.
+This migration preserves the original site's appearance and makes its content, layout, and assets local. Normal builds and visitors do not need a WordPress server. Familiar `/wp-content/` asset paths are retained as static files; those paths do not imply a running WordPress installation.
 
-## Run
+## Run and verify
 
-Use Node 24 (`nvm use` if available), then:
+Use Node 24, then:
 
 ```sh
 npm ci
 npm run dev
 ```
 
-For a verified production build: `npm run check`. Deploy `dist/` through Cloudflare Pages' Git integration. `npm run build` runs no content export or network migration step.
+`npm run check` builds the site, audits local links/assets/anchors, and runs migration tests. `npm run build` creates `dist/` without fetching WordPress. Astro is pinned to stable `7.4.2` with a committed lockfile.
 
-## Edit
+## Source
 
-- Browser: `/admin/` → log in with the Decap Turbo account → Pages / Journal posts / Site settings.
-- Codex: edit JSON files under `src/content/`. The `body` field is Markdown; `hero` is an image path. Ask Codex to keep slugs, update links when necessary, and run `npm run check`.
-- Upload images in the editor; they are stored under `public/media/editor/`.
-- Publishing saves a Git commit on `astro-headless-migration`. Configure Cloudflare Pages to deploy that branch. Edits appear after a successful Pages build, not instantly.
-- Previewing a rich-text edit is not the same as previewing the complete site. Check the Pages preview after layout changes.
+- `src/pages/`: Astro routes, the existing blog layout, and a native contact form posting to Formspree.
+- `src/content/pages/` and `posts/`: local exported records. The visible HTML is in `content.rendered`; original layout classes and wrappers are preserved.
+- `src/content/shells/`: saved page layouts (header/footer/body classes/head styles). `Base.astro` assembles these at build time.
+- `public/`: local theme CSS, JavaScript, fonts, and images. External Mailchimp and analytics integrations remain external services.
+- `src/lib/content.js`: reads local records, normalizes asset paths, and fixes known historical links. It makes no API calls.
+- `migration/`: original public exports and image/link recovery records for comparison.
 
-## Launch
+## Editing for now
 
-See `LAUNCH-TODO.md` for exact remaining account settings and verification. `MIGRATION-TODO.md` records what changed and improvement suggestions.
+Ask Codex to change specific copy in the local content files while preserving HTML wrappers and existing design. Run `npm run check`, review the Pages preview, and publish only after review. Do not reimport WordPress over local edits.
 
-The saved public WordPress exports in `migration/` are reference data, not live content. They include the source used for the migration and a record of unavailable images. Do not rerun imports over editorial changes.
+CMS setup is deferred at the owner's request. The Decap Turbo site already created can be used in a later content-editing phase. No `/admin/` editor is exposed in this migration.
+
+See `LAUNCH-TODO.md` for cutover checks and `SEO-AIO-RECOVERY.md` for traffic recovery recommendations.

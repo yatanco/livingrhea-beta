@@ -1,0 +1,12 @@
+---
+// Renders a local exported `content.rendered` HTML string (already localized +
+// image-optimized in src/lib/content.js). Single place that injects WP HTML,
+// so any future content post-processing lives here.
+interface Props {
+  html?: string;
+  class?: string;
+}
+const { html = "", class: className = "wp-content" } = Astro.props;
+---
+
+<div class={className} set:html={html} />

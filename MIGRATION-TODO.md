@@ -1,31 +1,29 @@
-# Migration outcome and improvements
+# Migration status and remaining improvements
 
 ## Implemented
 
-- Exported 8 usable pages and 77 published posts from the public WordPress API; excluded the sample page and replaced the blog archive with an Astro listing.
-- Native Astro templates replace the Salient/WPBakery shell. The layout is a new, simpler presentation of the exported content, not a pixel-identical theme reproduction.
-- All media is local under `/media/`. Existing optimized WebP images are used when available; unused theme/plugin CSS, JavaScript and fonts have been removed.
-- Browser editing through Decap CMS/Turbo; Markdown content stored in JSON files in GitHub, also easy to edit with Codex.
-- Native responsive navigation, journal listing, individual articles, sitemap, RSS, canonical URLs, social metadata, custom 404, and historical post redirects.
-- Corrected old category links, malformed relative external links, empty coaching CTAs, and the dead homepage popup anchor.
-- Kept the existing Mailchimp signup endpoint. Contact submits to the supplied Formspree endpoint; inbox delivery still needs a real submission test.
-- Updated Astro and dependencies; local dependency audit passed with zero known vulnerabilities at implementation time.
+- Original Astro templates and original visual design retained. No redesign is part of the final implementation.
+- 8 usable pages plus 77 posts are local; the sample page is excluded and Blog has its own archive route. Original public exports remain in `migration/` for comparison.
+- Header/footer/page layout snapshots, theme assets, fonts, and images are local. Builds no longer call WordPress. The exported Salient CSS/JavaScript is retained where it supports the existing design.
+- Contact uses a small native Astro replacement in the original page location, posting to the supplied Formspree endpoint.
+- Existing Mailchimp footer signup retained; the previously empty guide-signup area now has a direct Mailchimp form.
+- WordPress form/Instagram/Jetpack tracking scripts are excluded; the conflicting duplicate lightbox plugin and unused emoji loader are removed. Popup Maker's server-backed analytics is disabled; its presentation remains.
+- Fourteen missing expert image variants recovered from local originals. Unavailable images and dead NextGen editor previews are omitted. Missing responsive-size candidates fall back to available image sources.
+- Historical permalink redirects, corrected internal links, old sitemap URL redirects, canonical URLs, route-specific social metadata, and factual structured data added without changing the visible design.
+- Astro stable 7.4.2 pinned; dependency audit passes. Normal builds require no WordPress environment variables or credentials.
 
-## Before launch
+## Not yet verified or launched
 
-Follow `LAUNCH-TODO.md`. Live CMS login/publishing, contact delivery, newsletter delivery, Pages deployment and DNS are not verified yet.
+Live inbox/guide delivery needs owner-controlled submissions. CMS is deferred. Production merge and DNS cutover remain pending review. See `LAUNCH-TODO.md`.
 
-## Recommended next improvements
+## Simple follow-up suggestions
 
-1. **Shorten the homepage.** The exported biography and testimonials are long. Keep a short introduction, three service cards, one or two testimonials, and a link to About. This is an editorial choice, so the migrated copy is retained for review.
-2. **Use one booking destination.** A hosted scheduling link (your existing booking tool, or Cal.com/Calendly if you choose one) is simpler than a custom booking system. Current consultation buttons lead to Contact.
-3. **Confirm Fullscript's real URL.** The old site's supplement link pointed to Contact. The new wording says “Ask about Fullscript supplements” until a real destination is supplied.
-4. **Restore or replace a few old images.** Fourteen missing expert image variants were recovered from originals already present. Six file references remain unavailable, including two decorative emoji images and four content images. See `migration/image-recovery.json`. They are omitted rather than displayed as broken images.
-5. **Review old and test posts.** `test-post-for-press-page` is publicly published in the source and was retained. Decide whether it belongs in the journal or should be removed with a redirect.
-6. **Use links instead of feeds/widgets.** Music/video links and the Instagram profile need less maintenance than live social-feed plugins. Native content contains the exported media destinations.
-7. **Add analytics only if useful.** Cloudflare Web Analytics is a simple option; configure it in Cloudflare rather than bringing WordPress's tracking scripts across.
-8. **Improve image descriptions as you edit.** Legacy decorative images often had empty alt text. Cover-image alt text is editable in the CMS.
+- **Search:** the inherited WordPress search is not a full static-site search. Pagefind is a suitable later Astro-friendly replacement if search is needed.
+- **Instagram:** retain the existing profile link rather than maintaining a live feed plugin. The old feed's backend is not carried over.
+- **Booking/Fullscript:** supply the real destinations if separate booking or supplement ordering is intended. Some inherited links currently lead to Contact or are placeholders.
+- **Social icons:** several old header icons point to the homepage; confirm the real profiles before changing or removing them.
+- **Editing:** use Codex for small copy changes now. Add a CMS after choosing manageable content fields that preserve the existing design.
+- **Performance:** static hosting removes PHP/database work, but keeping the existing design also retains theme CSS/JavaScript. Any future replacement of those assets should preserve appearance and be measured separately.
+- **Content:** decide whether the published `test-post-for-press-page` belongs in the archive. It was retained rather than silently deleted.
 
-## Maintenance
-
-Routine: edit, publish, check the resulting Pages build. Occasionally review dependency updates and run `npm run check`. Keep the lockfile and a Git backup; no PHP, WordPress core, theme, plugins, or database updates are required.
+SEO/AIO recommendations are in `SEO-AIO-RECOVERY.md`.

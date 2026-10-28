@@ -81,7 +81,6 @@
 /cleanse-body-spring-simple-activities/ /blog/cleanse-body-spring-simple-activities/ 301
 /green-smoothie-guide-nutshell/ /blog/green-smoothie-guide-nutshell/ 301
 /mind-body-january/ /blog/mind-body-january/ 301
-/wp-content/uploads/* /media/:splat 301
 /recipes/* /blog/:splat 301
 /category/* /blog/ 301
 /inspiration/affects-of-physical-environment/ /blog/affects-of-physical-environment/ 301
@@ -100,3 +99,9 @@
 /scientific-wellness/rawjuvenation-community-making-the-change-dr-rhea-mehta/ /blog/rawjuvenation-community-making-the-change-dr-rhea-mehta/ 301
 /product-reviews/apollo-clinically-validated-wearable-device/ /blog/apollo-clinically-validated-wearable-device/ 301
 /global-smoothie-day/ /smoothie-movement/ 301
+
+# Preserve previously submitted WordPress sitemap URLs.
+/sitemap_index.xml /sitemap.xml 301
+/post-sitemap.xml /sitemap.xml 301
+/page-sitemap.xml /sitemap.xml 301
+/wp-sitemap.xml /sitemap.xml 301

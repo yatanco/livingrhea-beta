@@ -40,7 +40,11 @@ for (const path of htmlFiles) {
     )
       brokenAnchors.push({ path, id });
   }
-  if (/<script[^>]+src=["'][^"']*wp-|<link[^>]+href=["'][^"']*wp-/i.test(html))
+  if (
+    /(?:src|href)=["']https?:\/\/(?:www\.)?livingrhea\.com\/wp-(?:content|includes)/i.test(
+      html,
+    )
+  )
     throw new Error(`WordPress asset dependency in ${path}`);
   if (!$('link[rel="canonical"]').length)
     throw new Error(`Missing canonical: ${path}`);
