@@ -17,6 +17,7 @@ const plain = (html = "") => html.replace(/<[^>]+>/g, "").trim();
 ---
 
 <Base title="Blog">
+  <h1 class="screen-reader-text">Blog</h1>
   {/* Reproduces Salient's masonry blog archive markup so the theme CSS/JS
       (masonry layout, meta-overlaid cards) styles it. Links point at the Astro
       routes; images use the optimized/localized featured image. */}

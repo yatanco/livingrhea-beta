@@ -15,7 +15,7 @@ const page = entry.data;
   pageUrl={page.path}
   preloadImage="/wp-content/uploads/2025/08/DSC09720-548-Header-scaled.webp"
 >
-  <h1>{page.title}</h1>
+  <h1 class="screen-reader-text">{page.title}</h1>
   <PressPage page={page}>
     <Content />
   </PressPage>

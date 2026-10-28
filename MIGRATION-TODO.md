@@ -16,6 +16,13 @@
 
 Live inbox/guide delivery needs owner-controlled submissions. CMS is deferred. Production merge and DNS cutover remain pending review. See `LAUNCH-TODO.md`.
 
+## Open items confirmed during the 28 October 2026 audit
+
+- **Booking/Fullscript links.** "BOOK FREE CONSULTATION" and "ORDER YOUR FULLSCRIPT SUPPLEMENTS" (Coaching, Himalayan Breathwork) both link to `/contact/`. Confirmed on the live WordPress site, the Cloudways origin, and this migration alike — not a migration bug, but not a real destination either. Left pointed at `/contact/` intentionally. Needs the real scheduler link (Calendly/Acuity/etc.) and Fullscript store link from Rhea before this is a working conversion path.
+- **Fixed:** `/blog/page/2/` through `/blog/page/8/` (WordPress's paginated blog archive; this site renders all posts on one `/blog/` page) now redirect to `/blog/` instead of 404ing.
+- **Fixed:** Coaching, Himalayan Breathwork, Music, Press, and Smoothie Movement each had a visible, unstyled "Page Title" heading inserted above their content by the route template (`<h1>{page.title}</h1>` with no class) — a real visual regression from the original design, not just a duplicate-heading SEO issue. It's now `screen-reader-text` (the theme's own existing WordPress-standard hidden-heading class), so each page has exactly one real `<h1>` for accessibility/SEO with zero visual change. Home, Contact, and the Blog archive previously had zero `<h1>` at all; they now get the same hidden one.
+- Duplicate `id="services"` (Coaching) and `id="about"` (Home) remain, matching the live WordPress original — not introduced by the migration. Still worth a cleanup pass later if those anchors are ever linked to directly.
+
 ## Simple follow-up suggestions
 
 - **Search:** the inherited WordPress search is not a full static-site search. Pagefind is a suitable later Astro-friendly replacement if search is needed.

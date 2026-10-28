@@ -15,6 +15,7 @@ const page = entry.data;
   pageUrl={page.path}
   socialImage={page.hero?.socialImage || page.hero?.image.src}
 >
+  <h1 class="screen-reader-text">{page.title}</h1>
   <HomePage page={page}>
     <Content />
   </HomePage>
