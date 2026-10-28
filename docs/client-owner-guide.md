@@ -84,3 +84,5 @@ Source commit: `2c4e88039622fa384843b37907f6d36bb0f86e59`. GitHub validation (8 
 ## Update: 28 October 2026
 
 The automatic marketing popup has been removed. The newsletter and free-guide forms remain. Styles, fonts and form validation are now stored with the site, and the homepage hero uses Astro responsive images. See [the current implementation and editing guide](astro-native-assets.md).
+
+The disconnected Instagram section has been removed. Social destinations are maintained in `src/content/settings/social.json`. The intended long-term editing format is Markdown/MDX through Astro Content Collections; the current JSON/HTML export is a transition format, as described in [the content migration target](native-content-target.md).

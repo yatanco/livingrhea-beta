@@ -11,7 +11,7 @@ if (!source) throw new Error(`Missing local hero image: ${image}`);
   <div class="rhea-hero-stage">
     <div class="rhea-hero-slide" data-color-scheme="light" data-x-pos="left" data-y-pos="middle">
       <div class="slide-bg-wrap">
-        <Picture src={source} formats={['avif', 'webp']} widths={[480, 800, 1200, 1800]} sizes="100vw" alt="" loading="eager" fetchpriority="high" quality={50} class="rhea-hero-image" />
+        <Picture src={source} formats={['avif', 'webp']} widths={[480, 800, 1200, 1800]} sizes="100vw" alt="" priority quality={50} class="rhea-hero-image" />
         <div class="slide-bg-overlay" aria-hidden="true"></div>
       </div>
       <div class="container"><div class="content" set:html={content} /></div>

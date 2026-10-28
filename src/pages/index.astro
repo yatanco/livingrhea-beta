@@ -15,6 +15,10 @@ const slider = $('.nectar-slider-wrap').first();
 if (slider.find('.swiper-slide').length !== 1) throw new Error('Review the homepage hero: expected one slide.');
 const heroContent = slider.find('.content').html() || '';
 slider.replaceWith('<!--rhea-native-hero-->');
+const feed = $('#sb_instagram');
+if (feed.length !== 1) throw new Error('Expected one saved Instagram feed.');
+// Remove the entire disconnected feed row, including its fixed-height space.
+feed.closest('.wpb_row').remove();
 const homeHtml = $.html();
 
 ---
@@ -26,9 +30,5 @@ const homeHtml = $.html();
 
   socialImage={originalHero}
 >
-  {
-    /* TODO: the Instagram feed grid (MIGRATION-TODO #3) and the testimonials
-      slider (#5) are the two blocks worth rebuilding as real components. */
-  }
   <WpContent html={homeHtml}><HomeHero image={originalHero} content={heroContent} /></WpContent>
 </Base>
