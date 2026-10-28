@@ -18,8 +18,8 @@ if (!names.length) throw new Error('No unmigrated post exports. Markdown is now 
 await mkdir('migration/legacy-posts',{recursive:true});
 for (const file of names) {
   const post=JSON.parse(await readFile(`src/content/posts/${file}`,'utf8'));
-  const destinationDir=`src/content/posts/${post.slug}`;
-  const destination=`${destinationDir}/index.md`;
+  const destinationDir='src/content/posts';
+  const destination=`${destinationDir}/${post.slug}.md`;
   if (await access(destination).then(()=>true,()=>false)) throw new Error(`Refusing to overwrite ${destination}`);
   await mkdir(destinationDir,{recursive:true});
   let html=localize(post.content.rendered);
@@ -30,13 +30,13 @@ for (const file of names) {
   for(let pass=0;pass<4;pass++) $('span,b,strong,i,em').each((_,e)=>{if(!$(e).text().trim() && $(e).find('br').length) $(e).replaceWith($(e).html());});
   $('img').each((_,el)=>{
     const src=$(el).attr('src');
-    if (src?.startsWith('/wp-content/')) $(el).attr('src',`../../../assets/images${src.replace("/wp-content/uploads", "")}`);
+    if (src?.startsWith('/wp-content/')) $(el).attr('src',`../../assets/images${src.replace("/wp-content/uploads", "")}`);
   });
   // Copy the article's local image sources once. Astro handles optimization.
   for (const el of $('img').toArray()) {
     const src=$(el).attr('src');
-    if (!src?.startsWith('../../../assets/images/')) continue;
-    const path=src.replace('../../../assets/images','').replace('/wp-content/uploads','');
+    if (!src?.startsWith('../../assets/images/')) continue;
+    const path=src.replace('../../assets/images','').replace('/wp-content/uploads','');
     const target=join('src/assets/images',path);
     await mkdir(dirname(target),{recursive:true});
     await copyFile(join('public',path),target);
@@ -46,10 +46,10 @@ for (const file of names) {
   let featuredImage;
   if (featureUrl) {
     const ext=extname(featureUrl);
-    const target=`${destinationDir}/images/featured${ext}`;
+    const target=`${destinationDir}/images/${post.slug}${ext}`;
     await mkdir(dirname(target),{recursive:true});
     await copyFile(join('public/wp-content/uploads',featureUrl),target);
-    featuredImage=`images/featured${ext}`;
+    featuredImage=`images/${post.slug}${ext}`;
   }
   const data={title:plain(post.title.rendered),description:plain(post.excerpt?.rendered),pubDate:`${post.date_gmt}Z`,updatedDate:`${post.modified_gmt}Z`,author:post._embedded?.author?.[0]?.name || 'Rhea Mehta',categories:(post._embedded?.['wp:term']?.[0] || []).map(t=>({id:t.id,name:plain(t.name),slug:t.slug})),featuredImage,featuredImageAlt:media?.alt_text || '',legacyId:post.id,legacyUrl:post.link};
   let body=markdown.turndown($.html());

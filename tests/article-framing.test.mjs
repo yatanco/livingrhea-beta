@@ -4,7 +4,9 @@ import { readdir, readFile } from 'node:fs/promises';
 import { load } from 'cheerio';
 
 test('all articles retain one hero title and working discovery framing', async () => {
-  for (const slug of await readdir('src/content/posts')) {
+  for (const file of await readdir('src/content/posts')) {
+    if (!file.endsWith('.md')) continue;
+    const slug = file.slice(0, -3);
     const $ = load(await readFile(`dist/blog/${slug}/index.html`, 'utf8'));
     assert.equal($('.article-hero h1').length, 1, slug);
     assert.equal($('.article-breadcrumbs a[href="/blog/"]').length, 1, slug);

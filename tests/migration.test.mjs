@@ -8,9 +8,9 @@ const json = async (p) => JSON.parse(await readFile(p, "utf8"));
 test("every exported published post has a page and an intact title", async () => {
   const original = await json("migration/wordpress-posts.json");
   const active = original.filter((post) => post.slug !== "choice");
-  assert.equal((await readdir("src/content/posts")).length, active.length);
+  assert.equal((await readdir("src/content/posts")).filter((name) => name.endsWith(".md")).length, active.length);
   for (const post of active) {
-    const migrated = frontmatter(await readFile(`src/content/posts/${post.slug}/index.md`, "utf8"));
+    const migrated = frontmatter(await readFile(`src/content/posts/${post.slug}.md`, "utf8"));
     assert.equal(
       migrated.title,
       load(post.title.rendered).text().replace(/\s+/g, " ").trim(),

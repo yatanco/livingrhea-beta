@@ -44,8 +44,9 @@ test('all authoritative content records are Markdown, with no builder HTML',asyn
     assert.ok(parse(source.match(/^---\n([\s\S]*?)\n---/)[1]).title);
     assert.doesNotMatch(source, /wpb_row|vc_column|wpb_wrapper|content\.rendered/);
   }
-  for(const slug of await readdir('src/content/posts')){
-    const source=await readFile(`src/content/posts/${slug}/index.md`,'utf8');
+  for(const name of await readdir('src/content/posts')){
+    if (!name.endsWith('.md')) continue;
+    const source=await readFile(`src/content/posts/${name}`,'utf8');
     assert.ok(parse(source.match(/^---\n([\s\S]*?)\n---/)[1]).title);
     assert.doesNotMatch(source, /wpb_row|vc_column|wpb_wrapper|content\.rendered/);
     count++;

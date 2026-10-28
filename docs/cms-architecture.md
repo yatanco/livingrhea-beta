@@ -124,11 +124,12 @@ production domain) will let GitHub collaborators sign in.
   would have blanked the page body on the next save). The real fix is
   reshaping page content into labeled per-section fields — tracked in
   `docs/native-content-target.md`, not done here.
-- Posts use Astro/Sveltia page bundles: `src/content/posts/<slug>/index.md`
-  with each featured image in that post's `images/` folder. The CMS collection
-  uses `path: "{{slug}}/index"`, `media_folder: images`, and
-  `public_folder: images`. This keeps the image visible in the editor and
-  lets Astro's `image()` schema optimize it at build time. Inline article
-  images remain in the shared `src/assets/images/` library. The old public
-  image URL is kept in the hidden `legacyFeaturedImage` field for social-share
-  fallback and compatibility.
+- Blog posts are flat Markdown entries at `src/content/posts/<slug>.md` so
+  Sveltia can list them reliably. Featured source images are stored in the
+  collection's `src/content/posts/images/` media folder. The collection uses
+  `media_folder: images` and `public_folder: images`; frontmatter paths such as
+  `images/my-post.webp` resolve through Astro's `image()` schema for build-time
+  optimization and give Sveltia a matching internal image path for previews.
+  Inline article images remain in the shared `src/assets/images/` library.
+  The old public image URL is kept in the hidden `legacyFeaturedImage` field
+  for social-share fallback and compatibility.

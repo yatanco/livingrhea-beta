@@ -30,7 +30,6 @@ collections:
     label: Blog posts
     label_singular: Post
     folder: src/content/posts
-    path: "{{slug}}/index"
     extension: md
     format: frontmatter
     media_folder: images
