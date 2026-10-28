@@ -24,7 +24,7 @@ categories:
     slug: product-reviews
   - name: Recipes
     slug: recipes
-featuredImage: ../../assets/migrated/wp-content/uploads/2017/01/blendtec-e1483757571987.webp
+featuredImage: ../../assets/images/2017/01/blendtec-e1483757571987.webp
 featuredImageAlt: bledntec blender
 legacyId: 4999
 legacyUrl: https://livingrhea.com/blendtec-blender-product-review/

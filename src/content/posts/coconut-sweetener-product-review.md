@@ -27,7 +27,7 @@ categories:
     slug: product-reviews
   - name: Recipes
     slug: recipes
-featuredImage: ../../assets/migrated/wp-content/uploads/2016/09/coconutsugar.webp
+featuredImage: ../../assets/images/2016/09/coconutsugar.webp
 featuredImageAlt: ""
 legacyId: 5078
 legacyUrl: https://livingrhea.com/coconut-sweetener-product-review/

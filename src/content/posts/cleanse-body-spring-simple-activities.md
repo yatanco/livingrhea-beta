@@ -25,7 +25,7 @@ author: Dr Rhea
 categories:
   - name: Scientific Wellness
     slug: scientific-wellness
-featuredImage: ../../assets/migrated/wp-content/uploads/2014/08/matt_jenkins-2678.webp
+featuredImage: ../../assets/images/2014/08/matt_jenkins-2678.webp
 featuredImageAlt: ""
 legacyId: 1231
 legacyUrl: https://livingrhea.com/cleanse-body-spring-simple-activities/

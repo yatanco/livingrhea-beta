@@ -25,7 +25,7 @@ author: Dr Rhea
 categories:
   - name: Scientific Wellness
     slug: scientific-wellness
-featuredImage: ../../assets/migrated/wp-content/uploads/2019/09/room-mt8G98XVxlg-unsplash.webp
+featuredImage: ../../assets/images/2019/09/room-mt8G98XVxlg-unsplash.webp
 featuredImageAlt: ""
 legacyId: 5898
 legacyUrl: https://livingrhea.com/future-of-healthcare-with-technology/

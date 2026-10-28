@@ -25,7 +25,7 @@ author: Dr Rhea
 categories:
   - name: Recipes
     slug: recipes
-featuredImage: ../../assets/migrated/wp-content/uploads/2016/09/mushroom-e1484767332603.webp
+featuredImage: ../../assets/images/2016/09/mushroom-e1484767332603.webp
 featuredImageAlt: ""
 legacyId: 5029
 legacyUrl: https://livingrhea.com/mushroom-soup/

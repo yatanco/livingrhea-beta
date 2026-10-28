@@ -24,7 +24,7 @@ author: Dr Rhea
 categories:
   - name: Recipes
     slug: recipes
-featuredImage: ../../assets/migrated/wp-content/uploads/2016/10/truffles.webp
+featuredImage: ../../assets/images/2016/10/truffles.webp
 featuredImageAlt: faux fudgey truffles living rhea
 legacyId: 5033
 legacyUrl: https://livingrhea.com/faux-fudgey-truffles/

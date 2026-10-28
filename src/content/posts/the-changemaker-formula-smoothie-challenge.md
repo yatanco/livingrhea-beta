@@ -24,7 +24,7 @@ author: Dr Rhea
 categories:
   - name: Scientific Wellness
     slug: scientific-wellness
-featuredImage: ../../assets/migrated/wp-content/uploads/2025/08/042_Rhea_35294.webp
+featuredImage: ../../assets/images/2025/08/042_Rhea_35294.webp
 featuredImageAlt: ""
 legacyId: 8780
 legacyUrl: https://livingrhea.com/the-changemaker-formula-smoothie-challenge/

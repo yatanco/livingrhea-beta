@@ -23,7 +23,7 @@ categories:
     slug: product-reviews
   - name: Recipes
     slug: recipes
-featuredImage: ../../assets/migrated/wp-content/uploads/2020/05/hempprotein-e1485348581739.webp
+featuredImage: ../../assets/images/2020/05/hempprotein-e1485348581739.webp
 featuredImageAlt: ""
 legacyId: 5121
 legacyUrl: https://livingrhea.com/hemp-protein-powder-review/

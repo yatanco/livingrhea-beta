@@ -25,7 +25,7 @@ author: Dr Rhea
 categories:
   - name: Scientific Wellness
     slug: scientific-wellness
-featuredImage: ../../assets/migrated/wp-content/uploads/2014/03/10day-Juice-Cleanse.webp
+featuredImage: ../../assets/images/2014/03/10day-Juice-Cleanse.webp
 featuredImageAlt: ""
 legacyId: 1237
 legacyUrl: https://livingrhea.com/mind-body-january/

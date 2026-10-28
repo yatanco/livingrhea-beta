@@ -21,7 +21,7 @@ categories:
     slug: recipes
   - name: Scientific Wellness
     slug: scientific-wellness
-featuredImage: ../../assets/migrated/wp-content/uploads/2015/08/changemaker-e1485346365183.webp
+featuredImage: ../../assets/images/2015/08/changemaker-e1485346365183.webp
 featuredImageAlt: ""
 legacyId: 1834
 legacyUrl: https://livingrhea.com/detox-for-entrepreneurs/

@@ -25,7 +25,7 @@ author: Dr Rhea
 categories:
   - name: Scientific Wellness
     slug: scientific-wellness
-featuredImage: ../../assets/migrated/wp-content/uploads/2019/09/team7.webp
+featuredImage: ../../assets/images/2019/09/team7.webp
 featuredImageAlt: ""
 legacyId: 8777
 legacyUrl: https://livingrhea.com/secrets-of-healthy-living/

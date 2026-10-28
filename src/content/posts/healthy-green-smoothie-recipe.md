@@ -28,7 +28,7 @@ categories:
     slug: recipes
   - name: Scientific Wellness
     slug: scientific-wellness
-featuredImage: ../../assets/migrated/wp-content/uploads/2015/01/smoothies2.webp
+featuredImage: ../../assets/images/2015/01/smoothies2.webp
 featuredImageAlt: ""
 legacyId: 1621
 legacyUrl: https://livingrhea.com/healthy-green-smoothie-recipe/

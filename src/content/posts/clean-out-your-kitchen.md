@@ -24,7 +24,7 @@ author: Dr Rhea
 categories:
   - name: Scientific Wellness
     slug: scientific-wellness
-featuredImage: ../../assets/migrated/wp-content/uploads/2016/01/kitchen-e1485345393993.webp
+featuredImage: ../../assets/images/2016/01/kitchen-e1485345393993.webp
 featuredImageAlt: ""
 legacyId: 1865
 legacyUrl: https://livingrhea.com/clean-out-your-kitchen/

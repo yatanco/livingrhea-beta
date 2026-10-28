@@ -25,7 +25,7 @@ author: Dr Rhea
 categories:
   - name: Recipes
     slug: recipes
-featuredImage: ../../assets/migrated/wp-content/uploads/2016/11/lassi-e1484767015963.webp
+featuredImage: ../../assets/images/2016/11/lassi-e1484767015963.webp
 featuredImageAlt: ""
 legacyId: 5038
 legacyUrl: https://livingrhea.com/mango-tango-faux-lassi/

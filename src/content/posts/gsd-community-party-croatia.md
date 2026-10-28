@@ -23,14 +23,14 @@ author: Dr Rhea
 categories:
   - name: Blog
     slug: blog
-featuredImage: ../../assets/migrated/wp-content/uploads/2025/06/gsd-croatia.webp
+featuredImage: ../../assets/images/2025/06/gsd-croatia.webp
 featuredImageAlt: GSD COMMUNITY PARTY CROATIA!
 legacyId: 6600
 legacyUrl: https://livingrhea.com/gsd-community-party-croatia/
 legacyFeaturedImage: /wp-content/uploads/2025/06/gsd-croatia.webp
 ---
 
-![GSD COMMUNITY PARTY CROATIA!](../../assets/migrated/wp-content/uploads/2025/06/gsd-croatia-300x225.webp)
+![GSD COMMUNITY PARTY CROATIA!](../../assets/images/2025/06/gsd-croatia-300x225.webp)
 
 GSD COMMUNITY PARTY CROATIA!
 

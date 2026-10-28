@@ -23,7 +23,7 @@ author: Dr Rhea
 categories:
   - name: Scientific Wellness
     slug: scientific-wellness
-featuredImage: ../../assets/migrated/wp-content/uploads/2015/06/Eucalyptus-Oil-web1-300x231-1.webp
+featuredImage: ../../assets/images/2015/06/Eucalyptus-Oil-web1-300x231-1.webp
 featuredImageAlt: Natural Deodorant Experiment - Living Rhea
 legacyId: 1787
 legacyUrl: https://livingrhea.com/naturaldeodorantexperiment/

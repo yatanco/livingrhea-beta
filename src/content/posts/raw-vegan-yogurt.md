@@ -25,7 +25,7 @@ author: Dr Rhea
 categories:
   - name: Recipes
     slug: recipes
-featuredImage: ../../assets/migrated/wp-content/uploads/2017/01/yogurt-e1484769291350.webp
+featuredImage: ../../assets/images/2017/01/yogurt-e1484769291350.webp
 featuredImageAlt: ""
 legacyId: 5040
 legacyUrl: https://livingrhea.com/raw-vegan-yogurt/

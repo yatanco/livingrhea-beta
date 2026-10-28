@@ -7,8 +7,8 @@ no separate password to remember, no WordPress-style login.
 ## What you can do today
 
 - **Blog posts**: write a new post, edit an existing one, upload/replace its
-  photo (it's automatically optimized the same way every existing post's
-  photo is — you don't need to resize or compress anything first), set the
+  photo (the image field shows the repository images and accepts uploads;
+  Astro optimizes the selected source when the site builds), set the
   publish date, mark it a draft (keeps it off the live site until you're
   ready), and set categories.
 - **The 8 main pages** (Home, About, Coaching, Himalayan Breathwork, Music,

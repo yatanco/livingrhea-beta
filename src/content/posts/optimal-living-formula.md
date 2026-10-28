@@ -25,7 +25,7 @@ categories:
     slug: publications-interviews
   - name: Scientific Wellness
     slug: scientific-wellness
-featuredImage: ../../assets/migrated/wp-content/uploads/2014/04/RHEA_3.webp
+featuredImage: ../../assets/images/2014/04/RHEA_3.webp
 featuredImageAlt: ""
 legacyId: 1849
 legacyUrl: https://livingrhea.com/optimal-living-formula/

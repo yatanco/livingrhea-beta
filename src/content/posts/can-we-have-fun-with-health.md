@@ -24,7 +24,7 @@ author: Dr Rhea
 categories:
   - name: Scientific Wellness
     slug: scientific-wellness
-featuredImage: ../../assets/migrated/wp-content/uploads/2015/11/funwithhealth-e1485346009304.webp
+featuredImage: ../../assets/images/2015/11/funwithhealth-e1485346009304.webp
 featuredImageAlt: ""
 legacyId: 1811
 legacyUrl: https://livingrhea.com/can-we-have-fun-with-health/

@@ -26,7 +26,7 @@ author: Dr Rhea
 categories:
   - name: Scientific Wellness
     slug: scientific-wellness
-featuredImage: ../../assets/migrated/wp-content/uploads/2020/09/physical-environment.webp
+featuredImage: ../../assets/images/2020/09/physical-environment.webp
 featuredImageAlt: ""
 legacyId: 5895
 legacyUrl: https://livingrhea.com/affects-of-physical-environment/

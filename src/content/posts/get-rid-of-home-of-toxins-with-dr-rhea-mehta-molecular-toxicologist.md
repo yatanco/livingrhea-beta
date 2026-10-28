@@ -25,7 +25,7 @@ author: Dr Rhea
 categories:
   - name: Scientific Wellness
     slug: scientific-wellness
-featuredImage: ../../assets/migrated/wp-content/uploads/2020/07/Dr-Rhea-Mehta-Molecular-Toxicologist-scaled-1-1536x1152-1.webp
+featuredImage: ../../assets/images/2020/07/Dr-Rhea-Mehta-Molecular-Toxicologist-scaled-1-1536x1152-1.webp
 featuredImageAlt: ""
 legacyId: 5825
 legacyUrl: https://livingrhea.com/get-rid-of-home-of-toxins-with-dr-rhea-mehta-molecular-toxicologist/

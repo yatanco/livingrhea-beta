@@ -25,7 +25,7 @@ author: Dr Rhea
 categories:
   - name: Scientific Wellness
     slug: scientific-wellness
-featuredImage: ../../assets/migrated/wp-content/uploads/2020/08/RAWjuvenation-Community-1-scaled-1-1536x1024-1.webp
+featuredImage: ../../assets/images/2020/08/RAWjuvenation-Community-1-scaled-1-1536x1024-1.webp
 featuredImageAlt: ""
 legacyId: 5830
 legacyUrl: https://livingrhea.com/rawjuvenation-community-making-the-change-dr-rhea-mehta/

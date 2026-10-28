@@ -24,7 +24,7 @@ author: Dr Rhea
 categories:
   - name: Poetic Reflections
     slug: poetic-reflections
-featuredImage: ../../assets/migrated/wp-content/uploads/2014/10/20140810-IMG_8399.webp
+featuredImage: ../../assets/images/2014/10/20140810-IMG_8399.webp
 featuredImageAlt: ""
 legacyId: 1463
 legacyUrl: https://livingrhea.com/with-love-and-gratitude/

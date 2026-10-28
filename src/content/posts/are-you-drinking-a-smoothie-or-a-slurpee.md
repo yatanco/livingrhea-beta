@@ -27,7 +27,7 @@ author: Dr Rhea
 categories:
   - name: Scientific Wellness
     slug: scientific-wellness
-featuredImage: ../../assets/migrated/wp-content/uploads/2016/09/GlobalSmoothieDay_2-1.webp
+featuredImage: ../../assets/images/2016/09/GlobalSmoothieDay_2-1.webp
 featuredImageAlt: ""
 legacyId: 2061
 legacyUrl: https://livingrhea.com/are-you-drinking-a-smoothie-or-a-slurpee/

@@ -24,7 +24,7 @@ author: Dr Rhea
 categories:
   - name: Recipes
     slug: recipes
-featuredImage: ../../assets/migrated/wp-content/uploads/2016/12/chai.webp
+featuredImage: ../../assets/images/2016/12/chai.webp
 featuredImageAlt: foffee_living rhea
 legacyId: 5031
 legacyUrl: https://livingrhea.com/foffee-my-high-energy-coffee-substitute-2/

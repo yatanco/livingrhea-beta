@@ -27,7 +27,7 @@ categories:
     slug: product-reviews
   - name: Recipes
     slug: recipes
-featuredImage: ../../assets/migrated/wp-content/uploads/2017/01/spirooli-e1483756016529.webp
+featuredImage: ../../assets/images/2017/01/spirooli-e1483756016529.webp
 featuredImageAlt: Veggie Spiralizer
 legacyId: 4988
 legacyUrl: https://livingrhea.com/vegetable-spiralizer-product-review/

@@ -24,7 +24,7 @@ author: Dr Rhea
 categories:
   - name: Scientific Wellness
     slug: scientific-wellness
-featuredImage: ../../assets/migrated/wp-content/uploads/2015/12/game-1.webp
+featuredImage: ../../assets/images/2015/12/game-1.webp
 featuredImageAlt: ""
 legacyId: 1829
 legacyUrl: https://livingrhea.com/gamify-health/

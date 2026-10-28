@@ -24,7 +24,7 @@ author: Dr Rhea
 categories:
   - name: Scientific Wellness
     slug: scientific-wellness
-featuredImage: ../../assets/migrated/wp-content/uploads/2016/10/productivity2-e1485213928621.webp
+featuredImage: ../../assets/images/2016/10/productivity2-e1485213928621.webp
 featuredImageAlt: ""
 legacyId: 2096
 legacyUrl: https://livingrhea.com/hack-your-productivity-high-fat-diet/

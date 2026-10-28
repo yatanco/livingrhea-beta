@@ -28,7 +28,7 @@ categories:
     slug: product-reviews
   - name: Scientific Wellness
     slug: scientific-wellness
-featuredImage: ../../assets/migrated/wp-content/uploads/2020/11/Apollo-2.webp
+featuredImage: ../../assets/images/2020/11/Apollo-2.webp
 featuredImageAlt: ""
 legacyId: 8779
 legacyUrl: https://livingrhea.com/apollo-clinically-validated-wearable-device/

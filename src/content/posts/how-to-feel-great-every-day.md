@@ -23,7 +23,7 @@ author: Dr Rhea
 categories:
   - name: Scientific Wellness
     slug: scientific-wellness
-featuredImage: ../../assets/migrated/wp-content/uploads/2016/10/feelbest.webp
+featuredImage: ../../assets/images/2016/10/feelbest.webp
 featuredImageAlt: ""
 legacyId: 2084
 legacyUrl: https://livingrhea.com/how-to-feel-great-every-day/

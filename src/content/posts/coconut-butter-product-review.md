@@ -28,7 +28,7 @@ categories:
     slug: product-reviews
   - name: Recipes
     slug: recipes
-featuredImage: ../../assets/migrated/wp-content/uploads/2017/01/coconutbutter-e1484772259502.webp
+featuredImage: ../../assets/images/2017/01/coconutbutter-e1484772259502.webp
 featuredImageAlt: ""
 legacyId: 5096
 legacyUrl: https://livingrhea.com/coconut-butter-product-review/

@@ -28,7 +28,7 @@ categories:
     slug: product-reviews
   - name: Recipes
     slug: recipes
-featuredImage: ../../assets/migrated/wp-content/uploads/2016/11/2690-635624537148080000_Excalibur_9_Tray_Dehydrator_With_Timer_Black_Scale-ScaleNoWhiteSpace_w1252_h904.webp
+featuredImage: ../../assets/images/2016/11/2690-635624537148080000_Excalibur_9_Tray_Dehydrator_With_Timer_Black_Scale-ScaleNoWhiteSpace_w1252_h904.webp
 featuredImageAlt: Excalibur Dehydrator Living Rhea
 legacyId: 4997
 legacyUrl: https://livingrhea.com/excalibur-dehydrator-product-review/

@@ -19,7 +19,7 @@ author: Dr Rhea
 categories:
   - name: Scientific Wellness
     slug: scientific-wellness
-featuredImage: ../../assets/migrated/wp-content/uploads/2016/08/option1.webp
+featuredImage: ../../assets/images/2016/08/option1.webp
 featuredImageAlt: ""
 legacyId: 2033
 legacyUrl: https://livingrhea.com/the-trick-to-stop-your-gut-bacteria-from-eating-you/

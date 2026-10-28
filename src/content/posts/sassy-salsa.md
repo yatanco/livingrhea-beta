@@ -25,7 +25,7 @@ author: Dr Rhea
 categories:
   - name: Recipes
     slug: recipes
-featuredImage: ../../assets/migrated/wp-content/uploads/2017/01/salsa-e1484767145305.webp
+featuredImage: ../../assets/images/2017/01/salsa-e1484767145305.webp
 featuredImageAlt: ""
 legacyId: 5044
 legacyUrl: https://livingrhea.com/sassy-salsa/

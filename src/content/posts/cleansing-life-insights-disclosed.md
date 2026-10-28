@@ -24,7 +24,7 @@ author: Dr Rhea
 categories:
   - name: Scientific Wellness
     slug: scientific-wellness
-featuredImage: ../../assets/migrated/wp-content/uploads/2014/08/Cleanse-Me-Lemonade-FI.webp
+featuredImage: ../../assets/images/2014/08/Cleanse-Me-Lemonade-FI.webp
 featuredImageAlt: ""
 legacyId: 1221
 legacyUrl: https://livingrhea.com/cleansing-life-insights-disclosed/

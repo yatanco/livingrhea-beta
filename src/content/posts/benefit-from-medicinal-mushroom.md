@@ -27,7 +27,7 @@ author: Dr Rhea
 categories:
   - name: Scientific Wellness
     slug: scientific-wellness
-featuredImage: ../../assets/migrated/wp-content/uploads/2020/11/medicinal-mashroom.webp
+featuredImage: ../../assets/images/2020/11/medicinal-mashroom.webp
 featuredImageAlt: ""
 legacyId: 6197
 legacyUrl: https://livingrhea.com/benefit-from-medicinal-mushroom/

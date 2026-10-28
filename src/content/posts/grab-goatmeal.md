@@ -25,7 +25,7 @@ author: Dr Rhea
 categories:
   - name: Recipes
     slug: recipes
-featuredImage: ../../assets/migrated/wp-content/uploads/2016/12/oatmeal.webp
+featuredImage: ../../assets/images/2016/12/oatmeal.webp
 featuredImageAlt: ""
 legacyId: 5052
 legacyUrl: https://livingrhea.com/grab-goatmeal/

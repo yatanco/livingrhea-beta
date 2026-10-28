@@ -28,7 +28,7 @@ categories:
     slug: product-reviews
   - name: Recipes
     slug: recipes
-featuredImage: ../../assets/migrated/wp-content/uploads/2017/01/almond-butter-e1484770916754.webp
+featuredImage: ../../assets/images/2017/01/almond-butter-e1484770916754.webp
 featuredImageAlt: nut butter
 legacyId: 5082
 legacyUrl: https://livingrhea.com/nut-seed-butters-product-review/

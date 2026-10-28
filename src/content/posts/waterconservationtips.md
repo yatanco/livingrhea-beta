@@ -23,7 +23,7 @@ author: Dr Rhea
 categories:
   - name: Scientific Wellness
     slug: scientific-wellness
-featuredImage: ../../assets/migrated/wp-content/uploads/2015/08/waterconservation-1-e1485346517885.webp
+featuredImage: ../../assets/images/2015/08/waterconservation-1-e1485346517885.webp
 featuredImageAlt: ""
 legacyId: 1771
 legacyUrl: https://livingrhea.com/waterconservationtips/

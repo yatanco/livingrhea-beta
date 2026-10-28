@@ -24,7 +24,7 @@ author: Dr Rhea
 categories:
   - name: Scientific Wellness
     slug: scientific-wellness
-featuredImage: ../../assets/migrated/wp-content/uploads/2015/02/20140810-IMG_7630.webp
+featuredImage: ../../assets/images/2015/02/20140810-IMG_7630.webp
 featuredImageAlt: living rhea
 legacyId: 1522
 legacyUrl: https://livingrhea.com/finding-your-flow/

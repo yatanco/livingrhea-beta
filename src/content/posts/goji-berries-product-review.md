@@ -27,7 +27,7 @@ categories:
     slug: product-reviews
   - name: Recipes
     slug: recipes
-featuredImage: ../../assets/migrated/wp-content/uploads/2016/06/goji-1-1.webp
+featuredImage: ../../assets/images/2016/06/goji-1-1.webp
 featuredImageAlt: ""
 legacyId: 5101
 legacyUrl: https://livingrhea.com/goji-berries-product-review/

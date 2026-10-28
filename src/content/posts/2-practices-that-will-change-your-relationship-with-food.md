@@ -24,7 +24,7 @@ author: Dr Rhea
 categories:
   - name: Scientific Wellness
     slug: scientific-wellness
-featuredImage: ../../assets/migrated/wp-content/uploads/2016/08/2-PRACTICES-THAT-WILL-CHANGE-YOUR-RELATIONSHIP-WITH-FOOD.webp
+featuredImage: ../../assets/images/2016/08/2-PRACTICES-THAT-WILL-CHANGE-YOUR-RELATIONSHIP-WITH-FOOD.webp
 featuredImageAlt: ""
 legacyId: 2011
 legacyUrl: https://livingrhea.com/2-practices-that-will-change-your-relationship-with-food/

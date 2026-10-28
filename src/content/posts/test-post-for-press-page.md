@@ -26,14 +26,14 @@ author: Dr Rhea
 categories:
   - name: Blog
     slug: blog
-featuredImage: ../../assets/migrated/wp-content/uploads/2025/06/gsd-kenya.webp
+featuredImage: ../../assets/images/2025/06/gsd-kenya.webp
 featuredImageAlt: GSD COMMUNITY PARTY KENYA!
 legacyId: 6592
 legacyUrl: https://livingrhea.com/test-post-for-press-page/
 legacyFeaturedImage: /wp-content/uploads/2025/06/gsd-kenya.webp
 ---
 
-![GSD COMMUNITY PARTY KENYA!](../../assets/migrated/wp-content/uploads/2025/06/gsd-kenya-300x225.webp)
+![GSD COMMUNITY PARTY KENYA!](../../assets/images/2025/06/gsd-kenya-300x225.webp)
 
 GSD COMMUNITY PARTY KENYA!
 

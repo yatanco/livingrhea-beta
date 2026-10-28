@@ -27,7 +27,7 @@ author: Dr Rhea
 categories:
   - name: Scientific Wellness
     slug: scientific-wellness
-featuredImage: ../../assets/migrated/wp-content/uploads/2020/10/iin-1.webp
+featuredImage: ../../assets/images/2020/10/iin-1.webp
 featuredImageAlt: ""
 legacyId: 8778
 legacyUrl: https://livingrhea.com/integrative-health-coaches-role/

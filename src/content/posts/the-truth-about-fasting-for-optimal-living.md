@@ -25,7 +25,7 @@ author: Dr Rhea
 categories:
   - name: Scientific Wellness
     slug: scientific-wellness
-featuredImage: ../../assets/migrated/wp-content/uploads/2016/07/fasting-e1485214232732.webp
+featuredImage: ../../assets/images/2016/07/fasting-e1485214232732.webp
 featuredImageAlt: ""
 legacyId: 1980
 legacyUrl: https://livingrhea.com/the-truth-about-fasting-for-optimal-living/

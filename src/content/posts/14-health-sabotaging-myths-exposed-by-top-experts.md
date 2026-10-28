@@ -28,7 +28,7 @@ categories:
     slug: publications-interviews
   - name: Scientific Wellness
     slug: scientific-wellness
-featuredImage: ../../assets/migrated/wp-content/uploads/2016/04/diet-e1485345264670.webp
+featuredImage: ../../assets/images/2016/04/diet-e1485345264670.webp
 featuredImageAlt: ""
 legacyId: 1930
 legacyUrl: https://livingrhea.com/14-health-sabotaging-myths-exposed-by-top-experts/
@@ -69,7 +69,7 @@ If you feel shackled to a life of confusion and mediocrity when it comes to heal
 
 Let’s begin.
 
-## [![JJvirgin](../../assets/migrated/wp-content/uploads/2016/04/1-JJvirgin.jpg)](/wp-content/uploads/2016/04/1-JJvirgin.jpg) 1.) JJ Virgin — [JJ Virgin Website](http://jjvirgin.com/ "JJ Virgin")
+## [![JJvirgin](../../assets/images/2016/04/1-JJvirgin.jpg)](/wp-content/uploads/2016/04/1-JJvirgin.jpg) 1.) JJ Virgin — [JJ Virgin Website](http://jjvirgin.com/ "JJ Virgin")
 
 > “The so-called healthy foods that come loaded with sneaky sugar and often create food intolerances. I’m talking about fruit-on-the-bottom yogurt, breakfast cereals, and less-obvious culprits like balsamic vinegar and marinara sauce. We have become better aware of things like coffee drinks, which a recent report found can contain up to 25 teaspoons of sugar, but people are less aware that sneaky sugars in so-called healthy foods can deliver a massive sugar dose that wrecks havoc on our waistlines and overall health…”
 
@@ -85,7 +85,7 @@ If you notice your energy and happiness plummet throughout the day, there’s a 
 
 Otherwise, try swapping the sugary food with something high in healthy fat; like avocado, coconut meat, or a tablespoon of unsweetened almond butter. High fat foods can cut cravings for sugar while satiating the body.
 
-## [![Neghar Fonooni](../../assets/migrated/wp-content/uploads/2016/04/2-Negharv3.jpg)](/wp-content/uploads/2016/04/2-Negharv3.jpg) 2.) Neghar Fonooni — [Neghar Fonooni Website](http://www.negharfonooni.com/ "Neghar Fonooni")
+## [![Neghar Fonooni](../../assets/images/2016/04/2-Negharv3.jpg)](/wp-content/uploads/2016/04/2-Negharv3.jpg) 2.) Neghar Fonooni — [Neghar Fonooni Website](http://www.negharfonooni.com/ "Neghar Fonooni")
 
 > “I would say the thing I’d want the mainstream world to know is that you have more to offer the world than your body fat composition. I work with women all over the world who are struggling to reclaim their worthiness, because as a culture, we’ve tied our worthiness as women so strongly to our appearance…”
 
@@ -97,7 +97,7 @@ Thanks to the media’s distorted and superficial image of health, we’ve booke
 
 When you see it, read it out loud. I kept mine on my mirror for 2 years until the words naturally found their way into my conscious: “I am a heart-centered jedi warrior goddess of truth.” The other one I learned at an event I attended last year in Croatia called A-fest: “I am enough.”
 
-## [![Robb](../../assets/migrated/wp-content/uploads/2016/04/3-Robb-Wolf.jpg)](/wp-content/uploads/2016/04/3-Robb-Wolf.jpg) 3.) Robb Wolf — [Robb Wolf Website](http://robbwolf.com/)
+## [![Robb](../../assets/images/2016/04/3-Robb-Wolf.jpg)](/wp-content/uploads/2016/04/3-Robb-Wolf.jpg) 3.) Robb Wolf — [Robb Wolf Website](http://robbwolf.com/)
 
 > “The most sabotaging health myth I know of is that you can get by on less than 7-9 hours of sleep per night. Sleep is likely the most important component of health, and lack of sleep will sabotage health, performance, longevity, and weight loss more quickly than just about anything I can think of.”
 
@@ -111,7 +111,7 @@ Sleep offers us many benefits; one of them being the fasting state (not eating a
 
 If you absolutely must use technology at night, buy some blue light goggles. This should normalize your circadian rhythm and get you back into a healthy flow.
 
-## [![Gunnar peterson](../../assets/migrated/wp-content/uploads/2016/04/4-Gunnarpeterson.jpg)](/wp-content/uploads/2016/04/4-Gunnarpeterson.jpg) 4.) Gunnar Peterson — [Gunnar Peterson Website](http://gunnarpeterson.com/)
+## [![Gunnar peterson](../../assets/images/2016/04/4-Gunnarpeterson.jpg)](/wp-content/uploads/2016/04/4-Gunnarpeterson.jpg) 4.) Gunnar Peterson — [Gunnar Peterson Website](http://gunnarpeterson.com/)
 
 > “Lifting weights will make you big.”
 
@@ -121,7 +121,7 @@ For women, it’s important that we know our muscles cannot be compared to men s
 
 **My advice**: *Focus on its many benefits, like improved metabolism, body awareness, endurance and mental strength.*
 
-## [![mark](../../assets/migrated/wp-content/uploads/2016/04/4-markfisher.jpg)](/wp-content/uploads/2016/04/4-markfisher.jpg) 5.) Mark Fisher — [Mark Fisher Fitness](http://markfisherfitness.com/)
+## [![mark](../../assets/images/2016/04/4-markfisher.jpg)](/wp-content/uploads/2016/04/4-markfisher.jpg) 5.) Mark Fisher — [Mark Fisher Fitness](http://markfisherfitness.com/)
 
 > “The most sabotaging health myth I see particularly in regards to fitness is that ‘more is better.’ For instance, the goal is to do an appropriate amount of training at an appropriate intensity for a given goal, not as much and as hard as possible…”
 
@@ -133,7 +133,7 @@ We all have varying needs and susceptibilities dependent on our own lifestyles, 
 
 Work on building it into your day as a new habit before moving on to your next goal. Once you have a few small wins under your belt, celebrate them, and then give yourself permission to graduate to a more challenging goal that seems right for you. Keyword: YOU (not “them”).
 
-## [![darya](../../assets/migrated/wp-content/uploads/2016/04/6-darya-rose.jpg)](/wp-content/uploads/2016/04/6-darya-rose.jpg) 6.) Darya Rose — [Summer Tomato](http://summertomato.com/ "Darya Rose")
+## [![darya](../../assets/images/2016/04/6-darya-rose.jpg)](/wp-content/uploads/2016/04/6-darya-rose.jpg) 6.) Darya Rose — [Summer Tomato](http://summertomato.com/ "Darya Rose")
 
 > “The greatest health myth I encounter every day is that you need to sacrifice and deprive yourself to be healthy, and that if you had more willpower to do this, you would succeed. Nothing could be further from the truth. Instead of depriving yourself to be healthy, you must find healthy activities you enjoy so they can become habits, which by definition, don’t require willpower…”
 
@@ -147,7 +147,7 @@ This uncomfortable process can prove to be transformative. Intermittent fasting 
 
 So while I agree that we must find activities and practices that we love in order to build them into daily sustainable habits, I do believe in the power of a small window of discomfort in opening up new channels to success and happiness.
 
-## [![kathryn](../../assets/migrated/wp-content/uploads/2016/04/7-kathrynbudig.jpg)](/wp-content/uploads/2016/04/7-kathrynbudig.jpg) 7.) Kathryn Budig — [Kathryn Budig Website](http://kathrynbudig.com/)
+## [![kathryn](../../assets/images/2016/04/7-kathrynbudig.jpg)](/wp-content/uploads/2016/04/7-kathrynbudig.jpg) 7.) Kathryn Budig — [Kathryn Budig Website](http://kathrynbudig.com/)
 
 > “I wish people would understand that there is no single road or fix to good health. Take the time to find out what style of nutrition and exercise fits YOUR body and needs, and not necessarily what is trending or expected.”
 
@@ -157,7 +157,7 @@ However, given the current research and risk factors for chronic disease, there 
 
 **My advice**: *Find a buddy or accountability partner to support you on your individual journey (but remember to always celebrate shared milestones).*
 
-## [![steve kamb](../../assets/migrated/wp-content/uploads/2016/04/8-stevekamb.jpg)](/wp-content/uploads/2016/04/8-stevekamb.jpg) 8.) Steve Kamb — [Nerd Fitness](https://www.nerdfitness.com/)
+## [![steve kamb](../../assets/images/2016/04/8-stevekamb.jpg)](/wp-content/uploads/2016/04/8-stevekamb.jpg) 8.) Steve Kamb — [Nerd Fitness](https://www.nerdfitness.com/)
 
 > “The most sabotaging myth the world should know entering 2016 is that relying on inspiration or motivation to get healthy just doesn’t work. It might help you get started, but it won’t be there over the months and months, and (hopefully) years and years of getting and staying healthy. We don’t do things over the long run because they inspire us, we do them because they become habits…”
 
@@ -169,7 +169,7 @@ However, when it comes to health — for some bizarre reason — we tend to get 
 
 Be specific. Write out your 1-month, 3-month, 6-month and 1-year goals — and besides each goal, make note of why the goal is important to you. Repeat this until they become your natural habits and then move on to the next, even bigger step.
 
-## [![marion nestle](../../assets/migrated/wp-content/uploads/2016/04/9-marion-nextle.jpg)](/wp-content/uploads/2016/04/9-marion-nextle.jpg) 9.) Marion Nestle, Ph.D., M.P.H. — [Food Politics](http://www.foodpolitics.com/)
+## [![marion nestle](../../assets/images/2016/04/9-marion-nextle.jpg)](/wp-content/uploads/2016/04/9-marion-nextle.jpg) 9.) Marion Nestle, Ph.D., M.P.H. — [Food Politics](http://www.foodpolitics.com/)
 
 > “If I had one thing to teach the world, it would be that larger portions have more calories. If you want to lose weight, the best way to do it is to eat less (smaller portions!).”
 
@@ -177,7 +177,7 @@ While I agree that excessive eating is a culprit of obesity and disease — and 
 
 Two things are far more important than the total amount of calories in a food: quality and nutrient density. For example, a small plate of fries cannot be supported as being better than a giant green salad. For many people struggling to lose weight, moving to a more nutritious (free from deep-fried and refined sugar) macronutrient-balanced diet can be the best strategy for weight loss.
 
-## [![rich roll](../../assets/migrated/wp-content/uploads/2016/04/10-rich-roll.jpg)](/wp-content/uploads/2016/04/10-rich-roll.jpg) 10.) Rich Roll — [Rich Roll Website](http://www.richroll.com/)
+## [![rich roll](../../assets/images/2016/04/10-rich-roll.jpg)](/wp-content/uploads/2016/04/10-rich-roll.jpg) 10.) Rich Roll — [Rich Roll Website](http://www.richroll.com/)
 
 > “The most sabotaging health myth of 2016 I would like to disabuse people of is the notion that “Butter Is Back” and that eating a high fat diet is healthy. Do not be fooled by the array of recently published books and so-called “health experts” supporting this supposition. It is preposterous, irresponsible and unsupported by true nutrition research…”
 
@@ -191,7 +191,7 @@ This way of eating has also been linked to a reduction in body fat and overall w
 
 **My advice**: *Express caution on the consumption of hydrogenated or trans fats, which do have a negative impact on your fat levels.*
 
-## [![mark bittman](../../assets/migrated/wp-content/uploads/2016/04/11-mark-bittman.jpg)](/wp-content/uploads/2016/04/11-mark-bittman.jpg) 11.) Mark Bittman — [Mark Bittman Website](http://markbittman.com/)
+## [![mark bittman](../../assets/images/2016/04/11-mark-bittman.jpg)](/wp-content/uploads/2016/04/11-mark-bittman.jpg) 11.) Mark Bittman — [Mark Bittman Website](http://markbittman.com/)
 
 > “One myth, with two parts: a.) we need to eat A LOT of protein, and b.) that protein is only found in animal flesh. That’s what I’d like to get rid of…”
 
@@ -201,7 +201,7 @@ In these cases, heavy protein consumption can amplify the growth of cells and ev
 
 Another important point is that it’s unnecessary to ingest a complete protein in one sitting. Our bodies are more intelligent than we’ll ever understand; they are able to utilize and recycle consumed amino acids across a number of hours to keep our bodies functioning properly. Because of this, we actually end up with far more protein than we think, especially considering the variety of amino acids found in non-meat sources, like produce, legumes, nuts, seeds, and superfoods like spirulina.
 
-## [![natalie jill](../../assets/migrated/wp-content/uploads/2016/04/12-natalie-jillv3.jpg)](/wp-content/uploads/2016/04/12-natalie-jillv3.jpg) 12.) Natalie Jill — [Natalie Jill Fitness](https://www.nataliejillfitness.com/)
+## [![natalie jill](../../assets/images/2016/04/12-natalie-jillv3.jpg)](/wp-content/uploads/2016/04/12-natalie-jillv3.jpg) 12.) Natalie Jill — [Natalie Jill Fitness](https://www.nataliejillfitness.com/)
 
 > “The most sabotaging health myth I wish the mainstream world knew is that “diet” foods are good for us. Anytime you replace “fat” with fat-free or “sugar” with sugar-free we end up with chemical junk…”
 
@@ -211,7 +211,7 @@ Sugars from fruit, as an example, can be responsible for poor health symptoms li
 
 **My advice**: Write in a journal about your levels of energy and how you feel before and after food consumption.
 
-## [![fitbottomed girls](../../assets/migrated/wp-content/uploads/2016/04/13-fitbottomed-girls.jpg)](/wp-content/uploads/2016/04/13-fitbottomed-girls.jpg) 13.) Jennipher Walters and Erin Whitehead  
+## [![fitbottomed girls](../../assets/images/2016/04/13-fitbottomed-girls.jpg)](/wp-content/uploads/2016/04/13-fitbottomed-girls.jpg) 13.) Jennipher Walters and Erin Whitehead
 — [Fit Bottomed Girls](http://fitbottomedgirls.com/)
 
 > “The most sabotaging health myth we hear time and time again is that you have to “diet” to lose weight. Diets do not work. If they did, there wouldn’t be a million of them out there! Instead, focus on making small healthy tweaks to your day, day after day, to build healthy habits…”
@@ -222,7 +222,7 @@ It’s not a good idea to vilify the word diet and turn it into the “bad guy�
 
 Fasting is another form of dieting. It is often practiced with the intention of improving long-term health, extending life expectancy, and of course, losing weight. I personally don’t see anything wrong with well-designed weight loss and detoxifying diets — assuming the person adopting it is clear on their goals and limits.
 
-## [![tony hortonv](../../assets/migrated/wp-content/uploads/2016/04/14-tonyhortonv2.jpg)](/wp-content/uploads/2016/04/14-tonyhortonv2.jpg) 14.) Tony Horton — [Tony Horton Life](http://www.tonyhortonlife.com/)
+## [![tony hortonv](../../assets/images/2016/04/14-tonyhortonv2.jpg)](/wp-content/uploads/2016/04/14-tonyhortonv2.jpg) 14.) Tony Horton — [Tony Horton Life](http://www.tonyhortonlife.com/)
 
 > “The myth that lasting physical, mental and emotional health comes in the form of a pill, a quick fix, or some one-dimensional workout program. This misnomer is common sense to anyone who lives a healthy lifestyle, but most folks still looking for the fountain of youth are stuck in the merry-go-round of fad after fad — just hoping or wishing that something is going to change…”
 

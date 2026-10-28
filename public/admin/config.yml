@@ -69,14 +69,10 @@ collections:
         name: featuredImage
         widget: image
         required: false
-        # Relative, not absolute — Astro's image() schema helper resolves this
-        # the same way it resolves every migrated post's existing featuredImage
-        # (e.g. "../../assets/migrated/.../photo.webp"): as a real source file
-        # it optimizes at build time (AVIF/WebP, responsive sizes), not a plain
-        # served URL. Leaving public_folder unset makes it default to this same
-        # relative value, so the frontmatter gets a path Astro can resolve
-        # instead of a /uploads/... URL a plain <img> would need.
-        media_folder: "../../assets/uploads/posts"
+        # Keep this folder aligned with the imported Astro image sources so
+        # existing featured images can be previewed and new uploads stay
+        # inside src/assets/images for image() optimization.
+        media_folder: "../../assets/images"
         hint: >-
           Upload a photo here — it goes through the same automatic
           optimization (AVIF/WebP, responsive sizes) as every existing post's
@@ -96,9 +92,9 @@ collections:
         }
       # Preserved verbatim, not shown: the original WordPress post id/URL
       # used for redirects and structured data, and the legacy plain-URL
-      # image path migrated posts carry for their social-share fallback.
+      # image path existing posts carry for their social-share fallback.
       # Declaring them (even hidden) stops the CMS from silently dropping
-      # them when a migrated post is edited.
+      # them when an existing post is edited.
       - { name: legacyFeaturedImage, widget: hidden, required: false }
       - { name: legacyId, widget: hidden, required: false }
       - { name: legacyUrl, widget: hidden, required: false }

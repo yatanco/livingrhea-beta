@@ -24,7 +24,7 @@ author: Dr Rhea
 categories:
   - name: Recipes
     slug: recipes
-featuredImage: ../../assets/migrated/wp-content/uploads/2017/01/tumeric2-e1484831409414.webp
+featuredImage: ../../assets/images/2017/01/tumeric2-e1484831409414.webp
 featuredImageAlt: ""
 legacyId: 5107
 legacyUrl: https://livingrhea.com/turmeric-faux-latte-my-anti-inflammatory-fix/

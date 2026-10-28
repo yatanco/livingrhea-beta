@@ -25,7 +25,7 @@ author: Dr Rhea
 categories:
   - name: Scientific Wellness
     slug: scientific-wellness
-featuredImage: ../../assets/migrated/wp-content/uploads/2014/09/10616063_10152256698660740_1819758343885883466_n1.webp
+featuredImage: ../../assets/images/2014/09/10616063_10152256698660740_1819758343885883466_n1.webp
 featuredImageAlt: ""
 legacyId: 1366
 legacyUrl: https://livingrhea.com/burning-man-wellness/

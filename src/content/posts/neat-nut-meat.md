@@ -25,7 +25,7 @@ author: Dr Rhea
 categories:
   - name: Recipes
     slug: recipes
-featuredImage: ../../assets/migrated/wp-content/uploads/2016/08/nutmeat-e1484767504651.webp
+featuredImage: ../../assets/images/2016/08/nutmeat-e1484767504651.webp
 featuredImageAlt: ""
 legacyId: 5046
 legacyUrl: https://livingrhea.com/neat-nut-meat/

@@ -25,7 +25,7 @@ author: Dr Rhea
 categories:
   - name: Scientific Wellness
     slug: scientific-wellness
-featuredImage: ../../assets/migrated/wp-content/uploads/2015/09/tumblr_mz5755CAjQ1s4314no1_500.webp
+featuredImage: ../../assets/images/2015/09/tumblr_mz5755CAjQ1s4314no1_500.webp
 featuredImageAlt: Rotate Greens - Living Rhea
 legacyId: 1778
 legacyUrl: https://livingrhea.com/rotateyourgreens/

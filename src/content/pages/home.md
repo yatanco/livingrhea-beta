@@ -25,7 +25,7 @@ labels:
   Email-address-16: "Email address "
   Get-the-guide-17: Get the guide
 hero:
-  image: ../../assets/migrated/wp-content/uploads/2025/08/Rhea-Lotus-Cropped-Smoothie2.webp
+  image: ../../assets/images/2025/08/Rhea-Lotus-Cropped-Smoothie2.webp
   heading:
     - Dr. Rhea is a modern
     - medicine woman blending

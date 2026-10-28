@@ -26,7 +26,7 @@ author: Dr Rhea
 categories:
   - name: Recipes
     slug: recipes
-featuredImage: ../../assets/migrated/wp-content/uploads/2017/01/smoothies-1.webp
+featuredImage: ../../assets/images/2017/01/smoothies-1.webp
 featuredImageAlt: green smoothies living rhea
 legacyId: 5056
 legacyUrl: https://livingrhea.com/green-warrior-smoothie/

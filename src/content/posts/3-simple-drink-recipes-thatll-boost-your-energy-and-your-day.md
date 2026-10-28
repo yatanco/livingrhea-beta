@@ -27,7 +27,7 @@ categories:
     slug: recipes
   - name: Scientific Wellness
     slug: scientific-wellness
-featuredImage: ../../assets/migrated/wp-content/uploads/2016/07/lemon.webp
+featuredImage: ../../assets/images/2016/07/lemon.webp
 featuredImageAlt: ""
 legacyId: 1975
 legacyUrl: https://livingrhea.com/3-simple-drink-recipes-thatll-boost-your-energy-and-your-day/

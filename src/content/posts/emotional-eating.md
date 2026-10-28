@@ -16,7 +16,7 @@ author: Dr Rhea
 categories:
   - name: Poetic Reflections
     slug: poetic-reflections
-featuredImage: ../../assets/migrated/wp-content/uploads/2016/12/emotionaleating.webp
+featuredImage: ../../assets/images/2016/12/emotionaleating.webp
 featuredImageAlt: Emotional Eating
 legacyId: 4888
 legacyUrl: https://livingrhea.com/emotional-eating/

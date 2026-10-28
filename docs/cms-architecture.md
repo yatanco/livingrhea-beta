@@ -125,11 +125,10 @@ production domain) will let GitHub collaborators sign in.
   reshaping page content into labeled per-section fields — tracked in
   `docs/native-content-target.md`, not done here.
 - New post images *are* optimized: the "Featured image" field's
-  `media_folder` is a relative path (`../../assets/uploads/posts`, no
-  `public_folder` override), so Sveltia writes a frontmatter value in the
-  same shape every migrated post's `featuredImage` already uses — a real
-  source file Astro's `image()` schema helper resolves and runs through
-  its normal AVIF/WebP/responsive-size pipeline at build time, not a
-  plain served URL. `legacyFeaturedImage` (a plain `/uploads/...` path) is
+  `media_folder` points to `../../assets/images`, the same imported image
+  tree referenced by existing post frontmatter. This lets the editor browse
+  existing images and stores new uploads alongside the Astro source files.
+  Keep the field media folder aligned with this shared folder so existing
+  images remain available in the image picker and Astro can optimize uploads. `legacyFeaturedImage` (a plain `/uploads/...` path) is
   now `hidden`: still preserved for migrated posts' social-share fallback,
   no longer something an editor interacts with.

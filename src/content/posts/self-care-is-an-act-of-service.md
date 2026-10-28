@@ -25,7 +25,7 @@ author: Dr Rhea
 categories:
   - name: Scientific Wellness
     slug: scientific-wellness
-featuredImage: ../../assets/migrated/wp-content/uploads/2015/07/rawjuv-cover-photo.webp
+featuredImage: ../../assets/images/2015/07/rawjuv-cover-photo.webp
 featuredImageAlt: ""
 legacyId: 1757
 legacyUrl: https://livingrhea.com/self-care-is-an-act-of-service/

@@ -24,7 +24,7 @@ author: Dr Rhea
 categories:
   - name: Poetic Reflections
     slug: poetic-reflections
-featuredImage: ../../assets/migrated/wp-content/uploads/2020/06/consequences-image-1.webp
+featuredImage: ../../assets/images/2020/06/consequences-image-1.webp
 featuredImageAlt: ""
 legacyId: 5129
 legacyUrl: https://livingrhea.com/health-poetry-consequences/

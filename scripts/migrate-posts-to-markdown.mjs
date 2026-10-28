@@ -28,19 +28,19 @@ for (const file of names) {
   for(let pass=0;pass<4;pass++) $('span,b,strong,i,em').each((_,e)=>{if(!$(e).text().trim() && $(e).find('br').length) $(e).replaceWith($(e).html());});
   $('img').each((_,el)=>{
     const src=$(el).attr('src');
-    if (src?.startsWith('/wp-content/')) $(el).attr('src',`../../assets/migrated${src}`);
+    if (src?.startsWith('/wp-content/')) $(el).attr('src',`../../assets/images${src.replace("/wp-content/uploads", "")}`);
   });
   // Copy the article's local image sources once. Astro handles optimization.
   for (const el of $('img').toArray()) {
     const src=$(el).attr('src');
-    if (!src?.startsWith('../../assets/migrated/')) continue;
-    const path=src.replace('../../assets/migrated','');
-    const target=join('src/assets/migrated',path);
+    if (!src?.startsWith('../../assets/images/')) continue;
+    const path=src.replace('../../assets/images','').replace('/wp-content/uploads','');
+    const target=join('src/assets/images',path);
     await mkdir(dirname(target),{recursive:true});
     await copyFile(join('public',path),target);
   }
   const media=post._embedded?.['wp:featuredmedia']?.[0];
-  const data={title:plain(post.title.rendered),description:plain(post.excerpt?.rendered),pubDate:`${post.date_gmt}Z`,updatedDate:`${post.modified_gmt}Z`,author:post._embedded?.author?.[0]?.name || 'Rhea Mehta',categories:(post._embedded?.['wp:term']?.[0] || []).map(t=>({id:t.id,name:plain(t.name),slug:t.slug})),featuredImage:media?.source_url?localize(media.source_url):undefined,featuredImageAlt:media?.alt_text || '',legacyId:post.id,legacyUrl:post.link};
+  const data={title:plain(post.title.rendered),description:plain(post.excerpt?.rendered),pubDate:`${post.date_gmt}Z`,updatedDate:`${post.modified_gmt}Z`,author:post._embedded?.author?.[0]?.name || 'Rhea Mehta',categories:(post._embedded?.['wp:term']?.[0] || []).map(t=>({id:t.id,name:plain(t.name),slug:t.slug})),featuredImage:media?.source_url?localize(media.source_url).replace(/^\/wp-content\/uploads\//,'../../assets/images/'):undefined,featuredImageAlt:media?.alt_text || '',legacyId:post.id,legacyUrl:post.link};
   let body=markdown.turndown($.html());
   // DOM placeholder images in old exports can have empty alt text; keep them as images.
   await writeFile(destination,`---\n${stringify(data,{lineWidth:0})}---\n\n${body}\n`);

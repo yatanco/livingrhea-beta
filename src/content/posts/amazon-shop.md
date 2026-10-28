@@ -24,7 +24,7 @@ author: Dr Rhea
 categories:
   - name: Scientific Wellness
     slug: scientific-wellness
-featuredImage: ../../assets/migrated/wp-content/uploads/2015/12/shopping-list.webp
+featuredImage: ../../assets/images/2015/12/shopping-list.webp
 featuredImageAlt: ""
 legacyId: 1844
 legacyUrl: https://livingrhea.com/amazon-shop/

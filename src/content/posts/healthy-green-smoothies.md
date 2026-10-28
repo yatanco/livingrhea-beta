@@ -25,7 +25,7 @@ author: Dr Rhea
 categories:
   - name: Scientific Wellness
     slug: scientific-wellness
-featuredImage: ../../assets/migrated/wp-content/uploads/2015/09/globalsmoothieday-e1485346241376.webp
+featuredImage: ../../assets/images/2015/09/globalsmoothieday-e1485346241376.webp
 featuredImageAlt: ""
 legacyId: 1793
 legacyUrl: https://livingrhea.com/healthy-green-smoothies/

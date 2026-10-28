@@ -24,7 +24,7 @@ author: Dr Rhea
 categories:
   - name: Scientific Wellness
     slug: scientific-wellness
-featuredImage: ../../assets/migrated/wp-content/uploads/2014/10/860303_501889126523377_843018828_o.webp
+featuredImage: ../../assets/images/2014/10/860303_501889126523377_843018828_o.webp
 featuredImageAlt: health and wellness coach Dr. Rhea
 legacyId: 1501
 legacyUrl: https://livingrhea.com/health-and-wellness-coach/

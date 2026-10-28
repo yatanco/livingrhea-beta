@@ -19,7 +19,7 @@ author: Dr Rhea
 categories:
   - name: Scientific Wellness
     slug: scientific-wellness
-featuredImage: ../../assets/migrated/wp-content/uploads/2016/10/ghee-1-1.webp
+featuredImage: ../../assets/images/2016/10/ghee-1-1.webp
 featuredImageAlt: ""
 legacyId: 2103
 legacyUrl: https://livingrhea.com/3-superfoods-to-improve-memory-and-focus/

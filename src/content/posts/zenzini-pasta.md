@@ -25,7 +25,7 @@ author: Dr Rhea
 categories:
   - name: Recipes
     slug: recipes
-featuredImage: ../../assets/migrated/wp-content/uploads/2016/06/zenzini.webp
+featuredImage: ../../assets/images/2016/06/zenzini.webp
 featuredImageAlt: ""
 legacyId: 5048
 legacyUrl: https://livingrhea.com/zenzini-pasta/

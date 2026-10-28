@@ -24,7 +24,7 @@ author: Dr Rhea
 categories:
   - name: Recipes
     slug: recipes
-featuredImage: ../../assets/migrated/wp-content/uploads/2014/08/Fuzzin-Faux-Latte-FI.webp
+featuredImage: ../../assets/images/2014/08/Fuzzin-Faux-Latte-FI.webp
 featuredImageAlt: ""
 legacyId: 1217
 legacyUrl: https://livingrhea.com/heart-love-5-minute-chai-au-chocolat/
