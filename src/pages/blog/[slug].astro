@@ -15,6 +15,9 @@ export async function getStaticPaths() {
 
 const { post } = Astro.props;
 const source = post.featuredImage;
+// A post added through the CMS may only have a plain uploaded image
+// (legacyFeaturedImage) with no Astro-optimized source yet.
+const plainImage = !source && post.legacyFeaturedImage;
 const { Content } = await render(post.entry);
 ---
 
@@ -42,6 +45,7 @@ const { Content } = await render(post.entry);
         priority
       />
     )}
+    {plainImage && <img src={plainImage} alt={post.featuredImageAlt} loading="eager" />}
     <div class="wp-content article-copy">
       <Content />
     </div>
