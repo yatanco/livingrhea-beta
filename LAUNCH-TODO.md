@@ -1,149 +1,49 @@
-# livingrhea.com — Launch TODO
+# Launch on Cloudflare Pages
 
-Status of the Astro + headless-WordPress migration, and everything left before
-going live on Cloudflare Pages. Ordered by "must do before launch" → "after".
+The source migration is complete and builds locally. Production launch still requires the following account configuration and checks.
 
-Legend: **[you]** = needs the client/owner (credentials, decisions, WP edits);
-**[done]** = complete in this repo; **[opt]** = nice-to-have.
+## Cloudflare Pages
 
----
+Connect `yatanco/livingrhea-astro` using Git integration:
 
-## ✅ What the migration already does
+- Production branch: `astro-headless-migration` (matches the Decap configuration).
+- Build command: `npm run build`.
+- Output directory: `dist`.
+- Root directory: repository root.
+- Environment variable: `NODE_VERSION=24`.
+- Remove old `WORDPRESS_API_URL` and WordPress deploy hooks. No CMS secret is required for builds.
 
-- **[done]** Pulls all page/post content from the WP REST API at build time.
-- **[done]** Renders WPBakery shortcodes to real HTML (WP Code Snippet #5).
-- **[done]** Reproduces the Salient theme shell (header, footer, mobile menu,
-  dropdowns, hero overlay, sliders, popup) per page.
-- **[done]** **Runtime-independent from WordPress** — all CSS, JS, fonts and
-  images are self-hosted; nothing loads from the WP origin when a visitor hits
-  the site. (WP is only needed at *build* time.)
-- **[done]** Images optimized to WebP (local sharp pass) + a post-build
-  reconcile that guarantees no broken local asset paths.
-- **[done]** Newsletter (Mailchimp) works — see below.
-- **[done]** RSS feed at `/blog/rss.xml`; `_redirects`; `.nvmrc` (Node 22).
+If you later merge into `main`, change the production branch in both Pages and `public/admin/config.yml` (and in the Turbo dashboard). Keep all three aligned.
 
----
+## Editor
 
-## 🚫 Blockers — before launch
+Decap Turbo Site ID is configured: `19346064-1322-4ff7-a71f-c72e01d44608`.
 
-### 1. Deploy hook (so client edits go live) — **[you]**
-WP Code Snippet #7 is installed and active but has a placeholder URL.
-1. Create the Cloudflare Pages project (see cutover below).
-2. In CF: **Pages project → Settings → Builds & deployments → Deploy hooks →**
-   create a hook, copy its URL.
-3. wp-admin → Snippets → "Headless: rebuild Astro site on publish" → paste the
-   URL over `PASTE_YOUR_CLOUDFLARE_DEPLOY_HOOK_URL_HERE` → Save.
-Now publishing a page/post in WP triggers a rebuild automatically.
+In its dashboard confirm:
 
-### 2. Contact form — **[you]**
-`src/pages/contact.astro` still posts to `https://formspree.io/f/YOUR_FORM_ID`.
-Create a form at formspree.io and paste the real form ID. Before cutover, check
-WPForms → Entries + any Zapier/email integrations so nothing silently stops
-notifying anyone.
+- Repository: `yatanco/livingrhea-astro`.
+- Branch: `astro-headless-migration`.
+- Config path: `public/admin/config.yml`.
+- Admin interface origins include `https://livingrhea.com/admin/` and the actual `https://livingrhea-astro.pages.dev/admin/` URL. Add `http://127.0.0.1:4321/admin/` if you want local testing.
+- The Turbo GitHub App has access to this repository and your account has access to this Turbo site.
 
-### 3. Cutover order (critical — get this wrong and images 404) — **[you]**
-The build bakes asset URLs from whatever `WORDPRESS_API_URL` points to.
-1. Stand up WordPress at **`cms.livingrhea.com`**; confirm REST + wp-admin work
-   there.
-2. Set `WORDPRESS_API_URL=https://cms.livingrhea.com/wp-json/wp/v2` in the CF
-   Pages project env (Production **and** Preview) and in local `.env`.
-3. Update `site:` in `astro.config.mjs` to the final public URL.
-4. Trigger a build; verify.
-5. **Only then** point the root `livingrhea.com` DNS at Cloudflare Pages.
+On the deployed preview, log in, change one harmless sentence, publish, and confirm that the Git commit and Pages rebuild finish. Undo the test edit after verifying. A configured Site ID alone does not prove authentication or publishing works.
 
-### 4. Indexing decision — **[you]**
-The live WP site is sitewide `noindex,nofollow`. The Astro build **drops** that
-(so it's indexable). Confirm that's intended before launch. (Code: the robots
-meta is stripped in `src/lib/salient-shell.js`.)
+## Contact and newsletter
 
-### 5. Cloudflare Pages build settings — **[you]**
-- Build command: `npm run build`  (runs mirror → build → reconcile)
-- Output dir: `dist`
-- Env: `WORDPRESS_API_URL`, `NODE_VERSION=22`
-- The build fetches WP; the host's bot-protection is handled with retries, but
-  if a build fails on a challenge, just re-run it.
+The contact form is configured to submit to `https://formspree.io/f/mzeerlkq`.
 
----
+Verify the Formspree recipient is activated. Test a real delivery to the intended inbox and spam handling before switching domains. The endpoint is editable in Site settings.
 
-## 🖼 Broken pages (content, not code) — **[you]** to fully fix
+The newsletter uses the existing public Mailchimp embed endpoint. Test signup and guide delivery with an owner-controlled test address. No signup was submitted during development. Confirm this audience really sends the promised guide.
 
-All broken images are on **blog posts** (recipe galleries + one experts
-roundup). The build now **strips** these dead references so no broken-image
-icons show — but the images are simply *gone from WordPress* (deleted NextGen
-gallery media / ungenerated size variants). To restore them, re-upload in
-wp-admin or edit the posts, then rebuild. Full list in
-**`BROKEN-ASSETS-REPORT.md`** (regenerated each build). Affected posts:
+## Domain switch
 
-- `/blog/14-health-sabotaging-myths-exposed-by-top-experts/`
-- `/blog/raw-vegan-yogurt/`
-- `/blog/green-warrior-smoothie/`
-- `/blog/zenzini-pasta/`
-- `/blog/mango-tango-faux-lassi/`
-- `/blog/pesto-pizazz/`
-- `/blog/rawkin-vegan-tacos/`
-- `/blog/faux-fudgey-truffles/`
-- `/blog/neat-nut-meat/`
-- `/blog/are-you-drinking-a-smoothie-or-a-slurpee/`
-- `/blog/benefit-from-medicinal-mushroom/`
-- `/blog/excalibur-dehydrator-product-review/`
-- `/blog/foffee-my-high-energy-coffee-substitute-2/`
+1. Verify the Pages preview on desktop and phone, forms, editor publishing, media links, sitemap, RSS, and a historical blog redirect.
+2. Add `livingrhea.com` and `www.livingrhea.com` through Pages → Custom domains. Follow Cloudflare's displayed records; do not guess a Pages hostname or IP.
+3. Wait until both domains show active HTTPS. Set a single canonical hostname (the code uses the apex domain); redirect www to apex in Cloudflare if desired.
+4. Keep email MX/TXT records intact. Remove only conflicting web records indicated by Pages.
+5. Verify `https://livingrhea.com/`, `/admin/`, `/contact/`, `/blog/`, `/sitemap.xml`, and an old post URL.
+6. Keep the WordPress backup and prior DNS values until launch checks pass. WordPress hosting can then be retired; the Astro site does not use it.
 
-Main pages (Home, About, Coaching, Himalayan Breathwork, Music, Press, Contact)
-have **no** broken assets.
-
----
-
-## 📧 Newsletter (Mailchimp) — ✅ works as-is
-
-The footer signup is Mailchimp's **native embed** — it POSTs directly to
-`https://livingrhea.us7.list-manage.com/subscribe/post` and does **not** depend
-on WordPress. It has the email field, bot honeypot, and validation JS. Nothing
-to adapt for launch.
-- **[opt]** If you want it as a dedicated, styled Astro component elsewhere
-  (e.g. a mid-page CTA), reuse `src/components/Newsletter.astro` and drop in the
-  same `action`/hidden fields. The footer form already covers the basic case.
-
----
-
-## 🔌 Plugin features that don't come along (were WP-runtime)
-
-- **Instagram feed (home)** — the Smash Balloon feed was pruned (it needs WP).
-  Replace with a hosted widget (Elfsight/SnapWidget) — MIGRATION-TODO #3. **[you]**
-- **Popups** (Popup Maker "free smoothie guide") — the popup itself works
-  (JS + Mailchimp). Confirm the signup still lands in the right audience. **[opt]**
-- **Search overlay** — WP native search isn't wired; skipped for launch
-  (MIGRATION-TODO #4). Add Pagefind later if needed. **[opt]**
-
----
-
-## 🧭 Post-launch / polish — **[opt]**
-
-- **Analytics/pixels** — confirm GA4 / Meta pixel actually fire (Site Kit tags
-  come through the shell; verify with Realtime after launch).
-- **Per-page SEO** — `<title>`/description are per-page, but OpenGraph/Twitter
-  tags currently come from each page's shell head (mostly correct; audit the
-  og:image per page if it matters).
-- **301 redirects** — diff the full old WP URL list (XML export) against Astro
-  routes and add any that moved to `public/_redirects`.
-- **Favicon / social share image** — currently the theme defaults; set
-  deliberately if desired.
-- **Native rebuild (later)** — the site currently ships Salient's full CSS/JS.
-  If you want a lighter, faster site, rebuild header/footer/hero as native Astro
-  components — but that reduces how much the client can restructure in WPBakery,
-  so weigh it against their editing needs.
-
----
-
-## How the build works (for future you)
-
-`npm run build` runs three steps:
-1. **prebuild** — `scripts/mirror-wp-assets.mjs`: downloads referenced WP assets
-   into `public/`, self-hosts Google Fonts, converts rasters to WebP.
-2. **build** — `astro build`: pulls REST content, renders pages in per-page
-   Salient shells, localizes all URLs.
-3. **postbuild** — `scripts/reconcile-assets.mjs`: fetches any asset the mirror
-   missed, then strips references that are 404 on WP (writes
-   `BROKEN-ASSETS-REPORT.md`).
-
-Mirrored assets under `public/wp-content|wp-includes|vendor` are git-ignored and
-regenerated each build.
+No production DNS records have been changed by this migration.

@@ -1,26 +1,33 @@
 ---
-import Base from '../layouts/Base.astro';
-import WpContent from '../components/WpContent.astro';
-import { getAllPages, heroImage } from '../lib/wordpress.js';
-
+import Base from "../layouts/Base.astro";
+import { getAllPages, render } from "../lib/content.js";
 export async function getStaticPaths() {
-  const pages = await getAllPages();
-  // Excludes: the front page (index.astro renders slug "livingrhea-com"),
-  // contact (contact.astro handles the form), and WP's default sample page.
-  // 'blog' is the WP posts-page (archive template, no standard content
-  // wrapper) — blog/index.astro renders the listing instead.
-  const EXCLUDE = ['home', 'livingrhea-com', 'contact', 'sample-page', 'blog'];
-  return pages
-    .filter((p) => !EXCLUDE.includes(p.slug))
-    .map((p) => ({ params: { slug: p.slug }, props: { page: p } }));
+  return (await getAllPages())
+    .filter((p) => !["livingrhea-com", "contact"].includes(p.slug))
+    .map((page) => ({ params: { slug: page.slug }, props: { page } }));
 }
-
 const { page } = Astro.props;
 ---
-<Base title={page.title.rendered} description={page.excerpt?.rendered} headCss={page.wpb_custom_css} pageUrl={page.link} preloadImage={heroImage(page)}>
-  <h1 set:html={page.title.rendered} />
-  {/* WPBakery output HTML (rendered server-side by WP). Sliders / testimonial
-      carousels / the coaching PACKAGES grid render as static HTML — candidates
-      to rebuild as Astro components later. See MIGRATION-TODO.md #5. */}
-  <WpContent html={page.content.rendered} />
-</Base>
+
+<Base
+  title={page.title}
+  description={page.description || undefined}
+  preloadImage={page.hero}
+  ><section class:list={["page-heading", { "with-image": page.hero }]}>
+    <div>
+      <p class="eyebrow">Living Rhea</p><h1>{page.title}</h1>{
+        page.description && <p class="intro">{page.description}</p>
+      }
+    </div>{
+      page.hero && (
+        <img src={page.hero} alt={page.heroAlt || ""} fetchpriority="high" />
+      )
+    }
+  </section><article class="prose" set:html={render(page.body)} /><section
+    class="closing"
+  >
+    <p class="eyebrow">Begin a conversation</p><h2>
+      Your next chapter starts here.
+    </h2><a class="button" href="/contact/">Connect with Rhea ↗</a>
+  </section></Base
+>

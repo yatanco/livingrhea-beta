@@ -1,90 +1,103 @@
 ---
-import { getSalientShell } from '../lib/salient-shell.js';
-import { WP_ORIGIN } from '../lib/wp-url.js';
-
-interface Props {
-  title: string;
-  description?: string;
-  /** Per-page WPBakery custom CSS (from the wpb_custom_css REST field). */
-  headCss?: string;
-  /**
-   * Live WP URL whose shell (header treatment, body classes, per-page CSS)
-   * this page should adopt. Pages pass their own `link`; blog posts/archive
-   * fall back to a standard interior page (About) since their WP template
-   * uses a different content wrapper.
-   */
-  pageUrl?: string;
-  /** Above-the-fold LCP image to preload (e.g. the hero background). */
-  preloadImage?: string;
-}
-const {
-  title,
-  description = '',
-  headCss = '',
-  pageUrl = `${WP_ORIGIN}/about/`,
-  preloadImage,
-} = Astro.props;
-
-// Salient theme shell (header, footer, mobile menu, body classes, CSS + JS
-// stack) captured from the live WP page. Reproduces the chrome the REST
-// content field doesn't include. See src/lib/salient-shell.js.
-const shell = await getSalientShell(pageUrl);
+import Newsletter from "../components/Newsletter.astro";
+import settings from "../content/settings/site.json";
+import "../styles/site.css";
+const { title, description = settings.description, preloadImage } = Astro.props;
+const canonical = new URL(Astro.url.pathname, Astro.site);
+const nav = [
+  ["About", "/about/"],
+  ["Health coaching", "/coaching/"],
+  ["Breathwork", "/himalayan-breathwork/"],
+  ["Music", "/music/"],
+  ["Press", "/press/"],
+  ["Journal", "/blog/"],
+];
 ---
+
 <!doctype html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>{title} | Rhea Mehta</title>
-    {description && <meta name="description" content={description} />}
-    <!-- TODO: decide indexing policy — the current WP site is sitewide
-         noindex,nofollow. Remove that (or keep it) deliberately, don't
-         let it carry over by accident. -->
-    <link rel="alternate" type="application/rss+xml" title="Blog" href="/blog/rss.xml" />
-
-    <!-- Preload the LCP image (Salient applies hero images as CSS backgrounds,
-         which the browser won't discover early on its own). -->
-    {preloadImage && <link rel="preload" as="image" href={preloadImage} fetchpriority="high" />}
-
-    <!-- Salient/WPBakery CSS, fonts and head assets, captured from live WP. -->
-    <Fragment set:html={shell.headHtml} />
-
-    <!-- Self-hosted FontAwesome, loaded AFTER the shell so its same-origin
-         @font-face overrides WP's copy. WP-hosted webfonts fail CORS when the
-         page and the CMS are on different origins (localhost now, and root vs
-         cms.livingrhea.com in production), which renders icons as empty boxes.
-         See MIGRATION-TODO. -->
-    <link rel="stylesheet" href="/fonts/font-awesome/css/font-awesome.min.css" />
-    <link rel="stylesheet" href="/fonts/salient/icomoon.css" />
-
-    <!-- Per-page WPBakery custom CSS (design set in the editor; not in any
-         global stylesheet). Injected verbatim, so keep it un-scoped. -->
-    {headCss && <style is:inline set:html={headCss} />}
-  </head>
-  <body {...shell.bodyAttrs}>
-    <!-- Live Salient chrome: skip link, off-canvas wraps, header, and the
-         opening content wrappers (#ajax-content-wrap → .row). -->
-    <Fragment set:html={shell.preContent} />
-
-    <!-- REST-sourced page content sits inside Salient's .row, exactly where
-         WordPress would render it. -->
-    <slot />
-
-    <!-- Closing content wrappers + live footer + mobile slide-out menu +
-         closing #ajax-content-wrap/.ocm-effect-wrap. -->
-    <Fragment set:html={shell.postContent} />
-
-    <!-- Full Salient/WPBakery/plugin JS stack, in the live load order, as real
-         script tags so they execute (jQuery first, then Salient init, sliders,
-         superfish dropdowns, WPBakery front, etc.). -->
-    {
-      shell.scripts.map((s) =>
-        s.src ? (
-          <script is:inline src={s.src} defer={s.defer} async={s.async} id={s.id}></script>
-        ) : (
-          <script is:inline id={s.id} type={s.type} set:html={s.code}></script>
-        ),
+  <head
+    ><meta charset="utf-8" /><meta
+      name="viewport"
+      content="width=device-width, initial-scale=1"
+    /><title>{title} | Dr. Rhea Mehta</title><meta
+      name="description"
+      content={description}
+    /><link rel="canonical" href={canonical} /><meta
+      property="og:title"
+      content={`${title} | Dr. Rhea Mehta`}
+    /><meta property="og:description" content={description} /><meta
+      property="og:url"
+      content={canonical}
+    /><meta property="og:type" content="website" />{
+      preloadImage && (
+        <meta property="og:image" content={new URL(preloadImage, Astro.site)} />
       )
-    }
-  </body>
+    }<meta name="twitter:card" content="summary_large_image" /><link
+      rel="alternate"
+      type="application/rss+xml"
+      title="Living Rhea Journal"
+      href="/blog/rss.xml"
+    />{
+      preloadImage && <link rel="preload" as="image" href={preloadImage} />
+    }</head
+  ><body
+    ><a href="#main" class="skip">Skip to content</a><div class="announcement">
+      <a href="/#newsletter"
+        >A little nourishment for your inbox — get the free smoothie guide ↗</a>
+    </div><header>
+      <a class="brand" href="/" aria-label="Living Rhea home"
+        >living <em>rhea</em><span>SCIENCE · SPIRIT · WELLBEING</span></a
+      ><button
+        class="nav-toggle"
+        type="button"
+        aria-controls="primary-navigation"
+        aria-expanded="false">Menu</button
+      ><nav
+        id="primary-navigation"
+        class="navigation"
+        aria-label="Main navigation"
+      >
+        {
+          nav.map(([label, url]) => (
+            <a
+              href={url}
+              aria-current={Astro.url.pathname === url ? "page" : undefined}
+            >
+              {label}
+            </a>
+          ))
+        }<a class="button small" href="/contact/">Connect with Rhea ↗</a>
+      </nav>
+    </header><main id="main"><slot /></main><section
+      id="newsletter"
+      class="newsletter-section"
+    >
+      <div>
+        <p class="eyebrow">A nourishing ritual</p><h2>
+          A little more vitality.<br />A little more you.
+        </h2><p>
+          Recipes, reflections, and practical tools for a more connected life.
+        </p>
+      </div><Newsletter />
+    </section><footer>
+      <a class="brand" href="/">living <em>rhea</em></a><p>
+        Science-backed. Soul-aligned.
+      </p><div>
+        <a href="/contact/">Contact</a><a href="/blog/">Journal</a><a
+          href={settings.instagram}>Instagram ↗</a
+        ><a href="/admin/">Content editor</a>
+      </div><small
+        >© {new Date().getFullYear()} Dr. Rhea Mehta. All rights reserved.</small>
+    </footer></body>
 </html>
+
+<script>
+  const toggle = document.querySelector(".nav-toggle");
+  const navigation = document.querySelector("#primary-navigation");
+  toggle?.addEventListener("click", () => {
+    const open = toggle.getAttribute("aria-expanded") !== "true";
+    toggle.setAttribute("aria-expanded", String(open));
+    navigation?.classList.toggle("is-open", open);
+  });
+</script>

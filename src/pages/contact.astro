@@ -1,21 +1,60 @@
 ---
-import Base from '../layouts/Base.astro';
+import Base from "../layouts/Base.astro";
+import settings from "../content/settings/site.json";
+import { getPageBySlug, render } from "../lib/content.js";
+const page = await getPageBySlug("contact");
 ---
-<Base title="Contact">
-  <h1>Get in touch with Dr. Rhea</h1>
 
-  <!--
-    TODO (manual step, see MIGRATION-TODO.md #2):
-    Using Formspree — sign up at formspree.io, create a form, swap in
-    your real form ID below (formspree.io/f/XXXXXXXX). No backend code
-    needed. Fields match the original WPForms form.
-  -->
-  <form name="contact" method="POST" action="https://formspree.io/f/YOUR_FORM_ID">
-    <label>First name <input type="text" name="first_name" required /></label>
-    <label>Last name <input type="text" name="last_name" required /></label>
-    <label>Email <input type="email" name="email" required /></label>
-    <label>Subject <input type="text" name="subject" /></label>
-    <label>Message <textarea name="message" required></textarea></label>
-    <button type="submit">Submit</button>
-  </form>
-</Base>
+<Base title={page.title} description={page.description}
+  ><section class="article-heading">
+    <p class="eyebrow">Let's connect</p><h1>{page.title}</h1><p class="intro">
+      {page.description}
+    </p>
+  </section><section class="contact-wrap">
+    <div class="contact-intro" set:html={render(page.body)} />{
+      settings.contactFormAction ? (
+        <form
+          class="contact-form"
+          method="post"
+          action={settings.contactFormAction}
+        >
+          <>
+            <label>
+              First name
+              <input name="first_name" autocomplete="given-name" required />
+            </label>
+            <label>
+              Last name
+              <input name="last_name" autocomplete="family-name" required />
+            </label>
+            <label>
+              Email
+              <input type="email" name="email" autocomplete="email" required />
+            </label>
+            <label>
+              Subject
+              <input name="subject" required />
+            </label>
+            <label class="full">
+              Your message
+              <textarea name="message" rows="7" required />
+            </label>
+            <button class="button" type="submit">
+              Send message ↗
+            </button>
+          </>
+        </form>
+      ) : (
+        <div class="contact-unconfigured">
+          <>
+            <h2>Contact form awaiting connection</h2>
+            <p>
+              This preview's contact form has not been connected yet. Please
+              contact Rhea through <a href={settings.instagram}>Instagram</a>.
+            </p>
+          </>
+        </div>
+      )
+    }
+  </section></Base
+>

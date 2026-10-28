@@ -1,7 +1,4 @@
-# livingrhea.com — allow all crawlers (site is intended to be indexable).
-# NOTE: while testing on *.pages.dev you may NOT want that preview URL indexed;
-# decide the final indexing policy at launch (see LAUNCH-TODO / MIGRATION-TODO #7).
 User-agent: *
 Allow: /
-
+Disallow: /admin/
 Sitemap: https://livingrhea.com/sitemap.xml

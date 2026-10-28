@@ -1,20 +1,32 @@
 ---
-import Base from '../../layouts/Base.astro';
-import WpContent from '../../components/WpContent.astro';
-import { getAllPosts, featuredImage } from '../../lib/wordpress.js';
-
+import Base from "../../layouts/Base.astro";
+import { getAllPosts, render } from "../../lib/content.js";
 export async function getStaticPaths() {
-  const posts = await getAllPosts();
-  return posts.map((post) => ({ params: { slug: post.slug }, props: { post } }));
+  return (await getAllPosts()).map((post) => ({
+    params: { slug: post.slug },
+    props: { post },
+  }));
 }
-
 const { post } = Astro.props;
 ---
-<Base title={post.title.rendered} description={post.excerpt?.rendered} headCss={post.wpb_custom_css} preloadImage={featuredImage(post)}>
-  <article>
-    <h1 set:html={post.title.rendered} />
-    {featuredImage(post) && <img src={featuredImage(post)} alt="" />}
-    <WpContent html={post.content.rendered} />
-    {/* WP comments aren't carried over; wire up giscus/Disqus later if wanted. */}
-  </article>
-</Base>
+
+<Base
+  title={post.title}
+  description={post.description || undefined}
+  preloadImage={post.hero}
+  ><div class="article-heading">
+    <a class="eyebrow" href="/blog/">← The journal</a><h1>{post.title}</h1><time
+      datetime={post.date}
+      >{
+        new Date(post.date).toLocaleDateString("en", {
+          year: "numeric",
+          month: "long",
+          day: "numeric",
+        })
+      }</time>
+  </div>{
+    post.hero && (
+      <img class="article-image" src={post.hero} alt={post.heroAlt || ""} />
+    )
+  }<article class="prose" set:html={render(post.body)} /></Base
+>
