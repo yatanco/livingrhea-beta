@@ -1,0 +1,603 @@
+{
+  "cards": 74,
+  "optimizedCards": 58,
+  "before": 4483838,
+  "after": 2973554,
+  "saved": 1510284,
+  "percent": 34,
+  "increased": [],
+  "rows": [
+    {
+      "slug": "gsd-community-party-croatia",
+      "before": 105808,
+      "after": 72100,
+      "original": "/wp-content/uploads/2025/06/gsd-croatia.webp",
+      "optimized": "/_astro/gsd-croatia.CALG576Y_Z2tejPV.webp",
+      "srcset": "/_astro/gsd-croatia.CALG576Y_1naGVO.webp 400w, /_astro/gsd-croatia.CALG576Y_Z2tejPV.webp 800w"
+    },
+    {
+      "slug": "test-post-for-press-page",
+      "before": 57726,
+      "after": 41620,
+      "original": "/wp-content/uploads/2025/06/gsd-kenya.webp",
+      "optimized": "/_astro/gsd-kenya.Bic-N27x_MuHPN.webp",
+      "srcset": "/_astro/gsd-kenya.Bic-N27x_ZKCxSJ.webp 400w, /_astro/gsd-kenya.Bic-N27x_MuHPN.webp 800w"
+    },
+    {
+      "slug": "the-changemaker-formula-smoothie-challenge",
+      "before": 68176,
+      "after": 29324,
+      "original": "/wp-content/uploads/2025/08/042_Rhea_35294.webp",
+      "optimized": "/_astro/042_Rhea_35294.-pkOrw8z_ZGlel0.webp",
+      "srcset": "/_astro/042_Rhea_35294.-pkOrw8z_oNlsf.webp 400w, /_astro/042_Rhea_35294.-pkOrw8z_ZGlel0.webp 800w"
+    },
+    {
+      "slug": "centre-for-advanced-medicine",
+      "before": 64852,
+      "after": 28164,
+      "original": "/wp-content/uploads/2025/08/042_Rhea_35259.webp",
+      "optimized": "/_astro/042_Rhea_35259.DyAn4Ywk_1vsnY7.webp",
+      "srcset": "/_astro/042_Rhea_35259.DyAn4Ywk_Z2sza1z.webp 400w, /_astro/042_Rhea_35259.DyAn4Ywk_1vsnY7.webp 800w"
+    },
+    {
+      "slug": "benefit-from-medicinal-mushroom",
+      "before": 56502,
+      "after": 56502,
+      "original": "/wp-content/uploads/2020/11/medicinal-mashroom.webp",
+      "optimized": "/wp-content/uploads/2020/11/medicinal-mashroom.webp",
+      "srcset": ""
+    },
+    {
+      "slug": "apollo-clinically-validated-wearable-device",
+      "before": 14336,
+      "after": 14336,
+      "original": "/wp-content/uploads/2020/11/Apollo-2.webp",
+      "optimized": "/wp-content/uploads/2020/11/Apollo-2.webp",
+      "srcset": ""
+    },
+    {
+      "slug": "integrative-health-coaches-role",
+      "before": 29498,
+      "after": 29498,
+      "original": "/wp-content/uploads/2020/10/iin-1.webp",
+      "optimized": "/wp-content/uploads/2020/10/iin-1.webp",
+      "srcset": ""
+    },
+    {
+      "slug": "future-of-healthcare-with-technology",
+      "before": 38160,
+      "after": 38160,
+      "original": "/wp-content/uploads/2019/09/room-mt8G98XVxlg-unsplash.webp",
+      "optimized": "/wp-content/uploads/2019/09/room-mt8G98XVxlg-unsplash.webp",
+      "srcset": ""
+    },
+    {
+      "slug": "secrets-of-healthy-living",
+      "before": 51778,
+      "after": 51778,
+      "original": "/wp-content/uploads/2019/09/team7.webp",
+      "optimized": "/wp-content/uploads/2019/09/team7.webp",
+      "srcset": ""
+    },
+    {
+      "slug": "affects-of-physical-environment",
+      "before": 21308,
+      "after": 16390,
+      "original": "/wp-content/uploads/2020/09/physical-environment.webp",
+      "optimized": "/_astro/physical-environment.BSjn2woF_Zt50K4.webp",
+      "srcset": "/_astro/physical-environment.BSjn2woF_Zc9zW0.webp 400w, /_astro/physical-environment.BSjn2woF_Zt50K4.webp 800w"
+    },
+    {
+      "slug": "rawjuvenation-community-making-the-change-dr-rhea-mehta",
+      "before": 129662,
+      "after": 60610,
+      "original": "/wp-content/uploads/2020/08/RAWjuvenation-Community-1-scaled-1-1536x1024-1.webp",
+      "optimized": "/_astro/RAWjuvenation-Community-1-scaled-1-1536x1024-1.CWS7r8IA_1V2YBW.webp",
+      "srcset": "/_astro/RAWjuvenation-Community-1-scaled-1-1536x1024-1.CWS7r8IA_Z142IjJ.webp 400w, /_astro/RAWjuvenation-Community-1-scaled-1-1536x1024-1.CWS7r8IA_1V2YBW.webp 800w"
+    },
+    {
+      "slug": "get-rid-of-home-of-toxins-with-dr-rhea-mehta-molecular-toxicologist",
+      "before": 115498,
+      "after": 49480,
+      "original": "/wp-content/uploads/2020/07/Dr-Rhea-Mehta-Molecular-Toxicologist-scaled-1-1536x1152-1.webp",
+      "optimized": "/_astro/Dr-Rhea-Mehta-Molecular-Toxicologist-scaled-1-1536x1152-1.D_KpKHWB_ZOr22p.webp",
+      "srcset": "/_astro/Dr-Rhea-Mehta-Molecular-Toxicologist-scaled-1-1536x1152-1.D_KpKHWB_1A571R.webp 400w, /_astro/Dr-Rhea-Mehta-Molecular-Toxicologist-scaled-1-1536x1152-1.D_KpKHWB_ZOr22p.webp 800w"
+    },
+    {
+      "slug": "health-poetry-consequences",
+      "before": 106170,
+      "after": 75000,
+      "original": "/wp-content/uploads/2020/06/consequences-image-1.webp",
+      "optimized": "/_astro/consequences-image-1.DlChxGCy_EEtio.webp",
+      "srcset": "/_astro/consequences-image-1.DlChxGCy_HK0ib.webp 400w, /_astro/consequences-image-1.DlChxGCy_EEtio.webp 800w"
+    },
+    {
+      "slug": "hemp-protein-powder-review",
+      "before": 105560,
+      "after": 87736,
+      "original": "/wp-content/uploads/2020/05/hempprotein-e1485348581739.webp",
+      "optimized": "/_astro/hempprotein-e1485348581739.ygNEgftX_ZK81wt.webp",
+      "srcset": "/_astro/hempprotein-e1485348581739.ygNEgftX_1D59PK.webp 400w, /_astro/hempprotein-e1485348581739.ygNEgftX_ZK81wt.webp 800w"
+    },
+    {
+      "slug": "turmeric-faux-latte-my-anti-inflammatory-fix",
+      "before": 105448,
+      "after": 81504,
+      "original": "/wp-content/uploads/2017/01/tumeric2-e1484831409414.webp",
+      "optimized": "/_astro/tumeric2-e1484831409414.BUl6zwjZ_ZT3V0E.webp",
+      "srcset": "/_astro/tumeric2-e1484831409414.BUl6zwjZ_hKkjq.webp 400w, /_astro/tumeric2-e1484831409414.BUl6zwjZ_ZT3V0E.webp 800w"
+    },
+    {
+      "slug": "choice",
+      "before": 44202,
+      "after": 35260,
+      "original": "/wp-content/uploads/2016/12/choice.webp",
+      "optimized": "/_astro/choice.B5XCiLRn_1QGlXA.webp",
+      "srcset": "/_astro/choice.B5XCiLRn_2j8hBj.webp 400w, /_astro/choice.B5XCiLRn_1QGlXA.webp 800w"
+    },
+    {
+      "slug": "taking-ownership-of-your-health",
+      "before": 13492,
+      "after": 11822,
+      "original": "/wp-content/uploads/2016/12/prevention1.webp",
+      "optimized": "/_astro/prevention1.BvIMRTNX_Z4wGma.webp",
+      "srcset": "/_astro/prevention1.BvIMRTNX_1hLUoa.webp 400w, /_astro/prevention1.BvIMRTNX_Z4wGma.webp 800w"
+    },
+    {
+      "slug": "vital-signs",
+      "before": 33906,
+      "after": 29130,
+      "original": "/wp-content/uploads/2016/12/VitalSigns-1.webp",
+      "optimized": "/_astro/VitalSigns-1.DAryJ3w3_Zk7cFm.webp",
+      "srcset": "/_astro/VitalSigns-1.DAryJ3w3_i9pTC.webp 400w, /_astro/VitalSigns-1.DAryJ3w3_Zk7cFm.webp 800w"
+    },
+    {
+      "slug": "green-warrior-smoothie",
+      "before": 26848,
+      "after": 22448,
+      "original": "/wp-content/uploads/2017/01/smoothies-1.webp",
+      "optimized": "/_astro/smoothies-1.BSfsWg59_2dkQLW.webp",
+      "srcset": "/_astro/smoothies-1.BSfsWg59_Z1uwEgE.webp 400w, /_astro/smoothies-1.BSfsWg59_2dkQLW.webp 800w"
+    },
+    {
+      "slug": "foffee-my-high-energy-coffee-substitute-2",
+      "before": 54378,
+      "after": 40676,
+      "original": "/wp-content/uploads/2016/12/chai.webp",
+      "optimized": "/_astro/chai.DZn_VHdg_Lmfm4.webp",
+      "srcset": "/_astro/chai.DZn_VHdg_1rRlYb.webp 400w, /_astro/chai.DZn_VHdg_Lmfm4.webp 800w"
+    },
+    {
+      "slug": "raw-vegan-yogurt",
+      "before": 64180,
+      "after": 52888,
+      "original": "/wp-content/uploads/2017/01/yogurt-e1484769291350.webp",
+      "optimized": "/_astro/yogurt-e1484769291350.Bujbsp76_Z2iz4Hb.webp",
+      "srcset": "/_astro/yogurt-e1484769291350.Bujbsp76_2wmB0t.webp 400w, /_astro/yogurt-e1484769291350.Bujbsp76_Z2iz4Hb.webp 800w"
+    },
+    {
+      "slug": "vegetable-spiralizer-product-review",
+      "before": 49164,
+      "after": 36976,
+      "original": "/wp-content/uploads/2017/01/spirooli-e1483756016529.webp",
+      "optimized": "/_astro/spirooli-e1483756016529.Bae49Jbm_ZbYuDd.webp",
+      "srcset": "/_astro/spirooli-e1483756016529.Bae49Jbm_Am69s.webp 400w, /_astro/spirooli-e1483756016529.Bae49Jbm_ZbYuDd.webp 800w"
+    },
+    {
+      "slug": "blendtec-blender-product-review",
+      "before": 34442,
+      "after": 27394,
+      "original": "/wp-content/uploads/2017/01/blendtec-e1483757571987.webp",
+      "optimized": "/_astro/blendtec-e1483757571987.BwJJJTxx_Z2e0g3L.webp",
+      "srcset": "/_astro/blendtec-e1483757571987.BwJJJTxx_1YH5mh.webp 400w, /_astro/blendtec-e1483757571987.BwJJJTxx_Z2e0g3L.webp 800w"
+    },
+    {
+      "slug": "emotional-eating",
+      "before": 66160,
+      "after": 54676,
+      "original": "/wp-content/uploads/2016/12/emotionaleating.webp",
+      "optimized": "/_astro/emotionaleating.I-cJU0l9_ZfVHUf.webp",
+      "srcset": "/_astro/emotionaleating.I-cJU0l9_Z27LNjN.webp 400w, /_astro/emotionaleating.I-cJU0l9_ZfVHUf.webp 800w"
+    },
+    {
+      "slug": "grab-goatmeal",
+      "before": 22104,
+      "after": 16776,
+      "original": "/wp-content/uploads/2016/12/oatmeal.webp",
+      "optimized": "/_astro/oatmeal.DTGIIaGR_hE2eM.webp",
+      "srcset": "/_astro/oatmeal.DTGIIaGR_2wykBl.webp 400w, /_astro/oatmeal.DTGIIaGR_hE2eM.webp 800w"
+    },
+    {
+      "slug": "faux-fudgey-truffles",
+      "before": 21940,
+      "after": 18004,
+      "original": "/wp-content/uploads/2016/10/truffles.webp",
+      "optimized": "/_astro/truffles.KcCkebxL_1AWArf.webp",
+      "srcset": "/_astro/truffles.KcCkebxL_ZTSo9W.webp 400w, /_astro/truffles.KcCkebxL_1AWArf.webp 800w"
+    },
+    {
+      "slug": "i-am-enough",
+      "before": 39496,
+      "after": 32072,
+      "original": "/wp-content/uploads/2016/12/How-I-discovered-I-am-enough.webp",
+      "optimized": "/_astro/How-I-discovered-I-am-enough.B1KvIybs_Z23layt.webp",
+      "srcset": "/_astro/How-I-discovered-I-am-enough.B1KvIybs_kePkL.webp 400w, /_astro/How-I-discovered-I-am-enough.B1KvIybs_Z23layt.webp 800w"
+    },
+    {
+      "slug": "mango-tango-faux-lassi",
+      "before": 25842,
+      "after": 21864,
+      "original": "/wp-content/uploads/2016/11/lassi-e1484767015963.webp",
+      "optimized": "/_astro/lassi-e1484767015963.BWgAuXd4_MOQPr.webp",
+      "srcset": "/_astro/lassi-e1484767015963.BWgAuXd4_28q9Jf.webp 400w, /_astro/lassi-e1484767015963.BWgAuXd4_MOQPr.webp 800w"
+    },
+    {
+      "slug": "excalibur-dehydrator-product-review",
+      "before": 47112,
+      "after": 36052,
+      "original": "/wp-content/uploads/2016/11/2690-635624537148080000_Excalibur_9_Tray_Dehydrator_With_Timer_Black_Scale-ScaleNoWhiteSpace_w1252_h904.webp",
+      "optimized": "/_astro/2690-635624537148080000_Excalibur_9_Tray_Dehydrator_With_Timer_Black_Scale-ScaleNoWhiteSpace_w1252_h904.C9pC-gen_eyzGo.webp",
+      "srcset": "/_astro/2690-635624537148080000_Excalibur_9_Tray_Dehydrator_With_Timer_Black_Scale-ScaleNoWhiteSpace_w1252_h904.C9pC-gen_1dxi3x.webp 400w, /_astro/2690-635624537148080000_Excalibur_9_Tray_Dehydrator_With_Timer_Black_Scale-ScaleNoWhiteSpace_w1252_h904.C9pC-gen_eyzGo.webp 800w"
+    },
+    {
+      "slug": "sassy-salsa",
+      "before": 35782,
+      "after": 27664,
+      "original": "/wp-content/uploads/2017/01/salsa-e1484767145305.webp",
+      "optimized": "/_astro/salsa-e1484767145305.Cjta_YIa_2d3H4r.webp",
+      "srcset": "/_astro/salsa-e1484767145305.Cjta_YIa_Z1wx8PG.webp 400w, /_astro/salsa-e1484767145305.Cjta_YIa_2d3H4r.webp 800w"
+    },
+    {
+      "slug": "hack-your-productivity-high-fat-diet",
+      "before": 41562,
+      "after": 31856,
+      "original": "/wp-content/uploads/2016/10/productivity2-e1485213928621.webp",
+      "optimized": "/_astro/productivity2-e1485213928621.BxcWSHWh_IN8J9.webp",
+      "srcset": "/_astro/productivity2-e1485213928621.BxcWSHWh_ZMX8kR.webp 400w, /_astro/productivity2-e1485213928621.BxcWSHWh_IN8J9.webp 800w"
+    },
+    {
+      "slug": "3-superfoods-to-improve-memory-and-focus",
+      "before": 35472,
+      "after": 29240,
+      "original": "/wp-content/uploads/2016/10/ghee-1-1.webp",
+      "optimized": "/_astro/ghee-1-1.n4qDdSQG_1FyosE.webp",
+      "srcset": "/_astro/ghee-1-1.n4qDdSQG_ZPhA8x.webp 400w, /_astro/ghee-1-1.n4qDdSQG_1FyosE.webp 800w"
+    },
+    {
+      "slug": "how-to-feel-great-every-day",
+      "before": 240056,
+      "after": 95392,
+      "original": "/wp-content/uploads/2016/10/feelbest.webp",
+      "optimized": "/_astro/feelbest.Bm_k6NXR_bPtae.webp",
+      "srcset": "/_astro/feelbest.Bm_k6NXR_Z17tQ0a.webp 400w, /_astro/feelbest.Bm_k6NXR_bPtae.webp 800w"
+    },
+    {
+      "slug": "are-you-drinking-a-smoothie-or-a-slurpee",
+      "before": 62766,
+      "after": 54234,
+      "original": "/wp-content/uploads/2016/09/GlobalSmoothieDay_2-1.webp",
+      "optimized": "/_astro/GlobalSmoothieDay_2-1.Db4K0wvO_26kayF.webp",
+      "srcset": "/_astro/GlobalSmoothieDay_2-1.Db4K0wvO_2nfAmJ.webp 400w, /_astro/GlobalSmoothieDay_2-1.Db4K0wvO_26kayF.webp 800w"
+    },
+    {
+      "slug": "mushroom-soup",
+      "before": 41366,
+      "after": 34142,
+      "original": "/wp-content/uploads/2016/09/mushroom-e1484767332603.webp",
+      "optimized": "/_astro/mushroom-e1484767332603.Cyvgo4qy_25KubP.webp",
+      "srcset": "/_astro/mushroom-e1484767332603.Cyvgo4qy_Z1MBni1.webp 400w, /_astro/mushroom-e1484767332603.Cyvgo4qy_25KubP.webp 800w"
+    },
+    {
+      "slug": "coconut-sweetener-product-review",
+      "before": 110402,
+      "after": 80960,
+      "original": "/wp-content/uploads/2016/09/coconutsugar.webp",
+      "optimized": "/_astro/coconutsugar.DYUFvtFl_VUDA4.webp",
+      "srcset": "/_astro/coconutsugar.DYUFvtFl_ZIvVga.webp 400w, /_astro/coconutsugar.DYUFvtFl_VUDA4.webp 800w"
+    },
+    {
+      "slug": "rawkin-vegan-tacos",
+      "before": 45918,
+      "after": 34124,
+      "original": "/wp-content/uploads/2016/09/tacos.webp",
+      "optimized": "/_astro/tacos.QGazYZ9F_Z65k65.webp",
+      "srcset": "/_astro/tacos.QGazYZ9F_ZnaVoX.webp 400w, /_astro/tacos.QGazYZ9F_Z65k65.webp 800w"
+    },
+    {
+      "slug": "pesto-pizazz",
+      "before": 29382,
+      "after": 22772,
+      "original": "/wp-content/uploads/2016/09/pesto.webp",
+      "optimized": "/_astro/pesto.QJDND_vK_1m2wSC.webp",
+      "srcset": "/_astro/pesto.QJDND_vK_14VUzJ.webp 400w, /_astro/pesto.QJDND_vK_1m2wSC.webp 800w"
+    },
+    {
+      "slug": "coconut-oil-product-review",
+      "before": 40724,
+      "after": 30810,
+      "original": "/wp-content/uploads/2016/08/coconut-oil-1.webp",
+      "optimized": "/_astro/coconut-oil-1.CwH5DouT_Z2valBP.webp",
+      "srcset": "/_astro/coconut-oil-1.CwH5DouT_DzpN9.webp 400w, /_astro/coconut-oil-1.CwH5DouT_Z2valBP.webp 800w"
+    },
+    {
+      "slug": "the-trick-to-stop-your-gut-bacteria-from-eating-you",
+      "before": 42694,
+      "after": 42694,
+      "original": "/wp-content/uploads/2016/08/option1.webp",
+      "optimized": "/wp-content/uploads/2016/08/option1.webp",
+      "srcset": ""
+    },
+    {
+      "slug": "neat-nut-meat",
+      "before": 23924,
+      "after": 20018,
+      "original": "/wp-content/uploads/2016/08/nutmeat-e1484767504651.webp",
+      "optimized": "/_astro/nutmeat-e1484767504651.D0iB-L0P_ZAKBga.webp",
+      "srcset": "/_astro/nutmeat-e1484767504651.D0iB-L0P_LEYLm.webp 400w, /_astro/nutmeat-e1484767504651.D0iB-L0P_ZAKBga.webp 800w"
+    },
+    {
+      "slug": "2-practices-that-will-change-your-relationship-with-food",
+      "before": 158586,
+      "after": 67852,
+      "original": "/wp-content/uploads/2016/08/2-PRACTICES-THAT-WILL-CHANGE-YOUR-RELATIONSHIP-WITH-FOOD.webp",
+      "optimized": "/_astro/2-PRACTICES-THAT-WILL-CHANGE-YOUR-RELATIONSHIP-WITH-FOOD.DWDBZbjq_Z1Utl61.webp",
+      "srcset": "/_astro/2-PRACTICES-THAT-WILL-CHANGE-YOUR-RELATIONSHIP-WITH-FOOD.DWDBZbjq_8jqh2.webp 400w, /_astro/2-PRACTICES-THAT-WILL-CHANGE-YOUR-RELATIONSHIP-WITH-FOOD.DWDBZbjq_Z1Utl61.webp 800w"
+    },
+    {
+      "slug": "coconut-butter-product-review",
+      "before": 40178,
+      "after": 34506,
+      "original": "/wp-content/uploads/2017/01/coconutbutter-e1484772259502.webp",
+      "optimized": "/_astro/coconutbutter-e1484772259502.BVWxX7C6_1hoGj8.webp",
+      "srcset": "/_astro/coconutbutter-e1484772259502.BVWxX7C6_ZfmzKS.webp 400w, /_astro/coconutbutter-e1484772259502.BVWxX7C6_1hoGj8.webp 800w"
+    },
+    {
+      "slug": "the-truth-about-fasting-for-optimal-living",
+      "before": 20002,
+      "after": 16084,
+      "original": "/wp-content/uploads/2016/07/fasting-e1485214232732.webp",
+      "optimized": "/_astro/fasting-e1485214232732.6scNK5Uf_Z22h3Q2.webp",
+      "srcset": "/_astro/fasting-e1485214232732.6scNK5Uf_Z1HcdCc.webp 400w, /_astro/fasting-e1485214232732.6scNK5Uf_Z22h3Q2.webp 800w"
+    },
+    {
+      "slug": "3-simple-drink-recipes-thatll-boost-your-energy-and-your-day",
+      "before": 61494,
+      "after": 45516,
+      "original": "/wp-content/uploads/2016/07/lemon.webp",
+      "optimized": "/_astro/lemon.bLSKXqgr_Z1V28om.webp",
+      "srcset": "/_astro/lemon.bLSKXqgr_Z2d7JHf.webp 400w, /_astro/lemon.bLSKXqgr_Z1V28om.webp 800w"
+    },
+    {
+      "slug": "goji-berries-product-review",
+      "before": 29412,
+      "after": 24482,
+      "original": "/wp-content/uploads/2016/06/goji-1-1.webp",
+      "optimized": "/_astro/goji-1-1.DpHqP5Ca_Z25pOSA.webp",
+      "srcset": "/_astro/goji-1-1.DpHqP5Ca_sUjj9.webp 400w, /_astro/goji-1-1.DpHqP5Ca_Z25pOSA.webp 800w"
+    },
+    {
+      "slug": "nut-seed-butters-product-review",
+      "before": 24748,
+      "after": 19816,
+      "original": "/wp-content/uploads/2017/01/almond-butter-e1484770916754.webp",
+      "optimized": "/_astro/almond-butter-e1484770916754.CrvlgP7w_2ueYC5.webp",
+      "srcset": "/_astro/almond-butter-e1484770916754.CrvlgP7w_Zcm8hB.webp 400w, /_astro/almond-butter-e1484770916754.CrvlgP7w_2ueYC5.webp 800w"
+    },
+    {
+      "slug": "zenzini-pasta",
+      "before": 50234,
+      "after": 40774,
+      "original": "/wp-content/uploads/2016/06/zenzini.webp",
+      "optimized": "/_astro/zenzini.Dgn9ngNG_1quGwj.webp",
+      "srcset": "/_astro/zenzini.Dgn9ngNG_ZTvlDP.webp 400w, /_astro/zenzini.Dgn9ngNG_1quGwj.webp 800w"
+    },
+    {
+      "slug": "organifigreenjuicepowder",
+      "before": 49448,
+      "after": 40116,
+      "original": "/wp-content/uploads/2016/05/greenjice.webp",
+      "optimized": "/_astro/greenjice.BsbrapJ5_ZKMm3T.webp",
+      "srcset": "/_astro/greenjice.BsbrapJ5_1mQJIf.webp 400w, /_astro/greenjice.BsbrapJ5_ZKMm3T.webp 800w"
+    },
+    {
+      "slug": "14-health-sabotaging-myths-exposed-by-top-experts",
+      "before": 24138,
+      "after": 19592,
+      "original": "/wp-content/uploads/2016/04/diet-e1485345264670.webp",
+      "optimized": "/_astro/diet-e1485345264670.u9f_zwZy_1GuK48.webp",
+      "srcset": "/_astro/diet-e1485345264670.u9f_zwZy_2tV0Ix.webp 400w, /_astro/diet-e1485345264670.u9f_zwZy_1GuK48.webp 800w"
+    },
+    {
+      "slug": "clean-out-your-kitchen",
+      "before": 38450,
+      "after": 27362,
+      "original": "/wp-content/uploads/2016/01/kitchen-e1485345393993.webp",
+      "optimized": "/_astro/kitchen-e1485345393993.B_M6g-92_1yEd6k.webp",
+      "srcset": "/_astro/kitchen-e1485345393993.B_M6g-92_ZGzaln.webp 400w, /_astro/kitchen-e1485345393993.B_M6g-92_1yEd6k.webp 800w"
+    },
+    {
+      "slug": "amazon-shop",
+      "before": 61922,
+      "after": 51070,
+      "original": "/wp-content/uploads/2015/12/shopping-list.webp",
+      "optimized": "/_astro/shopping-list.CS2X3uEa_ZirTAs.webp",
+      "srcset": "/_astro/shopping-list.CS2X3uEa_Z2dTgYp.webp 400w, /_astro/shopping-list.CS2X3uEa_ZirTAs.webp 800w"
+    },
+    {
+      "slug": "gamify-health",
+      "before": 19052,
+      "after": 15860,
+      "original": "/wp-content/uploads/2015/12/game-1.webp",
+      "optimized": "/_astro/game-1.mrRvkfqa_2lwHAj.webp",
+      "srcset": "/_astro/game-1.mrRvkfqa_Z13jMgo.webp 400w, /_astro/game-1.mrRvkfqa_2lwHAj.webp 800w"
+    },
+    {
+      "slug": "can-we-have-fun-with-health",
+      "before": 25796,
+      "after": 20260,
+      "original": "/wp-content/uploads/2015/11/funwithhealth-e1485346009304.webp",
+      "optimized": "/_astro/funwithhealth-e1485346009304.DbXYYc_M_1WtWPX.webp",
+      "srcset": "/_astro/funwithhealth-e1485346009304.DbXYYc_M_ZJ7a3I.webp 400w, /_astro/funwithhealth-e1485346009304.DbXYYc_M_1WtWPX.webp 800w"
+    },
+    {
+      "slug": "healthy-green-smoothies",
+      "before": 101406,
+      "after": 85636,
+      "original": "/wp-content/uploads/2015/09/globalsmoothieday-e1485346241376.webp",
+      "optimized": "/_astro/globalsmoothieday-e1485346241376.BiO5AX6m_znYmN.webp",
+      "srcset": "/_astro/globalsmoothieday-e1485346241376.BiO5AX6m_Z1UgUeJ.webp 400w, /_astro/globalsmoothieday-e1485346241376.BiO5AX6m_znYmN.webp 800w"
+    },
+    {
+      "slug": "rotateyourgreens",
+      "before": 29604,
+      "after": 29604,
+      "original": "/wp-content/uploads/2015/09/tumblr_mz5755CAjQ1s4314no1_500.webp",
+      "optimized": "/wp-content/uploads/2015/09/tumblr_mz5755CAjQ1s4314no1_500.webp",
+      "srcset": ""
+    },
+    {
+      "slug": "detox-for-entrepreneurs",
+      "before": 42268,
+      "after": 34282,
+      "original": "/wp-content/uploads/2015/08/changemaker-e1485346365183.webp",
+      "optimized": "/_astro/changemaker-e1485346365183.uD3YxAa4_Z1fLBTA.webp",
+      "srcset": "/_astro/changemaker-e1485346365183.uD3YxAa4_ZX7k3z.webp 400w, /_astro/changemaker-e1485346365183.uD3YxAa4_Z1fLBTA.webp 800w"
+    },
+    {
+      "slug": "waterconservationtips",
+      "before": 27926,
+      "after": 22982,
+      "original": "/wp-content/uploads/2015/08/waterconservation-1-e1485346517885.webp",
+      "optimized": "/_astro/waterconservation-1-e1485346517885.DW_ZBiut_Z1fqGtj.webp",
+      "srcset": "/_astro/waterconservation-1-e1485346517885.DW_ZBiut_1meI3L.webp 400w, /_astro/waterconservation-1-e1485346517885.DW_ZBiut_Z1fqGtj.webp 800w"
+    },
+    {
+      "slug": "optimal-living-formula",
+      "before": 239584,
+      "after": 86680,
+      "original": "/wp-content/uploads/2014/04/RHEA_3.webp",
+      "optimized": "/_astro/RHEA_3.OxV9Z2f5_Z1RdMDB.webp",
+      "srcset": "/_astro/RHEA_3.OxV9Z2f5_Z3VTHX.webp 400w, /_astro/RHEA_3.OxV9Z2f5_Z1RdMDB.webp 800w"
+    },
+    {
+      "slug": "naturaldeodorantexperiment",
+      "before": 5594,
+      "after": 5594,
+      "original": "/wp-content/uploads/2015/06/Eucalyptus-Oil-web1-300x231-1.webp",
+      "optimized": "/wp-content/uploads/2015/06/Eucalyptus-Oil-web1-300x231-1.webp",
+      "srcset": ""
+    },
+    {
+      "slug": "self-care-is-an-act-of-service",
+      "before": 242412,
+      "after": 86790,
+      "original": "/wp-content/uploads/2015/07/rawjuv-cover-photo.webp",
+      "optimized": "/_astro/rawjuv-cover-photo.DC7EcaEc_Z221Dye.webp",
+      "srcset": "/_astro/rawjuv-cover-photo.DC7EcaEc_2lqPLU.webp 400w, /_astro/rawjuv-cover-photo.DC7EcaEc_Z221Dye.webp 800w"
+    },
+    {
+      "slug": "detoxify-your-body",
+      "before": 139918,
+      "after": 57770,
+      "original": "/wp-content/uploads/2015/07/IMG_0022.webp",
+      "optimized": "/_astro/IMG_0022.BD5LYXJI_Z1UcII3.webp",
+      "srcset": "/_astro/IMG_0022.BD5LYXJI_1AQ8ll.webp 400w, /_astro/IMG_0022.BD5LYXJI_Z1UcII3.webp 800w"
+    },
+    {
+      "slug": "letting-yourself-go",
+      "before": 23106,
+      "after": 23106,
+      "original": "/wp-content/uploads/2015/03/DSC04436.webp",
+      "optimized": "/wp-content/uploads/2015/03/DSC04436.webp",
+      "srcset": ""
+    },
+    {
+      "slug": "finding-your-flow",
+      "before": 10354,
+      "after": 10354,
+      "original": "/wp-content/uploads/2015/02/20140810-IMG_7630.webp",
+      "optimized": "/wp-content/uploads/2015/02/20140810-IMG_7630.webp",
+      "srcset": ""
+    },
+    {
+      "slug": "healthy-green-smoothie-recipe",
+      "before": 23564,
+      "after": 20292,
+      "original": "/wp-content/uploads/2015/01/smoothies2.webp",
+      "optimized": "/_astro/smoothies2.BIP9SnVS_bve0O.webp",
+      "srcset": "/_astro/smoothies2.BIP9SnVS_ZxMAys.webp 400w, /_astro/smoothies2.BIP9SnVS_bve0O.webp 800w"
+    },
+    {
+      "slug": "5-healthy-hacks-conquer-holiday-hangovers",
+      "before": 22580,
+      "after": 22580,
+      "original": "/wp-content/uploads/2014/11/Chia-Puddin-FI.webp",
+      "optimized": "/wp-content/uploads/2014/11/Chia-Puddin-FI.webp",
+      "srcset": ""
+    },
+    {
+      "slug": "health-and-wellness-coach",
+      "before": 90172,
+      "after": 58936,
+      "original": "/wp-content/uploads/2014/10/860303_501889126523377_843018828_o.webp",
+      "optimized": "/_astro/860303_501889126523377_843018828_o.ZbWsYbiL_20lgWs.webp",
+      "srcset": "/_astro/860303_501889126523377_843018828_o.ZbWsYbiL_WPnAv.webp 400w, /_astro/860303_501889126523377_843018828_o.ZbWsYbiL_20lgWs.webp 800w"
+    },
+    {
+      "slug": "with-love-and-gratitude",
+      "before": 285618,
+      "after": 107920,
+      "original": "/wp-content/uploads/2014/10/20140810-IMG_8399.webp",
+      "optimized": "/_astro/20140810-IMG_8399.DTnwHJ99_Z1hlo7b.webp",
+      "srcset": "/_astro/20140810-IMG_8399.DTnwHJ99_1UGSRr.webp 400w, /_astro/20140810-IMG_8399.DTnwHJ99_Z1hlo7b.webp 800w"
+    },
+    {
+      "slug": "burning-man-wellness",
+      "before": 63386,
+      "after": 56502,
+      "original": "/wp-content/uploads/2014/09/10616063_10152256698660740_1819758343885883466_n1.webp",
+      "optimized": "/_astro/10616063_10152256698660740_1819758343885883466_n1.CprA6Wu5_1Nhpvn.webp",
+      "srcset": "/_astro/10616063_10152256698660740_1819758343885883466_n1.CprA6Wu5_23OUhc.webp 400w, /_astro/10616063_10152256698660740_1819758343885883466_n1.CprA6Wu5_1Nhpvn.webp 800w"
+    },
+    {
+      "slug": "cleansing-life-insights-disclosed",
+      "before": 29918,
+      "after": 29918,
+      "original": "/wp-content/uploads/2014/08/Cleanse-Me-Lemonade-FI.webp",
+      "optimized": "/wp-content/uploads/2014/08/Cleanse-Me-Lemonade-FI.webp",
+      "srcset": ""
+    },
+    {
+      "slug": "heart-love-5-minute-chai-au-chocolat",
+      "before": 33326,
+      "after": 33326,
+      "original": "/wp-content/uploads/2014/08/Fuzzin-Faux-Latte-FI.webp",
+      "optimized": "/wp-content/uploads/2014/08/Fuzzin-Faux-Latte-FI.webp",
+      "srcset": ""
+    },
+    {
+      "slug": "cleanse-body-spring-simple-activities",
+      "before": 14940,
+      "after": 14940,
+      "original": "/wp-content/uploads/2014/08/matt_jenkins-2678.webp",
+      "optimized": "/wp-content/uploads/2014/08/matt_jenkins-2678.webp",
+      "srcset": ""
+    },
+    {
+      "slug": "green-smoothie-guide-nutshell",
+      "before": 22840,
+      "after": 22840,
+      "original": "/wp-content/uploads/2014/08/Green_Warrior_Smoothie-FI.webp",
+      "optimized": "/wp-content/uploads/2014/08/Green_Warrior_Smoothie-FI.webp",
+      "srcset": ""
+    },
+    {
+      "slug": "mind-body-january",
+      "before": 68066,
+      "after": 68066,
+      "original": "/wp-content/uploads/2014/03/10day-Juice-Cleanse.webp",
+      "optimized": "/wp-content/uploads/2014/03/10day-Juice-Cleanse.webp",
+      "srcset": ""
+    }
+  ]
+}

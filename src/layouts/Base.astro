@@ -1,14 +1,13 @@
 ---
-import { getSalientShell } from '../lib/salient-shell.js';
-import { WP_ORIGIN } from '../lib/wp-url.js';
+import { getSalientShell } from "../lib/salient-shell.js";
+import { WP_ORIGIN } from "../lib/wp-url.js";
+import { plainText, pageDescriptions } from "../lib/seo.js";
 
 interface Props {
   title: string;
   description?: string;
-  /** Per-page WPBakery custom CSS (from the wpb_custom_css REST field). */
-  headCss?: string;
   /**
-   * Live WP URL whose shell (header treatment, body classes, per-page CSS)
+   * Original page URL whose saved layout (header treatment, body classes, per-page CSS)
    * this page should adopt. Pages pass their own `link`; blog posts/archive
    * fall back to a standard interior page (About) since their WP template
    * uses a different content wrapper.
@@ -16,57 +15,126 @@ interface Props {
   pageUrl?: string;
   /** Above-the-fold LCP image to preload (e.g. the hero background). */
   preloadImage?: string;
+  socialImage?: string;
+  article?: {
+    datePublished: string;
+    dateModified?: string;
+    authorName?: string;
+  };
 }
 const {
   title,
-  description = '',
-  headCss = '',
+  description = "",
   pageUrl = `${WP_ORIGIN}/about/`,
   preloadImage,
+  socialImage,
+  article,
 } = Astro.props;
 
 // Salient theme shell (header, footer, mobile menu, body classes, CSS + JS
-// stack) captured from the live WP page. Reproduces the chrome the REST
+// stack) saved from the original page. Reproduces the chrome the REST
 // content field doesn't include. See src/lib/salient-shell.js.
 const shell = await getSalientShell(pageUrl);
+const canonical = new URL(Astro.url.pathname, Astro.site);
+const plainTitle = plainText(title);
+const plainDescription =
+  pageDescriptions[Astro.url.pathname] || plainText(description).slice(0, 170);
+const siteUrl = new URL("/", Astro.site).href;
+const personId = `${siteUrl}#rhea-mehta`;
+const socialSource = socialImage || preloadImage;
+const image = socialSource ? new URL(socialSource, Astro.site).href : undefined;
+const schema = {
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Person",
+      "@id": personId,
+      name: "Dr. Rhea Mehta",
+      url: new URL("about/", Astro.site).href,
+      sameAs: ["https://www.instagram.com/rheamehtaphd/"],
+    },
+    {
+      "@type": "WebSite",
+      "@id": `${siteUrl}#website`,
+      url: siteUrl,
+      name: "Living Rhea",
+      publisher: { "@id": personId },
+    },
+    {
+      "@type": article ? "BlogPosting" : "WebPage",
+      "@id": `${canonical.href}#page`,
+      url: canonical.href,
+      name: plainTitle,
+      headline: plainTitle,
+      description: plainDescription,
+      isPartOf: { "@id": `${siteUrl}#website` },
+      ...(image ? { image } : {}),
+      ...(article
+        ? {
+            datePublished: article.datePublished,
+            dateModified: article.dateModified,
+            author: article.authorName
+              ? { "@type": "Person", name: article.authorName }
+              : { "@id": personId },
+          }
+        : {}),
+    },
+  ],
+};
 ---
+
 <!doctype html>
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>{title} | Rhea Mehta</title>
-    {description && <meta name="description" content={description} />}
-    <!-- TODO: decide indexing policy — the current WP site is sitewide
-         noindex,nofollow. Remove that (or keep it) deliberately, don't
-         let it carry over by accident. -->
-    <link rel="alternate" type="application/rss+xml" title="Blog" href="/blog/rss.xml" />
+    <title>{plainTitle} | Rhea Mehta</title>
+    {plainDescription && <meta name="description" content={plainDescription} />}
+    <link rel="canonical" href={canonical} />
+    <meta property="og:title" content={`${plainTitle} | Rhea Mehta`} />
+    <meta property="og:description" content={plainDescription} />
+    <meta property="og:url" content={canonical} />
+    <meta property="og:type" content={article ? "article" : "website"} />
+    {image && <meta property="og:image" content={image} />}
+    <meta name="twitter:card" content="summary_large_image" />
+    <script
+      is:inline
+      type="application/ld+json"
+      set:html={JSON.stringify(schema).replace(/</g, "\\u003c")}
+    />
+    <link
+      rel="alternate"
+      type="application/rss+xml"
+      title="Blog"
+      href="/blog/rss.xml"
+    />
 
     <!-- Preload the LCP image (Salient applies hero images as CSS backgrounds,
          which the browser won't discover early on its own). -->
-    {preloadImage && <link rel="preload" as="image" href={preloadImage} fetchpriority="high" />}
+    {
+      preloadImage && (
+        <link
+          rel="preload"
+          as="image"
+          href={preloadImage}
+          fetchpriority="high"
+        />
+      )
+    }
 
-    <!-- Salient/WPBakery CSS, fonts and head assets, captured from live WP. -->
+    <link rel="preload" as="font" type="font/woff2" href="/wp-content/uploads/useanyfont/8780Ogg-Regular.woff2" crossorigin="anonymous" />
+    <link rel="preload" as="font" type="font/woff2" href="/vendor/gstatic/s/inter/v20/UcCO3FwrK3iLTeHuS_nVMrMxCp50SjIw2boKoduKmMEVuLyfAZ9hiJ-Ek-_EeA.woff2" crossorigin="anonymous" />
+
+    <!-- Salient/WPBakery CSS, fonts and head assets, saved from the original site. -->
     <Fragment set:html={shell.headHtml} />
 
-    <!-- Self-hosted FontAwesome, loaded AFTER the shell so its same-origin
-         @font-face overrides WP's copy. WP-hosted webfonts fail CORS when the
-         page and the CMS are on different origins (localhost now, and root vs
-         cms.livingrhea.com in production), which renders icons as empty boxes.
-         See MIGRATION-TODO. -->
-    <link rel="stylesheet" href="/fonts/font-awesome/css/font-awesome.min.css" />
-    <link rel="stylesheet" href="/fonts/salient/icomoon.css" />
-
-    <!-- Per-page WPBakery custom CSS (design set in the editor; not in any
-         global stylesheet). Injected verbatim, so keep it un-scoped. -->
-    {headCss && <style is:inline set:html={headCss} />}
   </head>
   <body {...shell.bodyAttrs}>
-    <!-- Live Salient chrome: skip link, off-canvas wraps, header, and the
+    <!-- Saved Salient chrome: skip link, off-canvas wraps, header, and the
          opening content wrappers (#ajax-content-wrap → .row). -->
     <Fragment set:html={shell.preContent} />
 
-    <!-- REST-sourced page content sits inside Salient's .row, exactly where
+    <!-- Local page content sits inside Salient's .row, exactly where
          WordPress would render it. -->
     <slot />
 
@@ -80,9 +148,15 @@ const shell = await getSalientShell(pageUrl);
     {
       shell.scripts.map((s) =>
         s.src ? (
-          <script is:inline src={s.src} defer={s.defer} async={s.async} id={s.id}></script>
+          <script
+            is:inline
+            src={s.src}
+            defer={s.defer}
+            async={s.async}
+            id={s.id}
+          />
         ) : (
-          <script is:inline id={s.id} type={s.type} set:html={s.code}></script>
+          <script is:inline id={s.id} type={s.type} set:html={s.code} />
         ),
       )
     }

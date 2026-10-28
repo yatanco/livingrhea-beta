@@ -1,86 +1,35 @@
-# livingrhea.com → Astro + headless WP: migration to-do
+# Migration status and remaining improvements
 
-Architecture: Astro (static build) pulls content from the WP REST API
-at build time. WordPress keeps running exactly as-is behind the
-scenes — same wp-admin, same WPBakery editor — but only Astro serves
-production traffic. This means: everything the client *edits* in WP
-(page text, blog posts, images) carries over automatically on the
-next build. Everything that's a *plugin feature running live on the
-old PHP site* does not, and needs one of the options below.
+## Implemented
 
-## 1. Newsletter signup (Mailchimp) — easy
-Currently an embedded form tied to a WP plugin/shortcode
-(`eepurl.com/8dr2yTLOdh`). Get the real embedded-form HTML from
-Mailchimp (Audience → Signup forms → Embedded forms) and drop it into
-`src/components/Newsletter.astro`. This is a Mailchimp-hosted POST —
-it doesn't touch WP or PHP at all, so it's a copy-paste, not a rebuild.
+- Original Astro templates and original visual design retained. No redesign is part of the final implementation.
+- 8 usable pages plus 77 posts are local; the sample page is excluded and Blog has its own archive route. Original public exports remain in `migration/` for comparison.
+- Header/footer/page layout snapshots, theme assets, fonts, and images are local. Builds no longer call WordPress. The exported Salient CSS/JavaScript is retained where it supports the existing design.
+- Contact uses a small native Astro replacement in the original page location, posting to the supplied Formspree endpoint.
+- Existing Mailchimp footer signup retained; the previously empty guide-signup area now has a direct Mailchimp form.
+- WordPress form/Instagram/Jetpack tracking scripts are excluded; the conflicting duplicate lightbox plugin and unused emoji loader are removed. Popup Maker's server-backed analytics is disabled; its presentation remains.
+- Fourteen missing expert image variants recovered from local originals. Unavailable images and dead NextGen editor previews are omitted. Missing responsive-size candidates fall back to available image sources.
+- Historical permalink redirects, corrected internal links, old sitemap URL redirects, canonical URLs, route-specific social metadata, and factual structured data added without changing the visible design.
+- Astro stable 7.4.2 pinned; dependency audit passes. Normal builds require no WordPress environment variables or credentials.
 
-## 2. Contact form (WPForms) — decided: Formspree
-WPForms posts to PHP on the WP server, which a static site doesn't
-have. Using **Formspree** — free tier, no server code, just point the
-`<form action>` in `src/pages/contact.astro` at your real form ID.
-Before cutover: check WPForms → Entries and any connected
-integrations (Zapier, email notifications) on the current site so
-nothing silently stops notifying anyone once WPForms is gone.
+## Not yet verified or launched
 
-## 3. Instagram feed (homepage) — decided: hosted widget (Elfsight/SnapWidget)
-The current plugin (Smash Balloon or similar) is live-authenticated to
-an Instagram account. Going with a paid hosted embed widget instead of
-rolling our own Instagram Basic Display API integration — a few
-dollars a month buys out of Meta's token-refresh maintenance burden,
-which is exactly the kind of thing that quietly breaks a site nobody's
-actively developing anymore. Drop the embed's script tag into the
-homepage where the Instagram grid currently sits.
+Live inbox/guide delivery needs owner-controlled submissions. CMS is deferred. Production merge and DNS cutover remain pending review. See `LAUNCH-TODO.md`.
 
-## 4. Search — decided: skip
-The theme has a "Hit enter to search" overlay wired to WP's native
-search. Not building a static-search replacement (e.g. Pagefind) for
-launch — a 7-page brand site is unlikely to get meaningful search
-volume. Check Search Console after launch; add Pagefind later if the
-data says otherwise.
+## Simple follow-up suggestions
 
-## 5. WPBakery visual blocks worth rebuilding as real components
-The `[slug].astro` catch-all renders WPBakery's output HTML verbatim,
-which keeps the *content* but loses interactivity for:
-- Homepage testimonials quote carousel
-- `/coaching/` PACKAGES section (currently plain cards/anchors, was
-  likely a WPBakery tab or accordion block)
-- Any image sliders using WPBakery's slider shortcode
-Rebuild these as small Astro/vanilla-JS components once you see them
-rendered — they're mostly cosmetic, not urgent for launch.
+- **Search:** the inherited WordPress search is not a full static-site search. Pagefind is a suitable later Astro-friendly replacement if search is needed.
+- **Instagram:** retain the existing profile link rather than maintaining a live feed plugin. The old feed's backend is not carried over.
+- **Booking/Fullscript:** supply the real destinations if separate booking or supplement ordering is intended. Some inherited links currently lead to Contact or are placeholders.
+- **Social icons:** several old header icons point to the homepage; confirm the real profiles before changing or removing them.
+- **Editing:** use Codex for small copy changes now. Add a CMS after choosing manageable content fields that preserve the existing design.
+- **Performance:** static hosting removes PHP/database work, but keeping the existing design also retains theme CSS/JavaScript. Any future replacement of those assets should preserve appearance and be measured separately.
+- **Content:** decide whether the published `test-post-for-press-page` belongs in the archive. It was retained rather than silently deleted.
 
-## 6. Rebuild trigger for the client
-WP → Astro isn't live-updating like WP → PHP was. Add a webhook (WP
-Webhooks plugin, or a two-line `save_post` hook) that calls your
-Cloudflare Pages "deploy hook" URL whenever a post/page is
-published/updated. Otherwise the client publishes in WP and nothing
-changes on the live site until someone manually rebuilds.
+SEO/AIO recommendations are in `SEO-AIO-RECOVERY.md`.
 
-## 7. robots meta — decide, don't inherit by accident
-Every crawled page currently sends
-`<meta name="robots" content="noindex, nofollow">` site-wide. That
-means Google isn't indexing this site *today*. Confirm with the
-client whether that's intentional (site still in soft-launch) before
-you either carry it over or drop it in the rebuild — this is a
-one-line decision with real SEO consequences either direction.
+## Native Astro image optimization
 
-## 8. Housekeeping before/at cutover
-- [ ] Analytics/pixels (GA4, Meta pixel, etc.) — grab tracking IDs
-      from the WP theme header/footer, they won't be in the REST
-      content field.
-- [ ] 301 redirects — pull the full URL list from the WP XML export
-      and diff against Astro's routes; redirect anything that moves.
-- [ ] RSS feed (`/feed/rss/`) — Astro has a `@astrojs/rss` package,
-      wire it up so `livingrhea.com/blog/rss.xml` (or similar) keeps
-      working for anything subscribed to it.
-- [ ] Favicon / social share images (og:image) — currently theme
-      defaults, re-set in `Base.astro`.
-- [ ] DNS/hosting cutover plan: WP moves to a subdomain (e.g.
-      `cms.livingrhea.com`) that only you and the build process hit;
-      the root domain points at Cloudflare Pages.
+The homepage hero now uses Astro `getImage()` (AVIF with WebP fallback), reducing its generated file from 230,270 to 124,391 bytes. Fifty-eight large archive images use native Astro `Image` responsive output. Across all 74 featured images, the default files total 2,973,554 bytes instead of 4,483,838 bytes (34% less); smaller candidates can reduce transfer further depending on the viewport. Already-small images are retained rather than enlarged by re-encoding. These are file-size comparisons, not measured Core Web Vitals gains.
 
-## What does NOT need touching
-- Blog posts, page copy, images — all comes from WP REST automatically.
-- YouTube embeds on `/music/` — plain iframes, migrate as-is.
-- Outbound links (Dropbox speaker kits, Fullscript, Instagram profile
-  link) — static links, no work needed.
+Week-long browser caching is restored for static `/wp-content/`, `/wp-includes/`, and `/vendor/` assets. Hashed Astro assets retain immutable caching.

@@ -1,13 +1,8 @@
-node_modules/
-dist/
-.astro/
+/node_modules/
+/dist/
+/.astro/
 .DS_Store
 *.log
-
-# NOTE: mirrored WordPress assets (public/wp-content, public/wp-includes,
-# public/vendor) ARE committed — they act as a reliable fallback so a
-# Cloudflare build never fails just because the WP host's bot-challenge blocks
-# re-fetching them. `npm run mirror` refreshes them; commit the changes.
-
-# Local env (WORDPRESS_API_URL) — use .env.example as the template
-.env
+.env*
+!.env.example
+.dev.vars*

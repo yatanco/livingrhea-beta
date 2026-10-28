@@ -1,0 +1,7 @@
+---
+import "../styles/site/himalayan-breathwork.css";
+import ContentPage from "../components/ContentPage.astro";
+import { getPageBySlug } from "../lib/content.js";
+const page = await getPageBySlug("himalayan-breathwork");
+---
+<ContentPage page={page} />

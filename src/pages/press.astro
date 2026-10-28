@@ -1,0 +1,7 @@
+---
+import "../styles/site/press.css";
+import ContentPage from "../components/ContentPage.astro";
+import { getPageBySlug } from "../lib/content.js";
+const page = await getPageBySlug("press");
+---
+<ContentPage page={page} />

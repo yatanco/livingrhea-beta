@@ -1,20 +1,40 @@
 ---
-import Base from '../../layouts/Base.astro';
-import WpContent from '../../components/WpContent.astro';
-import { getAllPosts, featuredImage } from '../../lib/wordpress.js';
+import "../../styles/site/about.css";
+import Base from "../../layouts/Base.astro";
+import { localImage } from "../../lib/local-images";
+import WpContent from "../../components/WpContent.astro";
+import { getAllPosts, featuredImage } from "../../lib/content.js";
 
 export async function getStaticPaths() {
   const posts = await getAllPosts();
-  return posts.map((post) => ({ params: { slug: post.slug }, props: { post } }));
+  return posts.map((post) => ({
+    params: { slug: post.slug },
+    props: { post },
+  }));
 }
 
 const { post } = Astro.props;
+const featured = featuredImage(post);
+const source = featured ? localImage(featured) : undefined;
 ---
-<Base title={post.title.rendered} description={post.excerpt?.rendered} headCss={post.wpb_custom_css} preloadImage={featuredImage(post)}>
+
+<Base
+  title={post.title.rendered}
+  description={post.excerpt?.rendered}
+  headCss={post.wpb_custom_css}
+  preloadImage={featuredImage(post)}
+  article={{
+    datePublished: `${post.date_gmt}Z`,
+    dateModified: `${post.modified_gmt}Z`,
+    authorName: post._embedded?.author?.[0]?.name,
+  }}
+>
   <article>
     <h1 set:html={post.title.rendered} />
-    {featuredImage(post) && <img src={featuredImage(post)} alt="" />}
+    {featured && <img src={featured} alt={post._embedded?.["wp:featuredmedia"]?.[0]?.alt_text || ""} width={source?.width} height={source?.height} decoding="async" />}
     <WpContent html={post.content.rendered} />
-    {/* WP comments aren't carried over; wire up giscus/Disqus later if wanted. */}
+    {
+      /* WP comments aren't carried over; wire up giscus/Disqus later if wanted. */
+    }
   </article>
 </Base>
