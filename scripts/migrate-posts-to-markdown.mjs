@@ -1,6 +1,6 @@
 // One-time migration utility. Refuses to overwrite an edited Markdown file.
 import { readFile, writeFile, readdir, mkdir, copyFile, access, rename } from 'node:fs/promises';
-import { dirname, join } from 'node:path';
+import { dirname, join, extname } from 'node:path';
 import { load } from 'cheerio';
 import TurndownService from 'turndown';
 import { stringify } from 'yaml';
@@ -18,8 +18,10 @@ if (!names.length) throw new Error('No unmigrated post exports. Markdown is now 
 await mkdir('migration/legacy-posts',{recursive:true});
 for (const file of names) {
   const post=JSON.parse(await readFile(`src/content/posts/${file}`,'utf8'));
-  const destination=`src/content/posts/${post.slug}.md`;
+  const destinationDir=`src/content/posts/${post.slug}`;
+  const destination=`${destinationDir}/index.md`;
   if (await access(destination).then(()=>true,()=>false)) throw new Error(`Refusing to overwrite ${destination}`);
+  await mkdir(destinationDir,{recursive:true});
   let html=localize(post.content.rendered);
   for (const fix of fixes) html=html.replaceAll(`href="${fix.from}"`,`href="${fix.to}"`).replaceAll(`href='${fix.from}'`,`href='${fix.to}'`);
   html=html.replace(/<a\b[^>]*href=["'][^"']*nextgen-attach_to_post[^"']*["'][^>]*>([\s\S]*?)<\/a>/gi,'$1');
@@ -28,19 +30,28 @@ for (const file of names) {
   for(let pass=0;pass<4;pass++) $('span,b,strong,i,em').each((_,e)=>{if(!$(e).text().trim() && $(e).find('br').length) $(e).replaceWith($(e).html());});
   $('img').each((_,el)=>{
     const src=$(el).attr('src');
-    if (src?.startsWith('/wp-content/')) $(el).attr('src',`../../assets/images${src.replace("/wp-content/uploads", "")}`);
+    if (src?.startsWith('/wp-content/')) $(el).attr('src',`../../../assets/images${src.replace("/wp-content/uploads", "")}`);
   });
   // Copy the article's local image sources once. Astro handles optimization.
   for (const el of $('img').toArray()) {
     const src=$(el).attr('src');
-    if (!src?.startsWith('../../assets/images/')) continue;
-    const path=src.replace('../../assets/images','').replace('/wp-content/uploads','');
+    if (!src?.startsWith('../../../assets/images/')) continue;
+    const path=src.replace('../../../assets/images','').replace('/wp-content/uploads','');
     const target=join('src/assets/images',path);
     await mkdir(dirname(target),{recursive:true});
     await copyFile(join('public',path),target);
   }
   const media=post._embedded?.['wp:featuredmedia']?.[0];
-  const data={title:plain(post.title.rendered),description:plain(post.excerpt?.rendered),pubDate:`${post.date_gmt}Z`,updatedDate:`${post.modified_gmt}Z`,author:post._embedded?.author?.[0]?.name || 'Rhea Mehta',categories:(post._embedded?.['wp:term']?.[0] || []).map(t=>({id:t.id,name:plain(t.name),slug:t.slug})),featuredImage:media?.source_url?localize(media.source_url).replace(/^\/wp-content\/uploads\//,'../../assets/images/'):undefined,featuredImageAlt:media?.alt_text || '',legacyId:post.id,legacyUrl:post.link};
+  const featureUrl=media?.source_url?localize(media.source_url).replace(/^\/wp-content\/uploads\//,''):undefined;
+  let featuredImage;
+  if (featureUrl) {
+    const ext=extname(featureUrl);
+    const target=`${destinationDir}/images/featured${ext}`;
+    await mkdir(dirname(target),{recursive:true});
+    await copyFile(join('public/wp-content/uploads',featureUrl),target);
+    featuredImage=`images/featured${ext}`;
+  }
+  const data={title:plain(post.title.rendered),description:plain(post.excerpt?.rendered),pubDate:`${post.date_gmt}Z`,updatedDate:`${post.modified_gmt}Z`,author:post._embedded?.author?.[0]?.name || 'Rhea Mehta',categories:(post._embedded?.['wp:term']?.[0] || []).map(t=>({id:t.id,name:plain(t.name),slug:t.slug})),featuredImage,featuredImageAlt:media?.alt_text || '',legacyId:post.id,legacyUrl:post.link};
   let body=markdown.turndown($.html());
   // DOM placeholder images in old exports can have empty alt text; keep them as images.
   await writeFile(destination,`---\n${stringify(data,{lineWidth:0})}---\n\n${body}\n`);

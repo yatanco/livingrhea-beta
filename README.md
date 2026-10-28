@@ -53,7 +53,7 @@ See [LAUNCH-TODO.md](LAUNCH-TODO.md) for cutover notes and [SEO-AIO-RECOVERY.md]
 
 The homepage background uses `getImage()` to generate a smaller AVIF, with the existing WebP retained as a browser fallback and social image. Large blog-card photos use Astro's `Image` component with 400/800px responsive candidates; smaller photos retain their existing file. Crop and layout are unchanged.
 
-Imported source images live under `src/assets/images/`, organized by year/month. The CMS stores new post images in this same folder so featured images remain local Astro assets and can be optimized at build time. Public `/wp-content/` compatibility URLs stay in `public/` for the existing rendered markup and old links. Images not imported there continue to work through their existing public URL.
+Imported source images live under `src/assets/images/`, organized by year/month. Each blog post stores its featured image beside its `index.md` file under `src/content/posts/<slug>/images/`; Astro bundles and optimizes these post images. Inline post/page images remain in the shared source library. Public `/wp-content/` compatibility URLs stay in `public/` for the existing rendered markup and old links. Images not imported there continue to work through their existing public URL.
 
 ## Documentation
 

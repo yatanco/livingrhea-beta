@@ -8,7 +8,11 @@ export async function getAllPosts() {
     )
   )
     .sort((a, b) => b.data.pubDate.getTime() - a.data.pubDate.getTime())
-    .map((entry) => ({ slug: entry.id, ...entry.data, entry }));
+    .map((entry) => ({
+      slug: entry.id.replace(/\/index$/, ""),
+      ...entry.data,
+      entry,
+    }));
 }
 
 // First validated category from the article frontmatter. There's no

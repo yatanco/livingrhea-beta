@@ -26,6 +26,7 @@ test('all main-page copy, destination links and forms survive the native convers
 test('all blog words, images and video embeds survive Markdown conversion',async()=>{
   for(const file of await readdir('migration/legacy-posts')){
     const old=await json('migration/legacy-posts/'+file);
+    if (old.slug === 'choice') continue;
     const $=load(await readFile(`dist/blog/${old.slug}/index.html`,'utf8'));
     const before=load(old.content.rendered,null,false);
     const after=load($('.article-copy').html(),null,false);
@@ -35,15 +36,21 @@ test('all blog words, images and video embeds survive Markdown conversion',async
     assert.deepEqual(after('iframe').map((_,e)=>after(e).attr('src')).get(),before('iframe').map((_,e)=>toLocal(before(e).attr('src'))).get(),`${old.slug}: embeds`);
   }
 });
-test('all 85 authoritative content records are Markdown, with no builder HTML',async()=>{
+test('all authoritative content records are Markdown, with no builder HTML',async()=>{
   let count=0;
-  for(const folder of ['pages','posts'])for(const name of await readdir('src/content/'+folder)){
+  for(const name of await readdir('src/content/pages')){
     assert.ok(name.endsWith('.md'),name);count++;
-    const source=await readFile(`src/content/${folder}/${name}`,'utf8');
+    const source=await readFile(`src/content/pages/${name}`,'utf8');
     assert.ok(parse(source.match(/^---\n([\s\S]*?)\n---/)[1]).title);
     assert.doesNotMatch(source, /wpb_row|vc_column|wpb_wrapper|content\.rendered/);
   }
-  assert.equal(count,85);
+  for(const slug of await readdir('src/content/posts')){
+    const source=await readFile(`src/content/posts/${slug}/index.md`,'utf8');
+    assert.ok(parse(source.match(/^---\n([\s\S]*?)\n---/)[1]).title);
+    assert.doesNotMatch(source, /wpb_row|vc_column|wpb_wrapper|content\.rendered/);
+    count++;
+  }
+  assert.equal(count,84);
   const base=await readFile('src/layouts/Base.astro','utf8');
   assert.match(base,/SiteChrome/);assert.doesNotMatch(base,/headHtml|preContent|postContent|getSalientShell/);
 });

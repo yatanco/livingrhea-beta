@@ -30,8 +30,11 @@ collections:
     label: Blog posts
     label_singular: Post
     folder: src/content/posts
+    path: "{{slug}}/index"
     extension: md
     format: frontmatter
+    media_folder: images
+    public_folder: images
     create: true
     slug: "{{slug}}"
     summary: "{{title}} — {{pubDate}}"
@@ -69,10 +72,6 @@ collections:
         name: featuredImage
         widget: image
         required: false
-        # Keep this folder aligned with the imported Astro image sources so
-        # existing featured images can be previewed and new uploads stay
-        # inside src/assets/images for image() optimization.
-        media_folder: "../../assets/images"
         hint: >-
           Upload a photo here — it goes through the same automatic
           optimization (AVIF/WebP, responsive sizes) as every existing post's

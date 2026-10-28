@@ -124,11 +124,11 @@ production domain) will let GitHub collaborators sign in.
   would have blanked the page body on the next save). The real fix is
   reshaping page content into labeled per-section fields — tracked in
   `docs/native-content-target.md`, not done here.
-- New post images *are* optimized: the "Featured image" field's
-  `media_folder` points to `../../assets/images`, the same imported image
-  tree referenced by existing post frontmatter. This lets the editor browse
-  existing images and stores new uploads alongside the Astro source files.
-  Keep the field media folder aligned with this shared folder so existing
-  images remain available in the image picker and Astro can optimize uploads. `legacyFeaturedImage` (a plain `/uploads/...` path) is
-  now `hidden`: still preserved for migrated posts' social-share fallback,
-  no longer something an editor interacts with.
+- Posts use Astro/Sveltia page bundles: `src/content/posts/<slug>/index.md`
+  with each featured image in that post's `images/` folder. The CMS collection
+  uses `path: "{{slug}}/index"`, `media_folder: images`, and
+  `public_folder: images`. This keeps the image visible in the editor and
+  lets Astro's `image()` schema optimize it at build time. Inline article
+  images remain in the shared `src/assets/images/` library. The old public
+  image URL is kept in the hidden `legacyFeaturedImage` field for social-share
+  fallback and compatibility.

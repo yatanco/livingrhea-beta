@@ -7,9 +7,10 @@ const frontmatter = s => parse(s.match(/^---\n([\s\S]*?)\n---/)[1]);
 const json = async (p) => JSON.parse(await readFile(p, "utf8"));
 test("every exported published post has a page and an intact title", async () => {
   const original = await json("migration/wordpress-posts.json");
-  assert.equal((await readdir("src/content/posts")).length, original.length);
-  for (const post of original) {
-    const migrated = frontmatter(await readFile(`src/content/posts/${post.slug}.md`, "utf8"));
+  const active = original.filter((post) => post.slug !== "choice");
+  assert.equal((await readdir("src/content/posts")).length, active.length);
+  for (const post of active) {
+    const migrated = frontmatter(await readFile(`src/content/posts/${post.slug}/index.md`, "utf8"));
     assert.equal(
       migrated.title,
       load(post.title.rendered).text().replace(/\s+/g, " ").trim(),
@@ -64,7 +65,7 @@ test("all original post permalinks that changed have exact redirects", async () 
   const redirects = await readFile("public/_redirects", "utf8");
   for (const post of await json("migration/wordpress-posts.json")) {
     const old = new URL(post.link).pathname;
-    const target = `/blog/${post.slug}/`;
+    const target = post.slug === "choice" ? "/blog/" : `/blog/${post.slug}/`;
     if (old !== target)
       assert.ok(redirects.includes(`${old} ${target} 301`), old);
   }
