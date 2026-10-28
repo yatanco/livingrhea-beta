@@ -25,3 +25,24 @@ See `src/styles/site/README.md` for the style map. Visible page/article copy rem
 ## Verification
 
 `npm run check`: all 87 pages, local links/assets/anchors, and 13 regression tests. Tests cover responsive/eager hero images, local CSS throughout all routes, no external CSS imports/URLs, existing form destinations and validation, absence of the marketing widget, and local image dimensions. Desktop/mobile visual checks and mobile navigation checks were performed. A deployed PageSpeed measurement is recorded below when available.
+
+## Deployed mobile measurement
+
+[PageSpeed report](https://pagespeed.web.dev/analysis/https-048ca355-livingrhea-astro-pages-dev/lvhsm30hkg?form_factor=mobile), tested [immutable preview](https://048ca355.livingrhea-astro.pages.dev/), commit `0fec6b2`, 28 October 2026 at 08:48 GMT-5. Slow-4G mobile lab run; no field data is available.
+
+| Metric | Previous pass | Native assets + popup removal |
+| --- | ---: | ---: |
+| Performance | 56 | 58 |
+| FCP | 7.0 s | 3.8 s |
+| LCP | 15.3 s | 8.2 s |
+| TBT | 0 ms | 200 ms |
+| CLS | 0.083 | 0.083 |
+| Speed Index | 7.6 s | 6.0 s |
+| Total transferred payload | 3,172 KiB | 1,714 KiB |
+| Accessibility | 95 | 95 |
+| Best Practices | 96 | 100 |
+| Agentic browsing | 3/3 | 3/3 |
+
+Preview SEO remains 69 because Cloudflare intentionally sets noindex. Do not disable that for a preview score. Cloudflare deployment and both CI checks passed. The separate browser navigation to the new immutable preview timed out, but Google's completed lab report successfully rendered and audited it; local desktop/mobile visual checks also passed.
+
+This is a substantial payload/rendering improvement, not a finished performance optimization. TBT increased in this run. Moving all retained compatibility CSS into an ordinary blocking Astro stylesheet also brought previously deferred rules into the audit: estimated unused CSS is 125 KiB (previous 75 KiB), and estimated render-blocking savings is 2,860 ms (previous 2,030 ms). CSS is now owned, minified and fingerprinted, but its selectors still reflect a large general-purpose theme. The next step is component-specific CSS extraction and shared-style splitting, with visual parity checks; avoid broad selector purging that could break interactive states. Estimated unused JavaScript fell from 296 KiB to 166 KiB. Replacing the remaining local theme widgets is still the path to a smaller native implementation.

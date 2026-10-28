@@ -55,3 +55,7 @@ Accessibility 95, best practices 96, agentic browsing 3/3. Preview SEO 69 is due
 5. Resolve remaining contrast, heading-order and ARIA audit findings individually, preserving visible copy and design unless a change is agreed.
 
 Cloudflare deployment and both GitHub validation checks succeeded. The PR remains unmerged; these are review-preview changes, not a production domain switch.
+
+## Superseding native-assets pass
+
+The automatic marketing popup was subsequently removed with user approval. The hero and CSS pipeline have also changed. See [the current implementation and measured results](astro-native-assets.md#deployed-mobile-measurement); the earlier popup-preservation instruction above is historical.
