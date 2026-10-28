@@ -1,6 +1,6 @@
 # Repository audit resumed from Claude Code — 28 October 2026
 
-This continues the interrupted dead-link, image, and CSS audit. Source and generated output were inspected with Node 24.22.1. Historical migration exports were preserved. No deployment, form submission, newsletter subscription, or DNS change was performed.
+This continues the interrupted dead-link, image, and CSS audit. Source and generated output were inspected with Node 24.22.1. Historical migration exports were preserved. No manual deployment, form submission, newsletter subscription, or DNS change was performed. The branch push may have triggered Cloudflare Pages automatically; see the handoff log and verify deployment status.
 
 ## Findings and changes
 
