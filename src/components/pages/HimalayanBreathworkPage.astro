@@ -1,9 +1,20 @@
 ---
 import ContentFrame from "../ContentFrame.astro";
 import { pageSections } from "../../lib/page-sections.js";
+import {
+  optimizedSrc,
+  responsiveImage,
+} from "../../lib/responsive-image.ts";
 const { page } = Astro.props;
 const text = page.labels;
 const copy = pageSections(await Astro.slots.render("default"));
+const dsc09729 = await responsiveImage(
+  "/wp-content/uploads/2025/08/DSC09729-Additional-Batch-scaled.webp",
+  [258, 768, 879, 1319, 1759, 2198],
+);
+const img7995Bg = await optimizedSrc(
+  "/wp-content/uploads/2025/08/IMG_7995.2-1.webp",
+);
 ---
 
 <ContentFrame>
@@ -46,7 +57,7 @@ const copy = pageSections(await Astro.slots.render("default"));
             <div class="inner-wrap">
               <div
                 class="column-image-bg"
-                style=" background-image: url('/wp-content/uploads/2025/08/IMG_7995.2-1.webp'); "
+                style={` background-image: url('${img7995Bg}'); `}
               ></div>
             </div>
           </div>
@@ -151,9 +162,9 @@ const copy = pageSections(await Astro.slots.render("default"));
                       height="2560"
                       width="2198"
                       data-animation="none"
-                      src="/wp-content/uploads/2025/08/DSC09729-Additional-Batch-scaled.webp"
+                      src={dsc09729.src}
                       alt=""
-                      srcset="/wp-content/uploads/2025/08/DSC09729-Additional-Batch-scaled.webp 2198w, /wp-content/uploads/2025/08/DSC09729-Additional-Batch-258x300.webp 258w, /wp-content/uploads/2025/08/DSC09729-Additional-Batch-879x1024.webp 879w, /wp-content/uploads/2025/08/DSC09729-Additional-Batch-768x894.webp 768w, /wp-content/uploads/2025/08/DSC09729-Additional-Batch-1319x1536.webp 1319w, /wp-content/uploads/2025/08/DSC09729-Additional-Batch-1759x2048.webp 1759w"
+                      srcset={dsc09729.srcset}
                       sizes="(max-width: 2198px) 100vw, 2198px"
                     />
                   </div>

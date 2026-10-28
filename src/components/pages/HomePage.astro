@@ -2,9 +2,44 @@
 import ContentFrame from "../ContentFrame.astro";
 import { pageSections } from "../../lib/page-sections.js";
 import HomeHero from "../HomeHero.astro";
+import {
+  optimizedSrc,
+  responsiveImage,
+} from "../../lib/responsive-image.ts";
 const { page } = Astro.props;
 const text = page.labels;
 const copy = pageSections(await Astro.slots.render("default"));
+const [mbg, vogueIndia, forbes, businessInsider, theSpruce, huffPost] =
+  await Promise.all(
+    [
+      "/wp-content/uploads/2025/08/mbg.webp",
+      "/wp-content/uploads/2025/08/vogue-india.webp",
+      "/wp-content/uploads/2025/08/forbes.webp",
+      "/wp-content/uploads/2025/08/Business-Insider-Logo.webp",
+      "/wp-content/uploads/2025/08/thespruce.webp",
+      "/wp-content/uploads/2025/08/The-Huffington-Post.webp",
+    ].map((p) => optimizedSrc(p)),
+  );
+const instaPost = await responsiveImage(
+  "/wp-content/uploads/2025/06/insta_post_48421.webp",
+  [100, 140, 150, 300, 350, 500, 768, 800, 1000, 1080],
+);
+const favoriteSmoothie = await responsiveImage(
+  "/wp-content/uploads/2025/06/favorite-green-smoothie.webp",
+  [300, 768, 900, 1024, 1500],
+);
+const gsd5 = await responsiveImage(
+  "/wp-content/uploads/2025/06/gsd-5.webp",
+  [100, 140, 150, 300, 350, 500, 768, 800, 1000],
+);
+const [rheaBioCover, jeffWarrenBio, storyBg, rhea10Bg] = await Promise.all(
+  [
+    "/wp-content/uploads/2025/08/RheaBioCover.webp",
+    "/wp-content/uploads/2025/08/jeff-warren_bio1-crop-300x300.webp",
+    "/wp-content/uploads/2025/08/story.webp",
+    "/wp-content/uploads/2025/08/RHEA_10-scaled.webp",
+  ].map((p) => optimizedSrc(p)),
+);
 ---
 
 <ContentFrame>
@@ -134,7 +169,7 @@ const copy = pageSections(await Astro.slots.render("default"));
                       height="113"
                       width="200"
                       data-animation="grow-in"
-                      src="/wp-content/uploads/2025/08/mbg.webp"
+                      src={mbg}
                       alt=""
                     />
                   </div>
@@ -174,7 +209,7 @@ const copy = pageSections(await Astro.slots.render("default"));
                       height="113"
                       width="200"
                       data-animation="grow-in"
-                      src="/wp-content/uploads/2025/08/vogue-india.webp"
+                      src={vogueIndia}
                       alt=""
                     />
                   </div>
@@ -214,7 +249,7 @@ const copy = pageSections(await Astro.slots.render("default"));
                       height="113"
                       width="200"
                       data-animation="grow-in"
-                      src="/wp-content/uploads/2025/08/forbes.webp"
+                      src={forbes}
                       alt=""
                     />
                   </div>
@@ -254,7 +289,7 @@ const copy = pageSections(await Astro.slots.render("default"));
                       height="113"
                       width="200"
                       data-animation="grow-in"
-                      src="/wp-content/uploads/2025/08/Business-Insider-Logo.webp"
+                      src={businessInsider}
                       alt=""
                     />
                   </div>
@@ -294,7 +329,7 @@ const copy = pageSections(await Astro.slots.render("default"));
                       height="113"
                       width="200"
                       data-animation="grow-in"
-                      src="/wp-content/uploads/2025/08/thespruce.webp"
+                      src={theSpruce}
                       alt=""
                     />
                   </div>
@@ -334,7 +369,7 @@ const copy = pageSections(await Astro.slots.render("default"));
                       height="113"
                       width="200"
                       data-animation="grow-in"
-                      src="/wp-content/uploads/2025/08/The-Huffington-Post.webp"
+                      src={huffPost}
                       alt=""
                     />
                   </div>
@@ -386,7 +421,7 @@ const copy = pageSections(await Astro.slots.render("default"));
             <div class="inner-wrap">
               <div
                 class="column-image-bg"
-                style=" background-image: url('/wp-content/uploads/2025/08/RheaBioCover.webp'); "
+                style={` background-image: url('${rheaBioCover}'); `}
               ></div>
             </div>
           </div>
@@ -549,7 +584,7 @@ const copy = pageSections(await Astro.slots.render("default"));
                   role="presentation"
                   data-shadow=""
                   class="image-icon"
-                  style=";background-image:url(/wp-content/uploads/2025/08/jeff-warren_bio1-crop-300x300.webp);"
+                  style={`;background-image:url(${jeffWarrenBio});`}
                 ></div>
                 <span class="wrap">
                   <span>{text["Jeff-Warren-4"]}</span>
@@ -695,7 +730,7 @@ const copy = pageSections(await Astro.slots.render("default"));
             <div class="inner-wrap">
               <div
                 class="column-image-bg"
-                style="  ;background-image:url('/wp-content/uploads/2025/08/story.webp');"
+                style={`  ;background-image:url('${storyBg}');`}
               ></div>
             </div>
           </div>
@@ -750,7 +785,7 @@ const copy = pageSections(await Astro.slots.render("default"));
             <div class="inner-wrap">
               <div
                 class="column-image-bg"
-                style="  ;background-image:url('/wp-content/uploads/2025/08/RHEA_10-scaled.webp');"
+                style={`  ;background-image:url('${rhea10Bg}');`}
               ></div>
             </div>
           </div>
@@ -1083,8 +1118,8 @@ const copy = pageSections(await Astro.slots.render("default"));
                                 <img
                                   loading="lazy"
                                   decoding="async"
-                                  src="/wp-content/uploads/2025/06/insta_post_48421.webp"
-                                  srcset="/wp-content/uploads/2025/06/insta_post_48421.webp 1080w, /wp-content/uploads/2025/06/insta_post_48421-300x300.webp 300w, /wp-content/uploads/2025/06/insta_post_48421-1024x1024.webp 1024w, /wp-content/uploads/2025/06/insta_post_48421-150x150.webp 150w, /wp-content/uploads/2025/06/insta_post_48421-768x768.webp 768w, /wp-content/uploads/2025/06/insta_post_48421-140x140.webp 140w, /wp-content/uploads/2025/06/insta_post_48421-100x100.webp 100w, /wp-content/uploads/2025/06/insta_post_48421-500x500.webp 500w, /wp-content/uploads/2025/06/insta_post_48421-350x350.webp 350w, /wp-content/uploads/2025/06/insta_post_48421-1000x1000.webp 1000w, /wp-content/uploads/2025/06/insta_post_48421-800x800.webp 800w"
+                                  src={instaPost.src}
+                                  srcset={instaPost.srcset}
                                   sizes="(min-width: 1000px) 55vw, 100vw"
                                   height="1080"
                                   width="1080"
@@ -1117,8 +1152,8 @@ const copy = pageSections(await Astro.slots.render("default"));
                                 <img
                                   loading="lazy"
                                   decoding="async"
-                                  src="/wp-content/uploads/2025/06/favorite-green-smoothie.webp"
-                                  srcset="/wp-content/uploads/2025/06/favorite-green-smoothie.webp 1500w, /wp-content/uploads/2025/06/favorite-green-smoothie-300x200.webp 300w, /wp-content/uploads/2025/06/favorite-green-smoothie-1024x683.webp 1024w, /wp-content/uploads/2025/06/favorite-green-smoothie-768x512.webp 768w, /wp-content/uploads/2025/06/favorite-green-smoothie-900x600.webp 900w"
+                                  src={favoriteSmoothie.src}
+                                  srcset={favoriteSmoothie.srcset}
                                   sizes="(min-width: 1000px) 55vw, 100vw"
                                   height="1000"
                                   width="1500"
@@ -1151,8 +1186,8 @@ const copy = pageSections(await Astro.slots.render("default"));
                                 <img
                                   loading="lazy"
                                   decoding="async"
-                                  src="/wp-content/uploads/2025/06/gsd-5.webp"
-                                  srcset="/wp-content/uploads/2025/06/gsd-5.webp 1000w, /wp-content/uploads/2025/06/gsd-5-300x300.webp 300w, /wp-content/uploads/2025/06/gsd-5-150x150.webp 150w, /wp-content/uploads/2025/06/gsd-5-768x768.webp 768w, /wp-content/uploads/2025/06/gsd-5-140x140.webp 140w, /wp-content/uploads/2025/06/gsd-5-100x100.webp 100w, /wp-content/uploads/2025/06/gsd-5-500x500.webp 500w, /wp-content/uploads/2025/06/gsd-5-350x350.webp 350w, /wp-content/uploads/2025/06/gsd-5-800x800.webp 800w"
+                                  src={gsd5.src}
+                                  srcset={gsd5.srcset}
                                   sizes="(min-width: 1000px) 55vw, 100vw"
                                   height="1000"
                                   width="1000"

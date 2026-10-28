@@ -1,9 +1,18 @@
 ---
 import ContentFrame from "../ContentFrame.astro";
 import { pageSections } from "../../lib/page-sections.js";
+import {
+  optimizedSrc,
+  responsiveImage,
+} from "../../lib/responsive-image.ts";
 const { page } = Astro.props;
 const text = page.labels;
 const copy = pageSections(await Astro.slots.render("default"));
+const heroBg = await optimizedSrc("/wp-content/uploads/2025/04/home-banner-2.webp");
+const rhea = await responsiveImage(
+  "/wp-content/uploads/2025/08/RHEA_7-1.webp",
+  [200, 682, 768, 903],
+);
 ---
 
 <ContentFrame>
@@ -83,7 +92,7 @@ const copy = pageSections(await Astro.slots.render("default"));
                     <div class="slide-bg-wrap">
                       <div
                         class="image-bg"
-                        style="background-image: url(/wp-content/uploads/2025/04/home-banner-2.webp);"
+                        style={`background-image: url(${heroBg});`}
                       >
                         &nbsp;
                       </div>
@@ -214,9 +223,9 @@ const copy = pageSections(await Astro.slots.render("default"));
                       height="1356"
                       width="903"
                       data-animation="none"
-                      src="/wp-content/uploads/2025/08/RHEA_7-1.webp"
+                      src={rhea.src}
                       alt=""
-                      srcset="/wp-content/uploads/2025/08/RHEA_7-1.webp 903w, /wp-content/uploads/2025/08/RHEA_7-1-200x300.webp 200w, /wp-content/uploads/2025/08/RHEA_7-1-682x1024.webp 682w, /wp-content/uploads/2025/08/RHEA_7-1-768x1153.webp 768w"
+                      srcset={rhea.srcset}
                       sizes="(max-width: 903px) 100vw, 903px"
                     />
                   </div>

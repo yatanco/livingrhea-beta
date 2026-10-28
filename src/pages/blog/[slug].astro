@@ -24,7 +24,7 @@ const { Content } = await render(post.entry);
 <Base
   title={post.title}
   description={post.description}
-  socialImage={post.legacyFeaturedImage || source?.src}
+  socialImage={source?.src || post.legacyFeaturedImage}
   article={{
     datePublished: post.pubDate.toISOString().replace(".000Z", "Z"),
     dateModified: post.updatedDate?.toISOString().replace(".000Z", "Z"),
