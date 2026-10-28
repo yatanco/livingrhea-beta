@@ -35,6 +35,19 @@ const {
 // stack) saved from the original page. Reproduces the chrome the REST
 // content field doesn't include. See src/lib/salient-shell.js.
 const layout = getSiteLayout(pageUrl);
+if (article) {
+  layout.bodyAttrs = {
+    ...layout.bodyAttrs,
+    class: `${layout.bodyAttrs.class} livingrhea-article`,
+  };
+  layout.header = {
+    ...layout.header,
+    class: "transparent",
+    "data-transparent-header": "true",
+    "data-transparent-shadow-helper": "true",
+    "data-remove-border": "true",
+  };
+}
 const canonical = new URL(Astro.url.pathname, Astro.site);
 const plainTitle = plainText(title);
 const plainDescription = (
@@ -173,7 +186,9 @@ const schema = {
   </head>
   <body {...layout.bodyAttrs}>
     <SiteChrome layout={layout}>
+      <slot name="article-header" slot="article-header" />
       <slot />
+      <slot name="article-footer" slot="article-footer" />
     </SiteChrome>
 
     <!-- Full Salient/WPBakery/plugin JS stack, in the live load order, as real

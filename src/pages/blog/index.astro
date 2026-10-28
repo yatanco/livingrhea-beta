@@ -2,18 +2,9 @@
 import "../../styles/site/about.css";
 import Base from "../../layouts/Base.astro";
 import { Image } from "astro:assets";
-import { getAllPosts } from "../../lib/posts.js";
+import { getAllPosts, category } from "../../lib/posts.js";
 
 const posts = await getAllPosts();
-
-// First validated category from the article frontmatter.
-function category(post) {
-  const term = post.categories[0];
-  return term
-    ? { name: term.name, slug: term.slug }
-    : { name: "Blog", slug: "blog" };
-}
-const plain = (html = "") => html.replace(/<[^>]+>/g, "").trim();
 ---
 
 <Base title="Blog">

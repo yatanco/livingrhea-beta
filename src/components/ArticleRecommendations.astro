@@ -1,0 +1,100 @@
+---
+import { Image } from "astro:assets";
+import { getAllPosts, category } from "../lib/posts.js";
+const { post } = Astro.props;
+const posts = await getAllPosts();
+const index = posts.findIndex((p) => p.slug === post.slug);
+const adjacent = [
+  { post: posts[index - 1], label: "Previous Post" },
+  { post: posts[index + 1], label: "Next Post" },
+].filter((item) => item.post);
+// Deterministic recommendations: shared categories first, then recent posts.
+const related = posts
+  .filter((p) => p.slug !== post.slug)
+  .sort(
+    (a, b) =>
+      Number(
+        b.categories.some((c) =>
+          post.categories.some((t) => t.slug === c.slug),
+        ),
+      ) -
+      Number(
+        a.categories.some((c) =>
+          post.categories.some((t) => t.slug === c.slug),
+        ),
+      ),
+  )
+  .slice(0, 3);
+const date = (d) =>
+  d.toLocaleDateString("en-US", {
+    month: "long",
+    day: "numeric",
+    year: "numeric",
+    timeZone: "UTC",
+  });
+---
+
+<div class="article-recommendations">
+  <nav class="article-adjacent" aria-label="Adjacent articles">
+    {adjacent.map(({ post: item, label }) => (
+      <a href={`/blog/${item.slug}/`}>
+        {item.featuredImage ? (
+          <Image
+            src={item.featuredImage}
+            width={1000}
+            format="webp"
+            alt=""
+            loading="lazy"
+          />
+        ) : (
+          item.legacyFeaturedImage && (
+            <img src={item.legacyFeaturedImage} alt="" loading="lazy" />
+          )
+        )}
+        <span class="article-adjacent-title">
+          <span>{label}</span>
+          <strong>{item.title}</strong>
+        </span>
+      </a>
+    ))}
+  </nav>
+  <section class="article-related" aria-labelledby="related-heading">
+    <div class="container">
+      <h2 id="related-heading">You May Also Like</h2>
+      <div class="article-related-grid">
+        {related.map((item) => (
+          <a class="article-related-card" href={`/blog/${item.slug}/`}>
+            <div class="article-related-image">
+              {item.featuredImage ? (
+                <Image
+                  src={item.featuredImage}
+                  width={600}
+                  widths={[300, 600]}
+                  sizes="(max-width: 690px) 90vw, 30vw"
+                  format="webp"
+                  alt={item.featuredImageAlt}
+                  loading="lazy"
+                />
+              ) : (
+                item.legacyFeaturedImage && (
+                  <img
+                    src={item.legacyFeaturedImage}
+                    alt={item.featuredImageAlt}
+                    loading="lazy"
+                  />
+                )
+              )}
+              <span class="article-category">{category(item).name}</span>
+            </div>
+            <div class="article-related-title">
+              <time datetime={item.pubDate.toISOString()}>
+                {date(item.pubDate)}
+              </time>
+              <h3>{item.title}</h3>
+            </div>
+          </a>
+        ))}
+      </div>
+    </div>
+  </section>
+</div>

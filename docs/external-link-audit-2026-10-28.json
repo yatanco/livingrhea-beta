@@ -1,0 +1,744 @@
+{
+  "provenance": "Recovered Claude Code HTTP probe output from the interrupted 2026-10-28 audit; not independently rechecked in full. Status 000 is inconclusive, 403/406/409/429 may be blocking. Locations reflect source at audit completion, after the two fixes. This is a recovered subset, not an exhaustive external-link crawl.",
+  "results": [
+    {
+      "status": "403",
+      "url": "http://ajcn.nutrition.org/content/38/3/481.abstract?ijkey=ff17a1aa72da73d8f7ef2afc44fc28e64c96bbde&keytype2=tf_ipsecsha",
+      "sourceLocations": [
+        "src/content/posts/healthy-green-smoothie-recipe.md:56"
+      ]
+    },
+    {
+      "status": "403",
+      "url": "http://ajcn.nutrition.org/content/78/4/734.full",
+      "sourceLocations": [
+        "src/content/posts/healthy-green-smoothie-recipe.md:70"
+      ]
+    },
+    {
+      "status": "403",
+      "url": "http://alcalc.oxfordjournals.org/content/29/5/513.short",
+      "sourceLocations": [
+        "src/content/posts/5-healthy-hacks-conquer-holiday-hangovers.md:64"
+      ]
+    },
+    {
+      "status": "301",
+      "url": "http://amzn.to/1XWywMd",
+      "sourceLocations": [
+        "src/content/posts/amazon-shop.md:42",
+        "src/content/posts/amazon-shop.md:50",
+        "src/content/posts/amazon-shop.md:62"
+      ]
+    },
+    {
+      "status": "000",
+      "url": "http://astore.amazon.com/livrheyouguit-20?_encoding=UTF8&node=1",
+      "sourceLocations": [
+        "src/content/posts/clean-out-your-kitchen.md:48"
+      ]
+    },
+    {
+      "status": "000",
+      "url": "http://astore.amazon.com/livrheyouguit-20?_encoding=UTF8&node=7",
+      "sourceLocations": [
+        "src/content/posts/burning-man-wellness.md:91",
+        "src/content/posts/burning-man-wellness.md:93"
+      ]
+    },
+    {
+      "status": "404",
+      "url": "http://bit.ly/2dpfKsF",
+      "sourceLocations": [
+        "src/content/posts/are-you-drinking-a-smoothie-or-a-slurpee.md:131",
+        "src/content/posts/are-you-drinking-a-smoothie-or-a-slurpee.md:137"
+      ]
+    },
+    {
+      "status": "301",
+      "url": "http://corinnek.ca",
+      "sourceLocations": [
+        "src/content/posts/with-love-and-gratitude.md:104"
+      ]
+    },
+    {
+      "status": "200",
+      "url": "http://fitbottomedgirls.com/",
+      "sourceLocations": [
+        "src/content/posts/14-health-sabotaging-myths-exposed-by-top-experts.md:215"
+      ]
+    },
+    {
+      "status": "200",
+      "url": "http://gunnarpeterson.com/",
+      "sourceLocations": [
+        "src/content/posts/14-health-sabotaging-myths-exposed-by-top-experts.md:114"
+      ]
+    },
+    {
+      "status": "200",
+      "url": "http://jjvirgin.com/",
+      "sourceLocations": [
+        "src/content/posts/14-health-sabotaging-myths-exposed-by-top-experts.md:72"
+      ]
+    },
+    {
+      "status": "403",
+      "url": "http://jn.nutrition.org/content/137/11/2539S.full",
+      "sourceLocations": [
+        "src/content/posts/healthy-green-smoothie-recipe.md:64"
+      ]
+    },
+    {
+      "status": "403",
+      "url": "http://journal.diabetes.org/diabetesspectrum/00v13n3/pg132.htm",
+      "sourceLocations": [
+        "src/content/posts/healthy-green-smoothie-recipe.md:56"
+      ]
+    },
+    {
+      "status": "200",
+      "url": "http://kathrynbudig.com/",
+      "sourceLocations": [
+        "src/content/posts/14-health-sabotaging-myths-exposed-by-top-experts.md:150"
+      ]
+    },
+    {
+      "status": "404",
+      "url": "http://laudadio.ca",
+      "sourceLocations": [
+        "src/content/posts/with-love-and-gratitude.md:66"
+      ]
+    },
+    {
+      "status": "200",
+      "url": "http://lightninginabottle.org/",
+      "sourceLocations": [
+        "src/content/posts/organifigreenjuicepowder.md:77"
+      ]
+    },
+    {
+      "status": "200",
+      "url": "http://link.springer.com/chapter/10.1007%2F978-1-4613-0519-4_10",
+      "sourceLocations": [
+        "src/content/posts/healthy-green-smoothie-recipe.md:70"
+      ]
+    },
+    {
+      "status": "409",
+      "url": "http://makeyourmarktoday.com/Rhea-Mehta/",
+      "sourceLocations": [
+        "src/content/posts/optimal-living-formula.md:43",
+        "src/content/posts/optimal-living-formula.md:56"
+      ]
+    },
+    {
+      "status": "200",
+      "url": "http://markbittman.com/",
+      "sourceLocations": [
+        "src/content/posts/14-health-sabotaging-myths-exposed-by-top-experts.md:194"
+      ]
+    },
+    {
+      "status": "200",
+      "url": "http://markfisherfitness.com/",
+      "sourceLocations": [
+        "src/content/posts/14-health-sabotaging-myths-exposed-by-top-experts.md:124"
+      ]
+    },
+    {
+      "status": "200",
+      "url": "http://markgreenspan.com/",
+      "sourceLocations": [
+        "src/content/posts/with-love-and-gratitude.md:147"
+      ]
+    },
+    {
+      "status": "429",
+      "url": "http://organifishop.com?rfsn=213837.5c1df",
+      "sourceLocations": [
+        "src/content/posts/burning-man-wellness.md:79"
+      ]
+    },
+    {
+      "status": "200",
+      "url": "http://oxagency.ca",
+      "sourceLocations": [
+        "src/content/posts/with-love-and-gratitude.md:62"
+      ]
+    },
+    {
+      "status": "000",
+      "url": "http://pixelhero.ca",
+      "sourceLocations": [
+        "src/content/posts/with-love-and-gratitude.md:63"
+      ]
+    },
+    {
+      "status": "301",
+      "url": "http://pubs.niaaa.nih.gov/publications/arh27-3/220-231.htm",
+      "sourceLocations": [
+        "src/content/posts/5-healthy-hacks-conquer-holiday-hangovers.md:64"
+      ]
+    },
+    {
+      "status": "200",
+      "url": "http://radicalselflove333.wordpress.com/2014/01/31/rsls-feature-friday-dr-rhea-mehta-living-rhea-day-224-365-radical-self-love-project/",
+      "sourceLocations": [
+        "src/content/posts/with-love-and-gratitude.md:133"
+      ]
+    },
+    {
+      "status": "200",
+      "url": "http://robbwolf.com/",
+      "sourceLocations": [
+        "src/content/posts/14-health-sabotaging-myths-exposed-by-top-experts.md:100"
+      ]
+    },
+    {
+      "status": "404",
+      "url": "https://advancedmedicine.ca/rhea-mehta/",
+      "sourceLocations": [
+        "src/content/posts/centre-for-advanced-medicine.md:48"
+      ]
+    },
+    {
+      "status": "429",
+      "url": "https://apolloneuroscience.pxf.io/c/2535242/916509/12331",
+      "sourceLocations": [
+        "src/content/posts/apollo-clinically-validated-wearable-device.md:92"
+      ]
+    },
+    {
+      "status": "404",
+      "url": "https://apps.apple.com/us/app/better-by-bowhead-health/id1385140037",
+      "sourceLocations": [
+        "src/content/posts/future-of-healthcare-with-technology.md:49"
+      ]
+    },
+    {
+      "status": "000",
+      "url": "https://campreset.ca",
+      "sourceLocations": [
+        "src/content/posts/can-we-have-fun-with-health.md:47",
+        "src/content/posts/gamify-health.md:42"
+      ]
+    },
+    {
+      "status": "200",
+      "url": "https://drive.google.com/file/d/106Q8XuNINoXPbrFdfaxn_I7us0lKU4PL/view?usp=sharing",
+      "sourceLocations": [
+        "src/components/pages/AboutPage.astro:414"
+      ]
+    },
+    {
+      "status": "200",
+      "url": "https://entrepologypodcast.libsyn.com/006-integrity-and-self-love-with-dr-rhea-mehta",
+      "sourceLocations": [
+        "src/content/pages/press.md:105"
+      ]
+    },
+    {
+      "status": "200",
+      "url": "https://en.wikipedia.org/wiki/Omega-3_fatty_acid",
+      "sourceLocations": [
+        "src/content/posts/secrets-of-healthy-living.md:73"
+      ]
+    },
+    {
+      "status": "404",
+      "url": "https://farmaciaarchimede.it/prodotti/in-farmacia-levitra-italia-prezzo999.html",
+      "sourceLocations": [
+        "src/content/posts/choice.md:39"
+      ]
+    },
+    {
+      "status": "404",
+      "url": "https://farmaciaarchimede.it/prodotti/mg-prezzo-originale-100-viagra1000.html",
+      "sourceLocations": [
+        "src/content/posts/choice.md:47"
+      ]
+    },
+    {
+      "status": "000",
+      "url": "https://globalsmoothieday.com",
+      "sourceLocations": [
+        "src/content/posts/healthy-green-smoothies.md:35",
+        "src/content/posts/healthy-green-smoothies.md:39",
+        "src/content/posts/healthy-green-smoothies.md:68"
+      ]
+    },
+    {
+      "status": "200",
+      "url": "http://simplegreensmoothies.com/rotate-your-greens",
+      "sourceLocations": [
+        "src/content/posts/rotateyourgreens.md:51"
+      ]
+    },
+    {
+      "status": "200",
+      "url": "https://podcast24.dk/episoder/the-mindbodygreen-podcast/126-how-to-rid-your-home-of-toxins-with-rhea-mehta-phd-RbUK6l97IZ",
+      "sourceLocations": [
+        "src/content/pages/press.md:81"
+      ]
+    },
+    {
+      "status": "200",
+      "url": "https://podcasts.apple.com/ca/podcast/216-cleanse-and-renew-for-2022-sound-therapy/id1312980372?i=1000546654320",
+      "sourceLocations": [
+        "src/content/pages/press.md:97"
+      ]
+    },
+    {
+      "status": "200",
+      "url": "https://podcasts.apple.com/us/podcast/how-to-rid-your-home-of-toxins-with-rhea-mehta-ph-d/id1246494475?i=1000442642624?i=1000442642624",
+      "sourceLocations": [
+        "src/content/posts/get-rid-of-home-of-toxins-with-dr-rhea-mehta-molecular-toxicologist.md:35"
+      ]
+    },
+    {
+      "status": "000",
+      "url": "https://qitraditions.com/?ref=6qd23azmupo_livingrhea",
+      "sourceLocations": [
+        "src/content/posts/benefit-from-medicinal-mushroom.md:95",
+        "src/content/posts/benefit-from-medicinal-mushroom.md:97"
+      ]
+    },
+    {
+      "status": "000",
+      "url": "https://sellsilicone.es/impotencia/farmacia-en-comprar-clomid.html",
+      "sourceLocations": [
+        "src/content/posts/choice.md:51"
+      ]
+    },
+    {
+      "status": "000",
+      "url": "https://sellsilicone.es/impotencia/sin-receta-alternativas-al-viagra.html",
+      "sourceLocations": [
+        "src/content/posts/choice.md:43"
+      ]
+    },
+    {
+      "status": "200",
+      "url": "https://shapescale.com/blog/20-minute-fitness-podcast/why-dr-rhea-mehta-built-bowhead-health/",
+      "sourceLocations": [
+        "src/content/pages/press.md:161"
+      ]
+    },
+    {
+      "status": "403",
+      "url": "https://thekit.ca/living/health/longevity-tips-for-women/",
+      "sourceLocations": [
+        "src/content/pages/press.md:41"
+      ]
+    },
+    {
+      "status": "200",
+      "url": "https://tspace.library.utoronto.ca/bitstream/1807/31865/6/Mehta_Rhea_201111_PhD_thesis.pdf",
+      "sourceLocations": [
+        "src/components/pages/AboutPage.astro:428"
+      ]
+    },
+    {
+      "status": "200",
+      "url": "http://summertomato.com/",
+      "sourceLocations": [
+        "src/content/posts/14-health-sabotaging-myths-exposed-by-top-experts.md:136"
+      ]
+    },
+    {
+      "status": "200",
+      "url": "https://vitamagazine.com/2024/10/17/aste-wellness-transforming-skincare-with-ayurveda-science-win/",
+      "sourceLocations": [
+        "src/content/pages/press.md:49"
+      ]
+    },
+    {
+      "status": "200",
+      "url": "https://www.beautynewsnycofficial.com/beauty/beautyscopes/hygeia-quantum-leap-or-roots-run-deep/",
+      "sourceLocations": [
+        "src/content/pages/press.md:57"
+      ]
+    },
+    {
+      "status": "200",
+      "url": "https://www.businessinsider.com/how-to-make-rooms-in-your-home-better-with-sound-2021-11",
+      "sourceLocations": [
+        "src/content/pages/press.md:113"
+      ]
+    },
+    {
+      "status": "200",
+      "url": "https://www.digitimes.com/news/a20241119PR204/ctot-healthcare-medical-data-software.html&chid=9",
+      "sourceLocations": [
+        "src/content/pages/press.md:137"
+      ]
+    },
+    {
+      "status": "403",
+      "url": "https://www.forbes.com/sites/annabelacton/2017/07/14/the-future-of-health-its-in-your-hands/",
+      "sourceLocations": [
+        "src/content/pages/press.md:129"
+      ]
+    },
+    {
+      "status": "200",
+      "url": "https://www.fxnutrition.com/podcast/mapping-patient-data-ownership-with-dr-rhea-mehta-226",
+      "sourceLocations": [
+        "src/content/pages/press.md:89"
+      ]
+    },
+    {
+      "status": "200",
+      "url": "https://www.girltalkhq.com/yogi-singer-rhea-mehta-on-a-mission-to-share-south-asian-mantra-magic-with-the-world/",
+      "sourceLocations": [
+        "src/content/pages/press.md:121"
+      ]
+    },
+    {
+      "status": "404",
+      "url": "https://www.integrativenutrition.com/blog/2015/02/scientist-health-coach-dr-rhea-mehta-on-science-and-inspiration",
+      "sourceLocations": []
+    },
+    {
+      "status": "200",
+      "url": "https://www.integrativenutrition.com/blog/scientist-health-coach-dr-rhea-mehta-on-science-and-inspiration",
+      "sourceLocations": [
+        "src/content/pages/press.md:33",
+        "src/content/posts/integrative-health-coaches-role.md:109"
+      ]
+    },
+    {
+      "status": "200",
+      "url": "https://www.mindbodygreen.com/articles/4-years-7-cleanses-3-lessons-a-toxicologist-explains",
+      "sourceLocations": [
+        "src/components/pages/AboutPage.astro:446"
+      ]
+    },
+    {
+      "status": "200",
+      "url": "https://www.mindbodygreen.com/articles/5-activities-that-will-help-you-cleanse",
+      "sourceLocations": [
+        "src/components/pages/AboutPage.astro:437"
+      ]
+    },
+    {
+      "status": "200",
+      "url": "https://www.mindbodygreen.com/articles/green-smoothie-recipe-that-incorporates-leftovers",
+      "sourceLocations": [
+        "src/components/pages/SmoothieMovementPage.astro:703"
+      ]
+    },
+    {
+      "status": "200",
+      "url": "https://www.mindbodygreen.com/wc/dr-rhea-mehta",
+      "sourceLocations": [
+        "src/content/posts/rawjuvenation-community-making-the-change-dr-rhea-mehta.md:55"
+      ]
+    },
+    {
+      "status": "200",
+      "url": "https://www.nataliejillfitness.com/",
+      "sourceLocations": [
+        "src/content/posts/14-health-sabotaging-myths-exposed-by-top-experts.md:204"
+      ]
+    },
+    {
+      "status": "200",
+      "url": "https://www.nerdfitness.com/",
+      "sourceLocations": [
+        "src/content/posts/14-health-sabotaging-myths-exposed-by-top-experts.md:160"
+      ]
+    },
+    {
+      "status": "200",
+      "url": "https://www.vogue.in/content/the-best-time-to-have-dry-fruits-and-nuts-according-to-experts",
+      "sourceLocations": [
+        "src/content/pages/press.md:25"
+      ]
+    },
+    {
+      "status": "200",
+      "url": "https://youtu.be/knJWcMwSSRY",
+      "sourceLocations": [
+        "src/content/posts/2-practices-that-will-change-your-relationship-with-food.md:61"
+      ]
+    },
+    {
+      "status": "200",
+      "url": "http://www.10framehandles.com/",
+      "sourceLocations": [
+        "src/content/posts/with-love-and-gratitude.md:53"
+      ]
+    },
+    {
+      "status": "200",
+      "url": "http://www.blogto.com/events/toronto-global-smoothie-day-launch-party-free-event/",
+      "sourceLocations": [
+        "src/content/posts/healthy-green-smoothies.md:39"
+      ]
+    },
+    {
+      "status": "000",
+      "url": "http://www.christinechangphotoblog.com/",
+      "sourceLocations": [
+        "src/content/posts/with-love-and-gratitude.md:54"
+      ]
+    },
+    {
+      "status": "200",
+      "url": "http://www.diananazareth.com/",
+      "sourceLocations": [
+        "src/content/posts/with-love-and-gratitude.md:52"
+      ]
+    },
+    {
+      "status": "200",
+      "url": "http://www.ewg.org/foodnews/",
+      "sourceLocations": [
+        "src/content/posts/green-smoothie-guide-nutshell.md:49"
+      ]
+    },
+    {
+      "status": "404",
+      "url": "http://www.finerminds.com/health-fitness/gratitude-collaboration-day-1/",
+      "sourceLocations": [
+        "src/content/posts/with-love-and-gratitude.md:132"
+      ]
+    },
+    {
+      "status": "404",
+      "url": "http://www.finerminds.com/manifesting/your-lifes-purpose-in-one-sentence-and-a-30-day-process-to-go-with-it/",
+      "sourceLocations": [
+        "src/content/posts/mind-body-january.md:45"
+      ]
+    },
+    {
+      "status": "403",
+      "url": "http://www.foodpolitics.com/",
+      "sourceLocations": [
+        "src/content/posts/14-health-sabotaging-myths-exposed-by-top-experts.md:172"
+      ]
+    },
+    {
+      "status": "200",
+      "url": "http://www.giftedentrepreneur.com/the-a-list-rhea-mehta-of-living-rhea/",
+      "sourceLocations": [
+        "src/content/posts/with-love-and-gratitude.md:131"
+      ]
+    },
+    {
+      "status": "000",
+      "url": "http://www.girlabouttoronto.com/tag/digest-digest/",
+      "sourceLocations": [
+        "src/content/posts/with-love-and-gratitude.md:150"
+      ]
+    },
+    {
+      "status": "200",
+      "url": "http://www.hrostoski.com",
+      "sourceLocations": [
+        "src/content/posts/with-love-and-gratitude.md:107"
+      ]
+    },
+    {
+      "status": "406",
+      "url": "http://www.huffingtonpost.ca/dr-rhea-mehta/green-smoothie-recipe_b_6595476.html",
+      "sourceLocations": [
+        "src/content/posts/healthy-green-smoothie-recipe.md:38"
+      ]
+    },
+    {
+      "status": "406",
+      "url": "http://www.huffingtonpost.com/dr-rhea-mehta/5-health-hacks-to-conquer_1_b_6280972.html",
+      "sourceLocations": [
+        "src/content/posts/5-healthy-hacks-conquer-holiday-hangovers.md:34"
+      ]
+    },
+    {
+      "status": "200",
+      "url": "http://www.lifehack.org/articles/productivity/the-pomodoro-technique-is-it-right-for-you.html",
+      "sourceLocations": [
+        "src/content/posts/gamify-health.md:68"
+      ]
+    },
+    {
+      "status": "301",
+      "url": "http://www.mattjenkinsphotography.ca",
+      "sourceLocations": [
+        "src/content/posts/with-love-and-gratitude.md:55"
+      ]
+    },
+    {
+      "status": "403",
+      "url": "http://www.mdpi.com/1420-3049/14/12/5144",
+      "sourceLocations": [
+        "src/content/posts/5-healthy-hacks-conquer-holiday-hangovers.md:48"
+      ]
+    },
+    {
+      "status": "404",
+      "url": "http://www.mindbodygreen.com/0-7980/kick-off-a-detox-with-mind-body-mondays.html",
+      "sourceLocations": [
+        "src/content/posts/mind-body-january.md:37"
+      ]
+    },
+    {
+      "status": "200",
+      "url": "http://www.mindbodygreen.com/0-8796/forget-dairy-your-new-best-friend-is-cashew-cream.html",
+      "sourceLocations": [
+        "src/content/posts/mushroom-soup.md:67"
+      ]
+    },
+    {
+      "status": "200",
+      "url": "http://www.mindbodygreen.com/tag/ginger",
+      "sourceLocations": [
+        "src/content/posts/mushroom-soup.md:51"
+      ]
+    },
+    {
+      "status": "200",
+      "url": "http://www.mindbodygreen.com/wc/dr-rhea-mehta",
+      "sourceLocations": [
+        "src/content/posts/with-love-and-gratitude.md:141"
+      ]
+    },
+    {
+      "status": "200",
+      "url": "http://www.ncbi.nlm.nih.gov/pubmed/16220050",
+      "sourceLocations": [
+        "src/content/posts/healthy-green-smoothie-recipe.md:62"
+      ]
+    },
+    {
+      "status": "200",
+      "url": "http://www.ncbi.nlm.nih.gov/pubmed/22608371",
+      "sourceLocations": [
+        "src/content/posts/are-you-drinking-a-smoothie-or-a-slurpee.md:149"
+      ]
+    },
+    {
+      "status": "200",
+      "url": "http://www.ncbi.nlm.nih.gov/pubmed/24741627",
+      "sourceLocations": [
+        "src/content/posts/healthy-green-smoothie-recipe.md:70"
+      ]
+    },
+    {
+      "status": "200",
+      "url": "http://www.ncbi.nlm.nih.gov/pubmed?term=Psycholgin%20D%255BAuthor%255D&cauthor=true&cauthor_uid=2929557",
+      "sourceLocations": [
+        "src/content/posts/5-healthy-hacks-conquer-holiday-hangovers.md:56"
+      ]
+    },
+    {
+      "status": "200",
+      "url": "http://www.negharfonooni.com/",
+      "sourceLocations": [
+        "src/content/posts/14-health-sabotaging-myths-exposed-by-top-experts.md:88"
+      ]
+    },
+    {
+      "status": "000",
+      "url": "http://www.nushnosh.ca/",
+      "sourceLocations": [
+        "src/content/posts/with-love-and-gratitude.md:122"
+      ]
+    },
+    {
+      "status": "403",
+      "url": "http://www.oprah.com/spirit/Setting-and-Achieving-Goals-with-Intention/1",
+      "sourceLocations": [
+        "src/content/posts/mind-body-january.md:41"
+      ]
+    },
+    {
+      "status": "429",
+      "url": "http://www.organifi.com?rfsn=213837.5c1df",
+      "sourceLocations": [
+        "src/content/posts/organifigreenjuicepowder.md:44",
+        "src/content/posts/organifigreenjuicepowder.md:54",
+        "src/content/posts/organifigreenjuicepowder.md:79"
+      ]
+    },
+    {
+      "status": "429",
+      "url": "http://www.organifi.com?rfsn=213837.5c1df'",
+      "sourceLocations": []
+    },
+    {
+      "status": "200",
+      "url": "http://www.richroll.com/",
+      "sourceLocations": [
+        "src/content/posts/14-health-sabotaging-myths-exposed-by-top-experts.md:180"
+      ]
+    },
+    {
+      "status": "200",
+      "url": "http://www.scientificamerican.com/article/soil-depletion-and-nutrition-loss/",
+      "sourceLocations": [
+        "src/content/posts/healthy-green-smoothie-recipe.md:56"
+      ]
+    },
+    {
+      "status": "403",
+      "url": "http://www.strategyr.com/Smoothies_Market_Report.asp",
+      "sourceLocations": [
+        "src/content/posts/are-you-drinking-a-smoothie-or-a-slurpee.md:145"
+      ]
+    },
+    {
+      "status": "000",
+      "url": "http://www.thechangemakerformula.com/",
+      "sourceLocations": [
+        "src/content/posts/the-changemaker-formula-smoothie-challenge.md:56",
+        "src/content/posts/the-changemaker-formula-smoothie-challenge.md:76",
+        "src/content/posts/detox-for-entrepreneurs.md:33",
+        "src/content/posts/detox-for-entrepreneurs.md:39"
+      ]
+    },
+    {
+      "status": "200",
+      "url": "http://www.thestillnessproject.com",
+      "sourceLocations": [
+        "src/content/posts/with-love-and-gratitude.md:110"
+      ]
+    },
+    {
+      "status": "200",
+      "url": "http://www.tonyhortonlife.com/",
+      "sourceLocations": [
+        "src/content/posts/14-health-sabotaging-myths-exposed-by-top-experts.md:225"
+      ]
+    },
+    {
+      "status": "200",
+      "url": "http://www.webmd.com/diet/features/superfoods-everyone-needs",
+      "sourceLocations": [
+        "src/content/posts/healthy-green-smoothie-recipe.md:50"
+      ]
+    },
+    {
+      "status": "404",
+      "url": "http://www.whfoods.com/genpage.php/genpage.php?tname=george&dbid=250",
+      "sourceLocations": [
+        "src/content/posts/rotateyourgreens.md:49"
+      ]
+    },
+    {
+      "status": "200",
+      "url": "http://www.who.int/mediacentre/factsheets/fs311/en/",
+      "sourceLocations": [
+        "src/content/posts/are-you-drinking-a-smoothie-or-a-slurpee.md:147"
+      ]
+    },
+    {
+      "status": "200",
+      "url": "http://youtu.be/spLE54I768M",
+      "sourceLocations": [
+        "src/content/posts/finding-your-flow.md:48"
+      ]
+    }
+  ]
+}

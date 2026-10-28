@@ -106,7 +106,7 @@ They are school teachers, authors, thought leaders, healthcare practitioners, em
 
 I want to give a special shoutout to the virtual school I attended that helped me formalize my coaching practice.
 
-## [**That is the Institute for Integrative Nutrition.**](https://www.integrativenutrition.com/blog/2015/02/scientist-health-coach-dr-rhea-mehta-on-science-and-inspiration)
+## [**That is the Institute for Integrative Nutrition.**](https://www.integrativenutrition.com/blog/scientist-health-coach-dr-rhea-mehta-on-science-and-inspiration)
 
 Through IIN, I developed the confidence to start a coaching practice. Through IIN, I had access to a giant resource of nutritional and holistic health wisdom. I also gained access to a community of health advocates and leaders.
 

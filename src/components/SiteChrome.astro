@@ -242,6 +242,7 @@ const path = Astro.url.pathname;
       </header>
     </div>
     <div {...layout.ajax}>
+      <slot name="article-header" />
       <div {...layout.container}>
         <div {...layout.main}>
           <div class="row">
@@ -249,7 +250,8 @@ const path = Astro.url.pathname;
           </div>
         </div>
       </div>
-<SiteFooter />
+      <slot name="article-footer" />
+      <SiteFooter />
 
       <div
         id="slide-out-widget-area-bg"

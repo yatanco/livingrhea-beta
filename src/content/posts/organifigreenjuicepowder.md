@@ -76,4 +76,4 @@ Dr. Rhea
 
 PS I’ll be gifting more at my next speaking gig at [Lightning in a Bottle Festival](http://lightninginabottle.org/) May 27/28 in California. If you’re planning to attend, let me know! I’ll be teaching some productivity hacking food + drink recipes in the Learning Kitchen as well as teaching Caribbean dance!
 
-To order my favorite green juice powder, [click here](http://www.organifi.com?rfsn=213837.5c1df').
+To order my favorite green juice powder, [click here](http://www.organifi.com?rfsn=213837.5c1df).

@@ -1,9 +1,11 @@
 ---
 import "../../styles/site/about.css";
+import "../../styles/site/article.css";
+import ArticleRecommendations from "../../components/ArticleRecommendations.astro";
 import Base from "../../layouts/Base.astro";
 import { Image } from "astro:assets";
 import { render } from "astro:content";
-import { getAllPosts } from "../../lib/posts.js";
+import { getAllPosts, category, readingTime } from "../../lib/posts.js";
 
 export async function getStaticPaths() {
   const posts = await getAllPosts();
@@ -15,6 +17,13 @@ export async function getStaticPaths() {
 
 const { post } = Astro.props;
 const source = post.featuredImage;
+const cat = category(post);
+const date = post.pubDate.toLocaleDateString("en-US", {
+  month: "long",
+  day: "numeric",
+  year: "numeric",
+  timeZone: "UTC",
+});
 // A post added through the CMS may only have a plain uploaded image
 // (legacyFeaturedImage) with no Astro-optimized source yet.
 const plainImage = !source && post.legacyFeaturedImage;
@@ -31,24 +40,37 @@ const { Content } = await render(post.entry);
     authorName: post.author,
   }}
 >
-  <article>
-    <h1>{post.title}</h1>
-    {source && (
+  <header slot="article-header" class="article-hero">
+    {source ? (
       <Image
         src={source}
-        alt={post.featuredImageAlt}
+        alt=""
         width={source.width}
-        widths={[480, 800, 1200, source.width].filter((w) => w <= source.width)}
-        sizes="90vw"
+        widths={[480, 800, 1200, 1600].filter((w) => w <= source.width)}
+        sizes="100vw"
         format="webp"
         quality={80}
         priority
       />
+    ) : (
+      plainImage && <img src={plainImage} alt="" fetchpriority="high" />
     )}
-    {plainImage && <img src={plainImage} alt={post.featuredImageAlt} loading="eager" />}
-    <div class="wp-content article-copy">
-      <Content />
+    <div class="article-hero-content">
+      <span class="article-category">{cat.name}</span>
+      <h1>{post.title}</h1>
+      <div class="article-meta">
+        <span>By {post.author}</span>
+        <time datetime={post.pubDate.toISOString()}>{date}</time>
+        <span>{readingTime(post.entry.body)} min read</span>
+      </div>
     </div>
-    {/* WP comments aren't carried over; wire up giscus/Disqus later if wanted. */}
+  </header>
+  <nav class="article-breadcrumbs" aria-label="Breadcrumb">
+    <a href="/">Home</a> » <a href="/blog/">Blog</a> »{" "}
+    <span aria-current="page">{post.title}</span>
+  </nav>
+  <article class="article-copy wp-content">
+    <Content />
   </article>
+  <ArticleRecommendations slot="article-footer" post={post} />
 </Base>
