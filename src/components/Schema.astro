@@ -1,0 +1,165 @@
+---
+// The site's only script: one JSON-LD graph per page.
+import social from "../content/settings/social.json";
+
+export interface Article {
+  datePublished: string;
+  dateModified?: string;
+  authorName?: string;
+  recipe?: {
+    category?: string;
+    yield?: string;
+    ingredients: string[];
+    instructions: string[];
+  };
+  recipeCategory?: string[];
+}
+interface Props {
+  url: string;
+  title: string;
+  description: string;
+  image?: string;
+  article?: Article;
+  /** Service offered on this page, e.g. "Health coaching". */
+  service?: string;
+}
+const { url, title, description, image, article, service } = Astro.props;
+
+const siteUrl = new URL("/", Astro.site).href;
+const personId = `${siteUrl}#rhea-mehta`;
+const path = new URL(url).pathname;
+// Her full profile and ventures go on the pages about her; elsewhere the
+// Person node is only the target that authors and providers point to.
+const profilePage = path === "/" || path === "/about/";
+// Every migrated post is "Dr Rhea"; link hers to the Person node.
+const author =
+  article?.authorName && !/rhea/i.test(article.authorName)
+    ? { "@type": "Person", name: article.authorName }
+    : { "@id": personId };
+// Ventures as named on the About page.
+const ventures = [
+  "Aste Wellness",
+  "Global Smoothie Day",
+  "Bowhead Health",
+  "Reset",
+].map((name) => ({ "@type": "Organization", name, founder: { "@id": personId } }));
+
+const schema = {
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Person",
+      "@id": personId,
+      name: "Dr. Rhea Mehta",
+      url: new URL("about/", Astro.site).href,
+      ...(profilePage
+        ? {
+            // Credentials as stated on the About page; she is not a medical doctor.
+            jobTitle: "Holistic Health Coach and Toxicologist",
+            honorificSuffix: "PhD",
+            alumniOf: {
+              "@type": "CollegeOrUniversity",
+              name: "University of Toronto",
+            },
+            hasCredential: [
+              {
+                "@type": "EducationalOccupationalCredential",
+                credentialCategory: "degree",
+                name: "PhD in Molecular Toxicology and Nutritional Biochemistry",
+              },
+              {
+                "@type": "EducationalOccupationalCredential",
+                credentialCategory: "certificate",
+                name: "Certification in Integrative Nutrition and Health Coaching",
+              },
+            ],
+            // The same profiles as the header's social icons.
+            sameAs: Object.values(social).filter((link) =>
+              link.startsWith("https://"),
+            ),
+          }
+        : {}),
+    },
+    ...(profilePage ? ventures : []),
+    {
+      "@type": "WebSite",
+      "@id": `${siteUrl}#website`,
+      url: siteUrl,
+      name: "Living Rhea",
+      publisher: { "@id": personId },
+    },
+    {
+      "@type": article ? "BlogPosting" : "WebPage",
+      "@id": `${url}#page`,
+      url,
+      name: title,
+      headline: title,
+      description,
+      isPartOf: { "@id": `${siteUrl}#website` },
+      ...(image ? { image } : {}),
+      ...(article
+        ? {
+            datePublished: article.datePublished,
+            dateModified: article.dateModified,
+            ...(article.recipeCategory?.length
+              ? { articleSection: article.recipeCategory }
+              : {}),
+            author,
+          }
+        : {}),
+    },
+    ...(service
+      ? [
+          {
+            "@type": "Service",
+            "@id": `${url}#service`,
+            name: title,
+            serviceType: service,
+            description,
+            url,
+            provider: { "@id": personId },
+          },
+        ]
+      : []),
+    ...(article?.recipe
+      ? [
+          {
+            "@type": "Recipe",
+            "@id": `${url}#recipe`,
+            name: title,
+            description,
+            url,
+            mainEntityOfPage: url,
+            isPartOf: { "@id": `${siteUrl}#website` },
+            ...(image ? { image } : {}),
+            author,
+            datePublished: article.datePublished,
+            ...(article.dateModified
+              ? { dateModified: article.dateModified }
+              : {}),
+            ...(article.recipe.category
+              ? { recipeCategory: article.recipe.category }
+              : {}),
+            ...(article.recipe.yield
+              ? { recipeYield: article.recipe.yield }
+              : {}),
+            ...(article.recipeCategory?.length
+              ? { keywords: article.recipeCategory }
+              : {}),
+            recipeIngredient: article.recipe.ingredients,
+            recipeInstructions: article.recipe.instructions.map((text) => ({
+              "@type": "HowToStep",
+              text,
+            })),
+          },
+        ]
+      : []),
+  ],
+};
+---
+
+<script
+  is:inline
+  type="application/ld+json"
+  set:html={JSON.stringify(schema).replace(/</g, "\\u003c")}
+/>

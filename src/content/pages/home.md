@@ -1,5 +1,5 @@
 ---
-title: Home
+title: Dr. Rhea Mehta, PhD — Holistic Health Coach, Toxicologist & Breathwork
 description: Dr. Rhea Mehta blends nutrition science, holistic health coaching, breathwork, and
   ancestral wisdom.
 path: /

@@ -3,7 +3,7 @@ import "../styles/beta/global.css";
 import SiteHeader from "../components/SiteHeader.astro";
 import SiteFooter from "../components/SiteFooter.astro";
 import { plainText, pageDescriptions, snippet } from "../lib/seo.js";
-import social from "../content/settings/social.json";
+import Schema, { type Article } from "../components/Schema.astro";
 // Fingerprinted by Vite, so they can be cached forever; same files as global.css.
 import interFont from "../assets/fonts/inter-latin.woff2?url";
 import oggFont from "../assets/fonts/ogg-regular.woff2?url";
@@ -19,18 +19,9 @@ interface Props {
   socialImage?: string;
   /** Header floats transparently over the first section (homepage). */
   overlayHeader?: boolean;
-  article?: {
-    datePublished: string;
-    dateModified?: string;
-    authorName?: string;
-    recipe?: {
-      category?: string;
-      yield?: string;
-      ingredients: string[];
-      instructions: string[];
-    };
-    recipeCategory?: string[];
-  };
+  article?: Article;
+  /** Marks the page as offering a service (e.g. "Health coaching"). */
+  service?: string;
 }
 const {
   title,
@@ -41,94 +32,19 @@ const {
   socialImage,
   overlayHeader = false,
   article,
+  service,
 } = Astro.props;
 
 const canonical = new URL(Astro.url.pathname, Astro.site);
 const plainTitle = plainText(title);
+// The homepage title already names her; other pages get the name appended.
+const fullTitle =
+  Astro.url.pathname === "/" ? plainTitle : `${plainTitle} | Rhea Mehta`;
 const plainDescription = snippet(
   plainText(description) || pageDescriptions[Astro.url.pathname] || "",
 );
-const siteUrl = new URL("/", Astro.site).href;
-const personId = `${siteUrl}#rhea-mehta`;
 const socialSource = socialImage || preloadImage;
 const image = socialSource ? new URL(socialSource, Astro.site).href : undefined;
-const schema = {
-  "@context": "https://schema.org",
-  "@graph": [
-    {
-      "@type": "Person",
-      "@id": personId,
-      name: "Dr. Rhea Mehta",
-      url: new URL("about/", Astro.site).href,
-      // The same profiles as the header's social icons.
-      sameAs: Object.values(social).filter((url) => url.startsWith("https://")),
-    },
-    {
-      "@type": "WebSite",
-      "@id": `${siteUrl}#website`,
-      url: siteUrl,
-      name: "Living Rhea",
-      publisher: { "@id": personId },
-    },
-    {
-      "@type": article ? "BlogPosting" : "WebPage",
-      "@id": `${canonical.href}#page`,
-      url: canonical.href,
-      name: plainTitle,
-      headline: plainTitle,
-      description: plainDescription,
-      isPartOf: { "@id": `${siteUrl}#website` },
-      ...(image ? { image } : {}),
-      ...(article
-        ? {
-            datePublished: article.datePublished,
-            dateModified: article.dateModified,
-            ...(article.recipeCategory?.length
-              ? { articleSection: article.recipeCategory }
-              : {}),
-            author: article.authorName
-              ? { "@type": "Person", name: article.authorName }
-              : { "@id": personId },
-          }
-        : {}),
-    },
-    ...(article?.recipe
-      ? [
-          {
-            "@type": "Recipe",
-            "@id": `${canonical.href}#recipe`,
-            name: plainTitle,
-            description: plainDescription,
-            url: canonical.href,
-            mainEntityOfPage: canonical.href,
-            isPartOf: { "@id": `${siteUrl}#website` },
-            ...(image ? { image } : {}),
-            author: article.authorName
-              ? { "@type": "Person", name: article.authorName }
-              : { "@id": personId },
-            datePublished: article.datePublished,
-            ...(article.dateModified
-              ? { dateModified: article.dateModified }
-              : {}),
-            ...(article.recipe.category
-              ? { recipeCategory: article.recipe.category }
-              : {}),
-            ...(article.recipe.yield
-              ? { recipeYield: article.recipe.yield }
-              : {}),
-            ...(article.recipeCategory?.length
-              ? { keywords: article.recipeCategory }
-              : {}),
-            recipeIngredient: article.recipe.ingredients,
-            recipeInstructions: article.recipe.instructions.map((text) => ({
-              "@type": "HowToStep",
-              text,
-            })),
-          },
-        ]
-      : []),
-  ],
-};
 ---
 
 <!doctype html>
@@ -136,21 +52,24 @@ const schema = {
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>{plainTitle} | Rhea Mehta</title>
+    <title>{fullTitle}</title>
     {plainDescription && <meta name="description" content={plainDescription} />}
     <link rel="canonical" href={canonical} />
     <meta name="theme-color" content="#ffffff" />
-    <meta property="og:title" content={`${plainTitle} | Rhea Mehta`} />
+    <meta property="og:title" content={fullTitle} />
     <meta property="og:description" content={plainDescription} />
     <meta property="og:url" content={canonical} />
     <meta property="og:type" content={article ? "article" : "website"} />
     <meta property="og:site_name" content="Living Rhea" />
     {image && <meta property="og:image" content={image} />}
     <meta name="twitter:card" content="summary_large_image" />
-    <script
-      is:inline
-      type="application/ld+json"
-      set:html={JSON.stringify(schema).replace(/</g, "\\u003c")}
+    <Schema
+      url={canonical.href}
+      title={plainTitle}
+      description={plainDescription}
+      image={image}
+      article={article}
+      service={service}
     />
     <link rel="alternate" type="application/rss+xml" title="Blog" href="/blog/rss.xml" />
     {

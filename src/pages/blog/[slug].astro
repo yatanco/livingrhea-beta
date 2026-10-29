@@ -1,5 +1,6 @@
 ---
 import ArticleRecommendations from "../../components/ArticleRecommendations.astro";
+import AuthorByline from "../../components/AuthorByline.astro";
 import Base from "../../layouts/Base.astro";
 import { Image, getImage } from "astro:assets";
 import { render } from "astro:content";
@@ -39,6 +40,7 @@ const hero = source
   ? await getImage({ src: source, widths, sizes, format: "webp", quality: 72 })
   : undefined;
 const { Content } = await render(post.entry);
+const byRhea = /rhea/i.test(post.author);
 ---
 
 <Base
@@ -115,6 +117,11 @@ const { Content } = await render(post.entry);
             <a href={`/tag/${tag.slug}/`}>{tag.name}</a>
           ))}
         </nav>
+      )
+    }
+    {
+      byRhea && (
+        <AuthorByline />
       )
     }
   </article>
