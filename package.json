@@ -7,7 +7,8 @@
     "build": "astro build",
     "preview": "astro preview",
     "test": "node --test tests/*.test.mjs",
-    "check": "npm run build && node scripts/check-build.mjs && npm test"
+    "check": "npm run build && node scripts/check-build.mjs && npm test",
+    "deploy": "npm run check && wrangler pages deploy dist --project-name livingrhea-beta --branch main"
   },
   "dependencies": {
     "astro": "7.4.2"

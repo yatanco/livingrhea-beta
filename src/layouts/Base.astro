@@ -4,6 +4,9 @@ import SiteHeader from "../components/SiteHeader.astro";
 import SiteFooter from "../components/SiteFooter.astro";
 import { plainText, pageDescriptions, snippet } from "../lib/seo.js";
 import social from "../content/settings/social.json";
+// Fingerprinted by Vite, so they can be cached forever; same files as global.css.
+import interFont from "../assets/fonts/inter-latin.woff2?url";
+import oggFont from "../assets/fonts/ogg-regular.woff2?url";
 
 interface Props {
   title: string;
@@ -163,14 +166,14 @@ const schema = {
       rel="preload"
       as="font"
       type="font/woff2"
-      href="/fonts/beta/inter-latin.woff2"
+      href={interFont}
       crossorigin="anonymous"
     />
     <link
       rel="preload"
       as="font"
       type="font/woff2"
-      href="/fonts/beta/ogg-regular.woff2"
+      href={oggFont}
       crossorigin="anonymous"
     />
     <link

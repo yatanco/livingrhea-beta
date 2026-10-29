@@ -2,13 +2,13 @@
    layout primitives. No theme framework, no JavaScript dependencies. */
 @font-face {
   font-family: "Ogg";
-  src: url("/fonts/beta/ogg-regular.woff2") format("woff2");
+  src: url("../../assets/fonts/ogg-regular.woff2") format("woff2");
   font-weight: 400;
   font-display: swap;
 }
 @font-face {
   font-family: "Inter";
-  src: url("/fonts/beta/inter-latin.woff2") format("woff2");
+  src: url("../../assets/fonts/inter-latin.woff2") format("woff2");
   /* A single static weight: bold is synthesized, as on the original site. */
   font-weight: 400;
   font-display: swap;

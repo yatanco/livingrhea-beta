@@ -11,7 +11,7 @@ interface Props {
 const { posts, eager = 3, headingLevel: Heading = "h2" } = Astro.props;
 // Small originals keep their own width rather than an empty srcset.
 const cardWidths = (width: number) => {
-  const fit = [400, 600, 800].filter((w) => w <= width);
+  const fit = [360, 560, 760].filter((w) => w <= width);
   return fit.length ? fit : [width];
 };
 const date = (d: Date) =>
@@ -38,7 +38,7 @@ const date = (d: Date) =>
                   src={post.featuredImage}
                   alt=""
                   widths={cardWidths(post.featuredImage.width)}
-                  sizes="(max-width: 640px) 100vw, (max-width: 1000px) 50vw, 380px"
+                  sizes="(max-width: 640px) calc(100vw - 40px), (max-width: 1000px) 45vw, 380px"
                   format="webp"
                   quality={72}
                   loading={loading}
@@ -80,6 +80,11 @@ const date = (d: Date) =>
     margin: 0;
     padding: 0;
     list-style: none;
+  }
+  /* Off-screen cards skip layout and paint until scrolled near. */
+  li:nth-child(n + 7) {
+    content-visibility: auto;
+    contain-intrinsic-size: auto 440px;
   }
   .card {
     position: relative;

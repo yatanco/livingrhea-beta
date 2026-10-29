@@ -28,7 +28,7 @@ const quotes = [
 
 <section class="section wrap split" aria-label="Kriya breathwork and sound yoga">
   <div class="prose">
-    <Fragment set:html={copy["kriya-breathwork-and-sound-yoga"]} />
+    <Fragment set:html={copy["kriya-breathwork-and-sound-yoga"].replace(/<(\/?)h3/g, "<$1h2")} />
     <Fragment set:html={copy["in-2019-i-traveled-to-rishikesh-india"]} />
   </div>
   <Pic
@@ -61,7 +61,7 @@ const quotes = [
   .hero-quote :global(p) {
     max-width: none;
   }
-  .prose :global(h3) {
+  .prose :global(h2) {
     margin-top: 0;
     font-size: clamp(1.8rem, 3.6vw, 2.6rem);
   }
