@@ -60,8 +60,12 @@
   margin-left: 20px;
   padding-left: 20px;
 }
+/* Salient's header-resize rules zero .container-wrap's top padding; the
+   original post kept an 80px gap between the hero and the breadcrumbs. */
+body.livingrhea-article[data-bg-header] .container-wrap {
+  padding-top: 80px !important;
+}
 .livingrhea-article .container-wrap {
-  padding-top: 80px;
   padding-bottom: 70px;
 }
 .livingrhea-article .article-breadcrumbs {
@@ -229,7 +233,6 @@
     padding-left: 10px;
   }
   .livingrhea-article .container-wrap {
-    padding-top: 40px;
     padding-bottom: 40px;
   }
   .livingrhea-article .article-breadcrumbs {
