@@ -42,7 +42,7 @@ These bioactive ingredients have incredibly therapeutic, and even magical healin
 
 #### **Today, through the scientific method, we are now learning that medicinal mushrooms may be one of the most multi-modal healing medicines on the planet, with the potential to treat, heal, and prevent some of the most complex chronic conditions of our time.**
 
-# **A Brief History of  Medicinal  Mushrooms**
+## **A Brief History of  Medicinal  Mushrooms**
 
 As mentioned, mushrooms have been consumed and celebrated by human beings in ancient traditions spanning the globe for thousands of years, as both food and medicine. Saharan aboriginal tribes in North Africa are said to have used mushrooms in 9000 BC. Mushroom consumption was also referenced in Tibetan and Siberian shamanism and Buddhism, as well as in spiritual texts from Mexico, Guatemala, and Mesoamerica.
 

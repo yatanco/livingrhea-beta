@@ -1,0 +1,75 @@
+---
+// Quotes in a native scroll-snap row: swipe on touch, scroll or Tab on desktop.
+interface Props {
+  items: { html: string; name: string; role?: string }[];
+  label?: string;
+}
+const { items, label = "Testimonials" } = Astro.props;
+---
+
+<section class="testimonials" aria-label={label}>
+  <ul class="rail" tabindex="0">
+    {
+      items.map((item) => (
+        <li>
+          <figure>
+            <blockquote set:html={item.html} />
+            <figcaption>
+              <strong>{item.name}</strong>
+              {item.role && <span>{item.role}</span>}
+            </figcaption>
+          </figure>
+        </li>
+      ))
+    }
+  </ul>
+</section>
+
+<style>
+  .rail {
+    display: grid;
+    grid-auto-flow: column;
+    grid-auto-columns: min(86%, 520px);
+    gap: 24px;
+    margin: 0;
+    padding: 6px 2px 24px;
+    list-style: none;
+    overflow-x: auto;
+    overscroll-behavior-x: contain;
+    scroll-snap-type: x mandatory;
+    scrollbar-color: var(--accent) transparent;
+  }
+  li {
+    scroll-snap-align: start;
+  }
+  figure {
+    height: 100%;
+    margin: 0;
+    padding: clamp(24px, 3vw, 36px);
+    background: #fff;
+    border: 1px solid var(--line);
+    border-radius: 6px;
+  }
+  blockquote {
+    margin: 0 0 20px;
+    font-size: 1.02rem;
+  }
+  blockquote::before {
+    content: "“";
+    display: block;
+    height: 0.5em;
+    color: var(--accent);
+    font: 4rem/1 var(--serif);
+  }
+  blockquote :global(p:last-child) {
+    margin-bottom: 0;
+  }
+  figcaption strong {
+    display: block;
+    font-weight: 650;
+  }
+  figcaption span {
+    color: var(--muted);
+    font-size: 0.9rem;
+  }
+</style>

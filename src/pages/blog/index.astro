@@ -1,15 +1,26 @@
 ---
-import "../../styles/site/about.css";
 import Base from "../../layouts/Base.astro";
-import PostGrid from "../../components/PostGrid.astro";
+import PageIntro from "../../components/PageIntro.astro";
 import CategoryNav from "../../components/CategoryNav.astro";
+import PostGrid from "../../components/PostGrid.astro";
 import { getAllPosts } from "../../lib/posts.js";
 
 const posts = await getAllPosts();
 ---
 
 <Base title="Blog">
-  <h1 class="screen-reader-text">Blog</h1>
-  <CategoryNav />
-  <PostGrid posts={posts} />
+  <PageIntro
+    title="Blog"
+    lead="Recipes, reflections, and articles on nutrition and wellbeing from Dr. Rhea Mehta."
+  />
+  <div class="wrap blog-list">
+    <CategoryNav />
+    <PostGrid posts={posts} />
+  </div>
 </Base>
+
+<style>
+  .blog-list {
+    padding-bottom: var(--section);
+  }
+</style>

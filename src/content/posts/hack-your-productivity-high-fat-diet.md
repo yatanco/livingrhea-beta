@@ -58,7 +58,7 @@ Here are some highlights from this week’s video:
 -   Over consuming protein can make you tired and gain weight
     
 
-<iframe title="Hack Your Productivity With A High Fat Diet" width="1080" height="608" src="https://www.youtube.com/embed/uO7hm_9qbes?feature=oembed" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen=""></iframe>
+<iframe loading="lazy" srcdoc="&lt;style&gt;*{margin:0}html,body,a{height:100%}a{display:grid;place-items:center;background:#111 center/cover url(/video/uO7hm_9qbes.jpg)}span{width:68px;height:48px;border-radius:14px;background:rgba(194,65,12,.92);display:grid;place-items:center}span:after{content:&#x27;&#x27;;border-style:solid;border-width:10px 0 10px 17px;border-color:transparent transparent transparent #fff;margin-left:4px}a:hover span,a:focus span{background:#c2410c}&lt;/style&gt;&lt;a href=&#x27;https://www.youtube-nocookie.com/embed/uO7hm_9qbes?autoplay=1&amp;rel=0&#x27; aria-label=&#x27;Play: Hack Your Productivity With A High Fat Diet&#x27;&gt;&lt;span&gt;&lt;/span&gt;&lt;/a&gt;" title="Hack Your Productivity With A High Fat Diet" width="1080" height="608" src="https://www.youtube.com/embed/uO7hm_9qbes?feature=oembed" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen=""></iframe>
 
 **At the 0:26 mark** I list off high fat plant-based foods to add to your shopping list
 

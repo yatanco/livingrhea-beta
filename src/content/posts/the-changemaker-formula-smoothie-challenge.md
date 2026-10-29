@@ -51,7 +51,7 @@ If you know me you’ll know that I have worked hard to build a case for the smo
 
 In fact, I started Global Smoothie Day in 2015 to give my advocacy a platform and explore creative ways to help more and more people around the world onboard this ultra-rewarding lifestyle. In 2020 I published a beautifully designed smoothie recipe e-book and onboarding guide. You can download it for free [here](/smoothie-movement/).
 
-# **The Changemaker Formula: 4 weeks of Super Drinks**
+## **The Changemaker Formula: 4 weeks of Super Drinks**
 
 If you’re just starting out and wish to further educate yourself, you should read the e-book. If you’re already inspired and want to start experimenting in a safe way, I recommend my [Changemaker Formula 30-day smoothie challenge.](http://www.thechangemakerformula.com/)
 

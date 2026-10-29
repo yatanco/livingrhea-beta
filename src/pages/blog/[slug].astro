@@ -1,9 +1,7 @@
 ---
-import "../../styles/site/about.css";
-import "../../styles/site/article.css";
 import ArticleRecommendations from "../../components/ArticleRecommendations.astro";
 import Base from "../../layouts/Base.astro";
-import { Image } from "astro:assets";
+import { Image, getImage } from "astro:assets";
 import { render } from "astro:content";
 import {
   getAllPosts,
@@ -25,15 +23,21 @@ export async function getStaticPaths() {
 const { post, tags } = Astro.props;
 const source = post.featuredImage;
 const cat = category(post);
-const date = post.pubDate.toLocaleDateString("en-US", {
-  month: "long",
-  day: "numeric",
-  year: "numeric",
-  timeZone: "UTC",
-});
+const format = (d: Date) =>
+  d.toLocaleDateString("en-US", {
+    month: "long",
+    day: "numeric",
+    year: "numeric",
+    timeZone: "UTC",
+  });
 // A post added through the CMS may only have a plain uploaded image
 // (legacyFeaturedImage) with no Astro-optimized source yet.
 const plainImage = !source && post.legacyFeaturedImage;
+const widths = source ? [480, 800, 1200].filter((w) => w <= source.width) : [];
+const sizes = "(max-width: 1000px) 100vw, 1000px";
+const hero = source
+  ? await getImage({ src: source, widths, sizes, format: "webp", quality: 72 })
+  : undefined;
 const { Content } = await render(post.entry);
 ---
 
@@ -41,6 +45,9 @@ const { Content } = await render(post.entry);
   title={post.title}
   description={post.description}
   socialImage={source?.src || post.legacyFeaturedImage}
+  preloadImage={hero?.src}
+  preloadSrcset={hero?.srcSet.attribute}
+  preloadSizes={sizes}
   article={{
     datePublished: post.pubDate.toISOString().replace(".000Z", "Z"),
     dateModified: post.updatedDate?.toISOString().replace(".000Z", "Z"),
@@ -49,42 +56,124 @@ const { Content } = await render(post.entry);
     recipeCategory: post.categories.map((item) => item.name),
   }}
 >
-  <header slot="article-header" class="article-hero">
-    {source ? (
-      <Image
-        src={source}
-        alt=""
-        width={source.width}
-        widths={[480, 800, 1200, 1600].filter((w) => w <= source.width)}
-        sizes="100vw"
-        format="webp"
-        quality={80}
-        priority
-      />
-    ) : (
-      plainImage && <img src={plainImage} alt="" fetchpriority="high" />
-    )}
-    <div class="article-hero-content">
-      <a class="article-category" href={`/category/${cat.slug}/`}>{cat.name}</a>
+  <article class="post">
+    <header class="narrow post-header">
+      <nav class="crumbs" aria-label="Breadcrumb">
+        <a href="/">Home</a> / <a href="/blog/">Blog</a> /{" "}
+        <a href={`/category/${cat.slug}/`}>{cat.name}</a>
+      </nav>
       <h1>{post.title}</h1>
-      <div class="article-meta">
+      <p class="meta">
         <span>By {post.author}</span>
-        <time datetime={post.pubDate.toISOString()}>{date}</time>
+        <time datetime={post.pubDate.toISOString()}>{format(post.pubDate)}</time>
+        {
+          post.updatedDate && format(post.updatedDate) !== format(post.pubDate) && (
+            <span>
+              Updated{" "}
+              <time datetime={post.updatedDate.toISOString()}>
+                {format(post.updatedDate)}
+              </time>
+            </span>
+          )
+        }
         <span>{readingTime(post.entry.body)} min read</span>
-      </div>
+      </p>
+    </header>
+    {
+      source ? (
+        <Image
+          class="post-image"
+          src={source}
+          alt={post.featuredImageAlt}
+          widths={widths}
+          sizes={sizes}
+          format="webp"
+          quality={72}
+          loading="eager"
+          fetchpriority="high"
+        />
+      ) : (
+        plainImage && (
+          <img
+            class="post-image"
+            src={plainImage}
+            alt={post.featuredImageAlt}
+            width="1000"
+            height="560"
+            fetchpriority="high"
+          />
+        )
+      )
+    }
+    <div class="narrow prose post-body">
+      <Content />
     </div>
-  </header>
-  <nav class="article-breadcrumbs" aria-label="Breadcrumb">
-    <a href="/">Home</a> » <a href="/blog/">Blog</a> »{" "}
-    <span aria-current="page">{post.title}</span>
-  </nav>
-  <article class="article-copy wp-content">
-    <Content />
+    {
+      tags.length > 0 && (
+        <nav class="narrow tags" aria-label="Tags">
+          {tags.map((tag) => (
+            <a href={`/tag/${tag.slug}/`}>{tag.name}</a>
+          ))}
+        </nav>
+      )
+    }
   </article>
-  {tags.length > 0 && (
-    <nav class="article-tags" aria-label="Tags">
-      {tags.map((tag) => <a href={`/tag/${tag.slug}/`}>{tag.name}</a>)}
-    </nav>
-  )}
-  <ArticleRecommendations slot="article-footer" post={post} />
+  <ArticleRecommendations post={post} />
 </Base>
+
+<style>
+  .post-header {
+    padding-top: clamp(36px, 6vw, 72px);
+  }
+  .crumbs {
+    margin-bottom: 18px;
+    color: var(--muted);
+    font-size: 0.9rem;
+  }
+  .crumbs a {
+    color: var(--muted);
+  }
+  .crumbs a:hover {
+    color: var(--accent);
+  }
+  h1 {
+    font-size: clamp(2.1rem, 5vw, 3.6rem);
+  }
+  .meta {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px 18px;
+    color: var(--muted);
+    font-size: 0.92rem;
+  }
+  .post-image {
+    width: min(100%, 1000px);
+    max-height: 640px;
+    margin: clamp(24px, 4vw, 40px) auto;
+    object-fit: cover;
+    border-radius: 6px;
+  }
+  .post-body {
+    padding-bottom: 32px;
+    font-size: 1.08rem;
+  }
+  .tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    padding-bottom: 48px;
+    font-size: 0.88rem;
+  }
+  .tags a {
+    padding: 6px 14px;
+    border: 1.5px solid var(--line);
+    border-radius: 999px;
+    color: var(--ink);
+    font-weight: 600;
+    text-decoration: none;
+  }
+  .tags a:hover {
+    border-color: var(--accent);
+    color: var(--accent);
+  }
+</style>

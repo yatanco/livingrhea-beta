@@ -1,328 +1,127 @@
 ---
-import ContentFrame from "../ContentFrame.astro";
+import Hero from "../Hero.astro";
 import { pageSections } from "../../lib/page-sections.js";
-import { responsiveImage } from "../../lib/responsive-image.ts";
+import { localImage } from "../../lib/local-images.ts";
+
 const { page } = Astro.props;
 const text = page.labels;
 const copy = pageSections(await Astro.slots.render("default"));
-const dsc09720 = await responsiveImage(
-  "/wp-content/uploads/2025/08/DSC09720-548-Header-scaled.webp",
-  [300, 768, 1024, 1536, 2048, 2560],
-);
+const heroImage = localImage("/wp-content/uploads/2025/08/DSC09720-548-Header-scaled.webp");
+const plain = (html: string) => html.replace(/<[^>]+>/g, "").trim();
+// Each feature is an outlet-name section followed by its article-link section.
+const group = (label: string, sections: string[]) => ({
+  title: text[label].trim(),
+  items: Array.from({ length: sections.length / 2 }, (_, i) => ({
+    outlet: plain(copy[sections[2 * i]]),
+    link: copy[sections[2 * i + 1]].replace(/^<p>|<\/p>\s*$/g, ""),
+  })),
+});
+const groups = [
+  group("HEALTH-COACHING-1", [
+    "vogue-india", "the-best-time-to-have-dry-fruits",
+    "institute-for-integrative-coaching-iin", "scientist-and-health-coach-dr-rhea-mehta",
+  ]),
+  group("ASTE-WELLNESS-2", [
+    "the-kit", "longevity-tips-for-women-https-thekit-ca",
+    "vita-magazine", "aste-wellness-transforming-skincare-with-ayurveda-scienc",
+    "beauty-news-nyc", "hygeia-quantum-leap-or-roots-run-deep",
+    "crunchy-mamabox", "five-lifestyle-tweaks-that-will-help-support",
+  ]),
+  group("PODCASTS-3", [
+    "the-brave-table", "how-hidden-poisons-are-wrecking-your-health",
+    "mindbodygreen-podcast", "how-to-rid-your-home-of-toxins",
+    "15-minute-matrix-with-andrea-nakayama", "mapping-patient-data-ownership-with-dr-rhea",
+    "the-tonic", "sound-therapy-with-rhea-https-podcasts-apple",
+    "entreprenology-podcast", "community-play-and-entrepreneurship-with-dr-rhea",
+  ]),
+  group("MANTRA-ARTIST-YOGI-4", [
+    "business-insider", "how-to-make-rooms-in-your-home",
+    "girl-talk-hq", "yogi-singer-rhea-mehta-on-a-mission",
+  ]),
+  group("BOWHEAD-HEALTH-5", [
+    "forbes", "the-future-of-health-it-s-in",
+    "digitimes", "bowhead-health-leveraging-ai-for-precision-medicine",
+  ]),
+  group("PODCASTS-3", [
+    "diss-dash", "science-soul-modern-mantra-music-decolonizing-wellness",
+    "dnx-podcast", "how-to-hack-the-healthcare-system-with",
+    "20-min-fitness-podcast", "why-dr-rhea-mehta-built-the-encrypted",
+    "vegetarian-food-fest", "the-global-smoothie-day-initiative-with-rhea",
+    "inner-changemaker-podcast", "how-to-start-a-social-movement-https",
+  ]),
+];
 ---
 
-<ContentFrame>
-  <div
-    id="fws_6ae14cb5b923a"
-    data-column-margin="default"
-    data-midnight="dark"
-    class="wpb_row vc_row-fluid vc_row"
-    style="padding-top: 0px; padding-bottom: 0px; "
-  >
-    <div
-      class="row-bg-wrap"
-      data-bg-animation="none"
-      data-bg-animation-delay=""
-      data-bg-overlay="false"
-    >
-      <div class="inner-wrap row-bg-layer">
-        <div class="row-bg viewport-desktop" style=""></div>
-      </div>
-    </div>
-    <div class="row_col_wrap_12 col span_12 dark left">
-      <div
-        style="margin-top: -5%; "
-        class="vc_col-sm-12 wpb_column column_container vc_column_container col neg-marg no-extra-padding inherit_tablet inherit_phone"
-        data-padding-pos="all"
-        data-has-bg-color="false"
-        data-bg-color=""
-        data-bg-opacity="1"
-        data-animation=""
-        data-delay="0"
-      >
-        <div class="vc_column-inner">
-          <div class="wpb_wrapper"></div>
-        </div>
-      </div>
-    </div>
+<Hero image={heroImage} position="center 30%">
+  <h1 class="display">{page.title}</h1>
+  <div class="hero-quote" set:html={copy["dr-rhea-brings-to-the-arena-of"]} />
+</Hero>
+
+<section class="section wrap" aria-label="Press features">
+  <div class="groups">
+    {
+      groups.map((g) => (
+        <section class="group">
+          <h2 class="display">{g.title}</h2>
+          <ul>
+            {g.items.map((item) => (
+              <li>
+                <span class="eyebrow">{item.outlet}</span>
+                <span class="link" set:html={item.link} />
+              </li>
+            ))}
+          </ul>
+        </section>
+      ))
+    }
   </div>
-  <div
-    id="fws_6ae14cb5b9926"
-    data-column-margin="default"
-    data-midnight="dark"
-    class="wpb_row vc_row-fluid vc_row full-width-section"
-    style="padding-top: 0px; padding-bottom: 0px; "
-  >
-    <div
-      class="row-bg-wrap"
-      data-bg-animation="none"
-      data-bg-animation-delay=""
-      data-bg-overlay="false"
-    >
-      <div class="inner-wrap row-bg-layer">
-        <div class="row-bg viewport-desktop" style=""></div>
-      </div>
-    </div>
-    <div class="row_col_wrap_12 col span_12 dark left">
-      <div
-        class="vc_col-sm-3 wpb_column column_container vc_column_container col no-extra-padding inherit_tablet inherit_phone"
-        data-padding-pos="all"
-        data-has-bg-color="false"
-        data-bg-color=""
-        data-bg-opacity="1"
-        data-animation=""
-        data-delay="0"
-      >
-        <div class="vc_column-inner">
-          <div class="wpb_wrapper">
-            <div class="wpb_text_column wpb_content_element">
-              <div class="wpb_wrapper">
-                <Fragment set:html={copy["dr-rhea-brings-to-the-arena-of"]} />
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
+</section>
 
-      <div
-        class="vc_col-sm-9 wpb_column column_container vc_column_container col no-extra-padding inherit_tablet inherit_phone"
-        data-padding-pos="all"
-        data-has-bg-color="false"
-        data-bg-color=""
-        data-bg-opacity="1"
-        data-animation=""
-        data-delay="0"
-      >
-        <div class="vc_column-inner">
-          <div class="wpb_wrapper">
-            <div
-              class="img-with-aniamtion-wrap"
-              data-max-width="100%"
-              data-max-width-mobile="default"
-              data-shadow="none"
-              data-animation="none"
-            >
-              <div class="inner">
-                <div class="hover-wrap">
-                  <div class="hover-wrap-inner">
-                    <img
-                      loading="lazy"
-                      decoding="async"
-                      class="img-with-animation skip-lazy"
-                      data-delay="0"
-                      height="1440"
-                      width="2560"
-                      data-animation="none"
-                      src={dsc09720.src}
-                      alt=""
-                      srcset={dsc09720.srcset}
-                      sizes="(max-width: 2560px) 100vw, 2560px"
-                    />
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-  <div
-    id="fws_6ae14cb5bab3c"
-    data-column-margin="default"
-    data-midnight="dark"
-    data-top-percent="8%"
-    class="wpb_row vc_row-fluid vc_row link"
-    style="padding-top: calc(100vw * 0.08); padding-bottom: 0px; "
-  >
-    <div
-      class="row-bg-wrap"
-      data-bg-animation="none"
-      data-bg-animation-delay=""
-      data-bg-overlay="false"
-    >
-      <div class="inner-wrap row-bg-layer">
-        <div class="row-bg viewport-desktop" style=""></div>
-      </div>
-    </div>
-    <div class="row_col_wrap_12 col span_12 dark left">
-      <div
-        class="vc_col-sm-6 link wpb_column column_container vc_column_container col no-extra-padding el_spacing_50px inherit_tablet inherit_phone"
-        data-padding-pos="all"
-        data-has-bg-color="false"
-        data-bg-color=""
-        data-bg-opacity="1"
-        data-animation=""
-        data-delay="0"
-      >
-        <div class="vc_column-inner">
-          <div class="wpb_wrapper">
-            <div class="wpb_text_column wpb_content_element a: text-decoration: underline">
-              <div class="wpb_wrapper">
-                <h3>
-                  <strong>{text["HEALTH-COACHING-1"]}</strong>
-                </h3>
-                <p>&nbsp;</p>
-                <Fragment set:html={copy["vogue-india"]} />
-                <Fragment set:html={copy["the-best-time-to-have-dry-fruits"]} />
-                <Fragment
-                  set:html={copy["institute-for-integrative-coaching-iin"]}
-                />
-                <Fragment
-                  set:html={copy["scientist-and-health-coach-dr-rhea-mehta"]}
-                />
-              </div>
-            </div>
-
-            <div class="wpb_text_column wpb_content_element">
-              <div class="wpb_wrapper">
-                <h3></h3>
-                <h3></h3>
-                <h3>
-                  <b>{text["ASTE-WELLNESS-2"]}</b>
-                </h3>
-                <p>&nbsp;</p>
-                <Fragment set:html={copy["the-kit"]} />
-                <Fragment
-                  set:html={copy["longevity-tips-for-women-https-thekit-ca"]}
-                />
-                <Fragment set:html={copy["vita-magazine"]} />
-                <Fragment
-                  set:html={
-                    copy[
-                      "aste-wellness-transforming-skincare-with-ayurveda-scienc"
-                    ]
-                  }
-                />
-                <Fragment set:html={copy["beauty-news-nyc"]} />
-                <Fragment
-                  set:html={copy["hygeia-quantum-leap-or-roots-run-deep"]}
-                />
-                <Fragment set:html={copy["crunchy-mamabox"]} />
-                <Fragment
-                  set:html={
-                    copy["five-lifestyle-tweaks-that-will-help-support"]
-                  }
-                />
-              </div>
-            </div>
-
-            <div class="wpb_text_column wpb_content_element">
-              <div class="wpb_wrapper">
-                <h3>
-                  <b>{text["PODCASTS-3"]}</b>
-                </h3>
-                <p>&nbsp;</p>
-                <Fragment set:html={copy["the-brave-table"]} />
-                <Fragment
-                  set:html={copy["how-hidden-poisons-are-wrecking-your-health"]}
-                />
-                <Fragment set:html={copy["mindbodygreen-podcast"]} />
-                <Fragment set:html={copy["how-to-rid-your-home-of-toxins"]} />
-                <Fragment
-                  set:html={copy["15-minute-matrix-with-andrea-nakayama"]}
-                />
-                <Fragment
-                  set:html={copy["mapping-patient-data-ownership-with-dr-rhea"]}
-                />
-                <Fragment set:html={copy["the-tonic"]} />
-                <Fragment
-                  set:html={
-                    copy["sound-therapy-with-rhea-https-podcasts-apple"]
-                  }
-                />
-                <Fragment set:html={copy["entreprenology-podcast"]} />
-                <Fragment
-                  set:html={
-                    copy["community-play-and-entrepreneurship-with-dr-rhea"]
-                  }
-                />
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <div
-        class="vc_col-sm-6 wpb_column column_container vc_column_container col no-extra-padding el_spacing_50px inherit_tablet inherit_phone"
-        data-padding-pos="all"
-        data-has-bg-color="false"
-        data-bg-color=""
-        data-bg-opacity="1"
-        data-animation=""
-        data-delay="0"
-      >
-        <div class="vc_column-inner">
-          <div class="wpb_wrapper">
-            <div class="wpb_text_column wpb_content_element">
-              <div class="wpb_wrapper">
-                <h3>
-                  <b>{text["MANTRA-ARTIST-YOGI-4"]}</b>
-                </h3>
-                <p>&nbsp;</p>
-                <Fragment set:html={copy["business-insider"]} />
-                <Fragment set:html={copy["how-to-make-rooms-in-your-home"]} />
-                <Fragment set:html={copy["girl-talk-hq"]} />
-                <Fragment
-                  set:html={copy["yogi-singer-rhea-mehta-on-a-mission"]}
-                />
-              </div>
-            </div>
-
-            <div class="wpb_text_column wpb_content_element">
-              <div class="wpb_wrapper">
-                <h3>
-                  <b>{text["BOWHEAD-HEALTH-5"]}</b>
-                </h3>
-                <p>&nbsp;</p>
-                <Fragment set:html={copy["forbes"]} />
-                <Fragment set:html={copy["the-future-of-health-it-s-in"]} />
-                <Fragment set:html={copy["digitimes"]} />
-                <Fragment
-                  set:html={
-                    copy["bowhead-health-leveraging-ai-for-precision-medicine"]
-                  }
-                />
-              </div>
-            </div>
-
-            <div class="wpb_text_column wpb_content_element">
-              <div class="wpb_wrapper">
-                <h3>
-                  <b>{text["PODCASTS-3"]}</b>
-                </h3>
-                <p>&nbsp;</p>
-                <Fragment set:html={copy["diss-dash"]} />
-                <Fragment
-                  set:html={
-                    copy[
-                      "science-soul-modern-mantra-music-decolonizing-wellness"
-                    ]
-                  }
-                />
-                <Fragment set:html={copy["dnx-podcast"]} />
-                <Fragment
-                  set:html={copy["how-to-hack-the-healthcare-system-with"]}
-                />
-                <Fragment set:html={copy["20-min-fitness-podcast"]} />
-                <Fragment
-                  set:html={copy["why-dr-rhea-mehta-built-the-encrypted"]}
-                />
-                <Fragment set:html={copy["vegetarian-food-fest"]} />
-                <Fragment
-                  set:html={
-                    copy["the-global-smoothie-day-initiative-with-rhea"]
-                  }
-                />
-                <Fragment set:html={copy["inner-changemaker-podcast"]} />
-                <Fragment
-                  set:html={copy["how-to-start-a-social-movement-https"]}
-                />
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-</ContentFrame>
+<style>
+  .hero-quote {
+    max-width: 40em;
+    font-style: italic;
+  }
+  .hero-quote :global(h3) {
+    color: #fff;
+    font-size: clamp(1.3rem, 2.4vw, 1.9rem);
+    line-height: 1.35;
+  }
+  .hero-quote :global(p) {
+    font-style: normal;
+    font-size: 0.85rem;
+    letter-spacing: 0.1em;
+  }
+  .groups {
+    columns: 3 300px;
+    column-gap: clamp(28px, 4vw, 56px);
+  }
+  .group {
+    break-inside: avoid;
+    margin-bottom: 48px;
+  }
+  .group h2 {
+    padding-bottom: 12px;
+    border-bottom: 1px solid var(--line);
+    font-size: 1.35rem;
+  }
+  ul {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+  }
+  li {
+    margin-bottom: 20px;
+  }
+  .eyebrow {
+    margin-bottom: 4px;
+  }
+  .link :global(a) {
+    color: var(--ink);
+    font-weight: 500;
+    text-decoration-color: var(--accent);
+  }
+  .link :global(a:hover) {
+    color: var(--accent);
+  }
+</style>

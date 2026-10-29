@@ -1,121 +1,37 @@
 ---
-import ContentFrame from "../ContentFrame.astro";
-import { pageSections } from "../../lib/page-sections.js";
 import ContactForm from "../ContactForm.astro";
+import SocialLinks from "../SocialLinks.astro";
 const { page } = Astro.props;
 const text = page.labels;
-const copy = pageSections(await Astro.slots.render("default"));
 ---
 
-<ContentFrame>
-  <div
-    id="fws_6ae14cb5a0204"
-    data-column-margin="default"
-    data-midnight="dark"
-    class="wpb_row vc_row-fluid vc_row full-width-content vc_row-o-equal-height vc_row-flex vc_row-o-content-middle"
-    style="padding-top: 0px; padding-bottom: 0px; "
-  >
-    <div
-      class="row-bg-wrap"
-      data-bg-animation="none"
-      data-bg-animation-delay=""
-      data-bg-overlay="false"
-    >
-      <div class="inner-wrap row-bg-layer">
-        <div
-          class="row-bg viewport-desktop using-bg-color"
-          style="background-color: #f7f7f7; "
-        ></div>
-      </div>
-    </div>
-    <div class="row_col_wrap_12 col span_12 dark left">
-      <div
-        style=" color: #ffffff;"
-        class="vc_col-sm-6 wpb_column column_container vc_column_container col padding-8-percent inherit_tablet inherit_phone"
-        data-cfc="true"
-        data-using-bg="true"
-        data-padding-pos="all"
-        data-has-bg-color="true"
-        data-bg-color="#0a0a0a"
-        data-bg-opacity="0.8"
-        data-animation=""
-        data-delay="0"
-      >
-        <div class="vc_column-inner">
-          <div
-            class="column-image-bg-wrap column-bg-layer viewport-desktop"
-            data-bg-pos="center center"
-            data-bg-animation="none"
-            data-bg-overlay="false"
-          >
-            <div class="inner-wrap">
-              <div
-                class="column-image-bg"
-                style="background-image: url(https://themenectar.com/img/demo-media/unsplash/webp/large-mountains-2.webp); "
-              ></div>
-            </div>
-          </div>
-          <div
-            class="column-bg-overlay-wrap column-bg-layer"
-            data-bg-animation="none"
-          >
-            <div
-              class="column-bg-overlay"
-              style="opacity: 0.8; background-color: #0a0a0a;"
-            ></div>
-          </div>
-          <div class="wpb_wrapper">
-            <h2
-              style="color: #ffffff;text-align: left"
-              class="vc_custom_heading vc_do_custom_heading"
-            >
-              {text["Get-in-touch-with-Dr-Rhea-1"]}
-            </h2>
-            <div
-              class="wpb_text_column wpb_content_element vc_custom_1773658866742"
-              style=" max-width: 475px; display: inline-block;"
-            >
-              <div class="wpb_wrapper"></div>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <div
-        style=""
-        class="vc_col-sm-6 wpb_column column_container vc_column_container col padding-8-percent inherit_tablet inherit_phone"
-        data-using-bg="true"
-        data-padding-pos="all"
-        data-has-bg-color="true"
-        data-bg-color="#b8ecce"
-        data-bg-opacity="1"
-        data-animation=""
-        data-delay="0"
-      >
-        <div class="vc_column-inner">
-          <div
-            class="column-bg-overlay-wrap column-bg-layer"
-            data-bg-animation="none"
-          >
-            <div
-              class="column-bg-overlay"
-              style="opacity: 1; background-color: #b8ecce;"
-            ></div>
-          </div>
-          <div class="wpb_wrapper">
-            <div class="wpb_text_column wpb_content_element">
-              <div class="wpb_wrapper">
-                <div
-                  class="wpforms-container wpforms-render-modern"
-                  id="wpforms-8851"
-                >
-                  <ContactForm />
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
+<section class="section wrap contact">
+  <div>
+    <span class="eyebrow">{page.title}</span>
+    <h1>{text["Get-in-touch-with-Dr-Rhea-1"]}</h1>
+    <p class="lead">
+      Coaching, breathwork, speaking, or collaborations: send a note and Dr.
+      Rhea will get back to you.
+    </p>
+    <SocialLinks class="contact-social" />
   </div>
-</ContentFrame>
+  <ContactForm />
+</section>
+
+<style>
+  .contact {
+    display: grid;
+    grid-template-columns: 0.9fr 1.1fr;
+    gap: clamp(32px, 6vw, 88px);
+    align-items: start;
+  }
+  .contact :global(.contact-social) {
+    margin-left: -10px;
+    color: var(--ink);
+  }
+  @media (max-width: 860px) {
+    .contact {
+      grid-template-columns: 1fr;
+    }
+  }
+</style>

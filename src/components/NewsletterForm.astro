@@ -1,0 +1,69 @@
+---
+// Posts straight to the existing Mailchimp audience (guide download +
+// newsletter share one list). Browser validation only; no script.
+interface Props {
+  id: string;
+  label: string;
+  dark?: boolean;
+}
+const { id, label, dark = false } = Astro.props;
+---
+
+<form
+  class:list={["newsletter", { dark }]}
+  action="https://livingrhea.us7.list-manage.com/subscribe/post?u=1f4a62aaddd7118ef28dc647b&id=224b479806&f_id=00f74ce4f0"
+  method="post"
+  target="_blank"
+>
+  <label class="sr-only" for={id}>Email address</label>
+  <input
+    class="field"
+    id={id}
+    type="email"
+    name="EMAIL"
+    autocomplete="email"
+    placeholder="Email address"
+    required
+  />
+  <div class="trap" aria-hidden="true">
+    <input
+      name="b_1f4a62aaddd7118ef28dc647b_224b479806"
+      tabindex="-1"
+      autocomplete="off"
+    />
+  </div>
+  <button class="btn" type="submit">{label}</button>
+</form>
+
+<style>
+  .newsletter {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+  }
+  .newsletter .field {
+    flex: 1 1 220px;
+    border-radius: 999px;
+  }
+  .dark .field {
+    border-color: #555;
+    background: #3a3a3a;
+    color: #fff;
+  }
+  .dark .field::placeholder {
+    color: #bdbdbd;
+  }
+  .dark .btn {
+    border-color: var(--accent-bright);
+    background: var(--accent-bright);
+    color: #1d1d1d;
+  }
+  .dark .btn:hover {
+    background: transparent;
+    color: var(--accent-bright);
+  }
+  .trap {
+    position: absolute;
+    left: -5000px;
+  }
+</style>

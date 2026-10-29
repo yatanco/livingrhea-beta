@@ -1,5 +1,4 @@
 ---
-import "../styles/site/press.css";
 import Base from "../layouts/Base.astro";
 import PressPage from "../components/pages/PressPage.astro";
 import { getEntry, render } from "astro:content";
@@ -16,10 +15,8 @@ const preloadImage = await optimizedSrc(
 <Base
   title={page.title}
   description={page.description}
-  pageUrl={page.path}
-  preloadImage={preloadImage}
+  socialImage={preloadImage}
 >
-  <h1 class="screen-reader-text">{page.title}</h1>
   <PressPage page={page}>
     <Content />
   </PressPage>

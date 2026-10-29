@@ -1,25 +1,19 @@
 ---
-// Replaces the original site's bare footer: a copyright line plus one
-// newsletter widget in the first of five columns, the other four left
-// empty. Built at the owner's request — "no proper footer" — reusing real
-// site content (nav links, social profiles, the homepage's own
-// description) rather than inventing copy. The guide-download and
-// newsletter-signup forms both posted to the exact same Mailchimp list
-// with no distinguishing tag (verified in the live markup), so this is one
-// combined form, not two.
 import SocialLinks from "./SocialLinks.astro";
+import NewsletterForm from "./NewsletterForm.astro";
 import { optimizedSrc } from "../lib/responsive-image.ts";
 
 const year = new Date().getFullYear();
 const logo = await optimizedSrc(
   "/wp-content/uploads/2025/04/LivingRheaLogo.png",
+  300,
 );
-
 const quickLinks = [
   { href: "/", label: "Home" },
   { href: "/about/", label: "About" },
   { href: "/coaching/", label: "Health Coaching" },
   { href: "/himalayan-breathwork/", label: "Himalayan Breathwork" },
+  { href: "/smoothie-movement/", label: "Smoothie Movement" },
   { href: "/music/", label: "Music" },
   { href: "/press/", label: "Press" },
   { href: "/blog/", label: "Blog" },
@@ -27,190 +21,101 @@ const quickLinks = [
 ];
 ---
 
-<footer id="rhea-site-footer">
-  <div class="container">
-    <div class="rhea-footer-grid">
-      <div class="rhea-footer-col rhea-footer-brand">
-        <a href="/" class="rhea-footer-logo">
-          <img
-            src={logo}
-            alt="Living Rhea"
-            width="150"
-            height="auto"
-            loading="lazy"
-          />
-        </a>
-        <p>
-          Dr. Rhea Mehta blends nutrition science, holistic health coaching,
-          breathwork, and ancestral wisdom.
-        </p>
-        <SocialLinks />
-      </div>
-
-      <div class="rhea-footer-col">
-        <h3>Quick Links</h3>
-        <ul>
-          {
-            quickLinks.map((link) => (
-              <li>
-                <a href={link.href}>{link.label}</a>
-              </li>
-            ))
-          }
-        </ul>
-      </div>
-
-      <div class="rhea-footer-col rhea-footer-newsletter">
-        <h3>Get Your Free Smoothie Guide + Health Tips</h3>
-        <p>
-          A practical guide to nourishing your body through the healing power
-          of smoothies, plus occasional health tips and product
-          recommendations — straight to your inbox.
-        </p>
-        <form
-          action="https://livingrhea.us7.list-manage.com/subscribe/post?u=1f4a62aaddd7118ef28dc647b&amp;id=224b479806&amp;f_id=00f74ce4f0"
-          method="post"
-          target="_blank"
-          class="rhea-footer-signup"
-        >
-          <label for="footer-email" class="screen-reader-text">
-            Email address
-          </label>
-          <input
-            id="footer-email"
-            type="email"
-            name="EMAIL"
-            autocomplete="email"
-            placeholder="Email address"
-            required
-          />
-          <div aria-hidden="true" style="position:absolute;left:-5000px">
-            <input
-              name="b_1f4a62aaddd7118ef28dc647b_224b479806"
-              tabindex="-1"
-              autocomplete="off"
-            />
-          </div>
-          <button type="submit">Get the Guide</button>
-        </form>
-      </div>
+<footer class="site-footer">
+  <div class="wrap grid">
+    <div class="brand">
+      <a href="/" aria-label="Living Rhea home">
+        <img src={logo} alt="" width="150" height="31" loading="lazy" />
+      </a>
+      <p>
+        Dr. Rhea Mehta blends nutrition science, holistic health coaching,
+        breathwork, and ancestral wisdom.
+      </p>
+      <SocialLinks />
     </div>
-
-    <div class="rhea-footer-bottom">
-      <p>Copyright © {year} Rhea Mehta. All rights reserved.</p>
+    <nav aria-label="Footer">
+      <h2>Quick links</h2>
+      <ul>
+        {
+          quickLinks.map((link) => (
+            <li>
+              <a href={link.href}>{link.label}</a>
+            </li>
+          ))
+        }
+      </ul>
+    </nav>
+    <div>
+      <h2>Get your free smoothie guide + health tips</h2>
+      <p>
+        A practical guide to nourishing your body through the healing power of
+        smoothies, plus occasional health tips and product recommendations —
+        straight to your inbox.
+      </p>
+      <NewsletterForm id="footer-email" label="Get the guide" dark />
     </div>
   </div>
+  <p class="wrap legal">Copyright © {year} Rhea Mehta. All rights reserved.</p>
 </footer>
 
 <style>
-  #rhea-site-footer {
-    background-color: #2b2b2b;
-    color: rgba(255, 255, 255, 0.75);
-    padding: 60px 0 0;
+  .site-footer {
+    padding-top: clamp(48px, 7vw, 80px);
+    background: var(--dark);
+    color: #d6d6d6;
+    font-size: 0.94rem;
   }
-  #rhea-site-footer .container {
-    max-width: 1140px;
-    margin: 0 auto;
-    padding: 0 24px;
-  }
-  .rhea-footer-grid {
+  .grid {
     display: grid;
-    grid-template-columns: 1.3fr 1fr 1.3fr;
-    gap: 40px;
-    padding-bottom: 40px;
+    grid-template-columns: 1.2fr 0.8fr 1.3fr;
+    gap: 48px;
+    padding-bottom: 48px;
   }
-  @media (max-width: 999px) {
-    .rhea-footer-grid {
+  .brand img {
+    width: 150px;
+    margin-bottom: 18px;
+  }
+  h2 {
+    color: #fff;
+    font-size: 1.05rem;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+  }
+  ul {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+  }
+  nav li a {
+    display: inline-block;
+    padding: 5px 0;
+  }
+  a {
+    color: #e6e6e6;
+    text-decoration: none;
+  }
+  a:hover {
+    color: var(--accent-bright);
+  }
+  .legal {
+    margin-block: 0;
+    padding-block: 22px;
+    border-top: 1px solid rgb(255 255 255 / 0.12);
+    color: #bdbdbd;
+    font-size: 0.82rem;
+    text-align: center;
+  }
+  @media (max-width: 900px) {
+    .grid {
       grid-template-columns: 1fr 1fr;
     }
-    .rhea-footer-brand {
+    .brand {
       grid-column: 1 / -1;
     }
   }
-  @media (max-width: 599px) {
-    .rhea-footer-grid {
+  @media (max-width: 600px) {
+    .grid {
       grid-template-columns: 1fr;
     }
-  }
-  .rhea-footer-logo img {
-    max-width: 150px;
-    height: auto;
-    margin-bottom: 16px;
-  }
-  .rhea-footer-brand p {
-    font-size: 14px;
-    line-height: 1.6;
-    margin-bottom: 16px;
-  }
-  .rhea-footer-col h3 {
-    color: #fff;
-    font-size: 16px;
-    letter-spacing: 0.04em;
-    text-transform: uppercase;
-    margin-bottom: 18px;
-  }
-  .rhea-footer-col ul {
-    list-style: none;
-    margin: 0;
-    padding: 0;
-  }
-  .rhea-footer-col ul li {
-    margin-bottom: 10px;
-  }
-  .rhea-footer-col ul a {
-    color: rgba(255, 255, 255, 0.75);
-    text-decoration: none;
-    font-size: 14px;
-  }
-  .rhea-footer-col ul a:hover {
-    color: #ff6716;
-  }
-  .rhea-footer-newsletter p {
-    font-size: 14px;
-    line-height: 1.6;
-    margin-bottom: 18px;
-  }
-  .rhea-footer-signup {
-    display: flex;
-    gap: 10px;
-    flex-wrap: wrap;
-  }
-  .rhea-footer-signup input[type="email"] {
-    flex: 1 1 200px;
-    min-width: 0;
-    padding: 12px 16px;
-    border: 1px solid rgba(255, 255, 255, 0.25);
-    border-radius: 200px;
-    background: rgba(255, 255, 255, 0.05);
-    color: #fff;
-    font-size: 14px;
-  }
-  .rhea-footer-signup input[type="email"]::placeholder {
-    color: rgba(255, 255, 255, 0.5);
-  }
-  .rhea-footer-signup button {
-    flex: 0 0 auto;
-    padding: 12px 24px;
-    border: none;
-    border-radius: 200px;
-    background-color: #ff6716;
-    color: #fff;
-    font-weight: 600;
-    font-size: 14px;
-    cursor: pointer;
-    white-space: nowrap;
-  }
-  .rhea-footer-signup button:hover {
-    opacity: 0.9;
-  }
-  .rhea-footer-bottom {
-    border-top: 1px solid rgba(255, 255, 255, 0.1);
-    padding: 20px 0;
-    text-align: center;
-  }
-  .rhea-footer-bottom p {
-    font-size: 13px;
-    margin: 0;
-    color: rgba(255, 255, 255, 0.5);
   }
 </style>

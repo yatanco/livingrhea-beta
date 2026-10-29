@@ -1,0 +1,42 @@
+---
+import { getImage } from "astro:assets";
+import type { ImageMetadata } from "astro";
+
+// YouTube without loading YouTube: the iframe starts as a tiny srcdoc page
+// (local thumbnail + play button). Only a click loads the real player.
+interface Props {
+  id: string;
+  title: string;
+}
+const { id, title } = Astro.props;
+const thumbs = import.meta.glob<ImageMetadata>("../assets/video/*.jpg", {
+  eager: true,
+  import: "default",
+});
+const thumb = thumbs[`../assets/video/${id}.jpg`];
+if (!thumb) throw new Error(`Missing thumbnail for video ${id}`);
+const poster = await getImage({ src: thumb, width: 640, format: "webp", quality: 60 });
+const escape = (value: string) =>
+  value.replace(/&/g, "&amp;").replace(/"/g, "&quot;").replace(/</g, "&lt;");
+const srcdoc = `<style>*{margin:0}html,body,a{height:100%}a{display:grid;place-items:center;background:#111 center/cover url(${poster.src})}span{width:68px;height:48px;border-radius:14px;background:rgba(194,65,12,.92);display:grid;place-items:center}span:after{content:"";border-style:solid;border-width:10px 0 10px 17px;border-color:transparent transparent transparent #fff;margin-left:4px}a:hover span,a:focus span{background:#c2410c}</style><a href="https://www.youtube-nocookie.com/embed/${id}?autoplay=1&rel=0" aria-label="Play: ${escape(title)}"><span></span></a>`;
+---
+
+<iframe
+  class="video"
+  title={title}
+  srcdoc={srcdoc}
+  src={`https://www.youtube-nocookie.com/embed/${id}?rel=0`}
+  loading="lazy"
+  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+  allowfullscreen></iframe>
+
+<style>
+  .video {
+    width: 100%;
+    aspect-ratio: 16 / 9;
+    height: auto;
+    border: 0;
+    border-radius: 6px;
+    background: #111;
+  }
+</style>

@@ -1,1285 +1,192 @@
 ---
-import ContentFrame from "../ContentFrame.astro";
+import { Image } from "astro:assets";
+import Hero from "../Hero.astro";
+import Pic from "../Pic.astro";
+import Testimonials from "../Testimonials.astro";
+import NewsletterForm from "../NewsletterForm.astro";
 import { pageSections } from "../../lib/page-sections.js";
-import HomeHero from "../HomeHero.astro";
-import InstagramGallery from "../InstagramGallery.astro";
-import {
-  optimizedSrc,
-  responsiveImage,
-} from "../../lib/responsive-image.ts";
+import { localImage } from "../../lib/local-images.ts";
+
 const { page } = Astro.props;
 const text = page.labels;
 const copy = pageSections(await Astro.slots.render("default"));
-const [mbg, vogueIndia, forbes, businessInsider, theSpruce, huffPost] =
-  await Promise.all(
-    [
-      "/wp-content/uploads/2025/08/mbg.webp",
-      "/wp-content/uploads/2025/08/vogue-india.webp",
-      "/wp-content/uploads/2025/08/forbes.webp",
-      "/wp-content/uploads/2025/08/Business-Insider-Logo.webp",
-      "/wp-content/uploads/2025/08/thespruce.webp",
-      "/wp-content/uploads/2025/08/The-Huffington-Post.webp",
-    ].map((p) => optimizedSrc(p)),
-  );
-const instaPost = await responsiveImage(
-  "/wp-content/uploads/2025/06/insta_post_48421.webp",
-  [100, 140, 150, 300, 350, 500, 768, 800, 1000, 1080],
-);
-const favoriteSmoothie = await responsiveImage(
-  "/wp-content/uploads/2025/06/favorite-green-smoothie.webp",
-  [300, 768, 900, 1024, 1500],
-);
-const gsd5 = await responsiveImage(
-  "/wp-content/uploads/2025/06/gsd-5.webp",
-  [100, 140, 150, 300, 350, 500, 768, 800, 1000],
-);
-const [rheaBioCover, jeffWarrenBio, storyBg, rhea10Bg] = await Promise.all(
-  [
-    "/wp-content/uploads/2025/08/RheaBioCover.webp",
-    "/wp-content/uploads/2025/08/jeff-warren_bio1-crop-300x300.webp",
-    "/wp-content/uploads/2025/08/story.webp",
-    "/wp-content/uploads/2025/08/RHEA_10-scaled.webp",
-  ].map((p) => optimizedSrc(p)),
-);
+const hero = page.hero;
+const press = [
+  ["mbg.webp", "mindbodygreen"],
+  ["vogue-india.webp", "Vogue India"],
+  ["forbes.webp", "Forbes"],
+  ["Business-Insider-Logo.webp", "Business Insider"],
+  ["thespruce.webp", "The Spruce"],
+  ["The-Huffington-Post.webp", "The Huffington Post"],
+].map(([file, name]) => ({ image: localImage(`/wp-content/uploads/2025/08/${file}`), name }));
+const jeff = localImage("/wp-content/uploads/2025/08/jeff-warren_bio1-crop-300x300.webp");
+const quotes = [
+  ["the-biggest-impact-rhea-s-approach-had", "Hima-Batavia-10"],
+  ["rhea-s-passion-is-infectious-her-intrepid", "Rahul-Sarugaser-11"],
+  ["dr-rhea-is-unbelievably-informed-and-conveys", "Erin-Diedling-12"],
+  ["rhea-offers-a-graceful-combination-of-practical", "Jess-R-13"],
+  ["working-with-rhea-was-one-of-the", "Priya-Sankara-14"],
+].map(([section, name]) => ({ html: copy[section], name: text[name] }));
+// The "AS SEEN ON" heading arrives as Markdown; reuse its text.
+const asSeenOn = copy["as-seen-on"].replace(/<[^>]+>/g, "").trim();
 ---
 
-<ContentFrame>
-  <div
-    id="fws_6ae14cb636521"
-    data-column-margin="default"
-    data-midnight="dark"
-    class="wpb_row vc_row-fluid vc_row full-width-content vc_row-o-equal-height vc_row-flex vc_row-o-content-top top_margin_-95px"
-    style="padding-top: 0px; padding-bottom: 0px; "
-  >
-    <div
-      class="row-bg-wrap"
-      data-bg-animation="none"
-      data-bg-animation-delay=""
-      data-bg-overlay="false"
-    >
-      <div class="inner-wrap row-bg-layer">
-        <div class="row-bg viewport-desktop" style=""></div>
-      </div>
-    </div>
-    <div class="row_col_wrap_12 col span_12 dark left">
-      <div
-        class="vc_col-sm-12 wpb_column column_container vc_column_container col no-extra-padding inherit_tablet inherit_phone"
-        data-padding-pos="all"
-        data-has-bg-color="false"
-        data-bg-color=""
-        data-bg-opacity="1"
-        data-animation=""
-        data-delay="0"
-      >
-        <div class="vc_column-inner">
-          <div class="wpb_wrapper">
-            <HomeHero
-              image={page.hero.image}
-              heading={page.hero.heading}
-              actionLabel={page.hero.actionLabel}
-              actionHref={page.hero.actionHref}
-            />
-          </div>
-        </div>
-      </div>
+<Hero image={hero.image} position="70% 30%" tall>
+  <h1>{hero.heading.join(" ")}</h1>
+  <div class="actions">
+    <a class="btn" href={hero.actionHref}>{hero.actionLabel}</a>
+    <a class="btn light" href="#freeGuide">Free smoothie guide</a>
+  </div>
+</Hero>
+
+<section class="wrap press" aria-labelledby="press-heading">
+  <h2 id="press-heading" class="eyebrow center">{asSeenOn}</h2>
+  <ul>
+    {
+      press.map(({ image, name }) => (
+        <li>
+          <Image src={image} alt={name} height={44} format="webp" quality={80} />
+        </li>
+      ))
+    }
+  </ul>
+</section>
+
+<section class="section wrap split" aria-labelledby="bio-heading">
+  <Pic path="/wp-content/uploads/2025/08/RheaBioCover.webp" alt="Dr. Rhea Mehta" />
+  <div>
+    <h2 id="bio-heading" class="display">{text["DR-RHEA-MEHTA-1"]}</h2>
+    <div class="prose" set:html={copy["is-a-scientist-healer-and-innovator-known"]} />
+    <ul class="downloads">
+      <li>
+        <a class="arrow-link" href="https://www.dropbox.com/scl/fi/sslhm85dv4rfrdnuacm3g/DR.-RHEA-PhD-Speaker-kit.pdf?rlkey=yl34dqxgu6qm6icimhv100e19&dl=1">
+          {text["Download-speaker-kit-2"]}
+        </a>
+      </li>
+      <li>
+        <a class="arrow-link" href="https://www.dropbox.com/scl/fi/tzeclqwgowkwa3wdwxwg1/Dr.Rhea_Aste-Wellness-Speaker-Kit.pdf?rlkey=dkcqzxsasqmemsbqr5maiucqg&dl=1">
+          {text["Aste-Wellness-founder-speaker-kit-3"]}
+        </a>
+      </li>
+    </ul>
+    <figure class="mini-quote">
+      <blockquote set:html={copy["there-is-something-a-little-bit-magical"]} />
+      <figcaption>
+        <Image src={jeff} alt="" width={48} height={48} format="webp" />
+        <span><strong>{text["Jeff-Warren-4"]}</strong> {text["Author-and-Meditation-Teacher-5"]}</span>
+      </figcaption>
+    </figure>
+  </div>
+</section>
+
+<section class="section tint" aria-labelledby="story-heading">
+  <div class="wrap split flip">
+    <Pic path="/wp-content/uploads/2025/08/story.webp" alt="Rhea with her child" />
+    <div>
+      <h2 id="story-heading" class="display">{text["MY-STORY-6"]}</h2>
+      <div class="prose" set:html={copy["i-was-born-in-a-small-northern"]} />
+      <a class="arrow-link" href="/coaching/">{text["Work-with-me-7"].trim()}</a>
     </div>
   </div>
-  <div
-    id="fws_6ae14cb638066"
-    data-column-margin="default"
-    data-midnight="dark"
-    class="wpb_row vc_row-fluid vc_row top_margin_50px"
-    style="padding-top: 0px; padding-bottom: 0px; "
-  >
-    <div
-      class="row-bg-wrap"
-      data-bg-animation="none"
-      data-bg-animation-delay=""
-      data-bg-overlay="false"
-    >
-      <div class="inner-wrap row-bg-layer">
-        <div class="row-bg viewport-desktop" style=""></div>
-      </div>
-    </div>
-    <div class="row_col_wrap_12 col span_12 dark left">
-      <div
-        class="vc_col-sm-12 wpb_column column_container vc_column_container col no-extra-padding inherit_tablet inherit_phone"
-        data-padding-pos="all"
-        data-has-bg-color="false"
-        data-bg-color=""
-        data-bg-opacity="1"
-        data-animation=""
-        data-delay="0"
-      >
-        <div class="vc_column-inner">
-          <div class="wpb_wrapper">
-            <div class="wpb_text_column wpb_content_element">
-              <div class="wpb_wrapper">
-                <Fragment set:html={copy["as-seen-on"]} />
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
+</section>
+
+<section class="section wrap split" aria-labelledby="approach-heading">
+  <Pic path="/wp-content/uploads/2025/08/RHEA_10-scaled.webp" alt="Rhea holding a green smoothie" />
+  <div>
+    <h2 id="approach-heading" class="display">{text["RHEA-S-APPROACH-8"]}</h2>
+    <div class="prose" set:html={copy["my-approach-blends-evidence-based-science-with"]} />
+    <a class="btn" href="/coaching/">{text["BOOK-A-CONSULTATION-9"]}</a>
   </div>
-  <div
-    id="fws_6ae14cb638c0f"
-    data-column-margin="default"
-    data-midnight="dark"
-    class="wpb_row vc_row-fluid vc_row top_margin_50px"
-    style="padding-top: 0px; padding-bottom: 0px; "
-  >
-    <div
-      class="row-bg-wrap"
-      data-bg-animation="none"
-      data-bg-animation-delay=""
-      data-bg-overlay="false"
-    >
-      <div class="inner-wrap row-bg-layer">
-        <div class="row-bg viewport-desktop" style=""></div>
-      </div>
-    </div>
-    <div class="row_col_wrap_12 col span_12 dark left">
-      <div
-        class="vc_col-sm-2 wpb_column column_container vc_column_container col no-extra-padding inherit_tablet inherit_phone"
-        data-padding-pos="all"
-        data-has-bg-color="false"
-        data-bg-color=""
-        data-bg-opacity="1"
-        data-animation=""
-        data-delay="0"
-      >
-        <div class="vc_column-inner">
-          <div class="wpb_wrapper">
-            <div
-              class="img-with-aniamtion-wrap center"
-              data-max-width="100%"
-              data-max-width-mobile="default"
-              data-shadow="none"
-              data-animation="grow-in"
-            >
-              <div class="inner">
-                <div class="hover-wrap">
-                  <div class="hover-wrap-inner">
-                    <img
-                      loading="lazy"
-                      decoding="async"
-                      class="img-with-animation skip-lazy"
-                      data-delay="0"
-                      height="113"
-                      width="200"
-                      data-animation="grow-in"
-                      src={mbg}
-                      alt=""
-                    />
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
+</section>
 
-      <div
-        class="vc_col-sm-2 wpb_column column_container vc_column_container col no-extra-padding inherit_tablet inherit_phone"
-        data-padding-pos="all"
-        data-has-bg-color="false"
-        data-bg-color=""
-        data-bg-opacity="1"
-        data-animation=""
-        data-delay="0"
-      >
-        <div class="vc_column-inner">
-          <div class="wpb_wrapper">
-            <div
-              class="img-with-aniamtion-wrap center"
-              data-max-width="100%"
-              data-max-width-mobile="default"
-              data-shadow="none"
-              data-animation="grow-in"
-            >
-              <div class="inner">
-                <div class="hover-wrap">
-                  <div class="hover-wrap-inner">
-                    <img
-                      loading="lazy"
-                      decoding="async"
-                      class="img-with-animation skip-lazy"
-                      data-delay="0"
-                      height="113"
-                      width="200"
-                      data-animation="grow-in"
-                      src={vogueIndia}
-                      alt=""
-                    />
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <div
-        class="vc_col-sm-2 wpb_column column_container vc_column_container col no-extra-padding inherit_tablet inherit_phone"
-        data-padding-pos="all"
-        data-has-bg-color="false"
-        data-bg-color=""
-        data-bg-opacity="1"
-        data-animation=""
-        data-delay="0"
-      >
-        <div class="vc_column-inner">
-          <div class="wpb_wrapper">
-            <div
-              class="img-with-aniamtion-wrap center"
-              data-max-width="100%"
-              data-max-width-mobile="default"
-              data-shadow="none"
-              data-animation="grow-in"
-            >
-              <div class="inner">
-                <div class="hover-wrap">
-                  <div class="hover-wrap-inner">
-                    <img
-                      loading="lazy"
-                      decoding="async"
-                      class="img-with-animation skip-lazy"
-                      data-delay="0"
-                      height="113"
-                      width="200"
-                      data-animation="grow-in"
-                      src={forbes}
-                      alt=""
-                    />
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <div
-        class="vc_col-sm-2 wpb_column column_container vc_column_container col no-extra-padding inherit_tablet inherit_phone"
-        data-padding-pos="all"
-        data-has-bg-color="false"
-        data-bg-color=""
-        data-bg-opacity="1"
-        data-animation=""
-        data-delay="0"
-      >
-        <div class="vc_column-inner">
-          <div class="wpb_wrapper">
-            <div
-              class="img-with-aniamtion-wrap center"
-              data-max-width="100%"
-              data-max-width-mobile="default"
-              data-shadow="none"
-              data-animation="grow-in"
-            >
-              <div class="inner">
-                <div class="hover-wrap">
-                  <div class="hover-wrap-inner">
-                    <img
-                      loading="lazy"
-                      decoding="async"
-                      class="img-with-animation skip-lazy"
-                      data-delay="0"
-                      height="113"
-                      width="200"
-                      data-animation="grow-in"
-                      src={businessInsider}
-                      alt=""
-                    />
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <div
-        class="vc_col-sm-2 wpb_column column_container vc_column_container col no-extra-padding inherit_tablet inherit_phone"
-        data-padding-pos="all"
-        data-has-bg-color="false"
-        data-bg-color=""
-        data-bg-opacity="1"
-        data-animation=""
-        data-delay="0"
-      >
-        <div class="vc_column-inner">
-          <div class="wpb_wrapper">
-            <div
-              class="img-with-aniamtion-wrap center"
-              data-max-width="100%"
-              data-max-width-mobile="default"
-              data-shadow="none"
-              data-animation="grow-in"
-            >
-              <div class="inner">
-                <div class="hover-wrap">
-                  <div class="hover-wrap-inner">
-                    <img
-                      loading="lazy"
-                      decoding="async"
-                      class="img-with-animation skip-lazy"
-                      data-delay="0"
-                      height="113"
-                      width="200"
-                      data-animation="grow-in"
-                      src={theSpruce}
-                      alt=""
-                    />
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <div
-        class="vc_col-sm-2 wpb_column column_container vc_column_container col no-extra-padding inherit_tablet inherit_phone"
-        data-padding-pos="all"
-        data-has-bg-color="false"
-        data-bg-color=""
-        data-bg-opacity="1"
-        data-animation=""
-        data-delay="0"
-      >
-        <div class="vc_column-inner">
-          <div class="wpb_wrapper">
-            <div
-              class="img-with-aniamtion-wrap center"
-              data-max-width="100%"
-              data-max-width-mobile="default"
-              data-shadow="none"
-              data-animation="grow-in"
-            >
-              <div class="inner">
-                <div class="hover-wrap">
-                  <div class="hover-wrap-inner">
-                    <img
-                      loading="lazy"
-                      decoding="async"
-                      class="img-with-animation skip-lazy"
-                      data-delay="0"
-                      height="113"
-                      width="200"
-                      data-animation="grow-in"
-                      src={huffPost}
-                      alt=""
-                    />
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
+<section class="section tint">
+  <div class="wrap">
+    <h2 class="display center">Kind words</h2>
+    <Testimonials items={quotes} label="Client testimonials" />
   </div>
-  <div
-    id="fws_6ae14cb63ca9e"
-    data-column-margin="default"
-    data-midnight="dark"
-    class="wpb_row vc_row-fluid vc_row vc_row-o-equal-height vc_row-flex top_margin_80px"
-    style="padding-top: 0px; padding-bottom: 0px; "
-  >
-    <div
-      class="row-bg-wrap"
-      data-bg-animation="none"
-      data-bg-animation-delay=""
-      data-bg-overlay="false"
-    >
-      <div class="inner-wrap row-bg-layer">
-        <div class="row-bg viewport-desktop" style=""></div>
-      </div>
-    </div>
-    <div class="row_col_wrap_12 col span_12 dark left">
-      <div
-        style=""
-        class="vc_col-sm-6 wpb_column column_container vc_column_container col no-extra-padding inherit_tablet inherit_phone"
-        data-using-bg="true"
-        data-bg-cover="true"
-        data-padding-pos="all"
-        data-has-bg-color="false"
-        data-bg-color=""
-        data-bg-opacity="1"
-        data-animation=""
-        data-delay="0"
-      >
-        <div class="vc_column-inner">
-          <div
-            class="column-image-bg-wrap column-bg-layer viewport-desktop"
-            data-bg-pos="center center"
-            data-bg-animation="none"
-            data-bg-overlay="false"
-          >
-            <div class="inner-wrap">
-              <div
-                class="column-image-bg"
-                style={` background-image: url('${rheaBioCover}'); `}
-              ></div>
-            </div>
-          </div>
-          <div class="wpb_wrapper">
-            <div class="divider-wrap" data-alignment="default">
-              <div style="height: 300px;" class="divider"></div>
-            </div>
-          </div>
-        </div>
-      </div>
+</section>
 
-      <div
-        class="vc_col-sm-6 wpb_column column_container vc_column_container col no-extra-padding inherit_tablet inherit_phone"
-        data-padding-pos="all"
-        data-has-bg-color="false"
-        data-bg-color=""
-        data-bg-opacity="1"
-        data-animation=""
-        data-delay="0"
-      >
-        <div class="vc_column-inner">
-          <div class="wpb_wrapper">
-            <div
-              class="nectar-split-heading"
-              data-align="default"
-              data-m-align="inherit"
-              data-text-effect="default"
-              data-animation-type="line-reveal-by-space"
-              data-animation-delay="0"
-              data-animation-offset=""
-              data-m-rm-animation=""
-              data-stagger=""
-              data-custom-font-size="false"
-            >
-              <h2 style="max-width: 450px;">{text["DR-RHEA-MEHTA-1"]}</h2>
-            </div>
-            <div
-              class="wpb_text_column wpb_content_element"
-              style=" max-width: 500px; display: inline-block;"
-            >
-              <div class="wpb_wrapper">
-                <Fragment
-                  set:html={copy["is-a-scientist-healer-and-innovator-known"]}
-                />
-              </div>
-            </div>
-
-            <div
-              class="nectar-cta alignment_tablet_default alignment_phone_default display_tablet_inherit display_phone_inherit"
-              data-color="default"
-              data-using-bg="false"
-              data-style="arrow-animation"
-              data-display="block"
-              data-alignment="left"
-              data-text-color="custom"
-            >
-              <h4 style="color: #ff6716;">
-                <span class="link_wrap">
-                  <a
-                    target="_blank"
-                    class="link_text"
-                    role="button"
-                    href="https://www.dropbox.com/scl/fi/sslhm85dv4rfrdnuacm3g/DR.-RHEA-PhD-Speaker-kit.pdf?rlkey=yl34dqxgu6qm6icimhv100e19&amp;dl=1"
-                    aria-label="Download speaker kit"
-                  >
-                    <span class="text">{text["Download-speaker-kit-2"]}</span>
-                    <svg
-                      class="next-arrow"
-                      aria-hidden="true"
-                      width="20px"
-                      height="25px"
-                      viewBox="0 0 50 80"
-                      xml:space="preserve"
-                    >
-                      <polyline
-                        stroke="#ffffff"
-                        stroke-width="9"
-                        fill="none"
-                        stroke-linecap="round"
-                        stroke-linejoin="round"
-                        points="0, 0 45, 40 0, 80"
-                      ></polyline>
-                    </svg>{" "}
-                    <span
-                      aria-hidden="true"
-                      class="line"
-                      style="background-color: #ff6716;"
-                    ></span>{" "}
-                  </a>
-                </span>
-              </h4>
-            </div>
-            <div
-              class="nectar-cta alignment_tablet_default alignment_phone_default display_tablet_inherit display_phone_inherit"
-              data-color="default"
-              data-using-bg="false"
-              data-style="arrow-animation"
-              data-display="block"
-              data-alignment="left"
-              data-text-color="custom"
-            >
-              <h4 style="color: #ff6716;">
-                <span class="link_wrap">
-                  <a
-                    target="_blank"
-                    class="link_text"
-                    role="button"
-                    href="https://www.dropbox.com/scl/fi/tzeclqwgowkwa3wdwxwg1/Dr.Rhea_Aste-Wellness-Speaker-Kit.pdf?rlkey=dkcqzxsasqmemsbqr5maiucqg&amp;dl=1"
-                    aria-label="Aste Wellness founder speaker kit"
-                  >
-                    <span class="text">
-                      {text["Aste-Wellness-founder-speaker-kit-3"]}
-                    </span>
-                    <svg
-                      class="next-arrow"
-                      aria-hidden="true"
-                      width="20px"
-                      height="25px"
-                      viewBox="0 0 50 80"
-                      xml:space="preserve"
-                    >
-                      <polyline
-                        stroke="#ffffff"
-                        stroke-width="9"
-                        fill="none"
-                        stroke-linecap="round"
-                        stroke-linejoin="round"
-                        points="0, 0 45, 40 0, 80"
-                      ></polyline>
-                    </svg>{" "}
-                    <span
-                      aria-hidden="true"
-                      class="line"
-                      style="background-color: #ff6716;"
-                    ></span>{" "}
-                  </a>
-                </span>
-              </h4>
-            </div>
-            <div class="divider-wrap" data-alignment="default">
-              <div
-                style="margin-top: 5px; height: 1px; margin-bottom: 5px;"
-                data-width="100%"
-                data-animate=""
-                data-animation-delay=""
-                data-color="default"
-                class="divider-border"
-              ></div>
-            </div>
-            <blockquote
-              class="nectar_single_testimonial"
-              data-color=""
-              data-style="basic"
-            >
-              <div class="inner">
-                <Fragment
-                  set:html={copy["there-is-something-a-little-bit-magical"]}
-                />
-                <div
-                  role="presentation"
-                  data-shadow=""
-                  class="image-icon"
-                  style={`;background-image:url(${jeffWarrenBio});`}
-                ></div>
-                <span class="wrap">
-                  <span>{text["Jeff-Warren-4"]}</span>
-                  <span class="title">
-                    {text["Author-and-Meditation-Teacher-5"]}
-                  </span>
-                </span>
-              </div>
-            </blockquote>
-          </div>
-        </div>
-      </div>
-    </div>
+<section id="freeGuide" class="section wrap split guide" aria-labelledby="guide-heading">
+  <div class="collage">
+    <Pic path="/wp-content/uploads/2025/06/favorite-green-smoothie.webp" alt="A favourite green smoothie" sizes="(max-width: 860px) 100vw, 560px" widths={[400, 700, 1100]} />
+    <Pic path="/wp-content/uploads/2025/06/insta_post_48421.webp" alt="" sizes="(max-width: 860px) 50vw, 280px" widths={[300, 560]} />
+    <Pic path="/wp-content/uploads/2025/06/gsd-5.webp" alt="" sizes="(max-width: 860px) 50vw, 280px" widths={[300, 560]} />
   </div>
-  <div
-    id="about"
-    data-column-margin="90px"
-    data-midnight="dark"
-    data-top-percent="4%"
-    data-bottom-percent="4%"
-    class="wpb_row vc_row-fluid vc_row vc_row-o-equal-height vc_row-flex vc_row-o-content-middle"
-    style="padding-top: calc(100vw * 0.04); padding-bottom: calc(100vw * 0.04); "
-  >
-    <div
-      class="row-bg-wrap"
-      data-bg-animation="none"
-      data-bg-animation-delay=""
-      data-bg-overlay="false"
-    >
-      <div class="inner-wrap row-bg-layer">
-        <div class="row-bg viewport-desktop" style=""></div>
-      </div>
-    </div>
-    <div class="row_col_wrap_12 col span_12 dark left">
-      <div
-        class="vc_col-sm-6 wpb_column column_container vc_column_container col padding-2-percent inherit_tablet inherit_phone"
-        data-padding-pos="top-bottom"
-        data-has-bg-color="false"
-        data-bg-color=""
-        data-bg-opacity="1"
-        data-animation=""
-        data-delay="0"
-      >
-        <div class="vc_column-inner">
-          <div class="wpb_wrapper">
-            <div
-              id="fws_6ae14cb63f156"
-              data-midnight=""
-              data-column-margin="default"
-              class="wpb_row vc_row-fluid vc_row inner_row"
-              style=""
-            >
-              <div class="row-bg-wrap">
-                <div class="row-bg"></div>
-              </div>
-              <div class="row_col_wrap_12_inner col span_12 left">
-                <div
-                  class="vc_col-sm-12 wpb_column column_container vc_column_container col child_column has-animation no-extra-padding inherit_tablet inherit_phone"
-                  data-padding-pos="all"
-                  data-has-bg-color="false"
-                  data-bg-color=""
-                  data-bg-opacity="1"
-                  data-animation="fade-in-from-bottom"
-                  data-delay="0"
-                >
-                  <div class="vc_column-inner">
-                    <div class="wpb_wrapper">
-                      <div
-                        class="nectar-split-heading"
-                        data-align="default"
-                        data-m-align="inherit"
-                        data-text-effect="default"
-                        data-animation-type="line-reveal-by-space"
-                        data-animation-delay="0"
-                        data-animation-offset=""
-                        data-m-rm-animation=""
-                        data-stagger=""
-                        data-custom-font-size="false"
-                      >
-                        <h2 style="max-width: 450px;">{text["MY-STORY-6"]}</h2>
-                      </div>
-                      <div
-                        class="wpb_text_column wpb_content_element"
-                        style=" max-width: 500px; display: inline-block;"
-                      >
-                        <div class="wpb_wrapper">
-                          <Fragment
-                            set:html={copy["i-was-born-in-a-small-northern"]}
-                          />
-                        </div>
-                      </div>
-
-                      <div
-                        class="nectar-cta alignment_tablet_default alignment_phone_default display_tablet_inherit display_phone_inherit"
-                        data-color="default"
-                        data-using-bg="false"
-                        data-style="see-through"
-                        data-display="block"
-                        data-alignment="left"
-                        data-text-color="std"
-                      >
-                        <h6>
-                          <span class="text">{text["Work-with-me-7"]}</span>
-                          <span class="link_wrap">
-                            <a
-                              aria-label="Work with me."
-                              class="link_text"
-                              href="/coaching/"
-                            >
-                              <span class="arrow"></span>
-                            </a>
-                          </span>
-                        </h6>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <div
-        style=""
-        class="vc_col-sm-6 wpb_column column_container vc_column_container col padding-5-percent inherit_tablet inherit_phone"
-        data-using-bg="true"
-        data-bg-cover="true"
-        data-padding-pos="all"
-        data-has-bg-color="false"
-        data-bg-color=""
-        data-bg-opacity="1"
-        data-animation=""
-        data-delay="0"
-      >
-        <div class="vc_column-inner">
-          <div
-            class="column-image-bg-wrap column-bg-layer viewport-desktop"
-            data-bg-pos="center center"
-            data-bg-animation="zoom-out-reveal"
-            data-bg-overlay="false"
-          >
-            <div class="inner-wrap">
-              <div
-                class="column-image-bg"
-                style={`  ;background-image:url('${storyBg}');`}
-              ></div>
-            </div>
-          </div>
-          <div class="wpb_wrapper">
-            <div class="divider-wrap" data-alignment="default">
-              <div style="height: 300px;" class="divider"></div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
+  <div>
+    <span class="eyebrow">Free download</span>
+    <h2 id="guide-heading" class="display">Smoothie starter guide</h2>
+    <p>{text["Download-your-FREE-Smoothie-Starter-15"]}</p>
+    <NewsletterForm id="guide-email" label={text["Get-the-guide-17"]} />
   </div>
-  <div
-    id="about"
-    data-column-margin="90px"
-    data-midnight="dark"
-    data-top-percent="4%"
-    data-bottom-percent="4%"
-    class="wpb_row vc_row-fluid vc_row vc_row-o-equal-height vc_row-flex vc_row-o-content-middle"
-    style="padding-top: calc(100vw * 0.04); padding-bottom: calc(100vw * 0.04); "
-  >
-    <div
-      class="row-bg-wrap"
-      data-bg-animation="none"
-      data-bg-animation-delay=""
-      data-bg-overlay="false"
-    >
-      <div class="inner-wrap row-bg-layer">
-        <div class="row-bg viewport-desktop" style=""></div>
-      </div>
-    </div>
-    <div class="row_col_wrap_12 col span_12 dark left">
-      <div
-        style=""
-        class="vc_col-sm-6 wpb_column column_container vc_column_container col padding-5-percent inherit_tablet inherit_phone"
-        data-using-bg="true"
-        data-bg-cover="true"
-        data-padding-pos="all"
-        data-has-bg-color="false"
-        data-bg-color=""
-        data-bg-opacity="1"
-        data-animation=""
-        data-delay="0"
-      >
-        <div class="vc_column-inner">
-          <div
-            class="column-image-bg-wrap column-bg-layer viewport-desktop"
-            data-bg-pos="center center"
-            data-bg-animation="zoom-out-reveal"
-            data-bg-overlay="false"
-          >
-            <div class="inner-wrap">
-              <div
-                class="column-image-bg"
-                style={`  ;background-image:url('${rhea10Bg}');`}
-              ></div>
-            </div>
-          </div>
-          <div class="wpb_wrapper">
-            <div class="divider-wrap" data-alignment="default">
-              <div style="height: 100px;" class="divider"></div>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <div
-        class="vc_col-sm-6 wpb_column column_container vc_column_container col padding-2-percent inherit_tablet inherit_phone"
-        data-padding-pos="top-bottom"
-        data-has-bg-color="false"
-        data-bg-color=""
-        data-bg-opacity="1"
-        data-animation=""
-        data-delay="0"
-      >
-        <div class="vc_column-inner">
-          <div class="wpb_wrapper">
-            <div
-              class="nectar-split-heading"
-              data-align="default"
-              data-m-align="inherit"
-              data-text-effect="default"
-              data-animation-type="line-reveal-by-space"
-              data-animation-delay="0"
-              data-animation-offset=""
-              data-m-rm-animation=""
-              data-stagger=""
-              data-custom-font-size="false"
-            >
-              <h2 style="max-width: 450px;">{text["RHEA-S-APPROACH-8"]}</h2>
-            </div>
-            <div
-              id="fws_6ae14cb64178d"
-              data-midnight=""
-              data-column-margin="default"
-              class="wpb_row vc_row-fluid vc_row inner_row"
-              style=""
-            >
-              <div class="row-bg-wrap">
-                <div class="row-bg"></div>
-              </div>
-              <div class="row_col_wrap_12_inner col span_12 left">
-                <div
-                  class="vc_col-sm-12 wpb_column column_container vc_column_container col child_column has-animation no-extra-padding inherit_tablet inherit_phone"
-                  data-padding-pos="all"
-                  data-has-bg-color="false"
-                  data-bg-color=""
-                  data-bg-opacity="1"
-                  data-animation="fade-in-from-bottom"
-                  data-delay="0"
-                >
-                  <div class="vc_column-inner">
-                    <div class="wpb_wrapper">
-                      <div
-                        class="wpb_text_column wpb_content_element"
-                        style=" max-width: 500px; display: inline-block;"
-                      >
-                        <div class="wpb_wrapper">
-                          <Fragment
-                            set:html={
-                              copy[
-                                "my-approach-blends-evidence-based-science-with"
-                              ]
-                            }
-                          />
-                        </div>
-                      </div>
-
-                      <div
-                        class="nectar-cta alignment_tablet_default alignment_phone_default display_tablet_inherit display_phone_inherit"
-                        data-color="default"
-                        data-using-bg="false"
-                        data-style="arrow-animation"
-                        data-display="block"
-                        data-alignment="left"
-                        data-text-color="custom"
-                      >
-                        <h4 style="color: #ff6716;">
-                          <span class="link_wrap">
-                            <a
-                              target="_blank"
-                              class="link_text"
-                              href="/coaching/"
-                              aria-label="BOOK A CONSULTATION"
-                            >
-                              <span class="text">
-                                {text["BOOK-A-CONSULTATION-9"]}
-                              </span>
-                              <svg
-                                class="next-arrow"
-                                aria-hidden="true"
-                                width="20px"
-                                height="25px"
-                                viewBox="0 0 50 80"
-                                xml:space="preserve"
-                              >
-                                <polyline
-                                  stroke="#ffffff"
-                                  stroke-width="9"
-                                  fill="none"
-                                  stroke-linecap="round"
-                                  stroke-linejoin="round"
-                                  points="0, 0 45, 40 0, 80"
-                                ></polyline>
-                              </svg>{" "}
-                              <span
-                                aria-hidden="true"
-                                class="line"
-                                style="background-color: #ff6716;"
-                              ></span>{" "}
-                            </a>
-                          </span>
-                        </h4>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-  <div
-    id="fws_6ae14cb642626"
-    data-column-margin="default"
-    data-midnight="dark"
-    class="wpb_row vc_row-fluid vc_row"
-    style="padding-top: 0px; padding-bottom: 0px; "
-  >
-    <div
-      class="row-bg-wrap"
-      data-bg-animation="none"
-      data-bg-animation-delay=""
-      data-bg-overlay="false"
-    >
-      <div class="inner-wrap row-bg-layer">
-        <div class="row-bg viewport-desktop" style=""></div>
-      </div>
-    </div>
-    <div class="row_col_wrap_12 col span_12 dark left">
-      <div
-        class="vc_col-sm-12 wpb_column column_container vc_column_container col no-extra-padding inherit_tablet inherit_phone"
-        data-padding-pos="all"
-        data-has-bg-color="false"
-        data-bg-color=""
-        data-bg-opacity="1"
-        data-animation=""
-        data-delay="0"
-      >
-        <div class="vc_column-inner">
-          <div class="wpb_wrapper">
-            <div
-              class="testimonial_slider span_12 col disable-height-animation"
-              data-color=""
-              data-rating-color="accent-color"
-              data-controls="default"
-              data-add-border=""
-              data-autorotate="5000"
-              data-style="default"
-            >
-              <div class="slides">
-                <blockquote>
-                  <div data-shadow="" class="image-icon">
-                    “
-                  </div>
-                  <Fragment
-                    set:html={copy["the-biggest-impact-rhea-s-approach-had"]}
-                  />
-                  <span class="testimonial-name">
-                    {text["Hima-Batavia-10"]}
-                  </span>
-                  <span class="title"></span>
-                </blockquote>
-                <blockquote>
-                  <div data-shadow="" class="image-icon">
-                    “
-                  </div>
-                  <Fragment
-                    set:html={copy["rhea-s-passion-is-infectious-her-intrepid"]}
-                  />
-                  <span class="testimonial-name">
-                    {text["Rahul-Sarugaser-11"]}
-                  </span>
-                  <span class="title"></span>
-                </blockquote>
-                <blockquote>
-                  <div data-shadow="" class="image-icon">
-                    “
-                  </div>
-                  <Fragment
-                    set:html={
-                      copy["dr-rhea-is-unbelievably-informed-and-conveys"]
-                    }
-                  />
-                  <span class="testimonial-name">
-                    {text["Erin-Diedling-12"]}
-                  </span>
-                  <span class="title"></span>
-                </blockquote>
-                <blockquote>
-                  <div data-shadow="" class="image-icon">
-                    “
-                  </div>
-                  <Fragment
-                    set:html={
-                      copy["rhea-offers-a-graceful-combination-of-practical"]
-                    }
-                  />
-                  <span class="testimonial-name">{text["Jess-R-13"]}</span>
-                  <span class="title"></span>
-                </blockquote>
-                <blockquote>
-                  <div data-shadow="" class="image-icon">
-                    “
-                  </div>
-                  <Fragment
-                    set:html={copy["working-with-rhea-was-one-of-the"]}
-                  />
-                  <span class="testimonial-name">
-                    {text["Priya-Sankara-14"]}
-                  </span>
-                  <span class="title"></span>
-                </blockquote>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-  <div
-    id="freeGuide"
-    data-column-margin="default"
-    data-midnight="light"
-    data-top-percent="10%"
-    data-bottom-percent="10%"
-    class="wpb_row vc_row-fluid vc_row full-width-section parallax_section"
-    style="padding-top: calc(100vw * 0.10); padding-bottom: calc(100vw * 0.10); "
-  >
-    <div
-      class="row-bg-wrap"
-      data-bg-animation="none"
-      data-bg-animation-delay=""
-      data-bg-overlay="true"
-    >
-      <div class="inner-wrap row-bg-layer using-image">
-        <div
-          class="row-bg viewport-desktop using-image"
-          data-parallax-speed="fast"
-          style="background-image: url(https://themenectar.com/img/demo-media/unsplash/webp/large-mountains-2.webp); background-position: left top; background-repeat: no-repeat; "
-        ></div>
-      </div>
-      <div
-        class="row-bg-overlay row-bg-layer"
-        style="background-color:rgba(10,10,10,0.67);  opacity: 0.5; "
-      ></div>
-    </div>
-    <div class="row_col_wrap_12 col span_12 light left">
-      <div
-        class="vc_col-sm-12 wpb_column column_container vc_column_container col no-extra-padding inherit_tablet inherit_phone"
-        data-padding-pos="all"
-        data-has-bg-color="false"
-        data-bg-color=""
-        data-bg-opacity="1"
-        data-animation=""
-        data-delay="0"
-      >
-        <div class="vc_column-inner">
-          <div class="wpb_wrapper">
-            <div
-              id="fws_6ae14cb643888"
-              data-midnight=""
-              data-column-margin="default"
-              class="wpb_row vc_row-fluid vc_row inner_row vc_row-o-equal-height vc_row-flex vc_row-o-content-middle"
-              style=""
-            >
-              <div class="row-bg-wrap">
-                <div class="row-bg"></div>
-              </div>
-              <div class="row_col_wrap_12_inner col span_12 left">
-                <div
-                  class="vc_col-sm-6 wpb_column column_container vc_column_container col child_column no-extra-padding inherit_tablet inherit_phone"
-                  data-padding-pos="all"
-                  data-has-bg-color="false"
-                  data-bg-color=""
-                  data-bg-opacity="1"
-                  data-animation=""
-                  data-delay="0"
-                >
-                  <div class="vc_column-inner">
-                    <div class="wpb_wrapper">
-                      <div
-                        class="nectar_cascading_images"
-                        data-border-radius="none"
-                        data-parallax=""
-                        data-parallax-intensity="subtle"
-                        data-animation-timing="175"
-                      >
-                        <div
-                          class="cascading-image"
-                          data-has-img="true"
-                          style=" padding:19%;"
-                          data-max-width="100%"
-                          data-max-width-mobile="100%"
-                          data-animation="grow-in"
-                          data-shadow="none"
-                        >
-                          <div class="inner-wrap">
-                            <div
-                              class="bg-layer"
-                              data-scale="1"
-                              style="transform: scale(1)"
-                            >
-                              <div
-                                class="bg-color"
-                                style=" -webkit-transform:translateX(0%) translateY(0%) ; -ms-transform:translateX(0%) translateY(0%) ; transform: translateX(0%) translateY(0%) ; background-color: #3452ff;"
-                                data-has-bg-color="true"
-                              ></div>
-                              <div
-                                style=" -webkit-transform:translateX(0%) translateY(0%) ; transform:translateX(0%) translateY(0%) ;"
-                                class="img-wrap"
-                              >
-                                <img
-                                  loading="lazy"
-                                  decoding="async"
-                                  src={instaPost.src}
-                                  srcset={instaPost.srcset}
-                                  sizes="(min-width: 1000px) 55vw, 100vw"
-                                  height="1080"
-                                  width="1080"
-                                  class="skip-lazy"
-                                  alt=""
-                                />
-                              </div>
-                            </div>
-                          </div>
-                        </div>
-                        <div
-                          class="cascading-image"
-                          data-has-img="true"
-                          style=" padding:19%;"
-                          data-max-width="100%"
-                          data-max-width-mobile="100%"
-                          data-animation="grow-in"
-                          data-shadow="none"
-                        >
-                          <div class="inner-wrap">
-                            <div
-                              class="bg-layer"
-                              data-scale="1"
-                              style="transform: scale(1)"
-                            >
-                              <div
-                                style=" -webkit-transform:translateX(-25%) translateY(30%) ; transform:translateX(-25%) translateY(30%) ;"
-                                class="img-wrap"
-                              >
-                                <img
-                                  loading="lazy"
-                                  decoding="async"
-                                  src={favoriteSmoothie.src}
-                                  srcset={favoriteSmoothie.srcset}
-                                  sizes="(min-width: 1000px) 55vw, 100vw"
-                                  height="1000"
-                                  width="1500"
-                                  class="skip-lazy"
-                                  alt=""
-                                />
-                              </div>
-                            </div>
-                          </div>
-                        </div>
-                        <div
-                          class="cascading-image"
-                          data-has-img="true"
-                          style=" padding:19%;"
-                          data-max-width="100%"
-                          data-max-width-mobile="100%"
-                          data-animation="grow-in"
-                          data-shadow="x_large_depth"
-                        >
-                          <div class="inner-wrap">
-                            <div
-                              class="bg-layer"
-                              data-scale="1"
-                              style="transform: scale(1)"
-                            >
-                              <div
-                                style=" -webkit-transform:translateX(15%) translateY(-30%) ; transform:translateX(15%) translateY(-30%) ;"
-                                class="img-wrap"
-                              >
-                                <img
-                                  loading="lazy"
-                                  decoding="async"
-                                  src={gsd5.src}
-                                  srcset={gsd5.srcset}
-                                  sizes="(min-width: 1000px) 55vw, 100vw"
-                                  height="1000"
-                                  width="1000"
-                                  class="skip-lazy"
-                                  alt=""
-                                />
-                              </div>
-                            </div>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-
-                <div
-                  class="vc_col-sm-6 wpb_column column_container vc_column_container col child_column no-extra-padding inherit_tablet inherit_phone"
-                  data-padding-pos="all"
-                  data-has-bg-color="false"
-                  data-bg-color=""
-                  data-bg-opacity="1"
-                  data-animation=""
-                  data-delay="0"
-                >
-                  <div class="vc_column-inner">
-                    <div class="wpb_wrapper">
-                      <p
-                        style="color: rgba(255,255,255,0.7);text-align: left"
-                        class="vc_custom_heading vc_do_custom_heading wpb_animate_when_almost_visible wpb_fadeInUp fadeInUp vc_custom_1779879487957"
-                      >
-                        {text["Download-your-FREE-Smoothie-Starter-15"]}
-                      </p>
-                      <form
-                        class="rhea-guide-signup"
-                        method="post"
-                        target="_blank"
-                        action="https://livingrhea.us7.list-manage.com/subscribe/post?u=1f4a62aaddd7118ef28dc647b&amp;id=224b479806&amp;f_id=00f74ce4f0"
-                      >
-                        <label for="guide-email">
-                          {text["Email-address-16"]}
-                          <input
-                            id="guide-email"
-                            type="email"
-                            name="EMAIL"
-                            autocomplete="email"
-                            required=""
-                          />
-                        </label>
-                        <div
-                          aria-hidden="true"
-                          style="position:absolute;left:-5000px"
-                        >
-                          <input
-                            name="b_1f4a62aaddd7118ef28dc647b_224b479806"
-                            tabindex="-1"
-                            autocomplete="off"
-                          />
-                        </div>
-                        <button type="submit">
-                          {text["Get-the-guide-17"]}
-                        </button>
-                      </form>
-                      <div class="wpb_text_column wpb_content_element">
-                        <div class="wpb_wrapper"></div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-</ContentFrame>
-
-<InstagramGallery />
+</section>
 
 <style>
-  /* "As seen on" press logos, at the owner's request: smaller and tighter
-     on phones so the hero reads as more dominant above it. Scoped to this
-     row's own id so nothing else on the page is affected. */
-  @media (max-width: 690px) {
-    #fws_6ae14cb638c0f {
-      padding-top: 10px !important;
-      padding-bottom: 10px !important;
-    }
-    #fws_6ae14cb638c0f img {
-      max-width: 65% !important;
-      height: auto !important;
-    }
+  .press {
+    padding-block: 48px 8px;
+  }
+  .press ul {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    gap: 28px clamp(28px, 5vw, 64px);
+    margin: 0;
+    padding: 0;
+    list-style: none;
+  }
+  .press img {
+    width: auto;
+    height: 40px;
+    filter: grayscale(1);
+    opacity: 0.85;
+  }
+  .downloads {
+    margin: 24px 0 32px;
+    padding: 0;
+    list-style: none;
+  }
+  .downloads li {
+    padding: 6px 0;
+  }
+  .mini-quote {
+    margin: 0;
+    padding: 24px;
+    background: var(--sand);
+    border-radius: 6px;
+    font-size: 0.95rem;
+    font-style: italic;
+  }
+  .mini-quote blockquote {
+    margin: 0 0 16px;
+  }
+  .mini-quote figcaption {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    font-style: normal;
+    font-size: 0.88rem;
+  }
+  .mini-quote figcaption img {
+    border-radius: 50%;
+  }
+  .mini-quote strong {
+    display: block;
+  }
+  .collage {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 14px;
+  }
+  .collage :global(img:first-child) {
+    grid-column: 1 / -1;
+    aspect-ratio: 4 / 3;
+    object-fit: cover;
+  }
+  .collage :global(img:not(:first-child)) {
+    aspect-ratio: 1;
+    object-fit: cover;
+  }
+  .guide {
+    align-items: center;
   }
 </style>

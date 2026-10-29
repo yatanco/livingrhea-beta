@@ -1,100 +1,70 @@
 ---
-import { Image } from "astro:assets";
-import { getAllPosts, category } from "../lib/posts.js";
+import PostGrid from "./PostGrid.astro";
+import { getAllPosts } from "../lib/posts.js";
 const { post } = Astro.props;
 const posts = await getAllPosts();
 const index = posts.findIndex((p) => p.slug === post.slug);
 const adjacent = [
-  { post: posts[index - 1], label: "Previous Post" },
-  { post: posts[index + 1], label: "Next Post" },
+  { post: posts[index - 1], label: "Newer" },
+  { post: posts[index + 1], label: "Older" },
 ].filter((item) => item.post);
 // Deterministic recommendations: shared categories first, then recent posts.
+const shares = (p) =>
+  Number(p.categories.some((c) => post.categories.some((t) => t.slug === c.slug)));
 const related = posts
   .filter((p) => p.slug !== post.slug)
-  .sort(
-    (a, b) =>
-      Number(
-        b.categories.some((c) =>
-          post.categories.some((t) => t.slug === c.slug),
-        ),
-      ) -
-      Number(
-        a.categories.some((c) =>
-          post.categories.some((t) => t.slug === c.slug),
-        ),
-      ),
-  )
+  .sort((a, b) => shares(b) - shares(a))
   .slice(0, 3);
-const date = (d) =>
-  d.toLocaleDateString("en-US", {
-    month: "long",
-    day: "numeric",
-    year: "numeric",
-    timeZone: "UTC",
-  });
 ---
 
-<div class="article-recommendations">
-  <nav class="article-adjacent" aria-label="Adjacent articles">
-    {adjacent.map(({ post: item, label }) => (
-      <a href={`/blog/${item.slug}/`}>
-        {item.featuredImage ? (
-          <Image
-            src={item.featuredImage}
-            width={1000}
-            format="webp"
-            alt=""
-            loading="lazy"
-          />
-        ) : (
-          item.legacyFeaturedImage && (
-            <img src={item.legacyFeaturedImage} alt="" loading="lazy" />
-          )
-        )}
-        <span class="article-adjacent-title">
-          <span>{label}</span>
-          <strong>{item.title}</strong>
-        </span>
+<nav class="wrap adjacent" aria-label="More articles">
+  {
+    adjacent.map(({ post: item, label }) => (
+      <a href={`/blog/${item.slug}/`} class={label.toLowerCase()}>
+        <span class="eyebrow">{label}</span>
+        <span class="adjacent-title">{item.title}</span>
       </a>
-    ))}
-  </nav>
-  <section class="article-related" aria-labelledby="related-heading">
-    <div class="container">
-      <h2 id="related-heading">You May Also Like</h2>
-      <div class="article-related-grid">
-        {related.map((item) => (
-          <a class="article-related-card" href={`/blog/${item.slug}/`}>
-            <div class="article-related-image">
-              {item.featuredImage ? (
-                <Image
-                  src={item.featuredImage}
-                  width={600}
-                  widths={[300, 600]}
-                  sizes="(max-width: 690px) 90vw, 30vw"
-                  format="webp"
-                  alt={item.featuredImageAlt}
-                  loading="lazy"
-                />
-              ) : (
-                item.legacyFeaturedImage && (
-                  <img
-                    src={item.legacyFeaturedImage}
-                    alt={item.featuredImageAlt}
-                    loading="lazy"
-                  />
-                )
-              )}
-              <span class="article-category">{category(item).name}</span>
-            </div>
-            <div class="article-related-title">
-              <time datetime={item.pubDate.toISOString()}>
-                {date(item.pubDate)}
-              </time>
-              <h3>{item.title}</h3>
-            </div>
-          </a>
-        ))}
-      </div>
-    </div>
-  </section>
-</div>
+    ))
+  }
+</nav>
+<section class="section tint" aria-labelledby="related-heading">
+  <div class="wrap">
+    <h2 id="related-heading" class="display">You may also like</h2>
+    <PostGrid posts={related} eager={0} headingLevel="h3" />
+  </div>
+</section>
+
+<style>
+  .adjacent {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+    padding-block: 48px;
+    border-top: 1px solid var(--line);
+  }
+  .adjacent a {
+    color: var(--ink);
+    text-decoration: none;
+  }
+  .adjacent .older {
+    grid-column: 2;
+    text-align: right;
+  }
+  .adjacent-title {
+    font-family: var(--serif);
+    font-size: 1.3rem;
+    line-height: 1.3;
+  }
+  .adjacent a:hover .adjacent-title {
+    color: var(--accent);
+  }
+  @media (max-width: 640px) {
+    .adjacent {
+      grid-template-columns: 1fr;
+    }
+    .adjacent .older {
+      grid-column: auto;
+      text-align: left;
+    }
+  }
+</style>

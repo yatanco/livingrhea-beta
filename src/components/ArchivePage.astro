@@ -1,42 +1,35 @@
 ---
-import "../styles/site/about.css";
-import "../styles/site/archive.css";
 import Base from "../layouts/Base.astro";
-import PostGrid from "./PostGrid.astro";
+import PageIntro from "./PageIntro.astro";
 import CategoryNav from "./CategoryNav.astro";
-import { Image } from "astro:assets";
-import banner from "../assets/images/2019/09/roman-purtov-Z5Phu-u_sac-unsplash.jpg";
+import PostGrid from "./PostGrid.astro";
 
-// Category and tag archives at their original WordPress URLs, with the
-// theme's archive header (label, title, optional description).
+// Category and tag archives at their original WordPress URLs.
 interface Props {
   label: "Category" | "Tag";
   term: { name: string; slug: string; posts: any[] };
-  description?: string;
 }
-const { label, term, description } = Astro.props;
+const { label, term } = Astro.props;
+const count = `${term.posts.length} ${term.posts.length === 1 ? "article" : "articles"}`;
 ---
 
 <Base
   title={term.name}
   description={`${term.name} articles by Dr. Rhea Mehta on Living Rhea.`}
 >
-  <header slot="article-header" class="archive-hero">
-    <Image
-      src={banner}
-      alt=""
-      widths={[480, 800, 1200, 1800]}
-      sizes="100vw"
-      format="webp"
-      quality={75}
-      priority
-    />
-    <div class="container">
-      <span class="archive-label">{label}</span>
-      <h1>{term.name}</h1>
-      {description && <p>{description}</p>}
-    </div>
-  </header>
-  {label === "Category" && <CategoryNav current={term.slug} />}
-  <PostGrid posts={term.posts} />
+  <PageIntro
+    eyebrow={label}
+    title={term.name}
+    lead={count}
+  />
+  <div class="wrap archive-list">
+    {label === "Category" && <CategoryNav current={term.slug} />}
+    <PostGrid posts={term.posts} />
+  </div>
 </Base>
+
+<style>
+  .archive-list {
+    padding-bottom: var(--section);
+  }
+</style>

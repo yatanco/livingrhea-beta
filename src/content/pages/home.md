@@ -34,7 +34,7 @@ hero:
     - redefine healing for our
     - time.
   actionLabel: WORK WITH RHEA
-  actionHref: "#freeGuide"
+  actionHref: /coaching/
   socialImage: /wp-content/uploads/2025/08/Rhea-Lotus-Cropped-Smoothie2.webp
 ---
 

@@ -1,829 +1,159 @@
 ---
-import ContentFrame from "../ContentFrame.astro";
+import Pic from "../Pic.astro";
+import Video from "../Video.astro";
 import { pageSections } from "../../lib/page-sections.js";
-import { responsiveImage } from "../../lib/responsive-image.ts";
+
 const { page } = Astro.props;
 const text = page.labels;
 const copy = pageSections(await Astro.slots.render("default"));
-const rheaWidths = [200, 683, 768, 1024, 1365, 1500];
-const rhea294 = await responsiveImage(
-  "/wp-content/uploads/2025/08/042_Rhea_35294.webp",
-  rheaWidths,
-);
-const rhea259 = await responsiveImage(
-  "/wp-content/uploads/2025/08/042_Rhea_35259.webp",
-  rheaWidths,
-);
+const t = (key: string) => text[key].trim();
+const research = [
+  {
+    href: "https://drive.google.com/file/d/106Q8XuNINoXPbrFdfaxn_I7us0lKU4PL/view?usp=sharing",
+    title: t("Scientific-compendium-on-medicinal--5"),
+    note: t("written-for-Vibe-Mushrooms-6"),
+  },
+  {
+    href: "https://tspace.library.utoronto.ca/bitstream/1807/31865/6/Mehta_Rhea_201111_PhD_thesis.pdf",
+    title: t("Doctoral-thesis-7"),
+    note: t("on-investigating-the-cytoprotective-8"),
+  },
+  {
+    href: "https://www.mindbodygreen.com/articles/5-activities-that-will-help-you-cleanse",
+    title: t("5-activities-that-will-help-you-cle-9"),
+  },
+  {
+    href: "https://www.mindbodygreen.com/articles/4-years-7-cleanses-3-lessons-a-toxicologist-explains",
+    title: t("4-Years-7-Cleanses-3-Lessons-A-Toxi-10"),
+  },
+];
+const talks = [
+  {
+    href: "https://www.youtube.com/watch?v=w7WLipkXmWQ",
+    title: t("Blockchain-meets-healthcare-12"),
+    note: t("at-HealthTO-Toronto-13"),
+  },
+  {
+    href: "https://www.youtube.com/watch?v=injjrFugT9Y",
+    title: t("My-formula-for-optimal-living-14"),
+    note: t("at-Do-Lectures-Costa-Rica-15"),
+  },
+];
+const videos = [
+  ["aE5giax4dJc", "Toxic Truths with Dr. Rhea: Choose Canadian skincare over US skincare"],
+  ["a84C6C0dNP8", "Toxic Truths with Dr. Rhea: Choose products that are personalized for women"],
+  ["wNF3xfMNrew", "Toxic Truths with Dr. Rhea: Why drugstore skincare can accelerate aging"],
+  ["rNdh0_flMvc", "Toxic Truths with Dr. Rhea: Over 350,000 chemicals registered for use globally"],
+  ["z72AdMxv5mI", "Toxic Truths with Dr. Rhea: Chemicals in skincare that harm your hormones"],
+  ["nTkAEl6akGc", "Toxic Truths with Dr. Rhea: Your skin absorbs 60% of what you put on it"],
+];
 ---
 
-<ContentFrame>
-  <div
-    id="fws_6ae14cb6d1c86"
-    data-column-margin="default"
-    data-midnight="dark"
-    class="wpb_row vc_row-fluid vc_row top_margin_40px"
-    style="padding-top: 0px; padding-bottom: 0px; "
-  >
-    <div
-      class="row-bg-wrap"
-      data-bg-animation="none"
-      data-bg-animation-delay=""
-      data-bg-overlay="false"
-    >
-      <div class="inner-wrap row-bg-layer">
-        <div class="row-bg viewport-desktop" style=""></div>
-      </div>
-    </div>
-    <div class="row_col_wrap_12 col span_12 dark left">
-      <div
-        class="vc_col-sm-12 wpb_column column_container vc_column_container col no-extra-padding inherit_tablet inherit_phone"
-        data-padding-pos="all"
-        data-has-bg-color="false"
-        data-bg-color=""
-        data-bg-opacity="1"
-        data-animation=""
-        data-delay="0"
-      >
-        <div class="vc_column-inner">
-          <div class="wpb_wrapper">
-            <div
-              class="nectar-split-heading font_size_2vw text_direction_ltr"
-              data-align="default"
-              data-m-align="inherit"
-              data-text-effect="none"
-              data-animation-type="line-reveal-by-space"
-              data-animation-delay="0"
-              data-animation-offset=""
-              data-m-rm-animation=""
-              data-stagger=""
-              data-custom-font-size="true"
-              style="font-size: 2vw; line-height: 2.2vw;"
-            >
-              <i>{text["Rhea-has-the-drive-of-an-entreprene-1"]}</i>
-            </div>
-          </div>
-        </div>
-      </div>
+<header class="wrap about-intro">
+  <h1 class="display">{page.title}</h1>
+  <blockquote>{t("Rhea-has-the-drive-of-an-entreprene-1")}</blockquote>
+</header>
+
+<section class="wrap split" aria-label="Biography">
+  <Pic
+    path="/wp-content/uploads/2025/08/042_Rhea_35294.webp"
+    alt="Portrait of Dr. Rhea Mehta"
+    eager
+  />
+  <div class="prose" set:html={copy["dr-rhea-mehta-is-a-scientist-wellness"]} />
+</section>
+<div class="wrap prose closing" set:html={copy["she-has-spoken-on-stages-across-the"]} />
+
+<section class="section tint" aria-labelledby="story-heading">
+  <div class="wrap split flip">
+    <Pic
+      path="/wp-content/uploads/2025/08/042_Rhea_35259.webp"
+      alt="Dr. Rhea Mehta, eyes lowered in reflection"
+    />
+    <div>
+      <h2 id="story-heading" class="display">{t("My-Story-2")}</h2>
+      <div class="prose" set:html={copy["i-was-born-in-a-small-northern"]} />
     </div>
   </div>
-  <div
-    id="fws_6ae14cb6d24f8"
-    data-column-margin="default"
-    data-midnight="dark"
-    class="wpb_row vc_row-fluid vc_row"
-    style="padding-top: 0px; padding-bottom: 0px; "
-  >
-    <div
-      class="row-bg-wrap"
-      data-bg-animation="none"
-      data-bg-animation-delay=""
-      data-bg-overlay="false"
-    >
-      <div class="inner-wrap row-bg-layer">
-        <div class="row-bg viewport-desktop" style=""></div>
-      </div>
-    </div>
-    <div class="row_col_wrap_12 col span_12 dark left">
-      <div
-        class="vc_col-sm-6 wpb_column column_container vc_column_container col no-extra-padding inherit_tablet inherit_phone"
-        data-padding-pos="all"
-        data-has-bg-color="false"
-        data-bg-color=""
-        data-bg-opacity="1"
-        data-animation=""
-        data-delay="0"
-      >
-        <div class="vc_column-inner">
-          <div class="wpb_wrapper">
-            <div
-              class="img-with-aniamtion-wrap"
-              data-max-width="100%"
-              data-max-width-mobile="default"
-              data-shadow="none"
-              data-animation="none"
-            >
-              <div class="inner">
-                <div class="hover-wrap">
-                  <div class="hover-wrap-inner">
-                    <img
-                      loading="lazy"
-                      decoding="async"
-                      class="img-with-animation skip-lazy"
-                      data-delay="0"
-                      height="2250"
-                      width="1500"
-                      data-animation="none"
-                      src={rhea294.src}
-                      alt=""
-                      srcset={rhea294.srcset}
-                      sizes="(max-width: 1500px) 100vw, 1500px"
-                    />
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
+  <div class="wrap prose closing" set:html={copy["these-moments-shaped-the-way-i-view"]} />
+</section>
 
-      <div
-        class="vc_col-sm-6 wpb_column column_container vc_column_container col no-extra-padding inherit_tablet inherit_phone"
-        data-padding-pos="all"
-        data-has-bg-color="false"
-        data-bg-color=""
-        data-bg-opacity="1"
-        data-animation=""
-        data-delay="0"
-      >
-        <div class="vc_column-inner">
-          <div class="wpb_wrapper">
-            <div class="vc_separator wpb_content_element vc_separator_align_center vc_sep_width_100 vc_sep_border_width_3 vc_sep_pos_align_center vc_sep_color_vista_blue vc_custom_1745331116656 wpb_content_element">
-              <span class="vc_sep_holder vc_sep_holder_l">
-                <span class="vc_sep_line"></span>
-              </span>
-              <div class="vc_icon_element vc_icon_element-outer vc_do_icon vc_icon_element-align-left">
-                <div class="vc_icon_element-inner vc_icon_element-color-juicy_pink vc_icon_element-size-md vc_icon_element-style- vc_icon_element-background-color-grey">
-                  <span class="vc_icon_element-icon fa fa-heart"></span>
-                </div>
-              </div>
-              <span class="vc_sep_holder vc_sep_holder_r">
-                <span class="vc_sep_line"></span>
-              </span>
-            </div>
-            <div
-              class="wpb_text_column wpb_content_element vc_custom_1755018130635"
-              style=" max-width: 650px; display: inline-block;"
-            >
-              <div class="wpb_wrapper">
-                <Fragment
-                  set:html={copy["dr-rhea-mehta-is-a-scientist-wellness"]}
-                />
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
+<section class="section wrap" aria-labelledby="work-heading">
+  <h2 id="work-heading" class="display center">{t("FEATURED-PAST-WORK-3")}</h2>
+  <div class="work">
+    <div>
+      <h3>{t("Scientific-research-articles-and-pu-4").replace(/:$/, "")}</h3>
+      <ul>
+        {
+          research.map((item) => (
+            <li>
+              <a href={item.href}>{item.title}</a>
+              {item.note && <span> {item.note}</span>}
+            </li>
+          ))
+        }
+      </ul>
+    </div>
+    <div>
+      <h3>{t("Talks-11")}</h3>
+      <ul>
+        {
+          talks.map((item) => (
+            <li>
+              <a href={item.href}>{item.title}</a>
+              <span> {item.note}</span>
+            </li>
+          ))
+        }
+      </ul>
     </div>
   </div>
-  <div
-    id="fws_6ae14cb6d37e4"
-    data-column-margin="default"
-    data-midnight="dark"
-    class="wpb_row vc_row-fluid vc_row"
-    style="padding-top: 0px; padding-bottom: 0px; "
-  >
-    <div
-      class="row-bg-wrap"
-      data-bg-animation="none"
-      data-bg-animation-delay=""
-      data-bg-overlay="false"
-    >
-      <div class="inner-wrap row-bg-layer">
-        <div class="row-bg viewport-desktop" style=""></div>
-      </div>
-    </div>
-    <div class="row_col_wrap_12 col span_12 dark left">
-      <div
-        class="vc_col-sm-12 wpb_column column_container vc_column_container col no-extra-padding inherit_tablet inherit_phone"
-        data-padding-pos="all"
-        data-has-bg-color="false"
-        data-bg-color=""
-        data-bg-opacity="1"
-        data-animation=""
-        data-delay="0"
-      >
-        <div class="vc_column-inner">
-          <div class="wpb_wrapper">
-            <div class="wpb_text_column wpb_content_element">
-              <div class="wpb_wrapper">
-                <Fragment
-                  set:html={copy["she-has-spoken-on-stages-across-the"]}
-                />
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
+</section>
+
+<section class="section tint" aria-labelledby="videos-heading">
+  <div class="wrap">
+    <h2 id="videos-heading" class="display center">{t("Featured-Videos-16")}</h2>
+    <div class="videos">
+      {videos.map(([id, title]) => <Video id={id} title={title} />)}
     </div>
   </div>
-  <div
-    id="fws_6ae14cb6d3f90"
-    data-column-margin="default"
-    data-midnight="dark"
-    class="wpb_row vc_row-fluid vc_row"
-    style="padding-top: 0px; padding-bottom: 0px; "
-  >
-    <div
-      class="row-bg-wrap"
-      data-bg-animation="none"
-      data-bg-animation-delay=""
-      data-bg-overlay="false"
-    >
-      <div class="inner-wrap row-bg-layer">
-        <div class="row-bg viewport-desktop" style=""></div>
-      </div>
-    </div>
-    <div class="row_col_wrap_12 col span_12 dark left">
-      <div
-        class="vc_col-sm-6 wpb_column column_container vc_column_container col no-extra-padding inherit_tablet inherit_phone"
-        data-padding-pos="all"
-        data-has-bg-color="false"
-        data-bg-color=""
-        data-bg-opacity="1"
-        data-animation=""
-        data-delay="0"
-      >
-        <div class="vc_column-inner">
-          <div class="wpb_wrapper">
-            <div
-              class="img-with-aniamtion-wrap"
-              data-max-width="100%"
-              data-max-width-mobile="default"
-              data-shadow="none"
-              data-animation="none"
-              style="margin-top: 2%; margin-bottom: 2%; "
-            >
-              <div class="inner">
-                <div class="hover-wrap">
-                  <div class="hover-wrap-inner">
-                    <img
-                      loading="lazy"
-                      decoding="async"
-                      class="img-with-animation skip-lazy"
-                      data-delay="0"
-                      height="2250"
-                      width="1500"
-                      data-animation="none"
-                      src={rhea259.src}
-                      alt=""
-                      srcset={rhea259.srcset}
-                      sizes="(max-width: 1500px) 100vw, 1500px"
-                    />
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
+</section>
 
-      <div
-        class="vc_col-sm-6 wpb_column column_container vc_column_container col no-extra-padding inherit_tablet inherit_phone"
-        data-padding-pos="all"
-        data-has-bg-color="false"
-        data-bg-color=""
-        data-bg-opacity="1"
-        data-animation=""
-        data-delay="0"
-      >
-        <div class="vc_column-inner">
-          <div class="wpb_wrapper">
-            <div class="wpb_text_column wpb_content_element">
-              <div class="wpb_wrapper">
-                <h3 style="text-align: center;">
-                  <span style="font-family: ogg-regular;">
-                    {text["My-Story-2"]}
-                  </span>
-                </h3>
-              </div>
-            </div>
-
-            <div class="vc_separator wpb_content_element vc_separator_align_center vc_sep_width_100 vc_sep_border_width_3 vc_sep_pos_align_center vc_sep_color_vista_blue vc_custom_1745934365467 wpb_content_element">
-              <span class="vc_sep_holder vc_sep_holder_l">
-                <span class="vc_sep_line"></span>
-              </span>
-              <div class="vc_icon_element vc_icon_element-outer vc_do_icon vc_icon_element-align-left">
-                <div class="vc_icon_element-inner vc_icon_element-color-juicy_pink vc_icon_element-size-md vc_icon_element-style- vc_icon_element-background-color-grey">
-                  <span class="vc_icon_element-icon fa fa-pagelines"></span>
-                </div>
-              </div>
-              <span class="vc_sep_holder vc_sep_holder_r">
-                <span class="vc_sep_line"></span>
-              </span>
-            </div>
-            <div class="wpb_text_column wpb_content_element">
-              <div class="wpb_wrapper">
-                <Fragment set:html={copy["i-was-born-in-a-small-northern"]} />
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <div
-        class="vc_col-sm-12 wpb_column column_container vc_column_container col no-extra-padding inherit_tablet inherit_phone"
-        data-padding-pos="all"
-        data-has-bg-color="false"
-        data-bg-color=""
-        data-bg-opacity="1"
-        data-animation=""
-        data-delay="0"
-      >
-        <div class="vc_column-inner">
-          <div class="wpb_wrapper">
-            <div class="wpb_text_column wpb_content_element">
-              <div class="wpb_wrapper">
-                <Fragment
-                  set:html={copy["these-moments-shaped-the-way-i-view"]}
-                />
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-  <div
-    id="fws_6ae14cb6d567d"
-    data-column-margin="default"
-    data-midnight="dark"
-    class="wpb_row vc_row-fluid vc_row"
-    style="padding-top: 0px; padding-bottom: 0px; "
-  >
-    <div
-      class="row-bg-wrap"
-      data-bg-animation="none"
-      data-bg-animation-delay=""
-      data-bg-overlay="false"
-    >
-      <div class="inner-wrap row-bg-layer">
-        <div class="row-bg viewport-desktop" style=""></div>
-      </div>
-    </div>
-    <div class="row_col_wrap_12 col span_12 dark left">
-      <div
-        style="margin-top: 2%; margin-bottom: 2%; "
-        class="vc_col-sm-12 text-column wpb_column column_container vc_column_container col no-extra-padding inherit_tablet inherit_phone"
-        data-padding-pos="all"
-        data-has-bg-color="false"
-        data-bg-color=""
-        data-bg-opacity="1"
-        data-animation=""
-        data-delay="0"
-      >
-        <div class="vc_column-inner">
-          <div class="wpb_wrapper">
-            <div class="wpb_text_column wpb_content_element vc_custom_1745933599842">
-              <div class="wpb_wrapper">
-                <h3 style="text-align: center;">
-                  {text["FEATURED-PAST-WORK-3"]}
-                </h3>
-              </div>
-            </div>
-
-            <div class="vc_separator wpb_content_element vc_separator_align_center vc_sep_width_100 vc_sep_border_width_3 vc_sep_pos_align_center vc_sep_color_vista_blue vc_custom_1745331116656 wpb_content_element">
-              <span class="vc_sep_holder vc_sep_holder_l">
-                <span class="vc_sep_line"></span>
-              </span>
-              <div class="vc_icon_element vc_icon_element-outer vc_do_icon vc_icon_element-align-left">
-                <div class="vc_icon_element-inner vc_icon_element-color-juicy_pink vc_icon_element-size-md vc_icon_element-style- vc_icon_element-background-color-grey">
-                  <span class="vc_icon_element-icon fa fa-heart"></span>
-                </div>
-              </div>
-              <span class="vc_sep_holder vc_sep_holder_r">
-                <span class="vc_sep_line"></span>
-              </span>
-            </div>
-            <div class="wpb_text_column wpb_content_element vc_custom_1755281558810">
-              <div class="wpb_wrapper">
-                <h3 style="text-align: left;">
-                  {text["Scientific-research-articles-and-pu-4"]}
-                </h3>
-                <section
-                  class="elementor-section elementor-top-section elementor-element elementor-element-70880f7 elementor-section-boxed elementor-section-height-default elementor-section-height-default"
-                  data-id="70880f7"
-                  data-element_type="section"
-                >
-                  <div class="elementor-container elementor-column-gap-default">
-                    <div
-                      class="elementor-column elementor-col-100 elementor-top-column elementor-element elementor-element-5e83a0d"
-                      data-id="5e83a0d"
-                      data-element_type="column"
-                    >
-                      <div class="elementor-widget-wrap elementor-element-populated">
-                        <div
-                          class="elementor-element elementor-element-20bd1f2 elementor-widget elementor-widget-text-editor"
-                          data-id="20bd1f2"
-                          data-element_type="widget"
-                          data-widget_type="text-editor.default"
-                        >
-                          <div class="elementor-widget-container">
-                            <ul class="">
-                              <li>
-                                <a
-                                  href="https://drive.google.com/file/d/106Q8XuNINoXPbrFdfaxn_I7us0lKU4PL/view?usp=sharing"
-                                  target="_blank"
-                                  rel="noopener noreferrer"
-                                >
-                                  {
-                                    text[
-                                      "Scientific-compendium-on-medicinal--5"
-                                    ]
-                                  }
-                                </a>
-                                {text["written-for-Vibe-Mushrooms-6"]}
-                              </li>
-                              <li class="">
-                                <a
-                                  href="https://tspace.library.utoronto.ca/bitstream/1807/31865/6/Mehta_Rhea_201111_PhD_thesis.pdf"
-                                  target="_blank"
-                                  rel="noopener noreferrer"
-                                >
-                                  {text["Doctoral-thesis-7"]}
-                                </a>
-                                {text["on-investigating-the-cytoprotective-8"]}
-                              </li>
-                              <li>
-                                <a href="https://www.mindbodygreen.com/articles/5-activities-that-will-help-you-cleanse">
-                                  {
-                                    text[
-                                      "5-activities-that-will-help-you-cle-9"
-                                    ]
-                                  }
-                                </a>
-                              </li>
-                              <li>
-                                <a href="https://www.mindbodygreen.com/articles/4-years-7-cleanses-3-lessons-a-toxicologist-explains">
-                                  {
-                                    text[
-                                      "4-Years-7-Cleanses-3-Lessons-A-Toxi-10"
-                                    ]
-                                  }
-                                </a>
-                              </li>
-                            </ul>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                </section>
-                <section
-                  class="elementor-section elementor-top-section elementor-element elementor-element-7b60d9b elementor-section-boxed elementor-section-height-default elementor-section-height-default"
-                  data-id="7b60d9b"
-                  data-element_type="section"
-                >
-                  <div class="elementor-container elementor-column-gap-default">
-                    <div
-                      class="elementor-column elementor-col-100 elementor-top-column elementor-element elementor-element-8afb64c"
-                      data-id="8afb64c"
-                      data-element_type="column"
-                    >
-                      <div class="elementor-widget-wrap elementor-element-populated">
-                        <div
-                          class="elementor-element elementor-element-f7f7a9c elementor-widget elementor-widget-text-editor"
-                          data-id="f7f7a9c"
-                          data-element_type="widget"
-                          data-widget_type="text-editor.default"
-                        >
-                          <div class="elementor-widget-container">
-                            <h3 style="text-align: justify;">
-                              {text["Talks-11"]}
-                            </h3>
-                          </div>
-                        </div>
-                        <div
-                          class="elementor-element elementor-element-5190305 elementor-widget elementor-widget-text-editor"
-                          data-id="5190305"
-                          data-element_type="widget"
-                          data-widget_type="text-editor.default"
-                        >
-                          <div class="elementor-widget-container">
-                            <ul>
-                              <li>
-                                <a
-                                  href="https://www.youtube.com/watch?v=w7WLipkXmWQ"
-                                  target="_blank"
-                                  rel="noopener noreferrer"
-                                >
-                                  {text["Blockchain-meets-healthcare-12"]}
-                                </a>
-                                {text["at-HealthTO-Toronto-13"]}
-                              </li>
-                              <li>
-                                <a
-                                  href="https://www.youtube.com/watch?v=injjrFugT9Y"
-                                  target="_blank"
-                                  rel="noopener noreferrer"
-                                >
-                                  {text["My-formula-for-optimal-living-14"]}
-                                </a>
-                                {text["at-Do-Lectures-Costa-Rica-15"]}
-                              </li>
-                            </ul>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                </section>
-                <section
-                  class="elementor-section elementor-top-section elementor-element elementor-element-a86629f elementor-section-boxed elementor-section-height-default elementor-section-height-default"
-                  data-id="a86629f"
-                  data-element_type="section"
-                >
-                  <div class="elementor-container elementor-column-gap-default">
-                    <div
-                      class="elementor-column elementor-col-100 elementor-top-column elementor-element elementor-element-f3051d7"
-                      data-id="f3051d7"
-                      data-element_type="column"
-                    >
-                      <div class="elementor-widget-wrap elementor-element-populated">
-                        <div
-                          class="elementor-element elementor-element-afcc82d elementor-widget elementor-widget-text-editor"
-                          data-id="afcc82d"
-                          data-element_type="widget"
-                          data-widget_type="text-editor.default"
-                        >
-                          <div class="elementor-widget-container"></div>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                </section>
-                <section
-                  class="elementor-section elementor-top-section elementor-element elementor-element-bf0302b elementor-section-boxed elementor-section-height-default elementor-section-height-default"
-                  data-id="bf0302b"
-                  data-element_type="section"
-                >
-                  <div class="elementor-container elementor-column-gap-default">
-                    <div
-                      class="elementor-column elementor-col-100 elementor-top-column elementor-element elementor-element-68c97ba"
-                      data-id="68c97ba"
-                      data-element_type="column"
-                    >
-                      <div class="elementor-widget-wrap elementor-element-populated"></div>
-                    </div>
-                  </div>
-                </section>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-  <div
-    id="fws_6ae14cb6d63cb"
-    data-column-margin="default"
-    data-midnight="dark"
-    class="wpb_row vc_row-fluid vc_row top_margin_5pct"
-    style="padding-top: 0px; padding-bottom: 0px; "
-  >
-    <div
-      class="row-bg-wrap"
-      data-bg-animation="none"
-      data-bg-animation-delay=""
-      data-bg-overlay="false"
-    >
-      <div class="inner-wrap row-bg-layer">
-        <div class="row-bg viewport-desktop" style=""></div>
-      </div>
-    </div>
-    <div class="row_col_wrap_12 col span_12 dark left">
-      <div
-        class="vc_col-sm-12 wpb_column column_container vc_column_container col no-extra-padding inherit_tablet inherit_phone"
-        data-padding-pos="all"
-        data-has-bg-color="false"
-        data-bg-color=""
-        data-bg-opacity="1"
-        data-animation=""
-        data-delay="0"
-      >
-        <div class="vc_column-inner">
-          <div class="wpb_wrapper">
-            <div class="col span_12 section-title text-align-center extra-padding">
-              <h2></h2>
-              <h2>{text["Featured-Videos-16"]}</h2>
-            </div>
-            <div class="clear"></div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-  <div
-    id="fws_6ae14cb6d6bd1"
-    data-column-margin="default"
-    data-midnight="dark"
-    class="wpb_row vc_row-fluid vc_row"
-    style="padding-top: 0px; padding-bottom: 0px; "
-  >
-    <div
-      class="row-bg-wrap"
-      data-bg-animation="none"
-      data-bg-animation-delay=""
-      data-bg-overlay="false"
-    >
-      <div class="inner-wrap row-bg-layer">
-        <div class="row-bg viewport-desktop" style=""></div>
-      </div>
-    </div>
-    <div class="row_col_wrap_12 col span_12 dark left">
-      <div
-        class="vc_col-sm-4 wpb_column column_container vc_column_container col no-extra-padding inherit_tablet inherit_phone"
-        data-padding-pos="all"
-        data-has-bg-color="false"
-        data-bg-color=""
-        data-bg-opacity="1"
-        data-animation=""
-        data-delay="0"
-      >
-        <div class="vc_column-inner">
-          <div class="wpb_wrapper">
-            <div class="wpb_video_widget wpb_content_element vc_clearfix vc_video-aspect-ratio-916 vc_video-el-width-100 vc_video-align-left">
-              <div class="wpb_wrapper">
-                <div class="wpb_video_wrapper">
-                  <iframe
-                    title="Toxic Truths with Dr. Rhea: Choose Canadian skincare over US skincare"
-                    width="174"
-                    height="309"
-                    src="https://www.youtube.com/embed/aE5giax4dJc?feature=oembed"
-                    frameborder="0"
-                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-                    referrerpolicy="strict-origin-when-cross-origin"
-                    allowfullscreen=""
-                  ></iframe>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <div
-        class="vc_col-sm-4 wpb_column column_container vc_column_container col no-extra-padding inherit_tablet inherit_phone"
-        data-padding-pos="all"
-        data-has-bg-color="false"
-        data-bg-color=""
-        data-bg-opacity="1"
-        data-animation=""
-        data-delay="0"
-      >
-        <div class="vc_column-inner">
-          <div class="wpb_wrapper">
-            <div class="wpb_video_widget wpb_content_element vc_clearfix vc_video-aspect-ratio-916 vc_video-el-width-100 vc_video-align-left">
-              <div class="wpb_wrapper">
-                <div class="wpb_video_wrapper">
-                  <iframe
-                    title="Toxic Truths with Dr. Rhea: Choose products that are personalized for women"
-                    width="174"
-                    height="309"
-                    src="https://www.youtube.com/embed/a84C6C0dNP8?feature=oembed"
-                    frameborder="0"
-                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-                    referrerpolicy="strict-origin-when-cross-origin"
-                    allowfullscreen=""
-                  ></iframe>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <div
-        class="vc_col-sm-4 wpb_column column_container vc_column_container col no-extra-padding inherit_tablet inherit_phone"
-        data-padding-pos="all"
-        data-has-bg-color="false"
-        data-bg-color=""
-        data-bg-opacity="1"
-        data-animation=""
-        data-delay="0"
-      >
-        <div class="vc_column-inner">
-          <div class="wpb_wrapper">
-            <div class="wpb_video_widget wpb_content_element vc_clearfix vc_video-aspect-ratio-916 vc_video-el-width-100 vc_video-align-left">
-              <div class="wpb_wrapper">
-                <div class="wpb_video_wrapper">
-                  <iframe
-                    title="Toxic Truths with Dr. Rhea: Why drugstore skincare can accelerate aging"
-                    width="174"
-                    height="309"
-                    src="https://www.youtube.com/embed/wNF3xfMNrew?feature=oembed"
-                    frameborder="0"
-                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-                    referrerpolicy="strict-origin-when-cross-origin"
-                    allowfullscreen=""
-                  ></iframe>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-  <div
-    id="fws_6ae14cb6d7f47"
-    data-column-margin="default"
-    data-midnight="dark"
-    class="wpb_row vc_row-fluid vc_row"
-    style="padding-top: 0px; padding-bottom: 0px; "
-  >
-    <div
-      class="row-bg-wrap"
-      data-bg-animation="none"
-      data-bg-animation-delay=""
-      data-bg-overlay="false"
-    >
-      <div class="inner-wrap row-bg-layer">
-        <div class="row-bg viewport-desktop" style=""></div>
-      </div>
-    </div>
-    <div class="row_col_wrap_12 col span_12 dark left">
-      <div
-        class="vc_col-sm-4 wpb_column column_container vc_column_container col no-extra-padding inherit_tablet inherit_phone"
-        data-padding-pos="all"
-        data-has-bg-color="false"
-        data-bg-color=""
-        data-bg-opacity="1"
-        data-animation=""
-        data-delay="0"
-      >
-        <div class="vc_column-inner">
-          <div class="wpb_wrapper">
-            <div class="wpb_video_widget wpb_content_element vc_clearfix vc_video-aspect-ratio-916 vc_video-el-width-100 vc_video-align-left">
-              <div class="wpb_wrapper">
-                <div class="wpb_video_wrapper">
-                  <iframe
-                    title="Toxic Truths with Dr. Rhea: Over 350,000 chemicals registered for use globally"
-                    width="174"
-                    height="309"
-                    src="https://www.youtube.com/embed/rNdh0_flMvc?feature=oembed"
-                    frameborder="0"
-                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-                    referrerpolicy="strict-origin-when-cross-origin"
-                    allowfullscreen=""
-                  ></iframe>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <div
-        class="vc_col-sm-4 wpb_column column_container vc_column_container col no-extra-padding inherit_tablet inherit_phone"
-        data-padding-pos="all"
-        data-has-bg-color="false"
-        data-bg-color=""
-        data-bg-opacity="1"
-        data-animation=""
-        data-delay="0"
-      >
-        <div class="vc_column-inner">
-          <div class="wpb_wrapper">
-            <div class="wpb_video_widget wpb_content_element vc_clearfix vc_video-aspect-ratio-916 vc_video-el-width-100 vc_video-align-left">
-              <div class="wpb_wrapper">
-                <div class="wpb_video_wrapper">
-                  <iframe
-                    title="Toxic Truths with Dr. Rhea: Chemicals in skincare that harm your hormones"
-                    width="174"
-                    height="309"
-                    src="https://www.youtube.com/embed/z72AdMxv5mI?feature=oembed"
-                    frameborder="0"
-                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-                    referrerpolicy="strict-origin-when-cross-origin"
-                    allowfullscreen=""
-                  ></iframe>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <div
-        class="vc_col-sm-4 wpb_column column_container vc_column_container col no-extra-padding inherit_tablet inherit_phone"
-        data-padding-pos="all"
-        data-has-bg-color="false"
-        data-bg-color=""
-        data-bg-opacity="1"
-        data-animation=""
-        data-delay="0"
-      >
-        <div class="vc_column-inner">
-          <div class="wpb_wrapper">
-            <div class="wpb_video_widget wpb_content_element vc_clearfix vc_video-aspect-ratio-916 vc_video-el-width-100 vc_video-align-left">
-              <div class="wpb_wrapper">
-                <div class="wpb_video_wrapper">
-                  <iframe
-                    title="Toxic Truths with Dr. Rhea: Your skin absorbs 60% of what you put on it"
-                    width="174"
-                    height="309"
-                    src="https://www.youtube.com/embed/nTkAEl6akGc?feature=oembed"
-                    frameborder="0"
-                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-                    referrerpolicy="strict-origin-when-cross-origin"
-                    allowfullscreen=""
-                  ></iframe>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-</ContentFrame>
+<style>
+  .about-intro {
+    padding-block: clamp(44px, 7vw, 88px) clamp(32px, 4vw, 56px);
+  }
+  .about-intro blockquote {
+    max-width: 52em;
+    margin: 0;
+    font: italic 400 clamp(1.15rem, 2vw, 1.5rem) / 1.55 var(--serif);
+    color: #333;
+  }
+  .closing {
+    padding-top: 32px;
+  }
+  .work {
+    display: grid;
+    grid-template-columns: 1.4fr 1fr;
+    gap: clamp(32px, 5vw, 72px);
+  }
+  .work ul {
+    padding-left: 1.1em;
+  }
+  .work li {
+    margin-bottom: 0.8em;
+  }
+  .work span {
+    color: var(--muted);
+  }
+  .videos {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(min(100%, 320px), 1fr));
+    gap: 24px;
+  }
+  @media (max-width: 760px) {
+    .work {
+      grid-template-columns: 1fr;
+    }
+  }
+</style>

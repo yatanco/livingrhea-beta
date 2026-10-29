@@ -4,169 +4,139 @@ import { category } from "../lib/posts.js";
 
 interface Props {
   posts: Awaited<ReturnType<typeof import("../lib/posts.js").getAllPosts>>;
+  /** Cards above the fold load eagerly; the first is the likely LCP. */
+  eager?: number;
+  headingLevel?: "h2" | "h3";
 }
-const { posts } = Astro.props;
+const { posts, eager = 3, headingLevel: Heading = "h2" } = Astro.props;
+// Small originals keep their own width rather than an empty srcset.
+const cardWidths = (width: number) => {
+  const fit = [400, 600, 800].filter((w) => w <= width);
+  return fit.length ? fit : [width];
+};
+const date = (d: Date) =>
+  d.toLocaleDateString("en-US", {
+    month: "short",
+    day: "numeric",
+    year: "numeric",
+    timeZone: "UTC",
+  });
 ---
 
-{/* Reproduces Salient's masonry blog archive markup so the theme CSS/JS
-    (masonry layout, meta-overlaid cards) styles it. Links point at the Astro
-    routes; images use the optimized/localized featured image. */}
-<div class="full-width-content blog-fullwidth-wrap meta-overlaid">
-  <div
-    class="post-area col span_12 col_last masonry auto_meta_overlaid_spaced"
-    data-ams="8px"
-    data-remove-post-date="0"
-    data-remove-post-author="0"
-    data-remove-post-comment-number="0"
-    data-remove-post-nectar-love="0"
-  >
-    <div class="posts-container">
-      {posts.map((post) => {
-        const cat = category(post);
-        const imported = post.featuredImage;
-        const img = post.legacyFeaturedImage || imported?.src;
-        const source =
-          imported && imported.width > 800 ? imported : undefined;
-        const url = `/blog/${post.slug}/`;
-        return (
-          <article
-            class={`masonry-blog-item post-${post.legacyId || post.slug} post type-post status-publish format-standard has-post-thumbnail category-${cat.slug}`}
-          >
-            <div class="inner-wrap animated">
-              <div class="post-content">
-                <div class="content-inner">
-                  <a class="entire-meta-link" href={url}>
-                    <span class="screen-reader-text">{post.title}</span>
-                  </a>
-                  {img && (
-                    <span class="post-featured-img">
-                      {source ? (
-                        <Image
-                          class="wp-post-image"
-                          src={source}
-                          alt={post.title}
-                          width={Math.min(800, source.width)}
-                          widths={[400, 800]}
-                          sizes="(max-width: 650px) 100vw, (max-width: 1000px) 50vw, 33vw"
-                          format="webp"
-                          quality={82}
-                          loading="lazy"
-                        />
-                      ) : (
-                        <img
-                          class="wp-post-image"
-                          src={img}
-                          width={imported?.width}
-                          height={imported?.height}
-                          decoding="async"
-                          alt={post.title}
-                          loading="lazy"
-                        />
-                      )}
-                    </span>
-                  )}
-                  <div class="article-content-wrap">
-                    <span class="meta-category">
-                      <a class={cat.slug} href={url}>
-                        {cat.name}
-                      </a>
-                    </span>
-                    <div class="post-header">
-                      <h3 class="title">
-                        <a href={url}>{post.title}</a>
-                      </h3>
-                    </div>
-                  </div>
-                </div>
-              </div>
+<ul class="post-grid">
+  {
+    posts.map((post, index) => {
+      const cat = category(post);
+      const url = `/blog/${post.slug}/`;
+      const loading = index < eager ? "eager" : "lazy";
+      return (
+        <li>
+          <article class="card">
+            <div class="media">
+              {post.featuredImage ? (
+                <Image
+                  src={post.featuredImage}
+                  alt=""
+                  widths={cardWidths(post.featuredImage.width)}
+                  sizes="(max-width: 640px) 100vw, (max-width: 1000px) 50vw, 380px"
+                  format="webp"
+                  quality={72}
+                  loading={loading}
+                  fetchpriority={index === 0 ? "high" : undefined}
+                />
+              ) : (
+                post.legacyFeaturedImage && (
+                  <img
+                    src={post.legacyFeaturedImage}
+                    alt=""
+                    width="600"
+                    height="400"
+                    loading={loading}
+                  />
+                )
+              )}
+            </div>
+            <div class="body">
+              <span class="eyebrow">{cat.name}</span>
+              <Heading class="title">
+                <a href={url}>{post.title}</a>
+              </Heading>
+              <time datetime={post.pubDate.toISOString()}>
+                {date(post.pubDate)}
+              </time>
             </div>
           </article>
-        );
-      })}
-    </div>
-  </div>
-</div>
+        </li>
+      );
+    })
+  }
+</ul>
 
-<!-- Salient's masonry JS only initializes on true blog-archive pages, so we lay
-     the cards out with a reliable CSS grid and reproduce the meta-overlaid look
-     (image card + category/title overlaid at the bottom). -->
 <style>
-  .blog-fullwidth-wrap .post-area,
-  .blog-fullwidth-wrap .posts-container {
-    width: 100% !important;
+  .post-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(min(100%, 300px), 1fr));
+    gap: clamp(20px, 3vw, 36px);
+    margin: 0;
+    padding: 0;
+    list-style: none;
   }
-  .blog-fullwidth-wrap .posts-container {
-    display: grid !important;
-    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-    gap: 10px;
-  }
-  .blog-fullwidth-wrap .masonry-blog-item {
-    position: static !important;
-    float: none !important;
-    left: auto !important;
-    top: auto !important;
-  }
-  /* Force the nested wrappers to fill the card — Salient's meta-overlaid CSS
-     otherwise offsets/narrows them, pushing the image off to one side. */
-  .blog-fullwidth-wrap .masonry-blog-item,
-  .blog-fullwidth-wrap .inner-wrap,
-  .blog-fullwidth-wrap .post-content,
-  .blog-fullwidth-wrap .content-inner,
-  .blog-fullwidth-wrap .post-featured-img {
+  .card {
     position: relative;
-    width: 100% !important;
-    max-width: none !important;
-    min-width: 0 !important;
-    margin: 0 !important;
-    padding: 0 !important;
-    float: none !important;
-    inset: auto !important;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    background: #fff;
+    border: 1px solid var(--line);
+    border-radius: 6px;
+    overflow: hidden;
+    transition:
+      box-shadow 0.2s,
+      transform 0.2s;
   }
-  .blog-fullwidth-wrap .post-featured-img {
-    display: block !important;
-    margin: 0 !important;
+  .card:hover {
+    box-shadow: 0 14px 34px rgb(0 0 0 / 0.09);
+    transform: translateY(-2px);
   }
-  .blog-fullwidth-wrap .post-featured-img img {
-    display: block;
+  .media {
+    aspect-ratio: 3 / 2;
+    background: var(--sand);
+  }
+  .media img {
     width: 100%;
-    height: 340px;
+    height: 100%;
     object-fit: cover;
-    /* Salient hides lazy images with opacity:0 until its JS fades them in;
-       we load them directly, so keep them visible. */
-    opacity: 1 !important;
-    visibility: visible !important;
   }
-  .blog-fullwidth-wrap .inner-wrap,
-  .blog-fullwidth-wrap .inner-wrap.animated {
-    opacity: 1 !important;
-    transform: none !important;
+  .body {
+    display: flex;
+    flex: 1;
+    flex-direction: column;
+    padding: 22px 24px 24px;
   }
-  .blog-fullwidth-wrap .article-content-wrap {
-    position: absolute !important;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    padding: 26px 24px;
-    background: linear-gradient(to top, rgba(0, 0, 0, 0.78), rgba(0, 0, 0, 0));
-    z-index: 5;
+  .body .eyebrow {
+    margin-bottom: 10px;
   }
-  .blog-fullwidth-wrap .meta-category a,
-  .blog-fullwidth-wrap .post-header .title a {
-    color: #fff !important;
+  .title {
+    margin: 0 0 14px;
+    font-size: 1.32rem;
+    line-height: 1.25;
   }
-  .blog-fullwidth-wrap .meta-category {
-    text-transform: uppercase;
-    font-size: 12px;
-    letter-spacing: 0.06em;
+  .title a {
+    color: var(--ink);
+    text-decoration: none;
   }
-  .blog-fullwidth-wrap .post-header .title {
-    margin: 8px 0 0;
-    font-size: 22px;
-    line-height: 1.2;
-  }
-  .blog-fullwidth-wrap .entire-meta-link {
+  /* The whole card is one link target. */
+  .title a::after {
+    content: "";
     position: absolute;
     inset: 0;
-    z-index: 10;
+  }
+  .card:hover .title a {
+    color: var(--accent);
+  }
+  time {
+    margin-top: auto;
+    color: var(--muted);
+    font-size: 0.85rem;
   }
 </style>

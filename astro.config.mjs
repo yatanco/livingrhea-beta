@@ -1,8 +1,9 @@
 import { defineConfig } from "astro/config";
-import criticalCss from "./integrations/critical-css.mjs";
 export default defineConfig({
-  integrations: [criticalCss()],
   site: "https://livingrhea.com",
   output: "static",
   trailingSlash: "always",
+  // The whole design system is small, so every page ships its CSS inline:
+  // no render-blocking stylesheet request.
+  build: { inlineStylesheets: "always" },
 });

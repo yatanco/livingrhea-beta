@@ -27,28 +27,22 @@ const categories = termsWithPosts(await getAllPosts()).sort(
   .category-nav {
     display: flex;
     flex-wrap: wrap;
-    justify-content: center;
     gap: 10px;
-    padding: 40px 20px 30px;
-    font-size: 16px;
+    margin-bottom: clamp(28px, 4vw, 44px);
+    font-size: 0.92rem;
     line-height: 1.2;
   }
   .category-nav a {
-    border: 2px solid rgba(0, 0, 0, 0.15);
-    border-radius: 20px;
-    padding: 6px 14px;
-    color: #000;
+    border: 1.5px solid var(--line);
+    border-radius: 999px;
+    padding: 9px 16px;
+    color: var(--ink);
     font-weight: 600;
+    text-decoration: none;
   }
   .category-nav a:hover,
   .category-nav a[aria-current="page"] {
-    border-color: #ff6b17;
-    color: #ff6b17;
-  }
-  @media (max-width: 690px) {
-    .category-nav {
-      padding: 25px 15px 20px;
-      font-size: 14px;
-    }
+    border-color: var(--accent);
+    color: var(--accent);
   }
 </style>

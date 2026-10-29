@@ -47,7 +47,7 @@ The result: activation of the “rest and digest” parasympathetic nervous syst
 
 It is unique in that it is considered a safe and non-addictive way to feel better over both the short and long term, by training your brain to bounce back more quickly from [stressful states](/blog/how-to-feel-great-every-day/).
 
-# **How Apollo works**
+## **How Apollo works**
 
 -   Wrap the Apollo device on your wrist or ankle
 -   Select the mode on the mobile app that best reflects your status

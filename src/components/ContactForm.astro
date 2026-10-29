@@ -1,93 +1,77 @@
 ---
 import settings from "../content/settings/site.json";
+// Posts straight to Formspree; browser validation only, no script.
 ---
 
-<form
-  class="astro-contact-form"
-  action={settings.contactFormAction}
-  method="post"
->
+<form class="contact-form" action={settings.contactFormAction} method="post">
   <fieldset>
     <legend>Name *</legend>
-    <div class="name-fields">
+    <div class="pair">
       <label>
         First name
-        <input
-          type="text"
-          name="first_name"
-          autocomplete="given-name"
-          required=""
-        />
+        <input class="field" type="text" name="first_name" autocomplete="given-name" required />
       </label>
       <label>
         Last name
-        <input
-          type="text"
-          name="last_name"
-          autocomplete="family-name"
-          required=""
-        />
+        <input class="field" type="text" name="last_name" autocomplete="family-name" required />
       </label>
     </div>
   </fieldset>
   <label>
-    Email *<input type="email" name="email" autocomplete="email" required="" />
+    Email *
+    <input class="field" type="email" name="email" autocomplete="email" required />
   </label>
   <label>
     Subject
-    <input name="subject" />
+    <input class="field" name="subject" />
   </label>
   <label>
-    Your message<textarea name="message" rows="7" required=""></textarea>
+    Your message *
+    <textarea class="field" name="message" rows="7" required></textarea>
   </label>
-  <button type="submit">Submit</button>
+  <button class="btn" type="submit">Send message</button>
 </form>
-<style is:global>
-  .astro-contact-form {
-    max-width: 700px;
-    margin: 24px 0;
+
+<style>
+  .contact-form {
+    padding: clamp(24px, 4vw, 40px);
+    background: var(--sand);
+    border-radius: 8px;
   }
-  .astro-contact-form fieldset {
-    border: 0;
+  fieldset {
+    margin: 0;
     padding: 0;
-    margin: 0 0 20px;
+    border: 0;
   }
-  .astro-contact-form legend {
+  legend,
+  label {
     font-weight: 600;
+    font-size: 0.95rem;
+  }
+  legend {
     margin-bottom: 8px;
   }
-  .astro-contact-form .name-fields {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 18px;
-  }
-  .astro-contact-form label {
+  label {
     display: block;
     margin-bottom: 20px;
-    font-weight: 600;
   }
-  .astro-contact-form input,
-  .astro-contact-form textarea {
-    display: block;
-    width: 100%;
+  .pair {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 16px;
+  }
+  .pair label {
+    font-weight: 400;
+  }
+  .field {
     margin-top: 8px;
-    padding: 12px;
-    border: 1px solid #ccc;
-    background: #fafafa;
-    color: #333;
-    font: inherit;
+    font-weight: 400;
   }
-  .astro-contact-form button {
-    cursor: pointer;
-    padding: 13px 30px;
+  textarea.field {
+    resize: vertical;
   }
-  .astro-contact-form input:focus-visible,
-  .astro-contact-form textarea:focus-visible {
-    outline: 2px solid #765542;
-    outline-offset: 2px;
-  }
-  @media (max-width: 600px) {
-    .astro-contact-form .name-fields {
+  @media (max-width: 520px) {
+    .pair {
       grid-template-columns: 1fr;
       gap: 0;
     }

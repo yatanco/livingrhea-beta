@@ -72,7 +72,7 @@ Here are some highlights from this week’s video:
     
 
 [Watch the 2 practices that changed the way I relate to food below:](https://youtu.be/knJWcMwSSRY)  
-<iframe title="2 Practices that Changed the Way I Relate to Food" width="1080" height="608" src="https://www.youtube.com/embed/knJWcMwSSRY?feature=oembed" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen=""></iframe>
+<iframe loading="lazy" srcdoc="&lt;style&gt;*{margin:0}html,body,a{height:100%}a{display:grid;place-items:center;background:#111 center/cover url(/video/knJWcMwSSRY.jpg)}span{width:68px;height:48px;border-radius:14px;background:rgba(194,65,12,.92);display:grid;place-items:center}span:after{content:&#x27;&#x27;;border-style:solid;border-width:10px 0 10px 17px;border-color:transparent transparent transparent #fff;margin-left:4px}a:hover span,a:focus span{background:#c2410c}&lt;/style&gt;&lt;a href=&#x27;https://www.youtube-nocookie.com/embed/knJWcMwSSRY?autoplay=1&amp;rel=0&#x27; aria-label=&#x27;Play: 2 Practices that Changed the Way I Relate to Food&#x27;&gt;&lt;span&gt;&lt;/span&gt;&lt;/a&gt;" title="2 Practices that Changed the Way I Relate to Food" width="1080" height="608" src="https://www.youtube.com/embed/knJWcMwSSRY?feature=oembed" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen=""></iframe>
 
 **At the 0:24 mark** I walk you through a body awareness practice.
 

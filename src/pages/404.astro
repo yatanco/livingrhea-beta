@@ -1,12 +1,15 @@
 ---
-import "../styles/site/about.css";
 import Base from "../layouts/Base.astro";
 ---
 
-<Base title="Page not found">
-  <h1>Page not found</h1>
-  <p>This page could not be found.</p>
-  <p>
-    <a href="/">Return to the homepage</a>
-  </p>
+<Base title="Page not found" description="This page could not be found. Browse Dr. Rhea Mehta's articles, coaching and music from the homepage.">
+  <section class="section narrow center">
+    <span class="eyebrow">404</span>
+    <h1 class="display">Page not found</h1>
+    <p class="lead">This page could not be found. It may have moved.</p>
+    <div class="actions" style="justify-content:center">
+      <a class="btn" href="/">Go to the homepage</a>
+      <a class="btn ghost" href="/blog/">Browse the blog</a>
+    </div>
+  </section>
 </Base>

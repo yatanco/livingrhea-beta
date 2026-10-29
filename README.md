@@ -1,4 +1,7 @@
-# Living Rhea — Astro site
+# Living Rhea — beta rebuild
+
+**This is the beta repo** (`yatanco/livingrhea-beta`, deployed from `main` to https://beta.livingrhea.com). It rebuilds the site without the WordPress theme: zero JavaScript on public pages, inlined CSS, local fonts and images, click-to-load videos. See `AGENTS.md` for the rules. Notes below describe the production repo it was copied from and may be out of date for beta.
+
 
 This static Astro site preserves the existing Living Rhea design while moving published pages, posts, layout snapshots, styles, fonts, and images into the repository. Builds and visitors do not need WordPress. Familiar `/wp-content/` and `/wp-includes/` paths are static compatibility assets, not a PHP application.
 

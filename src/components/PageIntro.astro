@@ -1,0 +1,28 @@
+---
+// Plain page heading block used by the blog and its archives.
+interface Props {
+  eyebrow?: string;
+  title: string;
+  lead?: string;
+}
+const { eyebrow, title, lead } = Astro.props;
+---
+
+<header class="intro wrap">
+  {eyebrow && <span class="eyebrow">{eyebrow}</span>}
+  <h1 class="display">{title}</h1>
+  {lead && <p class="lead">{lead}</p>}
+  <slot />
+</header>
+
+<style>
+  .intro {
+    padding-block: clamp(44px, 7vw, 88px) clamp(24px, 3vw, 36px);
+  }
+  h1 {
+    margin-bottom: 0.3em;
+  }
+  .lead {
+    max-width: 640px;
+  }
+</style>

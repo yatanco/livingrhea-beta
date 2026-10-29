@@ -47,7 +47,7 @@ However, my certification and training in integrative nutrition and holistic hea
 
 Finally, it also gave me the courage and confidence to build a practice as an integrative health coach, scientific wellness educator, and now, practitioner at **Canada’s premier Functional and Integrative Medical Clinic:** **The** **Centre for Advanced Medicine (CAM); and its sister clinic, The Canadian Centre for Integrative Medicine (CCIM).**  
 
-# **Why am I so excited to announce my joining of this clinic?**
+## **Why am I so excited to announce my joining of this clinic?**
 
 I’ve shared this in a [previous blog post](/blog/integrative-health-coaches-role/), and I’ll share it again now: the future of healthcare is integrative and collaborative.
 

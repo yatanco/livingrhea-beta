@@ -1,0 +1,39 @@
+---
+import { Image } from "astro:assets";
+import { localImage } from "../lib/local-images.ts";
+
+// An optimized local image addressed by its historical /wp-content/ path.
+interface Props {
+  path: string;
+  alt: string;
+  sizes?: string;
+  widths?: number[];
+  eager?: boolean;
+  class?: string;
+  quality?: number;
+}
+const {
+  path,
+  alt,
+  sizes = "(max-width: 860px) 100vw, 50vw",
+  widths = [400, 700, 1000, 1400],
+  eager = false,
+  class: className,
+  quality = 72,
+} = Astro.props;
+const source = localImage(path);
+if (!source) throw new Error(`No imported source image for ${path}`);
+const usable = widths.filter((w) => w < source.width);
+---
+
+<Image
+  src={source}
+  alt={alt}
+  widths={usable.length ? [...usable, Math.min(source.width, Math.max(...widths))] : [source.width]}
+  sizes={sizes}
+  format="webp"
+  quality={quality}
+  loading={eager ? "eager" : "lazy"}
+  fetchpriority={eager ? "high" : undefined}
+  class={className}
+/>

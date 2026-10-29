@@ -1,0 +1,295 @@
+---
+import SocialLinks from "./SocialLinks.astro";
+import { optimizedSrc } from "../lib/responsive-image.ts";
+
+// Zero-JS header: CSS hover/focus dropdown on desktop, <details> menu on
+// mobile. Same navigation and announcement bar as the original site.
+const logo = await optimizedSrc(
+  "/wp-content/uploads/2025/04/LivingRheaLogo.png",
+  420,
+);
+const nav = [
+  { href: "/", label: "Home" },
+  { href: "/about/", label: "About" },
+  {
+    href: "/coaching/",
+    label: "Work with me",
+    children: [
+      { href: "/coaching/", label: "Health Coaching" },
+      { href: "/himalayan-breathwork/", label: "Himalayan Breathwork" },
+      { href: "/smoothie-movement/", label: "Smoothie Movement" },
+    ],
+  },
+  { href: "/music/", label: "Music" },
+  { href: "/press/", label: "Press" },
+  { href: "/blog/", label: "Blog" },
+  { href: "/contact/", label: "Contact" },
+];
+const path = Astro.url.pathname;
+const section = (href: string) =>
+  href === "/" ? path === "/" : path.startsWith(href);
+const isCurrent = (item: (typeof nav)[number]) =>
+  item.children ? item.children.some((c) => section(c.href)) : section(item.href);
+---
+
+<header class="site-header">
+  <div class="topbar">
+    <div class="wrap topbar-inner">
+      <SocialLinks class="topbar-social" />
+      <a class="topbar-cta" href="/#freeGuide">
+        Start here: get the free Global Smoothie Day recipe ebook
+      </a>
+    </div>
+  </div>
+  <div class="wrap bar">
+    <a class="logo" href="/" aria-label="Living Rhea home">
+      <img src={logo} alt="" width="210" height="43" />
+    </a>
+    <nav class="desktop-nav" aria-label="Main">
+      <ul>
+        {
+          nav.map((item) => (
+            <li class:list={[{ "has-menu": item.children }]}>
+              <a
+                href={item.href}
+                aria-current={isCurrent(item) ? "page" : undefined}
+              >
+                {item.label}
+              </a>
+              {item.children && (
+                <ul class="submenu">
+                  {item.children.map((child) => (
+                    <li>
+                      <a href={child.href}>{child.label}</a>
+                    </li>
+                  ))}
+                </ul>
+              )}
+            </li>
+          ))
+        }
+      </ul>
+    </nav>
+    <details class="mobile-nav">
+      <summary aria-label="Menu">
+        <span></span>
+      </summary>
+      <nav aria-label="Main">
+        <ul>
+          {
+            nav.flatMap((item) => item.children ?? [item]).map((item) => (
+              <li>
+                <a
+                  href={item.href}
+                  aria-current={section(item.href) ? "page" : undefined}
+                >
+                  {item.label}
+                </a>
+              </li>
+            ))
+          }
+        </ul>
+        <SocialLinks />
+      </nav>
+    </details>
+  </div>
+</header>
+
+<style>
+  .site-header {
+    position: relative;
+    z-index: 20;
+    background: #fff;
+    border-bottom: 1px solid var(--line);
+  }
+  .topbar {
+    background: #f4f4f4;
+    color: #444;
+    font-size: 0.86rem;
+  }
+  .topbar-inner {
+    display: flex;
+    align-items: center;
+    gap: 24px;
+    min-height: 40px;
+  }
+  .topbar-cta {
+    margin-inline: auto;
+    padding-block: 8px;
+    color: #333;
+    text-decoration: none;
+  }
+  .topbar-cta:hover {
+    color: var(--accent);
+    text-decoration: underline;
+  }
+  .bar {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    min-height: 96px;
+  }
+  .logo img {
+    width: 210px;
+  }
+  .desktop-nav > ul {
+    display: flex;
+    gap: clamp(14px, 2.6vw, 44px);
+    margin: 0;
+    padding: 0;
+    list-style: none;
+  }
+  .desktop-nav a {
+    display: block;
+    padding: 10px 0;
+    color: var(--ink);
+    font-size: 1rem;
+    text-decoration: none;
+  }
+  .desktop-nav > ul > li > a {
+    border-bottom: 2px solid transparent;
+  }
+  .desktop-nav > ul > li > a:hover,
+  .desktop-nav > ul > li > a[aria-current] {
+    border-bottom-color: var(--accent-bright);
+  }
+  .has-menu {
+    position: relative;
+  }
+  .has-menu > a::after {
+    content: "";
+    display: inline-block;
+    width: 6px;
+    height: 6px;
+    margin: 0 0 3px 9px;
+    border: solid currentColor;
+    border-width: 0 1.5px 1.5px 0;
+    transform: rotate(45deg);
+  }
+  .submenu {
+    position: absolute;
+    top: 100%;
+    left: -22px;
+    min-width: 230px;
+    margin: 0;
+    padding: 10px 0;
+    list-style: none;
+    background: #fff;
+    box-shadow: 0 12px 30px rgb(0 0 0 / 0.12);
+    border-radius: 4px;
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(6px);
+    transition:
+      opacity 0.15s,
+      transform 0.15s,
+      visibility 0.15s;
+  }
+  .has-menu:hover .submenu,
+  .has-menu:focus-within .submenu {
+    opacity: 1;
+    visibility: visible;
+    transform: none;
+  }
+  .submenu a {
+    padding: 9px 22px;
+  }
+  .submenu a:hover {
+    color: var(--accent);
+  }
+  .mobile-nav {
+    display: none;
+  }
+  @media (max-width: 999px) {
+    .topbar :global(.topbar-social) {
+      display: none;
+    }
+    .topbar-cta {
+      text-align: center;
+    }
+    .bar {
+      min-height: 72px;
+    }
+    .logo img {
+      width: 160px;
+    }
+    .desktop-nav {
+      display: none;
+    }
+    .mobile-nav {
+      display: block;
+    }
+    .mobile-nav summary {
+      display: grid;
+      place-items: center;
+      width: 48px;
+      height: 48px;
+      margin-right: -10px;
+      list-style: none;
+      cursor: pointer;
+    }
+    .mobile-nav summary::-webkit-details-marker {
+      display: none;
+    }
+    .mobile-nav summary span,
+    .mobile-nav summary span::before,
+    .mobile-nav summary span::after {
+      display: block;
+      width: 24px;
+      height: 2px;
+      background: var(--ink);
+      transition: transform 0.2s;
+    }
+    .mobile-nav summary span {
+      position: relative;
+    }
+    .mobile-nav summary span::before,
+    .mobile-nav summary span::after {
+      content: "";
+      position: absolute;
+      left: 0;
+    }
+    .mobile-nav summary span::before {
+      top: -7px;
+    }
+    .mobile-nav summary span::after {
+      top: 7px;
+    }
+    .mobile-nav[open] summary span {
+      background: transparent;
+    }
+    .mobile-nav[open] summary span::before {
+      transform: translateY(7px) rotate(45deg);
+    }
+    .mobile-nav[open] summary span::after {
+      transform: translateY(-7px) rotate(-45deg);
+    }
+    .mobile-nav nav {
+      position: absolute;
+      top: 100%;
+      left: 0;
+      right: 0;
+      padding: 12px var(--gutter) 24px;
+      background: #fff;
+      border-bottom: 1px solid var(--line);
+      box-shadow: 0 20px 30px rgb(0 0 0 / 0.08);
+    }
+    .mobile-nav ul {
+      margin: 0 0 12px;
+      padding: 0;
+      list-style: none;
+    }
+    .mobile-nav li a {
+      display: block;
+      padding: 12px 0;
+      border-bottom: 1px solid var(--line);
+      color: var(--ink);
+      font-family: var(--serif);
+      font-size: 1.35rem;
+      text-decoration: none;
+    }
+    .mobile-nav li a[aria-current] {
+      color: var(--accent);
+    }
+  }
+</style>

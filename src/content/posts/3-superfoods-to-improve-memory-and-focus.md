@@ -56,7 +56,7 @@ Here are some highlights from this week’s video:
 
 Ready to improve memory and gain more focus? Watch the video below:
 
-<iframe title="My Top Recommended Superfoods To Boost Memory &amp; Focus" width="1080" height="608" src="https://www.youtube.com/embed/5N7HHn8UJsI?feature=oembed" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen=""></iframe>
+<iframe loading="lazy" srcdoc="&lt;style&gt;*{margin:0}html,body,a{height:100%}a{display:grid;place-items:center;background:#111 center/cover url(/video/5N7HHn8UJsI.jpg)}span{width:68px;height:48px;border-radius:14px;background:rgba(194,65,12,.92);display:grid;place-items:center}span:after{content:&#x27;&#x27;;border-style:solid;border-width:10px 0 10px 17px;border-color:transparent transparent transparent #fff;margin-left:4px}a:hover span,a:focus span{background:#c2410c}&lt;/style&gt;&lt;a href=&#x27;https://www.youtube-nocookie.com/embed/5N7HHn8UJsI?autoplay=1&amp;rel=0&#x27; aria-label=&#x27;Play: My Top Recommended Superfoods To Boost Memory &amp;amp; Focus&#x27;&gt;&lt;span&gt;&lt;/span&gt;&lt;/a&gt;" title="My Top Recommended Superfoods To Boost Memory &amp; Focus" width="1080" height="608" src="https://www.youtube.com/embed/5N7HHn8UJsI?feature=oembed" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen=""></iframe>
 
 **At the 0:34 mark** I tell you the what and the how of my primary daily brain boosting hack
 

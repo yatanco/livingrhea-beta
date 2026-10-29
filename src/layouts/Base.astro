@@ -1,21 +1,18 @@
 ---
-import { getSiteLayout } from "../lib/site-layout.js";
-import SiteChrome from "../components/SiteChrome.astro";
+import "../styles/beta/global.css";
+import SiteHeader from "../components/SiteHeader.astro";
+import SiteFooter from "../components/SiteFooter.astro";
 import { plainText, pageDescriptions, snippet } from "../lib/seo.js";
 import social from "../content/settings/social.json";
 
 interface Props {
   title: string;
   description?: string;
-  /**
-   * Original page URL whose saved layout (header treatment, body classes, per-page CSS)
-   * this page should adopt. Pages pass their own `link`; blog posts/archive
-   * fall back to a standard interior page (About) since their WP template
-   * uses a different content wrapper.
-   */
-  pageUrl?: string;
   /** Above-the-fold LCP image to preload (e.g. the hero background). */
   preloadImage?: string;
+  /** Matching srcset/sizes so the preload picks the same candidate. */
+  preloadSrcset?: string;
+  preloadSizes?: string;
   socialImage?: string;
   article?: {
     datePublished: string;
@@ -33,37 +30,13 @@ interface Props {
 const {
   title,
   description = "",
-  pageUrl = "/about/",
   preloadImage,
+  preloadSrcset,
+  preloadSizes,
   socialImage,
   article,
 } = Astro.props;
 
-// Salient theme shell (header, footer, mobile menu, body classes, CSS + JS
-// stack) saved from the original page. Reproduces the chrome the REST
-// content field doesn't include. See src/lib/salient-shell.js.
-const layout = getSiteLayout(pageUrl);
-if (article) {
-  layout.bodyAttrs = {
-    ...layout.bodyAttrs,
-    class: `${layout.bodyAttrs.class} livingrhea-article`,
-  };
-}
-// Blog, category and tag pages have no popup opener or WordPress block
-// scripts, so skip the plugin code that only served those. (The theme's
-// init.js calls fancybox unconditionally, so that library stays.)
-const blogRoute = /^\/(blog|category|tag)\//.test(Astro.url.pathname);
-const unusedOnBlog = new Set([
-  "wp-hooks-js",
-  "wp-i18n-js",
-  "wp-i18n-js-after",
-  "jquery-ui-core-js-before",
-  "jquery-ui-core-js",
-  "popup-maker-site-js-extra",
-  "popup-maker-site-js",
-]);
-if (blogRoute)
-  layout.scripts = layout.scripts.filter((s) => !unusedOnBlog.has(s.id));
 const canonical = new URL(Astro.url.pathname, Astro.site);
 const plainTitle = plainText(title);
 const plainDescription = snippet(
@@ -156,14 +129,16 @@ const schema = {
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>{plainTitle} | Rhea Mehta</title>
     {plainDescription && <meta name="description" content={plainDescription} />}
     <link rel="canonical" href={canonical} />
+    <meta name="theme-color" content="#ffffff" />
     <meta property="og:title" content={`${plainTitle} | Rhea Mehta`} />
     <meta property="og:description" content={plainDescription} />
     <meta property="og:url" content={canonical} />
     <meta property="og:type" content={article ? "article" : "website"} />
+    <meta property="og:site_name" content="Living Rhea" />
     {image && <meta property="og:image" content={image} />}
     <meta name="twitter:card" content="summary_large_image" />
     <script
@@ -171,55 +146,33 @@ const schema = {
       type="application/ld+json"
       set:html={JSON.stringify(schema).replace(/</g, "\\u003c")}
     />
-    <link
-      rel="alternate"
-      type="application/rss+xml"
-      title="Blog"
-      href="/blog/rss.xml"
-    />
-
-    <!-- Preload the LCP image (Salient applies hero images as CSS backgrounds,
-         which the browser won't discover early on its own). -->
-    {preloadImage && (
-      <link rel="preload" as="image" href={preloadImage} fetchpriority="high" />
-    )}
-
-    <link
-      rel="preload"
-      as="font"
-      type="font/woff2"
-      href="/wp-content/uploads/useanyfont/8780Ogg-Regular.woff2"
-      crossorigin="anonymous"
-    />
+    <link rel="alternate" type="application/rss+xml" title="Blog" href="/blog/rss.xml" />
+    {
+      preloadImage && (
+        <link
+          rel="preload"
+          as="image"
+          href={preloadImage}
+          imagesrcset={preloadSrcset}
+          imagesizes={preloadSizes}
+          fetchpriority="high"
+        />
+      )
+    }
     <link
       rel="preload"
       as="font"
       type="font/woff2"
-      href="/vendor/gstatic/s/inter/v20/UcCO3FwrK3iLTeHuS_nVMrMxCp50SjIw2boKoduKmMEVuLyfAZ9hiJ-Ek-_EeA.woff2"
+      href="/fonts/beta/inter-latin.woff2"
       crossorigin="anonymous"
     />
-    <!-- The icomoon icon font (nav/social glyphs) is only discovered once the
-         browser parses icomoon.css, deep in the stylesheet chain — measured
-         500ms+ of avoidable critical-path latency. Preload it directly. -->
     <link
       rel="preload"
       as="font"
-      type="font/woff"
-      href="/fonts/salient/icomoon.woff"
+      type="font/woff2"
+      href="/fonts/beta/ogg-regular.woff2"
       crossorigin="anonymous"
     />
-    <!-- Open Sans preload tried and reverted: it lowered that font's
-         discovery latency (570ms → fast) but measurably worsened CLS
-         (0.083 → 0.438, confirmed via PageSpeed's layout-shift-culprits
-         breakdown, pointing at body text reflowing as the font swaps in).
-         Loading the font faster moved its swap-triggered reflow earlier in
-         the page lifecycle — into the window Lighthouse's CLS metric
-         actually counts, instead of before first paint where it didn't.
-         Revisit only with proper fallback font-metric overrides
-         (size-adjust/ascent-override/descent-override) so the swap doesn't
-         reflow text at all; don't just re-add the preload. -->
-
-    <!-- Salient/WPBakery CSS, fonts and head assets, saved from the original site. -->
     <link
       rel="icon"
       type="image/png"
@@ -237,28 +190,14 @@ const schema = {
       href="/wp-content/uploads/2025/04/cropped-LivingRheaLogo-180x180.png"
     />
   </head>
-  <body {...layout.bodyAttrs}>
-    <SiteChrome layout={layout}>
-      <slot name="article-header" slot="article-header" />
+  <body>
+    <a class="skip-link" href="#main">Skip to content</a>
+    <SiteHeader />
+    <main id="main">
+      <slot name="article-header" />
       <slot />
-      <slot name="article-footer" slot="article-footer" />
-    </SiteChrome>
-
-    <!-- Full Salient/WPBakery/plugin JS stack, in the live load order, as real
-         script tags so they execute (jQuery first, then Salient init, sliders,
-         superfish dropdowns, WPBakery front, etc.). -->
-    {layout.scripts.map((s) =>
-      s.src ? (
-        <script
-          is:inline
-          src={s.src}
-          defer={s.defer}
-          async={s.async}
-          id={s.id}
-        />
-      ) : (
-        <script is:inline id={s.id} type={s.type} set:html={s.code} />
-      ),
-    )}
+      <slot name="article-footer" />
+    </main>
+    <SiteFooter />
   </body>
 </html>

@@ -1,965 +1,217 @@
 ---
-import ContentFrame from "../ContentFrame.astro";
+import Hero from "../Hero.astro";
+import Pic from "../Pic.astro";
+import Testimonials from "../Testimonials.astro";
 import { pageSections } from "../../lib/page-sections.js";
-import {
-  optimizedSrc,
-  responsiveImage,
-} from "../../lib/responsive-image.ts";
+import { localImage } from "../../lib/local-images.ts";
+
 const { page } = Astro.props;
 const text = page.labels;
 const copy = pageSections(await Astro.slots.render("default"));
-const heroBg = await optimizedSrc("/wp-content/uploads/2025/04/home-banner-2.webp");
-const rhea = await responsiveImage(
-  "/wp-content/uploads/2025/08/RHEA_7-1.webp",
-  [200, 682, 768, 903],
-);
+const t = (key: string) => text[key].trim();
+const heroImage = localImage("/wp-content/uploads/2025/04/home-banner-2.webp");
+const quotes = [
+  ["you-are-directly-responsible-for-saving-my", "Adam-P-5"],
+  ["i-am-fascinated-by-dr-rhea-s", "Dr-Neeta-Bhushan-6"],
+  ["through-our-work-together-i-built-healthier", "AV-7"],
+  ["after-working-with-rhea-i-felt-like", "Parul-Bansal-8"],
+  ["i-was-coming-off-of-a-kidney", "Priya-9"],
+  ["dr-rhea-brings-to-the-arena-of", "Dr-Sachin-Patel-10"],
+].map(([section, name]) => ({ html: copy[section], name: t(name) }));
+const included = [
+  copy["six-1-1-coaching-sessions-60-min"],
+  copy["health-history-review-metabolic-typing-assessment-we"],
+  copy["your-clean-sweep-wellness-blueprint-a-fully"],
+  `${copy["clean-sweep-resources-bundle"]}<ul>${[
+    "Clean-Sweep-Meal-Plan-Recipes-21",
+    "Shopping-List-for-Whole-Body-Reset-22",
+    "Personalized-Supplement-Guide-23",
+    "Ritual-Self-Care-Accessories-where--24",
+  ]
+    .map((key) => `<li>${t(key)}</li>`)
+    .join("")}</ul>`,
+  copy["symptom-habit-tracker-a-custom-tracking-system"],
+  copy["session-notes-recap"] + copy["all-recommendations-shared-in-a-google-doc"],
+  copy["unlimited-email-support-for-questions-check-ins"],
+];
+const framework = [
+  ["Dream-28", "Paint-a-multi-sensory-picture-of-yo-29"],
+  ["Design-30", "Optimize-your-schedule-to-support-y-31"],
+  ["Clean-32", "Identify-and-discard-triggers-from--33"],
+  ["Fuel-34", "Resolve-inefficiencies-in-body-and--35"],
+].map(([title, body]) => ({ title: t(title), body: t(body) }));
 ---
 
-<ContentFrame>
-  <div
-    id="fws_6ae14cb5da2ce"
-    data-column-margin="default"
-    data-midnight="dark"
-    class="wpb_row vc_row-fluid vc_row full-width-content vc_row-o-equal-height vc_row-flex vc_row-o-content-top"
-    style="padding-top: 0px; padding-bottom: 0px; "
-  >
-    <div
-      class="row-bg-wrap"
-      data-bg-animation="none"
-      data-bg-animation-delay=""
-      data-bg-overlay="false"
-    >
-      <div class="inner-wrap row-bg-layer">
-        <div class="row-bg viewport-desktop" style=""></div>
-      </div>
-    </div>
-    <div class="row_col_wrap_12 col span_12 dark left">
-      <div
-        class="vc_col-sm-12 wpb_column column_container vc_column_container col no-extra-padding inherit_tablet inherit_phone"
-        data-padding-pos="all"
-        data-has-bg-color="false"
-        data-bg-color=""
-        data-bg-opacity="1"
-        data-animation=""
-        data-delay="0"
-      >
-        <div class="vc_column-inner">
-          <div class="wpb_wrapper">
-            <div
-              data-transition="slide"
-              data-overall_style="classic"
-              data-flexible-height=""
-              data-animate-in-effect="fade-in"
-              data-fullscreen="false"
-              data-button-sizing="regular"
-              data-button-styling="btn_with_count"
-              data-autorotate=""
-              data-parallax="false"
-              data-parallax-disable-mobile=""
-              data-caption-trans="fade_in_from_bottom"
-              data-parallax-style="bg_only"
-              data-bg-animation="none"
-              data-full-width="false"
-              class="nectar-slider-wrap"
-              id="nectar-slider-instance-2"
-            >
-              <div
-                class="swiper-container"
-                data-tho="auto"
-                data-tco="auto"
-                data-pho="auto"
-                data-pco="auto"
-                data-loop="false"
-                data-height="650"
-                data-min-height=""
-                data-arrows="false"
-                data-bullets="false"
-                data-bullet_style="see_through"
-                data-bullet_position="bottom"
-                data-desktop-swipe="false"
-                data-settings=""
-              >
-                <div class="swiper-wrapper">
-                  <div
-                    class="swiper-slide"
-                    data-desktop-content-width="auto"
-                    data-tablet-content-width="auto"
-                    data-bg-alignment="top"
-                    data-color-scheme="light"
-                    data-x-pos="centered"
-                    data-y-pos="middle"
-                  >
-                    <div class="slide-bg-wrap">
-                      <div
-                        class="image-bg"
-                        style={`background-image: url(${heroBg});`}
-                      >
-                        &nbsp;
-                      </div>
-                      <div
-                        class="slide-bg-overlay"
-                        style="background-color: #0a0a0a;"
-                      >
-                        &nbsp;
-                      </div>
-                    </div>
-                    <div class="container">
-                      <div class="content">
-                        <p class="transparent-bg">
-                          <span></span>
-                        </p>
-                        <p style="font-size:25px;line-height:25px;text-transform: none;color:#fff;font-style: italic">
-                          {text["The-program-that-Rhea-has-put-toget-1"]}
-                        </p>
-                        <p></p>
-                        <div class="buttons">
-                          <div class="button solid_color">
-                            <a class="primary-color" href="/contact/">
-                              {text["BOOK-FREE-CONSULTATION-2"]}
-                            </a>
-                          </div>
-                          <div class="button solid_color">
-                            <a class="primary-color" href="/contact/">
-                              {text["ORDER-YOUR-FULLSCRIPT-SUPPLEMENTS-3"]}
-                            </a>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                    <div class="video-texture">
-                      <span class="ie-fix"></span>
-                    </div>
-                  </div>
-                </div>
-                <div class="nectar-slider-loading">
-                  <span class="loading-icon none"> </span>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
+<Hero image={heroImage}>
+  <h1 class="display">Health coaching</h1>
+  <blockquote class="hero-quote">
+    <p>{t("The-program-that-Rhea-has-put-toget-1")}</p>
+  </blockquote>
+  <div class="actions">
+    <a class="btn" href="/contact/">{t("BOOK-FREE-CONSULTATION-2")}</a>
+    <a class="btn light" href="/contact/">{t("ORDER-YOUR-FULLSCRIPT-SUPPLEMENTS-3")}</a>
   </div>
-  <div
-    id="about-text"
-    data-column-margin="default"
-    data-midnight="dark"
-    data-top-percent="4%"
-    data-bottom-percent="2%"
-    class="wpb_row vc_row-fluid vc_row full-width-section"
-    style="padding-top: calc(100vw * 0.04); padding-bottom: calc(100vw * 0.02); "
-  >
-    <div
-      class="row-bg-wrap"
-      data-bg-animation="none"
-      data-bg-animation-delay=""
-      data-bg-overlay="false"
-    >
-      <div class="inner-wrap row-bg-layer">
-        <div
-          class="row-bg viewport-desktop using-bg-color"
-          style="background-color: #ffffff; "
-        ></div>
-      </div>
-    </div>
-    <div class="row_col_wrap_12 col span_12 dark left">
-      <div
-        class="vc_col-sm-6 wpb_column column_container vc_column_container col has-animation no-extra-padding inherit_tablet inherit_phone"
-        data-padding-pos="all"
-        data-has-bg-color="false"
-        data-bg-color=""
-        data-bg-opacity="1"
-        data-animation="fade-in-from-bottom"
-        data-delay="0"
-      >
-        <div class="vc_column-inner">
-          <div class="wpb_wrapper">
-            <div class="wpb_text_column wpb_content_element vc_custom_1755198335786">
-              <div class="wpb_wrapper">
-                <h3 style="text-transform: math-auto;">
-                  {text["Upgrade-your-health-and-environment-4"]}
-                </h3>
-              </div>
-            </div>
+</Hero>
 
-            <div class="wpb_text_column wpb_content_element">
-              <div class="wpb_wrapper">
-                <Fragment
-                  set:html={copy["as-human-beings-we-are-designed-to"]}
-                />
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <div
-        class="vc_col-sm-6 wpb_column column_container vc_column_container col no-extra-padding inherit_tablet inherit_phone"
-        data-padding-pos="all"
-        data-has-bg-color="false"
-        data-bg-color=""
-        data-bg-opacity="1"
-        data-animation=""
-        data-delay="0"
-      >
-        <div class="vc_column-inner">
-          <div class="wpb_wrapper">
-            <div
-              class="img-with-aniamtion-wrap center"
-              data-max-width="100%"
-              data-max-width-mobile="default"
-              data-shadow="none"
-              data-animation="none"
-            >
-              <div class="inner">
-                <div class="hover-wrap">
-                  <div class="hover-wrap-inner">
-                    <img
-                      loading="lazy"
-                      decoding="async"
-                      class="img-with-animation skip-lazy"
-                      data-delay="0"
-                      height="1356"
-                      width="903"
-                      data-animation="none"
-                      src={rhea.src}
-                      alt=""
-                      srcset={rhea.srcset}
-                      sizes="(max-width: 903px) 100vw, 903px"
-                    />
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
+<section class="section wrap split" aria-labelledby="upgrade-heading">
+  <div>
+    <h2 id="upgrade-heading">{t("Upgrade-your-health-and-environment-4")}</h2>
+    <div class="prose" set:html={copy["as-human-beings-we-are-designed-to"]} />
   </div>
-  <div
-    id="fws_6ae14cb5de59e"
-    data-column-margin="default"
-    data-midnight="dark"
-    data-top-percent="2%"
-    data-bottom-percent="2%"
-    class="wpb_row vc_row-fluid vc_row"
-    style="padding-top: calc(100vw * 0.02); padding-bottom: calc(100vw * 0.02); "
-  >
-    <div
-      class="row-bg-wrap"
-      data-bg-animation="none"
-      data-bg-animation-delay=""
-      data-bg-overlay="false"
-    >
-      <div class="inner-wrap row-bg-layer">
-        <div class="row-bg viewport-desktop" style=""></div>
-      </div>
-    </div>
-    <div class="row_col_wrap_12 col span_12 dark left">
-      <div
-        class="vc_col-sm-12 wpb_column column_container vc_column_container col no-extra-padding el_spacing_0px inherit_tablet inherit_phone"
-        data-padding-pos="all"
-        data-has-bg-color="false"
-        data-bg-color=""
-        data-bg-opacity="1"
-        data-animation=""
-        data-delay="0"
-      >
-        <div class="vc_column-inner">
-          <div class="wpb_wrapper">
-            <div
-              class="testimonial_slider span_12 col font_size_desktop_1-3vw font_size_tablet_16px font_line_height_1-7 disable-height-animation"
-              data-color=""
-              data-rating-color="accent-color"
-              data-controls="default"
-              data-add-border=""
-              data-autorotate="5000"
-              data-style="default"
-            >
-              <div class="slides">
-                <blockquote>
-                  <div data-shadow="" class="image-icon">
-                    “
-                  </div>
-                  <Fragment
-                    set:html={
-                      copy["you-are-directly-responsible-for-saving-my"]
-                    }
-                  />
-                  <span class="testimonial-name">{text["Adam-P-5"]}</span>
-                  <span class="title"></span>
-                </blockquote>
-                <blockquote>
-                  <div data-shadow="" class="image-icon">
-                    “
-                  </div>
-                  <Fragment set:html={copy["i-am-fascinated-by-dr-rhea-s"]} />
-                  <span class="testimonial-name">
-                    {text["Dr-Neeta-Bhushan-6"]}
-                  </span>
-                  <span class="title"></span>
-                </blockquote>
-                <blockquote>
-                  <div data-shadow="" class="image-icon">
-                    “
-                  </div>
-                  <Fragment
-                    set:html={
-                      copy["through-our-work-together-i-built-healthier"]
-                    }
-                  />
-                  <span class="testimonial-name">{text["AV-7"]}</span>
-                  <span class="title"></span>
-                </blockquote>
-                <blockquote>
-                  <div data-shadow="" class="image-icon">
-                    “
-                  </div>
-                  <Fragment
-                    set:html={copy["after-working-with-rhea-i-felt-like"]}
-                  />
-                  <span class="testimonial-name">{text["Parul-Bansal-8"]}</span>
-                  <span class="title"></span>
-                </blockquote>
-                <blockquote>
-                  <div data-shadow="" class="image-icon">
-                    “
-                  </div>
-                  <Fragment set:html={copy["i-was-coming-off-of-a-kidney"]} />
-                  <span class="testimonial-name">{text["Priya-9"]}</span>
-                  <span class="title"></span>
-                </blockquote>
-                <blockquote>
-                  <div data-shadow="" class="image-icon">
-                    “
-                  </div>
-                  <Fragment set:html={copy["dr-rhea-brings-to-the-arena-of"]} />
-                  <span class="testimonial-name">
-                    {text["Dr-Sachin-Patel-10"]}
-                  </span>
-                  <span class="title"></span>
-                </blockquote>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
+  <Pic path="/wp-content/uploads/2025/08/RHEA_7-1.webp" alt="Dr. Rhea Mehta holding a green smoothie" />
+</section>
+
+<section class="section tint">
+  <div class="wrap">
+    <h2 class="display center">Client stories</h2>
+    <Testimonials items={quotes} label="Client testimonials" />
   </div>
-  <div
-    id="fws_6ae14cb5dfa78"
-    data-column-margin="custom"
-    data-midnight="dark"
-    data-top-percent="3%"
-    data-bottom-percent="12%"
-    class="wpb_row vc_row-fluid vc_row full-width-content vc_row-o-equal-height vc_row-flex vc_row-o-content-middle right_padding_7vw left_padding_7vw column-margin-7vw"
-    style="padding-top: calc(100vw * 0.03); padding-bottom: calc(100vw * 0.12); "
-  >
-    <div
-      class="row-bg-wrap"
-      data-bg-animation="none"
-      data-bg-animation-delay=""
-      data-bg-overlay="false"
-    >
-      <div class="inner-wrap row-bg-layer">
-        <div
-          class="row-bg viewport-desktop using-bg-color"
-          style="background-color: #ffffff; "
-        ></div>
-      </div>
-    </div>
-    <div class="row_col_wrap_12 col span_12 dark left">
-      <div
-        class="vc_col-sm-12 wpb_column column_container vc_column_container col force-desktop-text-align-center left_padding_desktop_2vw"
-        data-padding-pos="all"
-        data-has-bg-color="false"
-        data-bg-color=""
-        data-bg-opacity="1"
-        data-animation=""
-        data-delay="0"
-      >
-        <div class="vc_column-inner">
-          <div class="wpb_wrapper">
-            <div
-              class="nectar-highlighted-text font_size_3vw font_size_tablet_6vw font_line_height_1-2"
-              data-style="regular_underline"
-              data-exp="default"
-              data-underline-thickness="default"
-              data-using-custom-color="false"
-              data-animation-delay="150"
-              data-color=""
-              data-color-gradient=""
-              style=""
-            >
-              <h1 style="text-align: center">
-                <span style="font-size: 24pt">{text["PACKAGES-11"]}</span>
-              </h1>
-            </div>
-            <div
-              class="toggles accordion toggles--minimal-shadow"
-              data-br="none"
-              data-starting="closed"
-              data-style="minimal"
-            >
-              <div class="toggle accent-color" data-inner-wrap="true">
-                <h3 class="toggle-title">
-                  <a
-                    href="/contact/"
-                    role="button"
-                    class="nectar-inherit-h3 toggle-heading"
-                  >
-                    <i role="presentation" class="fa fa-plus-circle"></i>
-                    {text["BOOK-1-HOUR-PRIVATE-CONSULTATION-12"]}
-                  </a>
-                </h3>
-                <div>
-                  <div class="inner-toggle-wrap">
-                    <div class="wpb_text_column wpb_content_element">
-                      <div class="wpb_wrapper">
-                        <Fragment
-                          set:html={
-                            copy["one-on-one-consultation-with-dr-rhea"]
-                          }
-                        />
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-              <div class="toggle accent-color" data-inner-wrap="true">
-                <h3 class="toggle-title">
-                  <a
-                    href="/contact/"
-                    role="button"
-                    class="nectar-inherit-h3 toggle-heading"
-                  >
-                    <i role="presentation" class="fa fa-plus-circle"></i>
-                    {text["CLEAN-SWEEP-3-MONTHS-13"]}
-                  </a>
-                </h3>
-                <div>
-                  <div class="inner-toggle-wrap">
-                    <div class="wpb_text_column wpb_content_element">
-                      <div class="wpb_wrapper">
-                        <p style="text-align: left">
-                          <span style="font-weight: 400">
-                            {text["This-14"]}
-                            <strong>
-                              {text["3-month-foundational-coaching-conta-15"]}
-                            </strong>
-                            {text["is-designed-to-help-you-clean-sweep-16"]}
-                            <strong>
-                              {text["evidence-based-nutrition-functional-17"]}
-                            </strong>
-                            {text["all-tailored-to-your-unique-needs-18"]}
-                          </span>
-                        </p>
-                        <p style="text-align: left">
-                          <strong>
-                            {text["This-is-for-you-if-you-re-ready-to--19"]}
-                          </strong>
-                        </p>
-                        <h4 style="text-align: left">
-                          <b>{text["What-s-Included-20"]}</b>
-                        </h4>
-                        <Fragment
-                          set:html={copy["six-1-1-coaching-sessions-60-min"]}
-                        />
-                        <Fragment
-                          set:html={
-                            copy[
-                              "health-history-review-metabolic-typing-assessment-we"
-                            ]
-                          }
-                        />
-                        <Fragment
-                          set:html={
-                            copy["your-clean-sweep-wellness-blueprint-a-fully"]
-                          }
-                        />
-                        <Fragment
-                          set:html={copy["clean-sweep-resources-bundle"]}
-                        />
-                        <ul>
-                          <li style="list-style-type: none">
-                            <ul>
-                              <li style="font-weight: 400;text-align: left">
-                                {text["Clean-Sweep-Meal-Plan-Recipes-21"]}
-                              </li>
-                              <li style="font-weight: 400;text-align: left">
-                                {text["Shopping-List-for-Whole-Body-Reset-22"]}
-                              </li>
-                              <li style="font-weight: 400;text-align: left">
-                                {text["Personalized-Supplement-Guide-23"]}
-                              </li>
-                              <li style="font-weight: 400;text-align: left">
-                                {text["Ritual-Self-Care-Accessories-where--24"]}
-                              </li>
-                            </ul>
-                          </li>
-                        </ul>
-                        <Fragment
-                          set:html={
-                            copy[
-                              "symptom-habit-tracker-a-custom-tracking-system"
-                            ]
-                          }
-                        />
-                        <Fragment set:html={copy["session-notes-recap"]} />
-                        <Fragment
-                          set:html={
-                            copy["all-recommendations-shared-in-a-google-doc"]
-                          }
-                        />
-                        <Fragment
-                          set:html={
-                            copy[
-                              "unlimited-email-support-for-questions-check-ins"
-                            ]
-                          }
-                        />
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-              <div class="toggle accent-color" data-inner-wrap="true">
-                <h3 class="toggle-title">
-                  <a
-                    href="/contact/"
-                    role="button"
-                    class="nectar-inherit-h3 toggle-heading"
-                  >
-                    <i role="presentation" class="fa fa-plus-circle"></i>
-                    {text["MAINTENANCE-1x-MONTH-25"]}
-                  </a>
-                </h3>
-                <div>
-                  <div class="inner-toggle-wrap">
-                    <div class="wpb_text_column wpb_content_element">
-                      <div class="wpb_wrapper">
-                        <p style="text-align: center">
-                          <span style="font-weight: 400">
-                            {text["1-one-hour-coaching-session-per-mon-26"]}
-                          </span>
-                        </p>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
+</section>
 
-            <div class="tilt-button-wrap">
-              <div class="tilt-button-inner">
-                <a
-                  class="nectar-button small regular-tilt accent-color tilt regular-button"
-                  role="button"
-                  style=""
-                  href="/contact/"
-                  data-color-override="false"
-                  data-hover-color-override="false"
-                  data-hover-text-color-override="#fff"
-                >
-                  <span>{text["BOOK-FREE-CONSULTATION-2"]}</span>
-                </a>
-              </div>
-            </div>
-          </div>
-        </div>
+<section class="section narrow" aria-labelledby="packages-heading">
+  <h2 id="packages-heading" class="display center">{t("PACKAGES-11")}</h2>
+  <div class="packages">
+    <details>
+      <summary>{t("BOOK-1-HOUR-PRIVATE-CONSULTATION-12")}</summary>
+      <div class="prose" set:html={copy["one-on-one-consultation-with-dr-rhea"]} />
+    </details>
+    <details open>
+      <summary>{t("CLEAN-SWEEP-3-MONTHS-13")}</summary>
+      <div class="prose">
+        <p>
+          {text["This-14"]}<strong>{t("3-month-foundational-coaching-conta-15")}</strong>
+          {text["is-designed-to-help-you-clean-sweep-16"]}<strong>{t("evidence-based-nutrition-functional-17")}</strong>{text["all-tailored-to-your-unique-needs-18"]}
+        </p>
+        <p>{t("This-is-for-you-if-you-re-ready-to--19")}</p>
+        <h3>{t("What-s-Included-20")}</h3>
+        <ul class="included">
+          {included.map((html) => <li set:html={html} />)}
+        </ul>
       </div>
-    </div>
+    </details>
+    <details>
+      <summary>{t("MAINTENANCE-1x-MONTH-25")}</summary>
+      <div class="prose"><p>{t("1-one-hour-coaching-session-per-mon-26")}</p></div>
+    </details>
   </div>
-  <div
-    id="services"
-    data-column-margin="default"
-    data-midnight="dark"
-    data-top-percent="2%"
-    class="wpb_row vc_row-fluid vc_row full-width-section"
-    style="padding-top: calc(100vw * 0.02); padding-bottom: 0px; "
-  >
-    <div
-      class="row-bg-wrap"
-      data-bg-animation="none"
-      data-bg-animation-delay=""
-      data-bg-overlay="false"
-    >
-      <div class="inner-wrap row-bg-layer">
-        <div class="row-bg viewport-desktop" style=""></div>
-      </div>
-    </div>
-    <div class="row_col_wrap_12 col span_12 dark left">
-      <div
-        class="vc_col-sm-12 wpb_column column_container vc_column_container col no-extra-padding inherit_tablet inherit_phone"
-        data-padding-pos="all"
-        data-has-bg-color="false"
-        data-bg-color=""
-        data-bg-opacity="1"
-        data-animation=""
-        data-delay="0"
-      >
-        <div class="vc_column-inner">
-          <div class="wpb_wrapper">
-            <div
-              id="fws_6ae14cb5e4ea8"
-              data-midnight=""
-              data-column-margin="default"
-              class="wpb_row vc_row-fluid vc_row inner_row"
-              style="padding-bottom: 5%; "
-            >
-              <div class="row-bg-wrap">
-                <div class="row-bg"></div>
-              </div>
-              <div class="row_col_wrap_12_inner col span_12 left">
-                <div
-                  class="vc_col-sm-3 wpb_column column_container vc_column_container col child_column no-extra-padding inherit_tablet inherit_phone"
-                  data-padding-pos="all"
-                  data-has-bg-color="false"
-                  data-bg-color=""
-                  data-bg-opacity="1"
-                  data-animation=""
-                  data-delay="0"
-                >
-                  <div class="vc_column-inner">
-                    <div class="wpb_wrapper"></div>
-                  </div>
-                </div>
+  <p class="center">
+    <a class="btn" href="/contact/">{t("BOOK-FREE-CONSULTATION-2")}</a>
+  </p>
+</section>
 
-                <div
-                  class="vc_col-sm-6 wpb_column column_container vc_column_container col child_column centered-text no-extra-padding inherit_tablet inherit_phone"
-                  data-padding-pos="all"
-                  data-has-bg-color="false"
-                  data-bg-color=""
-                  data-bg-opacity="1"
-                  data-animation=""
-                  data-delay="0"
-                >
-                  <div class="vc_column-inner">
-                    <div class="wpb_wrapper">
-                      <div
-                        class="nectar-split-heading"
-                        data-align="default"
-                        data-m-align="inherit"
-                        data-text-effect="default"
-                        data-animation-type="line-reveal-by-space"
-                        data-animation-delay="0"
-                        data-animation-offset=""
-                        data-m-rm-animation=""
-                        data-stagger=""
-                        data-custom-font-size="false"
-                      >
-                        <h2>{text["MY-COACHING-FRAMEWORK-27"]}</h2>
-                      </div>
-                      <div class="wpb_text_column wpb_content_element">
-                        <div class="wpb_wrapper">
-                          <Fragment
-                            set:html={copy["i-ve-broken-down-the-path-to"]}
-                          />
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-
-                <div
-                  class="vc_col-sm-3 wpb_column column_container vc_column_container col child_column no-extra-padding inherit_tablet inherit_phone"
-                  data-padding-pos="all"
-                  data-has-bg-color="false"
-                  data-bg-color=""
-                  data-bg-opacity="1"
-                  data-animation=""
-                  data-delay="0"
-                >
-                  <div class="vc_column-inner">
-                    <div class="wpb_wrapper"></div>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
+<section class="section tint" aria-labelledby="framework-heading">
+  <div class="wrap">
+    <h2 id="framework-heading" class="display center">{t("MY-COACHING-FRAMEWORK-27")}</h2>
+    <div class="narrow center lead" set:html={copy["i-ve-broken-down-the-path-to"]} />
+    <ol class="framework">
+      {
+        framework.map((step) => (
+          <li>
+            <h3 class="display">{step.title}</h3>
+            <p>{step.body}</p>
+          </li>
+        ))
+      }
+    </ol>
   </div>
-  <div
-    id="services"
-    data-column-margin="20px"
-    data-midnight="dark"
-    data-bottom-percent="6%"
-    class="wpb_row vc_row-fluid vc_row full-width-content vc_row-o-equal-height vc_row-flex vc_row-o-content-top"
-    style="padding-top: 0px; padding-bottom: calc(100vw * 0.06); "
-  >
-    <div
-      class="row-bg-wrap"
-      data-bg-animation="none"
-      data-bg-animation-delay=""
-      data-bg-overlay="false"
-    >
-      <div class="inner-wrap row-bg-layer">
-        <div class="row-bg viewport-desktop" style=""></div>
-      </div>
-    </div>
-    <div class="row_col_wrap_12 col span_12 dark left">
-      <div
-        class="vc_col-sm-12 wpb_column column_container vc_column_container col no-extra-padding inherit_tablet inherit_phone"
-        data-padding-pos="all"
-        data-has-bg-color="false"
-        data-bg-color=""
-        data-bg-opacity="1"
-        data-animation=""
-        data-delay="0"
-      >
-        <div class="vc_column-inner">
-          <div class="wpb_wrapper">
-            <div
-              id="fws_6ae14cb5e6e45"
-              data-midnight=""
-              data-column-margin="20px"
-              class="wpb_row vc_row-fluid vc_row inner_row"
-              style=""
-            >
-              <div class="row-bg-wrap">
-                <div class="row-bg"></div>
-              </div>
-              <div class="row_col_wrap_12_inner col span_12 left">
-                <div
-                  class="vc_col-sm-3 wpb_column column_container vc_column_container col child_column has-animation no-extra-padding inherit_tablet inherit_phone"
-                  data-padding-pos="all"
-                  data-has-bg-color="false"
-                  data-bg-color=""
-                  data-bg-opacity="1"
-                  data-animation="fade-in-from-bottom"
-                  data-delay="0"
-                >
-                  <div class="vc_column-inner">
-                    <div class="wpb_wrapper">
-                      <div
-                        class="nectar-fancy-box using-img"
-                        style="min-height: 500px"
-                        data-style="hover_desc"
-                        data-border-radius="default"
-                        data-animation=""
-                        data-bg-animation="long_zoom"
-                        data-border=""
-                        data-delay=""
-                        data-alignment="left"
-                        data-color="accent-color"
-                      >
-                        <div
-                          class="box-bg"
-                          role="presentation"
-                          data-nectar-img-src="https://themenectar.com/img/demo-media/unsplash/webp/500-500-forest.webp"
-                        ></div>
-                        <div class="inner">
-                          <div class="heading-wrap">
-                            <span
-                              class="im-icon-wrap"
-                              data-color="accent-color"
-                            >
-                              <span>
-                                <svg
-                                  role="presentation"
-                                  version="1.1"
-                                  xmlns="http://www.w3.org/2000/svg"
-                                  width="50"
-                                  height="50"
-                                  viewBox="0 0 32 32"
-                                >
-                                  <path d="M15.959 30.639c-0.368 0-0.667-0.3-0.667-0.667v-28c0-0.367 0.299-0.667 0.667-0.667 0.367 0 0.667 0.3 0.667 0.667v28c0 0.367-0.3 0.667-0.667 0.667zM15.955 4.024c-0.136 0-0.269-0.039-0.384-0.121l-2.204-1.552c-0.301-0.212-0.373-0.629-0.161-0.928 0.212-0.303 0.629-0.368 0.929-0.161l1.828 1.287 1.917-1.295c0.305-0.205 0.72-0.125 0.925 0.179 0.205 0.305 0.125 0.72-0.18 0.925l-2.3 1.552c-0.112 0.079-0.241 0.115-0.371 0.115zM15.955 9.988c-0.136 0-0.269-0.036-0.384-0.12l-2.204-1.552c-0.301-0.213-0.373-0.631-0.161-0.927 0.212-0.303 0.629-0.369 0.929-0.161l1.828 1.288 1.917-1.299c0.305-0.204 0.72-0.128 0.925 0.18 0.205 0.305 0.125 0.719-0.18 0.924l-2.3 1.552c-0.112 0.075-0.241 0.115-0.371 0.115zM18.251 30.86c-0.128 0-0.257-0.036-0.372-0.115l-1.917-1.295-1.828 1.287c-0.301 0.211-0.717 0.139-0.929-0.161-0.212-0.303-0.139-0.716 0.161-0.927l2.204-1.552c0.228-0.159 0.528-0.161 0.756-0.008l2.3 1.552c0.305 0.205 0.385 0.62 0.18 0.924-0.128 0.192-0.339 0.295-0.555 0.295zM18.251 24.896c-0.128 0-0.257-0.036-0.372-0.115l-1.917-1.297-1.828 1.287c-0.301 0.213-0.717 0.139-0.929-0.161-0.212-0.305-0.139-0.716 0.161-0.927l2.204-1.552c0.228-0.156 0.528-0.159 0.756-0.005l2.3 1.552c0.305 0.203 0.385 0.62 0.18 0.921-0.128 0.196-0.339 0.297-0.555 0.297zM29.959 16.639h-28c-0.368 0-0.667-0.3-0.667-0.667s0.299-0.667 0.667-0.667h28c0.367 0 0.667 0.3 0.667 0.667s-0.3 0.667-0.667 0.667zM1.805 18.917c-0.133 0-0.267-0.039-0.384-0.12-0.301-0.213-0.373-0.631-0.161-0.929l1.287-1.828-1.295-1.917c-0.205-0.305-0.125-0.719 0.18-0.919 0.305-0.211 0.719-0.132 0.925 0.177l1.552 2.301c0.155 0.229 0.152 0.529-0.008 0.756l-1.552 2.2c-0.127 0.179-0.333 0.279-0.544 0.279zM7.769 18.917c-0.133 0-0.265-0.039-0.384-0.12-0.301-0.213-0.372-0.631-0.16-0.929l1.287-1.828-1.296-1.917c-0.204-0.305-0.125-0.719 0.181-0.919 0.305-0.211 0.72-0.132 0.924 0.177l1.552 2.301c0.155 0.229 0.152 0.529-0.008 0.756l-1.552 2.2c-0.127 0.179-0.335 0.279-0.544 0.279zM30.195 18.917c-0.209 0-0.416-0.099-0.545-0.281l-1.553-2.205c-0.16-0.227-0.163-0.528-0.008-0.753l1.553-2.304c0.207-0.305 0.62-0.388 0.925-0.177 0.305 0.204 0.385 0.62 0.18 0.924l-1.296 1.917 1.288 1.828c0.212 0.305 0.139 0.719-0.161 0.929-0.115 0.083-0.249 0.123-0.383 0.123zM24.233 18.917c-0.209 0-0.417-0.099-0.545-0.281l-1.553-2.205c-0.16-0.227-0.163-0.528-0.008-0.753l1.553-2.304c0.204-0.305 0.62-0.388 0.924-0.177 0.305 0.204 0.385 0.62 0.181 0.924l-1.297 1.917 1.289 1.828c0.211 0.305 0.139 0.719-0.161 0.929-0.116 0.083-0.252 0.123-0.383 0.123zM25.959 26.688c-0.171 0-0.341-0.065-0.472-0.195l-20.028-20.028c-0.26-0.256-0.26-0.687 0-0.943 0.259-0.256 0.683-0.256 0.943 0l20.028 20.027c0.26 0.26 0.26 0.688 0 0.943-0.129 0.131-0.3 0.196-0.471 0.196zM4.368 8.217c-0.319 0-0.6-0.227-0.656-0.552-0.063-0.361 0.181-0.705 0.543-0.772l2.204-0.383 0.44-2.271c0.071-0.36 0.417-0.587 0.783-0.527 0.361 0.072 0.597 0.417 0.528 0.781l-0.528 2.724c-0.052 0.272-0.268 0.48-0.541 0.527l-2.657 0.465c-0.037 0.004-0.076 0.007-0.115 0.007zM8.584 12.433c-0.319 0-0.6-0.227-0.656-0.552-0.063-0.361 0.18-0.705 0.544-0.771l2.204-0.383 0.44-2.271c0.069-0.361 0.415-0.591 0.781-0.528 0.36 0.071 0.596 0.417 0.527 0.781l-0.527 2.724c-0.052 0.272-0.268 0.48-0.54 0.527l-2.659 0.465c-0.039 0.004-0.075 0.007-0.115 0.007zM24.444 28.289c-0.037 0-0.077-0.003-0.116-0.011-0.361-0.063-0.605-0.412-0.541-0.771l0.463-2.659c0.048-0.271 0.259-0.487 0.529-0.539l2.723-0.528c0.363-0.076 0.711 0.167 0.781 0.528s-0.167 0.711-0.528 0.781l-2.272 0.44-0.384 2.203c-0.057 0.325-0.337 0.555-0.655 0.555zM20.228 24.073c-0.037 0-0.077-0.003-0.115-0.011-0.363-0.063-0.607-0.409-0.543-0.771l0.461-2.656c0.048-0.273 0.259-0.489 0.529-0.541l2.724-0.527c0.361-0.076 0.711 0.167 0.781 0.527 0.071 0.361-0.167 0.711-0.528 0.781l-2.273 0.44-0.383 2.203c-0.056 0.323-0.339 0.555-0.655 0.555zM5.929 26.688c-0.171 0-0.341-0.065-0.472-0.195-0.26-0.255-0.26-0.683 0-0.943l20.028-20.027c0.26-0.256 0.684-0.256 0.943 0 0.26 0.256 0.26 0.687 0 0.943l-20.027 20.025c-0.132 0.131-0.303 0.196-0.472 0.196zM7.553 28.289c-0.317 0-0.599-0.229-0.655-0.552l-0.384-2.204-2.272-0.44c-0.361-0.073-0.597-0.421-0.528-0.781 0.071-0.361 0.417-0.593 0.781-0.528l2.723 0.528c0.272 0.052 0.483 0.268 0.529 0.539l0.463 2.656c0.063 0.361-0.18 0.705-0.541 0.771-0.039 0.009-0.079 0.012-0.116 0.012zM11.769 24.073c-0.317 0-0.599-0.229-0.655-0.555l-0.383-2.203-2.273-0.44c-0.361-0.071-0.597-0.417-0.528-0.781 0.071-0.36 0.417-0.585 0.781-0.527l2.724 0.527c0.272 0.055 0.483 0.271 0.529 0.541l0.461 2.659c0.061 0.359-0.18 0.705-0.544 0.768-0.036 0.008-0.076 0.011-0.113 0.011zM27.628 8.217c-0.037 0-0.077-0.003-0.115-0.011l-2.657-0.461c-0.273-0.047-0.488-0.257-0.54-0.528l-0.528-2.724c-0.072-0.361 0.167-0.711 0.528-0.781 0.361-0.073 0.712 0.167 0.781 0.528l0.44 2.272 2.204 0.383c0.361 0.063 0.607 0.411 0.543 0.769-0.055 0.324-0.337 0.553-0.656 0.553zM23.412 12.433c-0.037 0-0.076-0.003-0.115-0.011l-2.659-0.461c-0.273-0.047-0.488-0.257-0.54-0.528l-0.527-2.724c-0.071-0.361 0.167-0.711 0.528-0.781 0.36-0.076 0.711 0.167 0.78 0.528l0.439 2.272 2.205 0.383c0.361 0.063 0.607 0.411 0.543 0.769-0.053 0.324-0.336 0.553-0.655 0.553z"></path>
-                                </svg>
-                              </span>
-                            </span>
-                            <h2>{text["Dream-28"]}</h2>
-                          </div>
-                          <div class="hover-content">
-                            {text["Paint-a-multi-sensory-picture-of-yo-29"]}
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
+</section>
 
-                <div
-                  class="vc_col-sm-3 wpb_column column_container vc_column_container col child_column has-animation no-extra-padding inherit_tablet inherit_phone"
-                  data-padding-pos="all"
-                  data-has-bg-color="false"
-                  data-bg-color=""
-                  data-bg-opacity="1"
-                  data-animation="fade-in-from-bottom"
-                  data-delay="50"
-                >
-                  <div class="vc_column-inner">
-                    <div class="wpb_wrapper">
-                      <div
-                        class="nectar-fancy-box using-img"
-                        style="min-height: 500px"
-                        data-style="hover_desc"
-                        data-border-radius="default"
-                        data-animation=""
-                        data-bg-animation="long_zoom"
-                        data-border=""
-                        data-delay=""
-                        data-alignment="left"
-                        data-color="accent-color"
-                      >
-                        <div
-                          class="box-bg"
-                          role="presentation"
-                          data-nectar-img-src="https://themenectar.com/img/demo-media/unsplash/webp/500-500-sky.webp"
-                        ></div>
-                        <div class="inner">
-                          <div class="heading-wrap">
-                            <span
-                              class="im-icon-wrap"
-                              data-color="accent-color"
-                            >
-                              <span>
-                                <svg
-                                  role="presentation"
-                                  version="1.1"
-                                  xmlns="http://www.w3.org/2000/svg"
-                                  width="50"
-                                  height="50"
-                                  viewBox="0 0 32 32"
-                                >
-                                  <path d="M6.333 7c-0.368 0-0.667-0.3-0.667-0.667v-5.333c0-0.367 0.299-0.667 0.667-0.667s0.667 0.3 0.667 0.667v5.333c0 0.367-0.3 0.667-0.667 0.667zM6.333 7.751c-0.181 0-0.356-0.075-0.481-0.201l-2-2.084c-0.255-0.268-0.247-0.692 0.019-0.944 0.267-0.256 0.687-0.247 0.943 0.019l1.52 1.585 1.519-1.584c0.255-0.263 0.677-0.276 0.943-0.020 0.264 0.252 0.273 0.676 0.019 0.943l-2 2.084c-0.124 0.128-0.3 0.203-0.48 0.203zM22.117 31.667h-7.533c-3.163 0-5.399-4.881-7.372-9.191-0.748-1.635-1.455-3.175-2.045-4.005-0.86-1.211-0.803-2.716 0.139-3.659 0.992-0.987 2.78-1.027 3.745-0.060l1.951 1.961v-10.959c0-1.412 1.221-2.601 2.667-2.601 1.471 0 2.667 1.153 2.667 2.573v5.773c0.392-0.219 0.848-0.345 1.333-0.345 1.148 0 2.156 0.751 2.521 1.767 0.424-0.273 0.932-0.433 1.479-0.433 1.148 0 2.156 0.751 2.521 1.767 0.424-0.273 0.932-0.433 1.479-0.433 1.445 0 2.667 1.192 2.667 2.6v7.213c0 5.591-5.729 7.891-5.972 7.984-0.081 0.032-0.164 0.048-0.245 0.048zM7.237 15.355c-0.373 0-0.733 0.145-0.991 0.405-0.551 0.552-0.383 1.393 0.007 1.943 0.663 0.935 1.361 2.46 2.169 4.224 1.625 3.549 3.853 8.411 6.16 8.411h7.399c0.739-0.325 5.020-2.408 5.020-6.695v-7.213c0-0.688-0.612-1.268-1.333-1.268-0.724 0-1.333 0.571-1.333 1.24 0 0.367-0.3 0.667-0.667 0.667-0.368 0-0.667-0.3-0.667-0.667v-1.308c0-0.688-0.612-1.268-1.333-1.268-0.724 0-1.333 0.571-1.333 1.24 0 0.367-0.3 0.667-0.667 0.667-0.368 0-0.667-0.3-0.667-0.667v-1.305c0-0.688-0.612-1.268-1.333-1.268-0.724 0-1.333 0.571-1.333 1.24 0 0.367-0.299 0.667-0.667 0.667s-0.667-0.3-0.667-0.667v-8c0-0.669-0.611-1.24-1.333-1.24s-1.333 0.584-1.333 1.268v12.573c0 0.271-0.163 0.513-0.412 0.617-0.249 0.101-0.536 0.047-0.727-0.144l-3.089-3.105c-0.22-0.228-0.529-0.347-0.869-0.347z"></path>
-                                </svg>
-                              </span>
-                            </span>
-                            <h2>{text["Design-30"]}</h2>
-                          </div>
-                          <div class="hover-content">
-                            {text["Optimize-your-schedule-to-support-y-31"]}
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-
-                <div
-                  class="vc_col-sm-3 wpb_column column_container vc_column_container col child_column has-animation no-extra-padding inherit_tablet inherit_phone"
-                  data-padding-pos="all"
-                  data-has-bg-color="false"
-                  data-bg-color=""
-                  data-bg-opacity="1"
-                  data-animation="fade-in-from-bottom"
-                  data-delay="100"
-                >
-                  <div class="vc_column-inner">
-                    <div class="wpb_wrapper">
-                      <div
-                        class="nectar-fancy-box using-img"
-                        style="min-height: 500px"
-                        data-style="hover_desc"
-                        data-border-radius="default"
-                        data-animation=""
-                        data-bg-animation="long_zoom"
-                        data-border=""
-                        data-delay=""
-                        data-alignment="left"
-                        data-color="accent-color"
-                      >
-                        <div
-                          class="box-bg"
-                          role="presentation"
-                          data-nectar-img-src="https://themenectar.com/img/demo-media/unsplash/webp/500-500-building.webp"
-                        ></div>
-                        <div class="inner">
-                          <div class="heading-wrap">
-                            <span
-                              class="im-icon-wrap"
-                              data-color="accent-color"
-                            >
-                              <span>
-                                <svg
-                                  role="presentation"
-                                  version="1.1"
-                                  xmlns="http://www.w3.org/2000/svg"
-                                  width="50"
-                                  height="50"
-                                  viewBox="0 0 32 32"
-                                >
-                                  <path d="M28 28.812h-24c-0.368 0-0.667-0.299-0.667-0.667s0.299-0.667 0.667-0.667h24c0.368 0 0.667 0.299 0.667 0.667s-0.299 0.667-0.667 0.667zM27.661 26.145h-23.321c-0.301 0-0.565-0.201-0.644-0.493l-3.007-11.193c-0.060-0.228 0.001-0.471 0.164-0.639 0.163-0.169 0.399-0.244 0.629-0.188l9.796 2.245 4.089-12.236c0.091-0.271 0.347-0.453 0.632-0.453v0c0.287 0 0.541 0.185 0.632 0.457l4.088 12.332 9.789-2.361c0.231-0.049 0.469 0.017 0.633 0.187 0.164 0.168 0.228 0.411 0.167 0.639l-3.007 11.211c-0.076 0.291-0.34 0.493-0.641 0.493zM4.852 24.812h22.297l2.584-9.633-9.295 2.24c-0.333 0.077-0.68-0.108-0.789-0.439l-3.651-11.013-3.647 10.911c-0.108 0.325-0.445 0.521-0.781 0.439l-9.305-2.133 2.587 9.629z"></path>
-                                </svg>
-                              </span>
-                            </span>
-                            <h2>{text["Clean-32"]}</h2>
-                            <h5></h5>
-                          </div>
-                          <div class="hover-content">
-                            {text["Identify-and-discard-triggers-from--33"]}
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-
-                <div
-                  class="vc_col-sm-3 wpb_column column_container vc_column_container col child_column has-animation no-extra-padding inherit_tablet inherit_phone"
-                  data-padding-pos="all"
-                  data-has-bg-color="false"
-                  data-bg-color=""
-                  data-bg-opacity="1"
-                  data-animation="fade-in-from-bottom"
-                  data-delay="150"
-                >
-                  <div class="vc_column-inner">
-                    <div class="wpb_wrapper">
-                      <div
-                        class="nectar-fancy-box using-img"
-                        style="min-height: 500px"
-                        data-style="hover_desc"
-                        data-border-radius="default"
-                        data-animation=""
-                        data-bg-animation="long_zoom"
-                        data-border=""
-                        data-delay=""
-                        data-alignment="left"
-                        data-color="accent-color"
-                      >
-                        <div
-                          class="box-bg"
-                          role="presentation"
-                          data-nectar-img-src="https://themenectar.com/img/demo-media/unsplash/webp/700-700-food.webp"
-                        ></div>
-                        <div class="inner">
-                          <div class="heading-wrap">
-                            <span
-                              class="im-icon-wrap"
-                              data-color="accent-color"
-                            >
-                              <span>
-                                <svg
-                                  role="presentation"
-                                  version="1.1"
-                                  xmlns="http://www.w3.org/2000/svg"
-                                  width="50"
-                                  height="50"
-                                  viewBox="0 0 32 32"
-                                >
-                                  <path d="M15.959 30.639c-0.368 0-0.667-0.3-0.667-0.667v-28c0-0.367 0.299-0.667 0.667-0.667 0.367 0 0.667 0.3 0.667 0.667v28c0 0.367-0.3 0.667-0.667 0.667zM15.955 4.024c-0.136 0-0.269-0.039-0.384-0.121l-2.204-1.552c-0.301-0.212-0.373-0.629-0.161-0.928 0.212-0.303 0.629-0.368 0.929-0.161l1.828 1.287 1.917-1.295c0.305-0.205 0.72-0.125 0.925 0.179 0.205 0.305 0.125 0.72-0.18 0.925l-2.3 1.552c-0.112 0.079-0.241 0.115-0.371 0.115zM15.955 9.988c-0.136 0-0.269-0.036-0.384-0.12l-2.204-1.552c-0.301-0.213-0.373-0.631-0.161-0.927 0.212-0.303 0.629-0.369 0.929-0.161l1.828 1.288 1.917-1.299c0.305-0.204 0.72-0.128 0.925 0.18 0.205 0.305 0.125 0.719-0.18 0.924l-2.3 1.552c-0.112 0.075-0.241 0.115-0.371 0.115zM18.251 30.86c-0.128 0-0.257-0.036-0.372-0.115l-1.917-1.295-1.828 1.287c-0.301 0.211-0.717 0.139-0.929-0.161-0.212-0.303-0.139-0.716 0.161-0.927l2.204-1.552c0.228-0.159 0.528-0.161 0.756-0.008l2.3 1.552c0.305 0.205 0.385 0.62 0.18 0.924-0.128 0.192-0.339 0.295-0.555 0.295zM18.251 24.896c-0.128 0-0.257-0.036-0.372-0.115l-1.917-1.297-1.828 1.287c-0.301 0.213-0.717 0.139-0.929-0.161-0.212-0.305-0.139-0.716 0.161-0.927l2.204-1.552c0.228-0.156 0.528-0.159 0.756-0.005l2.3 1.552c0.305 0.203 0.385 0.62 0.18 0.921-0.128 0.196-0.339 0.297-0.555 0.297zM29.959 16.639h-28c-0.368 0-0.667-0.3-0.667-0.667s0.299-0.667 0.667-0.667h28c0.367 0 0.667 0.3 0.667 0.667s-0.3 0.667-0.667 0.667zM1.805 18.917c-0.133 0-0.267-0.039-0.384-0.12-0.301-0.213-0.373-0.631-0.161-0.929l1.287-1.828-1.295-1.917c-0.205-0.305-0.125-0.719 0.18-0.919 0.305-0.211 0.719-0.132 0.925 0.177l1.552 2.301c0.155 0.229 0.152 0.529-0.008 0.756l-1.552 2.2c-0.127 0.179-0.333 0.279-0.544 0.279zM7.769 18.917c-0.133 0-0.265-0.039-0.384-0.12-0.301-0.213-0.372-0.631-0.16-0.929l1.287-1.828-1.296-1.917c-0.204-0.305-0.125-0.719 0.181-0.919 0.305-0.211 0.72-0.132 0.924 0.177l1.552 2.301c0.155 0.229 0.152 0.529-0.008 0.756l-1.552 2.2c-0.127 0.179-0.335 0.279-0.544 0.279zM30.195 18.917c-0.209 0-0.416-0.099-0.545-0.281l-1.553-2.205c-0.16-0.227-0.163-0.528-0.008-0.753l1.553-2.304c0.207-0.305 0.62-0.388 0.925-0.177 0.305 0.204 0.385 0.62 0.18 0.924l-1.296 1.917 1.288 1.828c0.212 0.305 0.139 0.719-0.161 0.929-0.115 0.083-0.249 0.123-0.383 0.123zM24.233 18.917c-0.209 0-0.417-0.099-0.545-0.281l-1.553-2.205c-0.16-0.227-0.163-0.528-0.008-0.753l1.553-2.304c0.204-0.305 0.62-0.388 0.924-0.177 0.305 0.204 0.385 0.62 0.181 0.924l-1.297 1.917 1.289 1.828c0.211 0.305 0.139 0.719-0.161 0.929-0.116 0.083-0.252 0.123-0.383 0.123zM25.959 26.688c-0.171 0-0.341-0.065-0.472-0.195l-20.028-20.028c-0.26-0.256-0.26-0.687 0-0.943 0.259-0.256 0.683-0.256 0.943 0l20.028 20.027c0.26 0.26 0.26 0.688 0 0.943-0.129 0.131-0.3 0.196-0.471 0.196zM4.368 8.217c-0.319 0-0.6-0.227-0.656-0.552-0.063-0.361 0.181-0.705 0.543-0.772l2.204-0.383 0.44-2.271c0.071-0.36 0.417-0.587 0.783-0.527 0.361 0.072 0.597 0.417 0.528 0.781l-0.528 2.724c-0.052 0.272-0.268 0.48-0.541 0.527l-2.657 0.465c-0.037 0.004-0.076 0.007-0.115 0.007zM8.584 12.433c-0.319 0-0.6-0.227-0.656-0.552-0.063-0.361 0.18-0.705 0.544-0.771l2.204-0.383 0.44-2.271c0.069-0.361 0.415-0.591 0.781-0.528 0.36 0.071 0.596 0.417 0.527 0.781l-0.527 2.724c-0.052 0.272-0.268 0.48-0.54 0.527l-2.659 0.465c-0.039 0.004-0.075 0.007-0.115 0.007zM24.444 28.289c-0.037 0-0.077-0.003-0.116-0.011-0.361-0.063-0.605-0.412-0.541-0.771l0.463-2.659c0.048-0.271 0.259-0.487 0.529-0.539l2.723-0.528c0.363-0.076 0.711 0.167 0.781 0.528s-0.167 0.711-0.528 0.781l-2.272 0.44-0.384 2.203c-0.057 0.325-0.337 0.555-0.655 0.555zM20.228 24.073c-0.037 0-0.077-0.003-0.115-0.011-0.363-0.063-0.607-0.409-0.543-0.771l0.461-2.656c0.048-0.273 0.259-0.489 0.529-0.541l2.724-0.527c0.361-0.076 0.711 0.167 0.781 0.527 0.071 0.361-0.167 0.711-0.528 0.781l-2.273 0.44-0.383 2.203c-0.056 0.323-0.339 0.555-0.655 0.555zM5.929 26.688c-0.171 0-0.341-0.065-0.472-0.195-0.26-0.255-0.26-0.683 0-0.943l20.028-20.027c0.26-0.256 0.684-0.256 0.943 0 0.26 0.256 0.26 0.687 0 0.943l-20.027 20.025c-0.132 0.131-0.303 0.196-0.472 0.196zM7.553 28.289c-0.317 0-0.599-0.229-0.655-0.552l-0.384-2.204-2.272-0.44c-0.361-0.073-0.597-0.421-0.528-0.781 0.071-0.361 0.417-0.593 0.781-0.528l2.723 0.528c0.272 0.052 0.483 0.268 0.529 0.539l0.463 2.656c0.063 0.361-0.18 0.705-0.541 0.771-0.039 0.009-0.079 0.012-0.116 0.012zM11.769 24.073c-0.317 0-0.599-0.229-0.655-0.555l-0.383-2.203-2.273-0.44c-0.361-0.071-0.597-0.417-0.528-0.781 0.071-0.36 0.417-0.585 0.781-0.527l2.724 0.527c0.272 0.055 0.483 0.271 0.529 0.541l0.461 2.659c0.061 0.359-0.18 0.705-0.544 0.768-0.036 0.008-0.076 0.011-0.113 0.011zM27.628 8.217c-0.037 0-0.077-0.003-0.115-0.011l-2.657-0.461c-0.273-0.047-0.488-0.257-0.54-0.528l-0.528-2.724c-0.072-0.361 0.167-0.711 0.528-0.781 0.361-0.073 0.712 0.167 0.781 0.528l0.44 2.272 2.204 0.383c0.361 0.063 0.607 0.411 0.543 0.769-0.055 0.324-0.337 0.553-0.656 0.553zM23.412 12.433c-0.037 0-0.076-0.003-0.115-0.011l-2.659-0.461c-0.273-0.047-0.488-0.257-0.54-0.528l-0.527-2.724c-0.071-0.361 0.167-0.711 0.528-0.781 0.36-0.076 0.711 0.167 0.78 0.528l0.439 2.272 2.205 0.383c0.361 0.063 0.607 0.411 0.543 0.769-0.053 0.324-0.336 0.553-0.655 0.553z"></path>
-                                </svg>
-                              </span>
-                            </span>
-                            <h2>{text["Fuel-34"]}</h2>
-                          </div>
-                          <div class="hover-content">
-                            {text["Resolve-inefficiencies-in-body-and--35"]}
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-</ContentFrame>
+<style>
+  .hero-quote {
+    max-width: 44em;
+    margin: 0 0 28px;
+    font-style: italic;
+  }
+  .hero-quote p {
+    max-width: none;
+    font-size: clamp(1rem, 1.6vw, 1.15rem);
+  }
+  .packages {
+    margin-bottom: 36px;
+    border-top: 1px solid var(--line);
+  }
+  details {
+    border-bottom: 1px solid var(--line);
+  }
+  summary {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 16px;
+    padding: 22px 0;
+    font: 400 clamp(1.15rem, 2.2vw, 1.5rem) / 1.3 var(--serif);
+    text-transform: uppercase;
+    list-style: none;
+    cursor: pointer;
+  }
+  summary::-webkit-details-marker {
+    display: none;
+  }
+  summary::after {
+    content: "+";
+    flex: none;
+    display: grid;
+    place-items: center;
+    width: 32px;
+    height: 32px;
+    border: 1.5px solid currentColor;
+    border-radius: 50%;
+    font: 400 1.3rem/1 var(--sans);
+  }
+  details[open] summary::after {
+    content: "−";
+  }
+  details .prose {
+    padding-bottom: 24px;
+  }
+  .included {
+    padding-left: 1.2em;
+  }
+  .included :global(p) {
+    margin: 0;
+  }
+  .included li {
+    margin-bottom: 0.9em;
+  }
+  .lead :global(p) {
+    margin-inline: auto;
+  }
+  .framework {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 20px;
+    margin: 40px 0 0;
+    padding: 0;
+    list-style: none;
+    counter-reset: step;
+  }
+  .framework li {
+    padding: 30px 26px;
+    background: #fff;
+    border-top: 3px solid var(--teal);
+    border-radius: 6px;
+    counter-increment: step;
+  }
+  .framework li::before {
+    content: "0" counter(step);
+    display: block;
+    margin-bottom: 12px;
+    color: var(--teal);
+    font: 600 0.85rem/1 var(--sans);
+    letter-spacing: 0.12em;
+  }
+  .framework p {
+    margin: 0;
+    color: var(--muted);
+  }
+  @media (max-width: 960px) {
+    .framework {
+      grid-template-columns: 1fr 1fr;
+    }
+  }
+  @media (max-width: 560px) {
+    .framework {
+      grid-template-columns: 1fr;
+    }
+  }
+</style>

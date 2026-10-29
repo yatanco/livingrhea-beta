@@ -1,0 +1,340 @@
+/* Living Rhea beta design system: two local fonts, a handful of tokens and
+   layout primitives. No theme framework, no JavaScript dependencies. */
+@font-face {
+  font-family: "Ogg";
+  src: url("/fonts/beta/ogg-regular.woff2") format("woff2");
+  font-weight: 400;
+  font-display: swap;
+}
+@font-face {
+  font-family: "Inter";
+  src: url("/fonts/beta/inter-latin.woff2") format("woff2");
+  /* A single static weight: bold is synthesized, as on the original site. */
+  font-weight: 400;
+  font-display: swap;
+  unicode-range:
+    U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC,
+    U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193,
+    U+2212, U+2215, U+FEFF, U+FFFD;
+}
+/* Metric-matched fallbacks keep text from reflowing when the fonts swap in. */
+@font-face {
+  font-family: "Inter Fallback";
+  src: local("Arial");
+  size-adjust: 107.4%;
+  ascent-override: 90.2%;
+  descent-override: 22.5%;
+  line-gap-override: 0%;
+}
+@font-face {
+  font-family: "Ogg Fallback";
+  src: local("Georgia"), local("Times New Roman");
+  size-adjust: 96%;
+  ascent-override: 92%;
+  descent-override: 24%;
+}
+
+:root {
+  --ink: #1d1d1d;
+  --muted: #5c5c5c;
+  --line: #e6e0d8;
+  --paper: #ffffff;
+  --sand: #f7f3ee;
+  --dark: #2b2b2b;
+  --accent: #c2410c;
+  --accent-bright: #ff6b17;
+  --teal: #2f7d6d;
+  --serif: "Ogg", "Ogg Fallback", Georgia, serif;
+  --sans: "Inter", "Inter Fallback", system-ui, sans-serif;
+  --wrap: 1180px;
+  --gutter: clamp(20px, 5vw, 48px);
+  --section: clamp(56px, 9vw, 112px);
+  color-scheme: light;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+html {
+  -webkit-text-size-adjust: 100%;
+  scroll-behavior: smooth;
+}
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+}
+body {
+  margin: 0;
+  background: var(--paper);
+  color: var(--ink);
+  font: 400 17px/1.7 var(--sans);
+  text-rendering: optimizeLegibility;
+}
+img,
+video,
+iframe {
+  display: block;
+  max-width: 100%;
+}
+img {
+  height: auto;
+}
+a {
+  color: var(--accent);
+  text-underline-offset: 0.18em;
+}
+a:hover {
+  color: var(--ink);
+}
+:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 3px;
+}
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  margin: 0 0 0.6em;
+  font-family: var(--serif);
+  font-weight: 400;
+  line-height: 1.15;
+  text-wrap: balance;
+}
+h1 {
+  font-size: clamp(2.4rem, 6vw, 4.6rem);
+}
+h2 {
+  font-size: clamp(1.9rem, 4vw, 3rem);
+}
+h3 {
+  font-size: clamp(1.4rem, 2.6vw, 1.9rem);
+}
+h4 {
+  font-size: 1.25rem;
+}
+h5,
+h6 {
+  font-size: 1.05rem;
+}
+p,
+ul,
+ol,
+blockquote,
+figure {
+  margin: 0 0 1.1em;
+}
+strong,
+b {
+  font-weight: 650;
+}
+
+.wrap {
+  width: min(100% - 2 * var(--gutter), var(--wrap));
+  margin-inline: auto;
+}
+.narrow {
+  width: min(100% - 2 * var(--gutter), 760px);
+  margin-inline: auto;
+}
+.section {
+  padding-block: var(--section);
+}
+.section.tint {
+  background: var(--sand);
+}
+.display {
+  text-transform: uppercase;
+  letter-spacing: 0.02em;
+}
+.center {
+  text-align: center;
+}
+.eyebrow {
+  display: block;
+  margin-bottom: 14px;
+  color: var(--teal);
+  font: 600 0.78rem/1.4 var(--sans);
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+}
+.lead {
+  font-size: 1.15rem;
+  color: var(--muted);
+}
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  clip: rect(0 0 0 0);
+  white-space: nowrap;
+}
+.skip-link {
+  position: absolute;
+  left: 12px;
+  top: -60px;
+  z-index: 100;
+  padding: 10px 16px;
+  background: var(--ink);
+  color: #fff;
+}
+.skip-link:focus {
+  top: 12px;
+}
+
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  min-height: 48px;
+  padding: 12px 28px;
+  border: 2px solid var(--accent);
+  border-radius: 999px;
+  background: var(--accent);
+  color: #fff;
+  font: 650 0.85rem/1.2 var(--sans);
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  text-decoration: none;
+  cursor: pointer;
+  transition:
+    background 0.2s,
+    color 0.2s;
+}
+.btn:hover {
+  background: transparent;
+  color: var(--accent);
+}
+.btn.ghost {
+  background: transparent;
+  color: var(--accent);
+}
+.btn.ghost:hover {
+  background: var(--accent);
+  color: #fff;
+}
+.btn.light {
+  border-color: #fff;
+  background: #fff;
+  color: var(--ink);
+}
+.btn.light:hover {
+  background: transparent;
+  color: #fff;
+}
+.actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 14px;
+}
+.arrow-link {
+  font-weight: 600;
+  text-decoration: none;
+}
+.arrow-link::after {
+  content: " →";
+}
+
+/* Two-column image + text blocks. */
+.split {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  align-items: start;
+  gap: clamp(32px, 6vw, 80px);
+}
+.split.flip > :first-child {
+  order: 2;
+}
+.split > img,
+.split > picture img {
+  width: 100%;
+  border-radius: 4px;
+}
+@media (max-width: 860px) {
+  .split {
+    grid-template-columns: 1fr;
+  }
+  .split.flip > :first-child {
+    order: 0;
+  }
+}
+
+/* Long-form copy from the CMS. */
+.prose > :last-child {
+  margin-bottom: 0;
+}
+.prose h2,
+.prose h3,
+.prose h4 {
+  margin-top: 1.6em;
+}
+.prose ul,
+.prose ol {
+  padding-left: 1.3em;
+}
+.prose li {
+  margin-bottom: 0.35em;
+}
+.prose blockquote {
+  margin-inline: 0;
+  padding-left: 1.2em;
+  border-left: 3px solid var(--line);
+  color: var(--muted);
+}
+.prose img {
+  margin-block: 1.4em;
+  border-radius: 4px;
+}
+.prose iframe {
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  height: auto;
+  border: 0;
+}
+
+/* Divider with a small heart, echoing the original site's ornament. */
+.ornament {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  margin: 0 0 28px;
+  color: var(--accent);
+}
+.ornament::before,
+.ornament::after {
+  content: "";
+  flex: 1;
+  height: 1px;
+  background: #9fd2c3;
+}
+.ornament svg {
+  width: 18px;
+  height: 18px;
+  fill: currentColor;
+}
+
+/* Inputs shared by the newsletter and contact forms. */
+input,
+textarea,
+button {
+  font: inherit;
+}
+.field {
+  display: block;
+  width: 100%;
+  min-height: 48px;
+  padding: 12px 16px;
+  border: 1px solid #c9c2b8;
+  border-radius: 6px;
+  background: #fff;
+  color: var(--ink);
+}
+.field:focus-visible {
+  outline-offset: 1px;
+}
