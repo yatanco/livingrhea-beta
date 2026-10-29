@@ -44,7 +44,7 @@ I’m pretty sure people won’t eat broccoli if you tell them to, straight up. 
 
 What if I sang it to them? Or rapped it? What if I gifted them a broccoli tattoo? [Would they rawk it](https://www.youtube.com/watch?v=-mXIL_LKvvI&t=1m35s)?
 
-Ever since I co-founded [Camp Reset](https://campreset.ca), this idea of play as the social channel to transformation has been at the forefront of my thoughts. If play opens people up, will they be more receptive to dry or challenging topics?
+Ever since I co-founded Camp Reset, this idea of play as the social channel to transformation has been at the forefront of my thoughts. If play opens people up, will they be more receptive to dry or challenging topics?
 
 What does play actually mean? Wiktionary defines play as:
 

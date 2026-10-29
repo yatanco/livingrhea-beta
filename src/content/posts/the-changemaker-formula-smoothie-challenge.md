@@ -27,6 +27,7 @@ categories:
 featuredImage: images/the-changemaker-formula-smoothie-challenge.webp
 featuredImageAlt: ""
 legacyId: 8780
+notice: The Changemaker Formula challenge is no longer running. Its links now open an archived copy of the original site.
 legacyUrl: https://livingrhea.com/the-changemaker-formula-smoothie-challenge/
 legacyFeaturedImage: /wp-content/uploads/2025/08/042_Rhea_35294.webp
 ---
@@ -53,7 +54,7 @@ In fact, I started Global Smoothie Day in 2015 to give my advocacy a platform an
 
 ## **The Changemaker Formula: 4 weeks of Super Drinks**
 
-If you’re just starting out and wish to further educate yourself, you should read the e-book. If you’re already inspired and want to start experimenting in a safe way, I recommend my [Changemaker Formula 30-day smoothie challenge.](http://www.thechangemakerformula.com/)
+If you’re just starting out and wish to further educate yourself, you should read the e-book. If you’re already inspired and want to start experimenting in a safe way, I recommend my [Changemaker Formula 30-day smoothie challenge.](https://web.archive.org/web/20210116110915/http://www.thechangemakerformula.com/)
 
 The way I see it: Smoothies are the new fast food, except unlike regular fast food, smoothies recharge your body with vitamins, minerals, phytonutrients, fiber, healthy fats, and protein. Basically everything you need to feel energized, poop well, and restore your health, without getting in the way of your busy lifestyle.
 
@@ -73,4 +74,4 @@ In total, you’ll get 15 smoothie recipes to experiment with. Keep in mind that
 
 ### **Start Now**
 
-If you’re feeling ready to join right now, do it! Share it with a buddy or loved one too. Accountability rocks. Register here:  [http://www.thechangemakerformula.com](http://www.thechangemakerformula.com/) and if cost is a barrier, please contact me and I’ll enrol you for free.
+If you’re feeling ready to join right now, do it! Share it with a buddy or loved one too. Accountability rocks. Register here:  [http://www.thechangemakerformula.com](https://web.archive.org/web/20210116110915/http://www.thechangemakerformula.com/) and if cost is a barrier, please contact me and I’ll enrol you for free.

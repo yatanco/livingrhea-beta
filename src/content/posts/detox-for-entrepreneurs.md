@@ -47,13 +47,13 @@ legacyFeaturedImage: /wp-content/uploads/2015/08/changemaker-e1485346365183.webp
 
 Hi Community,
 
-I’m excited to share that I’ve just finished piecing together a simple and affordable ultimate detox for entrepreneurs a 4-week protocol for you called [The Changemaker Formula](http://www.thechangemakerformula.com/).
+I’m excited to share that I’ve just finished piecing together a simple and affordable ultimate detox for entrepreneurs a 4-week protocol for you called [The Changemaker Formula](https://web.archive.org/web/20150828044038/http://www.thechangemakerformula.com/).
 
 Remember when I sent you that survey a while back? Well, I’ve put together exactly what you asked for: a simple, accessible protocol with custom drink recipes and micro-shopping lists that get sent right to your inbox. The ultimate detox for entrepreneurs and doers!
 
 The recipes are categorized by themes like energy, hydration, detox, power, skin, etc. and for every recipe I share, I also share a tip and a nutrition hack.
 
-Check it out [here](http://www.thechangemakerformula.com/) and please share it with your peeps so we can all shine together.
+Check it out [here](https://web.archive.org/web/20150828044038/http://www.thechangemakerformula.com/) and please share it with your peeps so we can all shine together.
 
 Lots of love and gratitude,  
 Dr. Rhea

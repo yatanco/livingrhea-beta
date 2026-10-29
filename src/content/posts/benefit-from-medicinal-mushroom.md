@@ -92,9 +92,9 @@ I’ve been using medicinal mushrooms for over a decade for health and healing. 
 
 If you’re curious to explore the world of medicinal mushrooms, I recommend you choose a supplier of organic products who does third-party testing, in addition to good manufacturing practices, as well as sustainability protocols to ensure mother nature is not harmed in the process of preparing these products.
 
-I’m proud to be an affiliate of Vancouver-based company Qi Traditions, because they’re fully transparent about their methods and use top-notch processes, end-to-end. They also use compostable packaging, which means a lot to me. If you want to explore their resources and products, visit their website [here](https://qitraditions.com/?ref=6qd23azmupo_livingrhea). My link will get you 10% off and full disclosure I’ll get a small something too.
+I’m proud to be an affiliate of Vancouver-based company Qi Traditions, because they’re fully transparent about their methods and use top-notch processes, end-to-end. They also use compostable packaging, which means a lot to me. If you want to explore their resources and products, visit their website [here](https://web.archive.org/web/20201129104401/https://qitraditions.com/). My link will get you 10% off and full disclosure I’ll get a small something too.
 
-[](https://qitraditions.com/?ref=6qd23azmupo_livingrhea)
+[](https://web.archive.org/web/20201129104401/https://qitraditions.com/)
 
 I only affiliate myself with the best of the best—and right now that’s only this company and stress-reducing wearable-tech company [Apollo Neuro](/blog/apollo-clinically-validated-wearable-device/)).
 

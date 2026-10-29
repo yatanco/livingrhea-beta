@@ -34,7 +34,11 @@ test("public pages run no JavaScript and load nothing from other hosts", () => {
 });
 
 test("every external link and form target already existed on the live site", async () => {
-  const known = new Set(JSON.parse(await readFile("tests/fixtures/external-links.json", "utf8")));
+  const known = new Set([
+    ...JSON.parse(await readFile("tests/fixtures/external-links.json", "utf8")),
+    // Wayback snapshots that replace links whose sites have since gone offline.
+    ...JSON.parse(await readFile("tests/fixtures/archived-links.json", "utf8")),
+  ]);
   for (const [page, $] of html)
     for (const el of $("a[href], form[action]").toArray()) {
       const url = $(el).attr("href") || $(el).attr("action");

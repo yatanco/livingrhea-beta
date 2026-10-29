@@ -97,6 +97,6 @@ Besides using these products, my Burning Man wellness protocol also includes a f
 
 Please keep in mind, my no-burn-out Burning-Man self-care package is still (and always) a work in progress. If you think I’m missing a product or practice, please share in the comments below! 
 
-[Buying Guide](http://astore.amazon.com/livrheyouguit-20?_encoding=UTF8&node=7)
+[Buying Guide](https://web.archive.org/web/20151213082028/http://astore.amazon.com/livrheyouguit-20?_encoding=UTF8&node=7)
 
-I’ve compiled my favourite brands and products into an amazon shopping list. You can access it [here](http://astore.amazon.com/livrheyouguit-20?_encoding=UTF8&node=7).
+I’ve compiled my favourite brands and products into an amazon shopping list. You can access it [here](https://web.archive.org/web/20151213082028/http://astore.amazon.com/livrheyouguit-20?_encoding=UTF8&node=7).

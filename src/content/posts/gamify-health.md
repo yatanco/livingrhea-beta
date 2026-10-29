@@ -56,7 +56,7 @@ I can educate and inspire them as much as I’d like, but the important question
 
 Is gamification the answer?
 
-Ever since I Co-Founded [Camp Reset](https://campreset.ca), I’ve been toying with the idea of using play to inspire health transformation specifically in the context of my [1-on-1 coaching and speaking](/coaching/) gigs. First off it’s free, as there is no app or device required. Secondly, the barrier to entry is lower if the information is being delivered in a way that binds it with some of our most precious childhood memories.
+Ever since I Co-Founded Camp Reset, I’ve been toying with the idea of using play to inspire health transformation specifically in the context of my [1-on-1 coaching and speaking](/coaching/) gigs. First off it’s free, as there is no app or device required. Secondly, the barrier to entry is lower if the information is being delivered in a way that binds it with some of our most precious childhood memories.
 
 If we can plant the right seeds to get people excited about getting well, then we’ve passed the rough waters, and can now focus on education and results.
 

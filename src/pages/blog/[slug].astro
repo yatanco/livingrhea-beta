@@ -107,6 +107,7 @@ const byRhea = /rhea/i.test(post.author);
         )
       )
     }
+    {post.notice && <p class="narrow notice">{post.notice}</p>}
     <div class="narrow prose post-body">
       <Content />
     </div>
@@ -159,6 +160,12 @@ const byRhea = /rhea/i.test(post.author);
     margin: clamp(24px, 4vw, 40px) auto;
     object-fit: cover;
     border-radius: 6px;
+  }
+  .notice {
+    margin-bottom: 24px;
+    padding: 14px 20px;
+    border-left: 3px solid var(--accent);
+    background: var(--sand);
   }
   .post-body {
     padding-bottom: 32px;

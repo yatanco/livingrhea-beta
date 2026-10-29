@@ -62,7 +62,7 @@ I can’t list you all, but I will mention some of you who’ve been involved wi
 
 -   [Diana Nazareth](http://www.diananazareth.com/)
 -   [Bob Gundu](http://www.10framehandles.com/)
--   [Christine Chang Photography](http://www.christinechangphotoblog.com/)
+-   [Christine Chang Photography](https://web.archive.org/web/20141219104354/http://www.christinechangphotoblog.com/)
 -   [Matt Jenkins Photography](http://www.mattjenkinsphotography.ca)
 -   [Yasmin Parodi](mailto:yasparodi@gmail.com) 
 -   [Brennan Caverhill](mailto:brennan.caverhill@gmail.com)
@@ -71,7 +71,7 @@ I can’t list you all, but I will mention some of you who’ve been involved wi
 **Design & Marketing**
 
 -   [Ox Agency](http://oxagency.ca)
--   [Pixel Hero](http://pixelhero.ca)
+-   [Pixel Hero](https://web.archive.org/web/20141014235007/http://www.pixelhero.ca/)
 -   Pam Costa
 -   Julie Kroll
 -   Jason Laudadio
@@ -130,7 +130,7 @@ I can’t list you all, but I will mention some of you who’ve been involved wi
 **Events & Media** 
 
 -   Aparna Sethuraman
--   [Anushka Persaud-Garnier](http://www.nushnosh.ca/)
+-   [Anushka Persaud-Garnier](https://web.archive.org/web/20141027233645/http://www.nushnosh.ca/)
 -   Manjit Bumrah
 -   Tanya Pillay
 -   Sarah Delaney
@@ -158,6 +158,6 @@ I can’t list you all, but I will mention some of you who’ve been involved wi
 -   [Mark Greenspan](http://markgreenspan.com/)
 -   Cathy Muffolini
 -   HQ
--   [Girl About Toronto](http://www.girlabouttoronto.com/tag/digest-digest/)
+-   Girl About Toronto
 
 **To our entire community: THANK YOU, THANK YOU, THANK YOU!**

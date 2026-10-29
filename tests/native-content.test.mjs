@@ -22,7 +22,8 @@ const dropped={
   music:['soul'],
   home:['warrenauthor','rhea'],
 };
-const keptLinks={'smoothie-movement':/youtube\.com\/watch|gsd-gallery/};
+// Press items whose articles went offline are kept as text.
+const keptLinks={'smoothie-movement':/youtube\.com\/watch|gsd-gallery/,press:/crunchymamabox\.com|digitimes\.com/};
 test('all main-page copy, destination links and forms survive the redesign',async()=>{
   const baseline=await json('migration/native-pages-baseline.json');
   for(const [slug,old]of Object.entries(baseline)){

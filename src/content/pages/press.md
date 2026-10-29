@@ -62,7 +62,7 @@ DR. SACHIN PATEL, FOUNDER, THE LIVING PROOF INSTITUTE
 
 # section-five-lifestyle-tweaks-that-will-help-support
 
-[Five Lifestyle Tweaks That Will Help Support People’s Journey Towards Better Wellbeing](https://crunchymamabox.com/blogs/interviews-2/women-in-wellness-dr-rhea-mehta-and-romana-kassam-of-aste-wellness-on-the-five-lifestyle-tweaks-that-will-help-support-people-s-journey-towards-better-wellbeing?srsltid=AfmBOorwDK252F_5ekuvcN2NDZmsesFAK68RDAtfCblztI01wpjBVXT2)
+Five Lifestyle Tweaks That Will Help Support People’s Journey Towards Better Wellbeing
 
 # section-the-brave-table
 
@@ -134,7 +134,7 @@ DR. SACHIN PATEL, FOUNDER, THE LIVING PROOF INSTITUTE
 
 # section-bowhead-health-leveraging-ai-for-precision-medicine
 
-[Bowhead Health: Leveraging AI for precision medicine and patient empowerment](https://www.digitimes.com/news/a20241119PR204/ctot-healthcare-medical-data-software.html&chid=9)
+Bowhead Health: Leveraging AI for precision medicine and patient empowerment
 
 # section-diss-dash
 

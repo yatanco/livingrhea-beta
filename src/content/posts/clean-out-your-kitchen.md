@@ -60,7 +60,7 @@ A big takeaway was the desire to go home and clean up the kitchen and pantry and
 
 It’s the new year, and I know improved/next-level health and nutrition is a goal for so many of you. Assuming you’ve already reflected on your health intentions and goals for this quarter and year, **my suggestion as a first step is to clean out your kitchen and pantry**.
 
-Throw out the crap that’s old and toxic and donate the products that you know aren’t serving your body, but may support the health of others in need. Slowly begin to replace those items with brands and products you trust. You can use [my shopping list](http://astore.amazon.com/livrheyouguit-20?_encoding=UTF8&node=1) for ideas/guidance as I’ve hand picked the best products out there!
+Throw out the crap that’s old and toxic and donate the products that you know aren’t serving your body, but may support the health of others in need. Slowly begin to replace those items with brands and products you trust. You can use [my shopping list](https://web.archive.org/web/20151213062351/http://astore.amazon.com/livrheyouguit-20?_encoding=UTF8&node=1) for ideas/guidance as I’ve hand picked the best products out there!
 
 Keep things simple and clean. Print out a few recipes and keep them in the places you generally look when you’re hungry and wandering your kitchen. This, of course, works best for those with a solid home base. The protocol changes slightly for nomads, but it can still be managed with a little prep work.
 

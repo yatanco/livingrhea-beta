@@ -53,7 +53,7 @@ I bought into it for a while (8 years) and my body felt the pain immensely. I wa
 
 Then one year, life \*magically\* shifted for me. And the more I bought into the goodness, the more the goodness fueled me. I found myself in a positive spiral, and although over the years I’ve been kicked out of this spiral a few good times, I always find my way back – thanks to my willingness to seeing and doing things differently.
 
-[In this authenticity podcast](http://makeyourmarktoday.com/Rhea-Mehta/), I share:
+In this authenticity podcast, I share:
 
 -   How I’m feeling currently and why being surrounded by Mother Nature recently helped me feel more open and grounded
 -   Why my attendance at the Do Lectures inspired me
@@ -66,7 +66,7 @@ Then one year, life \*magically\* shifted for me. And the more I bought into the
 -   How my PhD helped me become my own doctor
 -   What authenticity means to me
 
-If you are moved in any way [by the podcast](http://makeyourmarktoday.com/Rhea-Mehta/), I’d love to hear from you in the comments below.
+If you are moved in any way by the podcast, I’d love to hear from you in the comments below.
 
 I’ll leave you with this [recent authentic share](https://www.facebook.com/drrheamehta/photos/a.550336868345269.1073741829.397072023671755/935575839821368/?type=1&theater) and request of mine, that seemed to resonate with a lot of people!
 

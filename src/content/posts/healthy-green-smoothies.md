@@ -49,11 +49,11 @@ legacyUrl: https://livingrhea.com/healthy-green-smoothies/
 legacyFeaturedImage: /wp-content/uploads/2015/09/globalsmoothieday-e1485346241376.webp
 ---
 
-Before I get into my reasons for launching [Global Smoothie Day](https://globalsmoothieday.com), let me tell you what it’s all about:
+Before I get into my reasons for launching [Global Smoothie Day](https://web.archive.org/web/20150930110935/http://www.globalsmoothieday.com/), let me tell you what it’s all about:
 
 **Global Smoothie Day is a 100% FREE initiative to celebrate self-care through nourishment. Our intention is to inspire and motivate people across the world to champion their health and happiness on October 3rd every year.** 
 
-To help get things kick started, we’ve provided a Global Smoothie Day Starter Kit as a [free download](https://globalsmoothieday.com) from the website. It’s loaded with community-donated smoothie recipes, preparation tips and creative ideas on how to celebrate GSD at home, with friends and in your workplace.  We’re also asking everyone who’s participating to post pictures or videos highlighting self-care in \*any\* way via social media using hashtag #GlobalSmoothieDay on October 3rd. Selfies with a positive caption are certainly welcome, and we’re hoping people will take snapshots of their own smoothie gatherings on October 3rd. We’ll certainly be capturing moments from our gathering here in Toronto ([click to see invitation to our free launch party](http://www.blogto.com/events/toronto-global-smoothie-day-launch-party-free-event/)). 
+To help get things kick started, we’ve provided a Global Smoothie Day Starter Kit as a [free download](https://web.archive.org/web/20150930110935/http://www.globalsmoothieday.com/) from the website. It’s loaded with community-donated smoothie recipes, preparation tips and creative ideas on how to celebrate GSD at home, with friends and in your workplace.  We’re also asking everyone who’s participating to post pictures or videos highlighting self-care in \*any\* way via social media using hashtag #GlobalSmoothieDay on October 3rd. Selfies with a positive caption are certainly welcome, and we’re hoping people will take snapshots of their own smoothie gatherings on October 3rd. We’ll certainly be capturing moments from our gathering here in Toronto ([click to see invitation to our free launch party](http://www.blogto.com/events/toronto-global-smoothie-day-launch-party-free-event/)). 
 
 So…
 
@@ -73,7 +73,7 @@ I didn’t get here over night, but I did commit to paying better attention to m
 
 If you’re keen to help me make this happen: 
 
-1\) Go to [www.globalsmoothieday.com](http://l.facebook.com/l.php?u=http%3A%2F%2Fwww.globalsmoothieday.com%2F&h=JAQFNDveyAQHMJHOZyJqZYUaYQfYe2z_S_w_ZiBBCclQcuA&enc=AZONRcrC_-CeD7cd_VKaAD4Axw8vuGUNuGJ4dz7mmHXwrk3Qv-Z70uPI0HcjCynvM23x0Fhi0X0JCC0M4_gLUZN4B0Gi0HWbavOB6gVjSDwRJ1mdAMwj9roeAVpNv3xxbdIGGwMgEGlWVyb-1awhyLGB4YvIz-aC9prGlE_YY3SWW7l4vnqth2lei7RIw6Fk-7AMns5gYJwHAVb-5BgCzMCp&s=1) and download our free Starter Kit. 
+1\) Go to [www.globalsmoothieday.com](https://web.archive.org/web/20150930110935/http://www.globalsmoothieday.com/) and download our free Starter Kit. 
 
 2\) Take a picture/video of you, your smoothie, your social gathering or anything that reflects self-care for you and post it on social media (twitter, instagram, facebook) on October 3rd, tagging #globalsmoothieday.
 
@@ -82,4 +82,4 @@ If you’re keen to help me make this happen: 
 With love and deep gratitude,
 
 Dr. Rhea  
-Founder of [Global Smoothie Day](https://globalsmoothieday.com) [](http://l.facebook.com/l.php?u=http%3A%2F%2Fwww.globalsmoothieday.com%2F&h=OAQExNLQrAQG_5HLiNzPwWxIY_5x8DjrW0QGzCtg4Iv3vOw&enc=AZPeWxjsUFlvoLZZHNYroAuaMEhz3XcZEIUjKaZHYm9wQEG_zcOGS7uy0dZ-NAfEtTZdYShO8ML16kjx2SlTjheiEQL4iBmnLjOa-ZDHhAITcseu5bGtqU11Bnr1FWFLLkfKrEhuK6vvHfixHR-BbOuZ_lNxRCvkoDyTmqTgO7DKagGygwLl9cH1ngpNXCH4pH7j9slpKEG-WYXfv6vUcRND&s=1)
+Founder of [Global Smoothie Day](https://web.archive.org/web/20150930110935/http://www.globalsmoothieday.com/) [](https://web.archive.org/web/20150930110935/http://www.globalsmoothieday.com/)

@@ -56,6 +56,7 @@ collections:
           required: false,
         }
       - { label: Author, name: author, widget: string, default: "Rhea Mehta" }
+      - { label: "Notice above post", name: notice, widget: string, required: false }
       - label: Categories
         name: categories
         widget: list

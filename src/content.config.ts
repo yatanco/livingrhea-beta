@@ -10,6 +10,8 @@ const posts = defineCollection({
       pubDate: z.coerce.date(),
       updatedDate: z.coerce.date().optional(),
       author: z.string().default("Rhea Mehta"),
+      /** Short status note shown above the post, e.g. for a retired program. */
+      notice: z.string().optional(),
       categories: z
         .array(
           z.object({
