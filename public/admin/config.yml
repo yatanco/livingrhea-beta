@@ -5,8 +5,8 @@
 # and how to reuse it for another site.
 backend:
   name: github
-  repo: yatanco/livingrhea-astro
-  branch: astro-headless-migration
+  repo: yatanco/livingrhea-beta
+  branch: main
   # A small, open-source, shared OAuth helper (github.com/sveltia/sveltia-cms-auth)
   # deployed on Cloudflare Workers — not a hosted SaaS, not this repo's build.
   # The same worker can authenticate other sites too; each site's own backend.repo
