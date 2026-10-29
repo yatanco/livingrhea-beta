@@ -1,22 +1,35 @@
 ---
-// Quotes in a native scroll-snap row: swipe on touch, scroll or Tab on desktop.
+// Quotes in a masonry of columns: every card sized to its words, all visible.
 interface Props {
   items: { html: string; name: string; role?: string }[];
   label?: string;
 }
 const { items, label = "Testimonials" } = Astro.props;
+const initials = (name: string) =>
+  name
+    .replace(/^Dr\.?\s+/i, "")
+    .split(/\s+/)
+    .map((part) => part[0])
+    .join("")
+    .slice(0, 2)
+    .toUpperCase();
 ---
 
 <section class="testimonials" aria-label={label}>
-  <ul class="rail" tabindex="0">
+  <ul>
     {
       items.map((item) => (
         <li>
           <figure>
             <blockquote set:html={item.html} />
             <figcaption>
-              <strong>{item.name}</strong>
-              {item.role && <span>{item.role}</span>}
+              <span class="badge" aria-hidden="true">
+                {initials(item.name)}
+              </span>
+              <span>
+                <strong>{item.name}</strong>
+                {item.role && <span class="role">{item.role}</span>}
+              </span>
             </figcaption>
           </figure>
         </li>
@@ -26,50 +39,76 @@ const { items, label = "Testimonials" } = Astro.props;
 </section>
 
 <style>
-  .rail {
-    display: grid;
-    grid-auto-flow: column;
-    grid-auto-columns: min(86%, 520px);
-    gap: 24px;
+  ul {
+    columns: 3 300px;
+    column-gap: 24px;
     margin: 0;
-    padding: 6px 2px 24px;
+    padding: 0;
     list-style: none;
-    overflow-x: auto;
-    overscroll-behavior-x: contain;
-    scroll-snap-type: x mandatory;
-    scrollbar-color: var(--accent) transparent;
   }
   li {
-    scroll-snap-align: start;
+    break-inside: avoid;
+    margin-bottom: 24px;
   }
   figure {
-    height: 100%;
+    position: relative;
     margin: 0;
-    padding: clamp(24px, 3vw, 36px);
+    padding: 44px 30px 28px;
     background: #fff;
-    border: 1px solid var(--line);
-    border-radius: 6px;
+    border-radius: 10px;
+    box-shadow: 0 1px 2px rgb(60 40 20 / 0.06), 0 10px 30px rgb(60 40 20 / 0.06);
+    overflow: hidden;
+  }
+  /* Oversized serif quote mark tucked into the corner. */
+  figure::before {
+    content: "“";
+    position: absolute;
+    top: -14px;
+    left: 20px;
+    color: #f3d9c9;
+    font: 7rem/1 var(--serif);
+    pointer-events: none;
   }
   blockquote {
-    margin: 0 0 20px;
-    font-size: 1.02rem;
+    position: relative;
+    margin: 0 0 24px;
+    color: #333;
+    font-size: 1rem;
+    line-height: 1.75;
   }
-  blockquote::before {
-    content: "“";
-    display: block;
-    height: 0.5em;
-    color: var(--accent);
-    font: 4rem/1 var(--serif);
+  blockquote :global(p) {
+    margin: 0 0 0.8em;
   }
   blockquote :global(p:last-child) {
     margin-bottom: 0;
   }
-  figcaption strong {
-    display: block;
-    font-weight: 650;
+  figcaption {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding-top: 18px;
+    border-top: 1px solid var(--line);
   }
-  figcaption span {
+  .badge {
+    flex: none;
+    display: grid;
+    place-items: center;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background: var(--teal);
+    color: #fff;
+    font: 600 0.8rem/1 var(--sans);
+    letter-spacing: 0.04em;
+  }
+  strong {
+    display: block;
+    font-family: var(--serif);
+    font-size: 1.1rem;
+    font-weight: 400;
+  }
+  .role {
     color: var(--muted);
-    font-size: 0.9rem;
+    font-size: 0.85rem;
   }
 </style>
