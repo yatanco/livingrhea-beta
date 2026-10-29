@@ -118,6 +118,11 @@
 /category/press/ /press/ 301
 /category/uncategorized/ /blog/ 301
 /author/superadzmin/ /about/ 301
+# Duplicate WordPress tags merged into one archive each.
+/tag/healthhacks/ /tag/health-hacks/ 301
+/tag/selfcare/ /tag/self-care/ 301
+/tag/detoxification/ /tag/detox/ 301
+/tag/green-smoothie-2/ /tag/green-smoothies/ 301
 # Wildcards last: Cloudflare Pages applies the first matching rule.
 /category/:cat/page/* /category/:cat/ 301
 /recipes/* /blog/:splat 301

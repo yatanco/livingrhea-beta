@@ -18,6 +18,13 @@ export function plainText(value = "") {
     .replace(/\s+/g, " ")
     .trim();
 }
+// Search snippets are ~160 characters; cut long summaries at a word boundary
+// instead of mid-word.
+export function snippet(text, max = 160) {
+  if (text.length <= max) return text;
+  const cut = text.slice(0, max - 1);
+  return `${cut.slice(0, cut.lastIndexOf(" ")).replace(/[\s,;:.–—-]+$/, "")}…`;
+}
 export const pageDescriptions = {
   "/": "Dr. Rhea Mehta blends nutrition science, holistic health coaching, breathwork, and ancestral wisdom.",
   "/about/":

@@ -28,8 +28,8 @@ categories:
 tags:
   - name: "cleanse"
     slug: cleanse
-  - name: "detoxification"
-    slug: detoxification
+  - name: "detox"
+    slug: detox
   - name: "Global Smoothie Day"
     slug: global-smoothie-day
   - name: "green smoothies"

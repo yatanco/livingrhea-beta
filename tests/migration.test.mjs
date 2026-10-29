@@ -164,11 +164,27 @@ test("original category and frequent tag archives are served, linked and listed"
   }
   assert.doesNotMatch(redirects, /^\/category\/\* /m);
   // Tags used on several posts keep their archive; rarer tags were thin pages.
+  // Duplicate spellings were merged into one tag and redirected.
+  const mergedTags = {
+    healthhacks: "health-hacks",
+    selfcare: "self-care",
+    detoxification: "detox",
+    "green-smoothie-2": "green-smoothies",
+  };
   const tagPosts = new Map();
   for (const post of await json("migration/wordpress-posts.json"))
     if (post.slug !== "choice")
-      for (const term of (post._embedded?.["wp:term"] || []).flat())
-        if (term.taxonomy === "post_tag") tagPosts.set(term.slug, (tagPosts.get(term.slug) || 0) + 1);
+      for (const slug of new Set(
+        (post._embedded?.["wp:term"] || [])
+          .flat()
+          .filter((term) => term.taxonomy === "post_tag")
+          .map((term) => mergedTags[term.slug] || term.slug),
+      ))
+        tagPosts.set(slug, (tagPosts.get(slug) || 0) + 1);
+  for (const [from, to] of Object.entries(mergedTags)) {
+    assert.ok(redirects.includes(`/tag/${from}/ /tag/${to}/ 301`), from);
+    assert.equal(tagPosts.has(from), false);
+  }
   const archived = [...tagPosts].filter(([, count]) => count >= 3);
   assert.ok(archived.length > 0);
   for (const [slug, count] of archived) {
@@ -178,6 +194,17 @@ test("original category and frequent tag archives are served, linked and listed"
   }
   const $ = load(await readFile("dist/blog/faux-fudgey-truffles/index.html", "utf8"));
   assert.equal($("a.article-category").attr("href"), "/category/recipes/");
+  // Posts link their archived tags; the blog links every category.
+  const tagLinks = $(".article-tags a").map((_, a) => $(a).attr("href")).get();
+  assert.ok(tagLinks.length > 0);
+  for (const href of tagLinks) assert.ok(sitemap.includes(`https://livingrhea.com${href}`), href);
+  const $blog = load(await readFile("dist/blog/index.html", "utf8"));
+  for (const path of terms.values()) assert.equal($blog(`.category-nav a[href="${path}"]`).length, 1, path);
+  assert.match(sitemap, /<loc>https:\/\/livingrhea\.com\/blog\/faux-fudgey-truffles\/<\/loc><lastmod>\d{4}-\d\d-\d\d<\/lastmod>/);
+  // Search snippets end on a whole word, without the recipe card's "Description" label.
+  const snippetText = $('meta[name="description"]').attr("content");
+  assert.ok(snippetText.length <= 160 && snippetText.endsWith("…"));
+  assert.doesNotMatch(snippetText, /^Description /);
   // Cloudflare Pages applies the first match, so wildcards must come last.
   const rules = redirects.split("\n").filter((line) => line && !line.startsWith("#"));
   const firstWildcard = rules.findIndex((line) => line.split(" ")[0].includes("*"));

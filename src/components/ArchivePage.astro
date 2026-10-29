@@ -3,6 +3,7 @@ import "../styles/site/about.css";
 import "../styles/site/archive.css";
 import Base from "../layouts/Base.astro";
 import PostGrid from "./PostGrid.astro";
+import CategoryNav from "./CategoryNav.astro";
 import { Image } from "astro:assets";
 import banner from "../assets/images/2019/09/roman-purtov-Z5Phu-u_sac-unsplash.jpg";
 
@@ -36,5 +37,6 @@ const { label, term, description } = Astro.props;
       {description && <p>{description}</p>}
     </div>
   </header>
+  {label === "Category" && <CategoryNav current={term.slug} />}
   <PostGrid posts={term.posts} />
 </Base>

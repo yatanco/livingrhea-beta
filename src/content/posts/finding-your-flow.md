@@ -33,8 +33,8 @@ tags:
     slug: guidance
   - name: "Health"
     slug: health
-  - name: "healthhacks"
-    slug: healthhacks
+  - name: "health hacks"
+    slug: health-hacks
   - name: "Love"
     slug: love
   - name: "mindbodymondays"

@@ -1,6 +1,6 @@
 ---
 title: "Foffee: My High Energy Coffee Substitute"
-description: Description Have you heard? Foffee is the new coffee substitute and it’s freaking
+description: Have you heard? Foffee is the new coffee substitute and it’s freaking
   delicious! Adrenal fatigue is a real thing. So is coffee addiction. If you’re thinking to
   yourself, I can’t give up my daily cup of java, maybe it’s time you practice a little detachment
   and try something different. The plus side is you’ll be getting a lot more goodness in that 1 cup,

@@ -26,8 +26,8 @@ categories:
 tags:
   - name: "clean living"
     slug: clean-living
-  - name: "detoxification"
-    slug: detoxification
+  - name: "detox"
+    slug: detox
   - name: "eco-beauty"
     slug: eco-beauty
   - name: "health hacks"

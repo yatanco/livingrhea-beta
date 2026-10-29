@@ -1,6 +1,6 @@
 ---
 title: RAWkin’ Vegan Tacos
-description: Description My raw vegan tacos are mouth-watering! They’re crunchy, satiating,
+description: My raw vegan tacos are mouth-watering! They’re crunchy, satiating,
   delicious, and they’ll leave you feeling high, in the most natural of ways. Housed in a light and
   bright green leaf, my tacos can be eaten in two’s or three’s, giving you the chance to re-live the
   delicious experience over again. Trust me, you’ll be happy you reached for seconds! Ingredients

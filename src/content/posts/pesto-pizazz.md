@@ -1,6 +1,6 @@
 ---
 title: Pesto Pizazz
-description: Description My Pesto Pizazz recipe is packed with flavour and nutrition. This sauce is
+description: My Pesto Pizazz recipe is packed with flavour and nutrition. This sauce is
   the perfect topping to salads, gluten-free crackers, and raw or roasted vegetables, and it
   especially tastes wonderful with my ZenZini Pasta Recipe. Bring it along to parties, or whip it up
   for date night. Whatever the occasion, this recipe wins in ease, taste and versatility.

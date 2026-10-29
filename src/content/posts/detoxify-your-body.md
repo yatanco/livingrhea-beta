@@ -29,8 +29,6 @@ tags:
     slug: cleanse
   - name: "detox"
     slug: detox
-  - name: "detoxification"
-    slug: detoxification
   - name: "Health"
     slug: health
   - name: "optimal living"

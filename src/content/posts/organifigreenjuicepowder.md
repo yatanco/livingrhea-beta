@@ -31,8 +31,8 @@ categories:
 tags:
   - name: "green powder"
     slug: green-powder
-  - name: "green smoothie"
-    slug: green-smoothie-2
+  - name: "green smoothies"
+    slug: green-smoothies
   - name: "greenjuice"
     slug: greenjuice
   - name: "Nutrition"

@@ -34,8 +34,8 @@ tags:
     slug: greensmoothies
   - name: "rawfood"
     slug: rawfood
-  - name: "selfcare"
-    slug: selfcare
+  - name: "Self-Care"
+    slug: self-care
 featuredImage: images/green-smoothie-guide-nutshell.webp
 featuredImageAlt: ""
 legacyId: 1215

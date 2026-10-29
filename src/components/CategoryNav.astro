@@ -1,0 +1,54 @@
+---
+import { getAllPosts, termsWithPosts } from "../lib/posts.js";
+
+// Links between the blog and its category archives, largest first.
+interface Props {
+  current?: string;
+}
+const { current } = Astro.props;
+const categories = termsWithPosts(await getAllPosts()).sort(
+  (a, b) => b.posts.length - a.posts.length,
+);
+---
+
+<nav class="category-nav" aria-label="Blog categories">
+  <a href="/blog/" aria-current={current ? undefined : "page"}>All</a>
+  {categories.map((term) => (
+    <a
+      href={`/category/${term.slug}/`}
+      aria-current={term.slug === current ? "page" : undefined}
+    >
+      {term.name}
+    </a>
+  ))}
+</nav>
+
+<style>
+  .category-nav {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 10px;
+    padding: 40px 20px 30px;
+    font-size: 16px;
+    line-height: 1.2;
+  }
+  .category-nav a {
+    border: 2px solid rgba(0, 0, 0, 0.15);
+    border-radius: 20px;
+    padding: 6px 14px;
+    color: #000;
+    font-weight: 600;
+  }
+  .category-nav a:hover,
+  .category-nav a[aria-current="page"] {
+    border-color: #ff6b17;
+    color: #ff6b17;
+  }
+  @media (max-width: 690px) {
+    .category-nav {
+      padding: 25px 15px 20px;
+      font-size: 14px;
+    }
+  }
+</style>

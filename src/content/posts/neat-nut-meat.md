@@ -1,6 +1,6 @@
 ---
 title: Neat Nut Meat Recipe
-description: Description My Neat Nut Meat recipe is a hit from head to toe! It’s nutty, cheezy and
+description: My Neat Nut Meat recipe is a hit from head to toe! It’s nutty, cheezy and
   loaded with flavor! Eat it alone, with crackers, tortilla chips, or wrapped in a large green leaf.
   Whichever method you choose to ingest this belly treat, you’ll complete your mission with a big
   smile and a big mmm! Ingredients 1 cup of walnuts, pre-soaked overnight 1 tbsp cumin powder 1 tbsp

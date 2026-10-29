@@ -30,8 +30,8 @@ tags:
     slug: authenticity
   - name: "cleanse"
     slug: cleanse
-  - name: "detoxification"
-    slug: detoxification
+  - name: "detox"
+    slug: detox
   - name: "healing"
     slug: healing
   - name: "optimal living"

@@ -31,8 +31,8 @@ tags:
     slug: growth
   - name: "Health"
     slug: health
-  - name: "healthhacks"
-    slug: healthhacks
+  - name: "health hacks"
+    slug: health-hacks
   - name: "mindbodymondays"
     slug: mindbodymondays
   - name: "Mindfulness"
@@ -41,8 +41,6 @@ tags:
     slug: personal-development
   - name: "Self-Care"
     slug: self-care
-  - name: "selfcare"
-    slug: selfcare
   - name: "Support"
     slug: support
   - name: "Surrender"

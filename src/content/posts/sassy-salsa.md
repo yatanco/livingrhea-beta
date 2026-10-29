@@ -1,6 +1,6 @@
 ---
 title: Sassy Salsa Recipe
-description: Description My Sassy Salsa recipe is light, clean and delicious. With the special
+description: My Sassy Salsa recipe is light, clean and delicious. With the special
   addition of health-promoting chia seeds, my healthy salsa becomes a complete meal. Enjoy it with
   non-GMO tortilla chips, or with my RAWkin’ vegan tacos. Ingredients 1 cup tomatoes, chopped ¼ cup
   cilantro 1-2 cloves garlic, pre-chopped for 5 minutes 1 tbsp lemon or lime, freshly squeezed or 1

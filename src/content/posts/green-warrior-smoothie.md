@@ -1,6 +1,6 @@
 ---
 title: Green Warrior Smoothie
-description: "Description My Green Warrior Smoothie Recipe is incredibly nutrient-dense and
+description: "My Green Warrior Smoothie Recipe is incredibly nutrient-dense and
   delicious! It’s nicely balanced with fiber, protein and healthy fat to ensure the natural sugars
   aren’t metabolized so quickly, thereby preventing a spike in blood sugar. This blender full of
   goodness is equivalent to eating a humongous salad, that one surely wouldn’t be able to consume in

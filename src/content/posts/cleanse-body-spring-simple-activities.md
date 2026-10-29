@@ -30,12 +30,10 @@ tags:
     slug: cleanse
   - name: "detox"
     slug: detox
-  - name: "detoxification"
-    slug: detoxification
-  - name: "healthhacks"
-    slug: healthhacks
-  - name: "selfcare"
-    slug: selfcare
+  - name: "health hacks"
+    slug: health-hacks
+  - name: "Self-Care"
+    slug: self-care
 featuredImage: images/cleanse-body-spring-simple-activities.webp
 featuredImageAlt: ""
 legacyId: 1231

@@ -5,17 +5,24 @@ import ArticleRecommendations from "../../components/ArticleRecommendations.astr
 import Base from "../../layouts/Base.astro";
 import { Image } from "astro:assets";
 import { render } from "astro:content";
-import { getAllPosts, category, readingTime } from "../../lib/posts.js";
+import {
+  getAllPosts,
+  archivedTags,
+  category,
+  readingTime,
+} from "../../lib/posts.js";
 
 export async function getStaticPaths() {
   const posts = await getAllPosts();
+  const tagPages = new Set(archivedTags(posts).map((term) => term.slug));
   return posts.map((post) => ({
     params: { slug: post.slug },
-    props: { post },
+    // Only link tags that have an archive page.
+    props: { post, tags: post.tags.filter((tag) => tagPages.has(tag.slug)) },
   }));
 }
 
-const { post } = Astro.props;
+const { post, tags } = Astro.props;
 const source = post.featuredImage;
 const cat = category(post);
 const date = post.pubDate.toLocaleDateString("en-US", {
@@ -74,5 +81,10 @@ const { Content } = await render(post.entry);
   <article class="article-copy wp-content">
     <Content />
   </article>
+  {tags.length > 0 && (
+    <nav class="article-tags" aria-label="Tags">
+      {tags.map((tag) => <a href={`/tag/${tag.slug}/`}>{tag.name}</a>)}
+    </nav>
+  )}
   <ArticleRecommendations slot="article-footer" post={post} />
 </Base>

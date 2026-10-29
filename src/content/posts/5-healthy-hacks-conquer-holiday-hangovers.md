@@ -31,14 +31,12 @@ tags:
     slug: cleanse
   - name: "detox"
     slug: detox
-  - name: "detoxification"
-    slug: detoxification
   - name: "Energy"
     slug: energy
   - name: "Health"
     slug: health
-  - name: "healthhacks"
-    slug: healthhacks
+  - name: "health hacks"
+    slug: health-hacks
   - name: "Nutrition"
     slug: nutrition
   - name: "rejuvenation"

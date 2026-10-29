@@ -1,6 +1,6 @@
 ---
 title: ZenZini Pasta
-description: "Description ZenZini Pasta is light, delicious, and nutritionally balanced. It’s the
+description: "ZenZini Pasta is light, delicious, and nutritionally balanced. It’s the
   perfect meal to bliss out to, with friends or with your sweet self. With so many topping options
   to explore, this dish is one that can be recycled every week. Think of the veggies as the canvas,
   and have fun painting your decadent picture. Blissings! Ingredients Noodles & Veggies: 4

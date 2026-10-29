@@ -1,6 +1,6 @@
 ---
 title: Mango Tango Faux Lassi
-description: "Description If you love mango lassis, you’ll love my healthy Mango Tango Faux Lassi.
+description: "If you love mango lassis, you’ll love my healthy Mango Tango Faux Lassi.
   My vegan mango lassi recipe is a real sweet tooth satisfier. Because it’s nicely balanced with
   protein and good fat, it won’t leave you feeling heavy. Rather, the balance effect of this drink
   will keep the natural sugars from metabolized quickly, thereby preventing a spike in blood sugar.

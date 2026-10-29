@@ -27,8 +27,8 @@ categories:
 tags:
   - name: "cleanse"
     slug: cleanse
-  - name: "detoxification"
-    slug: detoxification
+  - name: "detox"
+    slug: detox
   - name: "health hacks"
     slug: health-hacks
   - name: "healthy groceries"

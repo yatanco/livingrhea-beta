@@ -38,8 +38,6 @@ tags:
     slug: fasting
   - name: "health hacks"
     slug: health-hacks
-  - name: "healthhacks"
-    slug: healthhacks
   - name: "optimal health"
     slug: optimal-health
   - name: "optimal living"

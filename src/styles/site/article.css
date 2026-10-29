@@ -85,6 +85,26 @@
   max-width: 100%;
   height: auto;
 }
+.livingrhea-article .article-tags {
+  max-width: 1000px;
+  margin: 40px auto 0;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  font-size: 14px;
+  line-height: 1.2;
+}
+.livingrhea-article .article-tags a {
+  border: 2px solid rgba(0, 0, 0, 0.15);
+  border-radius: 20px;
+  padding: 4px 12px;
+  color: #000;
+  font-weight: 600;
+}
+.livingrhea-article .article-tags a:hover {
+  border-color: #ff6b17;
+  color: #ff6b17;
+}
 .livingrhea-article .article-adjacent {
   display: flex;
 }

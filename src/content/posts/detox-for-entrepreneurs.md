@@ -24,16 +24,16 @@ categories:
 tags:
   - name: "cleanse"
     slug: cleanse
-  - name: "detoxification"
-    slug: detoxification
+  - name: "detox"
+    slug: detox
   - name: "Digital Detox"
     slug: digital-detox
   - name: "digital detoxification"
     slug: digital-detoxification
   - name: "Health"
     slug: health
-  - name: "healthhacks"
-    slug: healthhacks
+  - name: "health hacks"
+    slug: health-hacks
   - name: "optimal living"
     slug: optimal-living
   - name: "smoothies"

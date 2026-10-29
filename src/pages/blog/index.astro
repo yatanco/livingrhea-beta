@@ -2,6 +2,7 @@
 import "../../styles/site/about.css";
 import Base from "../../layouts/Base.astro";
 import PostGrid from "../../components/PostGrid.astro";
+import CategoryNav from "../../components/CategoryNav.astro";
 import { getAllPosts } from "../../lib/posts.js";
 
 const posts = await getAllPosts();
@@ -9,5 +10,6 @@ const posts = await getAllPosts();
 
 <Base title="Blog">
   <h1 class="screen-reader-text">Blog</h1>
+  <CategoryNav />
   <PostGrid posts={posts} />
 </Base>

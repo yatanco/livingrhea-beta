@@ -30,8 +30,6 @@ legacyUrl: https://livingrhea.com/gsd-community-party-croatia/
 legacyFeaturedImage: /wp-content/uploads/2025/06/gsd-croatia.webp
 ---
 
-![GSD COMMUNITY PARTY CROATIA!](../../assets/images/2025/06/gsd-croatia-300x225.webp)
-
 GSD COMMUNITY PARTY CROATIA!
 
 Get ready to blend, shake, and celebrate! Croatia is turning up the tropical vibes as it joins the world in celebrating **Global Smoothie Day (GSD)** with a one-of-a-kind **Community Party** – and everyone’s invited!

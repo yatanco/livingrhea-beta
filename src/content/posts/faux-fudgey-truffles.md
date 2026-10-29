@@ -1,6 +1,6 @@
 ---
 title: Faux Fudgey Truffles
-description: Description Desserts shouldn’t make you feel guilty. They may be sweeter than the rest
+description: Desserts shouldn’t make you feel guilty. They may be sweeter than the rest
   of your day’s meals, but hey! That’s why they call it dessert. What we don’t want, though, is a
   spike in sugar. Because that’s usually followed by a crash. My raw vegan balls are rich in flavour
   and experience. They’re also balanced nutritionally so you will feel a burst of energy and feel

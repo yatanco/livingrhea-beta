@@ -1,6 +1,6 @@
 ---
 title: Grab & G’oatmeal Recipe
-description: "Description This recipe takes cereal to a whole new level. Pre-mixed within minutes
+description: "This recipe takes cereal to a whole new level. Pre-mixed within minutes
   and refrigerated the night before, this raw oat or buckwheat superfood cereal is perfect for those
   on the go. Dosed with energetic superfoods, you’ll be wanting to make this simply brilliant recipe
   over and over. Ingredients ¾ cup water or unsweetened nut or seed milk ¼ cup oat or buckwheat

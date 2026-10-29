@@ -25,8 +25,8 @@ categories:
   - name: Scientific Wellness
     slug: scientific-wellness
 tags:
-  - name: "detoxification"
-    slug: detoxification
+  - name: "detox"
+    slug: detox
   - name: "empowerment"
     slug: empowerment
   - name: "optimal living"

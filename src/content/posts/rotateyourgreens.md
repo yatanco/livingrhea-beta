@@ -30,8 +30,8 @@ tags:
     slug: clean-living
   - name: "cleanse"
     slug: cleanse
-  - name: "detoxification"
-    slug: detoxification
+  - name: "detox"
+    slug: detox
   - name: "green juice"
     slug: green-juice
   - name: "green smoothies"

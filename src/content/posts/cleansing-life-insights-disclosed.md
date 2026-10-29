@@ -33,8 +33,8 @@ tags:
     slug: detox
   - name: "healing"
     slug: healing
-  - name: "selfcare"
-    slug: selfcare
+  - name: "Self-Care"
+    slug: self-care
 featuredImage: images/cleansing-life-insights-disclosed.webp
 featuredImageAlt: ""
 legacyId: 1221

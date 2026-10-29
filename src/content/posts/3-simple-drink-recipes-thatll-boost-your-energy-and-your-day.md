@@ -38,8 +38,8 @@ tags:
     slug: energy-boost
   - name: "Global Smoothie Day"
     slug: global-smoothie-day
-  - name: "green smoothie"
-    slug: green-smoothie-2
+  - name: "green smoothies"
+    slug: green-smoothies
   - name: "health hack"
     slug: health-hack
   - name: "lemon water"

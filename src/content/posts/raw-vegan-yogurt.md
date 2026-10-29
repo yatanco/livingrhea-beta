@@ -1,6 +1,6 @@
 ---
 title: Raw Vegan Yogurt (made with seeds!)
-description: "Description Yogurt without the dairy, yes it’s possible! This recipe captures the
+description: "Yogurt without the dairy, yes it’s possible! This recipe captures the
   creaminess of the yogurt we all grew up on, without the post-snack slump or belly pain. And the
   best part: It’s ready within minutes. Nutrient-enriched, protein-heavy, probiotic-dosed,
   digestive-friendly – all in one easy recipe. Well, what are you waiting for? #tryit! Ingredients 1
