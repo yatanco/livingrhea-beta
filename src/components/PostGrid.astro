@@ -8,7 +8,7 @@ interface Props {
   eager?: number;
   headingLevel?: "h2" | "h3";
 }
-const { posts, eager = 3, headingLevel: Heading = "h2" } = Astro.props;
+const { posts, eager = 1, headingLevel: Heading = "h2" } = Astro.props;
 // Small originals keep their own width rather than an empty srcset.
 const cardWidths = (width: number) => {
   const fit = [360, 560, 760].filter((w) => w <= width);
@@ -40,7 +40,7 @@ const date = (d: Date) =>
                   widths={cardWidths(post.featuredImage.width)}
                   sizes="(max-width: 640px) calc(100vw - 40px), (max-width: 1000px) 45vw, 380px"
                   format="webp"
-                  quality={72}
+                  quality={62}
                   loading={loading}
                   fetchpriority={index === 0 ? "high" : undefined}
                 />

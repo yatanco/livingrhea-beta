@@ -23,6 +23,7 @@ const nav = [
   { href: "/blog/", label: "Blog" },
   { href: "/contact/", label: "Contact" },
 ];
+const { overlay = false } = Astro.props;
 const path = Astro.url.pathname;
 const section = (href: string) =>
   href === "/" ? path === "/" : path.startsWith(href);
@@ -30,7 +31,7 @@ const isCurrent = (item: (typeof nav)[number]) =>
   item.children ? item.children.some((c) => section(c.href)) : section(item.href);
 ---
 
-<header class="site-header">
+<header class:list={["site-header", { overlay }]}>
   <div class="topbar">
     <div class="wrap topbar-inner">
       <SocialLinks class="topbar-social" />
@@ -107,6 +108,29 @@ const isCurrent = (item: (typeof nav)[number]) =>
     z-index: 20;
     background: #fff;
     border-bottom: 1px solid var(--line);
+  }
+  /* Homepage: the bar floats over the hero photo with white links. */
+  .overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    background: transparent;
+    border-bottom: 0;
+  }
+  .overlay .desktop-nav > ul > li > a {
+    color: #fff;
+  }
+  .overlay .desktop-nav > ul > li > a[aria-current] {
+    border-bottom-color: #fff;
+  }
+  .overlay .mobile-nav summary span,
+  .overlay .mobile-nav summary span::before,
+  .overlay .mobile-nav summary span::after {
+    background: #fff;
+  }
+  .overlay .mobile-nav[open] summary span {
+    background: transparent;
   }
   .topbar {
     background: #f4f4f4;

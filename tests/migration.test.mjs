@@ -120,8 +120,8 @@ test("responsive blog images have generated candidates", async () => {
       await access(`dist${candidate.trim().split(/\s+/)[0]}`);
   }
   assert.ok(optimized > 60);
-  // Only the first row loads eagerly.
-  assert.equal($('.post-grid img[loading="eager"]').length, 3);
+  // Only the first card (the LCP image) loads eagerly.
+  assert.equal($('.post-grid img[loading="eager"]').length, 1);
 });
 
 test("original category and frequent tag archives are served, linked and listed", async () => {

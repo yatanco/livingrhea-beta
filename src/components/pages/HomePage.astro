@@ -31,8 +31,8 @@ const quotes = [
 const asSeenOn = copy["as-seen-on"].replace(/<[^>]+>/g, "").trim();
 ---
 
-<Hero image={hero.image} position="70% 30%" tall>
-  <h1>{hero.heading.join(" ")}</h1>
+<Hero image={hero.image} position="center top" underHeader>
+  <h1 class="home-title">{hero.heading.join(" ")}</h1>
   <div class="actions">
     <a class="btn" href={hero.actionHref}>{hero.actionLabel}</a>
     <a class="btn light" href="#freeGuide">Free smoothie guide</a>
@@ -121,6 +121,11 @@ const asSeenOn = copy["as-seen-on"].replace(/<[^>]+>/g, "").trim();
 </section>
 
 <style>
+  /* Keep the headline left of the portrait, as on the original. */
+  :global(.hero-copy) .home-title {
+    max-width: 10.5em;
+    font-size: clamp(2.2rem, 3.4vw, 3.3rem);
+  }
   .press {
     padding-block: 48px 8px;
   }

@@ -17,6 +17,8 @@ interface Props {
   preloadSrcset?: string;
   preloadSizes?: string;
   socialImage?: string;
+  /** Header floats transparently over the first section (homepage). */
+  overlayHeader?: boolean;
   article?: {
     datePublished: string;
     dateModified?: string;
@@ -37,6 +39,7 @@ const {
   preloadSrcset,
   preloadSizes,
   socialImage,
+  overlayHeader = false,
   article,
 } = Astro.props;
 
@@ -195,7 +198,7 @@ const schema = {
   </head>
   <body>
     <a class="skip-link" href="#main">Skip to content</a>
-    <SiteHeader />
+    <SiteHeader overlay={overlayHeader} />
     <main id="main">
       <slot name="article-header" />
       <slot />

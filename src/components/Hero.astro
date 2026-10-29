@@ -3,19 +3,21 @@ import { Picture } from "astro:assets";
 import type { ImageMetadata } from "astro";
 
 // Full-bleed photo with overlaid copy; the photo is the page's LCP image.
+// `underHeader` runs the photo up behind a transparent header (homepage).
 interface Props {
   image: ImageMetadata;
   position?: string;
   tall?: boolean;
+  underHeader?: boolean;
 }
-const { image, position = "center", tall = false } = Astro.props;
+const { image, position = "center", tall = false, underHeader = false } = Astro.props;
 ---
 
-<section class:list={["hero", { tall }]}>
+<section class:list={["hero", { tall, "under-header": underHeader }]}>
   <Picture
     src={image}
     formats={["avif", "webp"]}
-    widths={[480, 800, 1200, 1800].filter((w) => w <= image.width)}
+    widths={[480, 800, 1200, 1600].filter((w) => w <= image.width)}
     sizes="100vw"
     alt=""
     quality={55}
@@ -69,6 +71,23 @@ const { image, position = "center", tall = false } = Astro.props;
   .hero-copy :global(p) {
     max-width: 34em;
     font-size: 1.15rem;
+  }
+  /* Photo starts behind the transparent header; copy clears it. */
+  .hero.under-header {
+    min-height: min(100svh, 900px);
+  }
+  .hero.under-header .hero-copy {
+    padding-top: 180px;
+  }
+  .hero.under-header::after {
+    background:
+      linear-gradient(180deg, rgb(0 0 0 / 0.45), transparent 240px),
+      linear-gradient(90deg, rgb(0 0 0 / 0.55), rgb(0 0 0 / 0.12) 65%);
+  }
+  @media (max-width: 999px) {
+    .hero.under-header .hero-copy {
+      padding-top: 150px;
+    }
   }
   @media (max-width: 640px) {
     .hero::after {
