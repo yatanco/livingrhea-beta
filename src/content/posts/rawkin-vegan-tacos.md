@@ -93,7 +93,7 @@ finely chopped green onions
 
 **Step 1**
 
-[](https://web.archive.org/web/20160822091559//wp-content/gallery/rawkin-vegan-tacos/rawkin_vegan_tacos_s3.jpg)
+
 
 Add taco shells to an ice bath of cold water and ice cubes to keep the leaves submerged.
 
@@ -115,7 +115,7 @@ Prepare veggie fillings and remove taco shells from ice bath, patting them down 
 
 **Step 6**
 
-[](https://web.archive.org/web/20160822091559//wp-content/gallery/rawkin-vegan-tacos/rawkin_vegan_tacos_s4.jpg)
+
 
 Add all fillings to taco shell, and top with sauces. Hold the base and tip of the shell for easy eating, but prepare to get your hands a bit dirty! Chew slowly and mindfully, knowing you are taking in so many different sauces and ingredients, and enjoy the experience!
 

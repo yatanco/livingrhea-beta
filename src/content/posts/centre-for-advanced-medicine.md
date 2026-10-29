@@ -45,7 +45,7 @@ Truth be told, much of my nutrition and lifestyle medicine experience came from 
 
 However, my certification and training in integrative nutrition and holistic health did gift me with a giant library of diverse and up to date resources for me and my clients, and a community of health coaches and integrative health advocates to learn from and exchange questions and ideas with.
 
-Finally, it also gave me the courage and confidence to build a practice as an integrative health coach, scientific wellness educator, and now, practitioner at **[Canada’s premier Functional and Integrative Medical Clinic](https://advancedmedicine.ca/rhea-mehta/):** **The** **Centre for Advanced Medicine (CAM); and its sister clinic, The Canadian Centre for Integrative Medicine (CCIM).**  
+Finally, it also gave me the courage and confidence to build a practice as an integrative health coach, scientific wellness educator, and now, practitioner at **Canada’s premier Functional and Integrative Medical Clinic:** **The** **Centre for Advanced Medicine (CAM); and its sister clinic, The Canadian Centre for Integrative Medicine (CCIM).**  
 
 # **Why am I so excited to announce my joining of this clinic?**
 

@@ -46,7 +46,7 @@ Since we live in the digital age, Rhea envisions a globally portable health and 
 
 ## **A Free Mobile App To Build Your E-Health Wallet**
 
-Rhea recommends that you should get into a habit of digitally tracking your sleep, hydration, energy levels, stool type, and any chronic symptoms, as a way to add more value to your future health and happiness. It’s also a good idea to complete a full health status and history questionnaire periodically to add to our digital health wallet, as she calls it. Rhea used her learnings and insights from her client self-care tracker to build a digital version in the form of a mobile application that has now been downloaded over 100K times. You can search for her company’s app on the [apple store](https://apps.apple.com/us/app/better-by-bowhead-health/id1385140037) and google app store, called “Better by Bowhead”.
+Rhea recommends that you should get into a habit of digitally tracking your sleep, hydration, energy levels, stool type, and any chronic symptoms, as a way to add more value to your future health and happiness. It’s also a good idea to complete a full health status and history questionnaire periodically to add to our digital health wallet, as she calls it. Rhea used her learnings and insights from her client self-care tracker to build a digital version in the form of a mobile application that has now been downloaded over 100K times. You can search for her company’s app on the apple store and google app store, called “Better by Bowhead”.
 
 ## **Self-care is the Greatest Act of Service**
 

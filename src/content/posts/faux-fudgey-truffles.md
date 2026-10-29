@@ -56,9 +56,9 @@ Desserts shouldn’t make you feel guilty. They may be sweeter than the rest of 
 **Ingredients**
 
 2 cups almonds or walnuts, pre-soaked 8 hours  
-2 tbsp [hemp seeds](https://web.archive.org/web/20160822040949//products/hemp-seeds-product-review/)  
-2 tbsp [coconut oil](https://web.archive.org/web/20160822040949//products/coconut-oil-product-review/)  
-2 tbsp [raw cacao](https://web.archive.org/web/20160822040949//products/raw-cacao-product-review/)  
+2 tbsp hemp seeds  
+2 tbsp coconut oil  
+2 tbsp raw cacao  
 1 tsp chia seeds  
 1-2 tbsp almond butter  
 2 tbsp goji berries, pre-soaked 10 minutes  
@@ -76,7 +76,7 @@ To a food processor, add rinsed and drained nuts or seeds, and mix until well ch
 
 **Step 2**
 
-[](https://web.archive.org/web/20160822040949//wp-content/gallery/faux-fudgey-truffles/chocomaple_truffles_s1.jpg)
+
 
 Add remaining ingredients and mix until well combined. Add some water if mixture is too dry.
 

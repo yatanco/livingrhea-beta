@@ -69,15 +69,15 @@ Optional: 1/2-1 ripe banana, 1 tsp lemon juice, pinch sea salt
 
 **Step 1**
 
-[](https://web.archive.org/web/20160822083440//wp-content/gallery/green-warrior-smoothie/green_warrior_smoothie_03.jpg)
 
-[](https://web.archive.org/web/20160822083440//wp-content/gallery/green-warrior-smoothie/green_warrior_smoothie_s1.jpg)
+
+
 
 Add all ingredients to a blender and blend on high for 15-30 seconds.
 
 **Step 2**
 
-[](https://web.archive.org/web/20160822083440//wp-content/gallery/green-warrior-smoothie/green_warrior_smoothie_s2.jpg)
+
 
 Empty blender contents into a mason jar or cocktail glass (why not?!) and enjoy the green Warrior goodness.
 

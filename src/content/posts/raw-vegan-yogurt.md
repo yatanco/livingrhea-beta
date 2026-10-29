@@ -57,9 +57,9 @@ Yogurt without the dairy, yes it’s possible! This recipe captures the creamine
 
 **Step 1**
 
-[](https://web.archive.org/web/20150503064117//wp-content/gallery/raw-vegan-yogurt/raw_vegan_yogurt_s1.jpg)
 
-[](https://web.archive.org/web/20150503064117//wp-content/gallery/raw-vegan-yogurt/raw_vegan_yogurt_s2.jpg)
+
+
 
 To a high-speed blender, add water, followed by nuts/seeds and lemon juice. Blend on low, adding more water as needed, until a creamy yogurt consistency is reached.
 

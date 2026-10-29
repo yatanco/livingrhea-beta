@@ -34,7 +34,7 @@ legacyFeaturedImage: /wp-content/uploads/2014/03/10day-Juice-Cleanse.webp
 
 Happy 2014 beautiful people!
 
-We’re less than 2 weeks in, and so far, so good. I’ve coined January ‘Mind-Body Jan’, because, well, once a week ([mind-body Mondays](http://www.mindbodygreen.com/0-7980/kick-off-a-detox-with-mind-body-mondays.html)) is no longer enough (am I right?).
+We’re less than 2 weeks in, and so far, so good. I’ve coined January ‘Mind-Body Jan’, because, well, once a week (mind-body Mondays) is no longer enough (am I right?).
 
 January is a time for reflection.
 
@@ -42,7 +42,7 @@ January is a time for [resetting goals with intention](http://www.oprah.com/spir
 
 January is a time for hibernation.
 
-January is a time for [personal development](http://www.finerminds.com/manifesting/your-lifes-purpose-in-one-sentence-and-a-30-day-process-to-go-with-it/).
+January is a time for personal development.
 
 January is a time for rejuvenation.
 

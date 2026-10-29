@@ -76,7 +76,7 @@ Optional: 1 tbsp fresh oregano and/or basil, 1 clove garlic, 1 chili pepper, 2 t
 
 **Step 1**
 
-[](https://web.archive.org/web/20160826114229//wp-content/gallery/zen-zini-pasta-2/zen_zini_pasta_s1.jpg)
+
 
 Prepare “noodles” by spiralizing or peeling zucchini into thin strips, and add to a large bowl.
 
@@ -86,13 +86,13 @@ Prepare carrots, bell peppers and tomatoes as directed and mix altogether in a l
 
 **Step 3**
 
-[](https://web.archive.org/web/20160826114229//wp-content/gallery/zen-zini-pasta-2/zen_zini_pasta_s3.jpg)
+
 
 Prepare sauce by adding all ingredients to a food processor (preferred) or blender. The final product should be tangy and subtly sweet. Adjust amounts of lemon and sweetener as necessary.
 
 **Step 4**
 
-[](https://web.archive.org/web/20160826114229//wp-content/gallery/zen-zini-pasta-2/zen_zini_pasta_s5.jpg)
+
 
 Lay noodles and veggies over a bed of arugula. Pour sauce over dish, and garnish with oregano, hemp seeds and green onions.
 

@@ -64,13 +64,13 @@ Sea salt and pepper to taste
 
 **Step 1**
 
-[](https://web.archive.org/web/20160822060156//wp-content/gallery/pesto-pizazz/pesto_pizazz_s1.jpg)
+
 
 Place seeds in food processor (preferred) or blender and grind until fine. Add remaining ingredients, leaving water and oil until the end, and pulse on high until well mixed, scraping sides as necessary.
 
 **Step 2**
 
-[](https://web.archive.org/web/20160822060156//wp-content/gallery/pesto-pizazz/pesto_pizazz_s3.jpg)
+
 
 Pour sauce over raw or cooked veggies, or serve with gluten-free crackers or bread.
 

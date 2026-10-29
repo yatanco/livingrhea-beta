@@ -62,7 +62,7 @@ My Neat Nut Meat recipe is a hit from head to toe! It’s nutty, cheezy and load
 
 **Step 1**
 
-[](https://web.archive.org/web/20160822022657//wp-content/gallery/neat-nut-meat/neat_nut_meat_s1.jpg)
+
 
 Rinse walnuts thoroughly and place in food processor, followed by all other ingredients, and process or pulse for 1 minute, or until the walnuts are finely chopped and mixture is combined, scraping down the sides often. Be mindful not to overprocess the walnuts, so their natural oils don’t seep out and turn your mixture into nut butter! Remove mixture and set aside.
 

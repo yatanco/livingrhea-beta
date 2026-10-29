@@ -63,7 +63,7 @@ I can’t list you all, but I will mention some of you who’ve been involved wi
 -   [Pixel Hero](http://pixelhero.ca)
 -   Pam Costa
 -   Julie Kroll
--   [Jason Laudadio](http://laudadio.ca)
+-   Jason Laudadio
 -   Neeta Bhushan
 -   Vega
 -   Strawesome
@@ -129,7 +129,7 @@ I can’t list you all, but I will mention some of you who’ve been involved wi
 -   Shetu Modi
 -   Canadian Press
 -   [Giovanni Marsico](http://www.giftedentrepreneur.com/the-a-list-rhea-mehta-of-living-rhea/)
--   [Andrea Vega](http://www.finerminds.com/health-fitness/gratitude-collaboration-day-1/) via Finer Minds
+-   Andrea Vega via Finer Minds
 -   [Kelsey Grant](http://radicalselflove333.wordpress.com/2014/01/31/rsls-feature-friday-dr-rhea-mehta-living-rhea-day-224-365-radical-self-love-project/) via Radical Self Love
 -   Brandon Waloff via Project Juice
 -   Consciousness Explorer’s Club

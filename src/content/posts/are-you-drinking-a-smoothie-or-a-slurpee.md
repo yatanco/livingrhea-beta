@@ -128,13 +128,13 @@ People associate fruit and fruit juice with good health, but consuming too much 
 
 ### Make Everyday Global Smoothie Day
 
-You’ve heard all about the amazing health benefits of the “real” green smoothie, so what are you waiting for? GO DRINK A GREEN SMOOTHIE! You *do* have time, you *can* afford it, you *know* how to make one (if not, [click here](http://bit.ly/2dpfKsF)!), or go custom order one — your fav smoothie bar will be happy to whip up a customized 60–20–20 green smoothie just for you!
+You’ve heard all about the amazing health benefits of the “real” green smoothie, so what are you waiting for? GO DRINK A GREEN SMOOTHIE! You *do* have time, you *can* afford it, you *know* how to make one (if not, [click here](/#freeGuide)!), or go custom order one — your fav smoothie bar will be happy to whip up a customized 60–20–20 green smoothie just for you!
 
 Plus, we’re sharing 50 Doctor-approved Clean Smoothie Recipes at our favorite price — FREE — to help everyone easily start working with this new, healthy fast food.
 
 **GLOBAL SMOOTHIE DAY IS RIGHT AROUND THE CORNER ON OCTOBER 3rd, 2016**
 
-[CLICK HERE FOR YOUR GLOBAL SMOOTHIE DAY STARTER KIT](http://bit.ly/2dpfKsF)
+[CLICK HERE FOR YOUR GLOBAL SMOOTHIE DAY STARTER KIT](/#freeGuide)
 
 ### Why I founded Global Smoothie Day
 
