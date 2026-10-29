@@ -24,6 +24,29 @@ author: Dr Rhea
 categories:
   - name: Scientific Wellness
     slug: scientific-wellness
+tags:
+  - name: "Accountability"
+    slug: accountability
+  - name: "cleanse"
+    slug: cleanse
+  - name: "detox"
+    slug: detox
+  - name: "detoxification"
+    slug: detoxification
+  - name: "Energy"
+    slug: energy
+  - name: "Health"
+    slug: health
+  - name: "healthhacks"
+    slug: healthhacks
+  - name: "Nutrition"
+    slug: nutrition
+  - name: "rejuvenation"
+    slug: rejuvenation
+  - name: "Self-Care"
+    slug: self-care
+  - name: "Wellness"
+    slug: wellness
 featuredImage: images/5-healthy-hacks-conquer-holiday-hangovers.webp
 featuredImageAlt: ""
 legacyId: 1615

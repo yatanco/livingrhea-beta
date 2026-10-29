@@ -25,6 +25,17 @@ author: Dr Rhea
 categories:
   - name: Recipes
     slug: recipes
+tags:
+  - name: "cleanse"
+    slug: cleanse
+  - name: "education"
+    slug: education
+  - name: "greensmoothies"
+    slug: greensmoothies
+  - name: "rawfood"
+    slug: rawfood
+  - name: "selfcare"
+    slug: selfcare
 featuredImage: images/green-smoothie-guide-nutshell.webp
 featuredImageAlt: ""
 legacyId: 1215

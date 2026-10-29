@@ -19,6 +19,21 @@ author: Dr Rhea
 categories:
   - name: Scientific Wellness
     slug: scientific-wellness
+tags:
+  - name: "aruveyda"
+    slug: aruveyda
+  - name: "chinese medicine"
+    slug: chinese-medicine
+  - name: "Focus"
+    slug: focus
+  - name: "ginko"
+    slug: ginko
+  - name: "improve memory"
+    slug: improve-memory
+  - name: "productivity hack"
+    slug: productivity-hack
+  - name: "superfoods"
+    slug: superfoods-2
 featuredImage: images/3-superfoods-to-improve-memory-and-focus.webp
 featuredImageAlt: ""
 legacyId: 2103

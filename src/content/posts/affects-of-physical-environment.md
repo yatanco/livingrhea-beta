@@ -26,6 +26,13 @@ author: Dr Rhea
 categories:
   - name: Scientific Wellness
     slug: scientific-wellness
+tags:
+  - name: "healthy environment"
+    slug: healthy-environment
+  - name: "physical environment"
+    slug: physical-environment
+  - name: "tips for healthy environemnt"
+    slug: tips-for-healthy-environemnt
 featuredImage: images/affects-of-physical-environment.webp
 featuredImageAlt: ""
 legacyId: 5895

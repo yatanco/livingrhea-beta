@@ -25,6 +25,21 @@ author: Dr Rhea
 categories:
   - name: Scientific Wellness
     slug: scientific-wellness
+tags:
+  - name: "change agent"
+    slug: change-agent
+  - name: "Health"
+    slug: health
+  - name: "mission"
+    slug: mission
+  - name: "optimal living"
+    slug: optimal-living
+  - name: "purpose"
+    slug: purpose
+  - name: "Self-Care"
+    slug: self-care
+  - name: "service"
+    slug: service
 featuredImage: images/self-care-is-an-act-of-service.webp
 featuredImageAlt: ""
 legacyId: 1757

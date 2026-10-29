@@ -89,6 +89,9 @@ const schema = {
         ? {
             datePublished: article.datePublished,
             dateModified: article.dateModified,
+            ...(article.recipeCategory?.length
+              ? { articleSection: article.recipeCategory }
+              : {}),
             author: article.authorName
               ? { "@type": "Person", name: article.authorName }
               : { "@id": personId },

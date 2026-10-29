@@ -26,6 +26,15 @@ author: Dr Rhea
 categories:
   - name: Recipes
     slug: recipes
+tags:
+  - name: "clean living"
+    slug: clean-living
+  - name: "green smoothies"
+    slug: green-smoothies
+  - name: "healthy recipes"
+    slug: healthy-recipes
+  - name: "smoothies"
+    slug: smoothies-2
 featuredImage: images/green-warrior-smoothie.webp
 featuredImageAlt: green smoothies living rhea
 recipe:

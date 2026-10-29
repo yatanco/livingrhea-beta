@@ -28,6 +28,15 @@ categories:
     slug: product-reviews
   - name: Recipes
     slug: recipes
+tags:
+  - name: "clean living"
+    slug: clean-living
+  - name: "healthy fat"
+    slug: healthy-fat
+  - name: "ketosis"
+    slug: ketosis
+  - name: "real food"
+    slug: real-food
 featuredImage: images/coconut-butter-product-review.webp
 featuredImageAlt: ""
 legacyId: 5096

@@ -23,6 +23,19 @@ author: Dr Rhea
 categories:
   - name: Poetic Reflections
     slug: poetic-reflections
+tags:
+  - name: "Health"
+    slug: health
+  - name: "Love"
+    slug: love
+  - name: "poetry"
+    slug: poetry
+  - name: "self love"
+    slug: self-love
+  - name: "Self-Care"
+    slug: self-care
+  - name: "vitality"
+    slug: vitality
 featuredImage: images/i-am-enough.webp
 featuredImageAlt: ""
 legacyId: 4862

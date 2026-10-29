@@ -19,6 +19,9 @@ const posts = defineCollection({
           }),
         )
         .default([]),
+      tags: z
+        .array(z.object({ name: z.string(), slug: z.string() }))
+        .default([]),
       recipe: z
         .object({
           category: z.string().optional(),

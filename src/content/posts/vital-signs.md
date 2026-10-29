@@ -23,6 +23,21 @@ author: Dr Rhea
 categories:
   - name: Poetic Reflections
     slug: poetic-reflections
+tags:
+  - name: "cancer"
+    slug: cancer
+  - name: "death"
+    slug: death
+  - name: "healing"
+    slug: healing
+  - name: "Health"
+    slug: health
+  - name: "Love"
+    slug: love
+  - name: "poetry"
+    slug: poetry
+  - name: "transition"
+    slug: transition
 featuredImage: images/vital-signs.webp
 featuredImageAlt: ""
 legacyId: 4884

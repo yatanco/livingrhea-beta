@@ -25,6 +25,23 @@ author: Dr Rhea
 categories:
   - name: Scientific Wellness
     slug: scientific-wellness
+tags:
+  - name: "cleanse"
+    slug: cleanse
+  - name: "detoxification"
+    slug: detoxification
+  - name: "Global Smoothie Day"
+    slug: global-smoothie-day
+  - name: "green smoothies"
+    slug: green-smoothies
+  - name: "Health Coach"
+    slug: health-coach
+  - name: "optimal living"
+    slug: optimal-living
+  - name: "Smoothie Movement"
+    slug: smoothie-movement
+  - name: "Wellness"
+    slug: wellness
 featuredImage: images/healthy-green-smoothies.webp
 featuredImageAlt: ""
 legacyId: 1793

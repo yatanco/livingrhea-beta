@@ -15,9 +15,8 @@ export async function getAllPosts() {
     }));
 }
 
-// First validated category from the article frontmatter. There's no
-// category archive route on this site (no WordPress-style taxonomy
-// pages), so this is used for display only, never as a link destination.
+// First validated category from the article frontmatter. Each category has
+// an archive at its original WordPress URL, /category/<slug>/.
 export function category(post) {
   const term = post.categories[0];
   return term
@@ -37,4 +36,25 @@ export function readingTime(markdownBody = "") {
     .split(/\s+/)
     .filter(Boolean).length;
   return Math.max(1, Math.round(words / 200));
+}
+
+// Every category (or tag) used by at least one post, in first-seen order,
+// with the posts filed under it, as WordPress archives listed them.
+export function termsWithPosts(posts, field = "categories") {
+  const terms = new Map();
+  for (const post of posts)
+    for (const { name, slug } of post[field]) {
+      if (!terms.has(slug)) terms.set(slug, { name, slug, posts: [] });
+      terms.get(slug).posts.push(post);
+    }
+  return [...terms.values()];
+}
+
+// Tags get an archive page only once they group several posts; one- and
+// two-post tag pages were thin duplicates of the posts themselves.
+export const MIN_TAG_POSTS = 3;
+export function archivedTags(posts) {
+  return termsWithPosts(posts, "tags").filter(
+    (term) => term.posts.length >= MIN_TAG_POSTS,
+  );
 }

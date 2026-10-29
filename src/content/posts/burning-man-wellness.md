@@ -25,6 +25,15 @@ author: Dr Rhea
 categories:
   - name: Scientific Wellness
     slug: scientific-wellness
+tags:
+  - name: "Burning Man"
+    slug: burning-man
+  - name: "Energy"
+    slug: energy
+  - name: "Festivals"
+    slug: festivals
+  - name: "Self-Care"
+    slug: self-care
 featuredImage: images/burning-man-wellness.webp
 featuredImageAlt: ""
 legacyId: 1366

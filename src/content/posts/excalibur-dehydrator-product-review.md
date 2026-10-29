@@ -28,6 +28,15 @@ categories:
     slug: product-reviews
   - name: Recipes
     slug: recipes
+tags:
+  - name: "clean living"
+    slug: clean-living
+  - name: "home cooking"
+    slug: home-cooking
+  - name: "kitchen tools"
+    slug: kitchen-tools
+  - name: "optimal health"
+    slug: optimal-health
 featuredImage: images/excalibur-dehydrator-product-review.webp
 featuredImageAlt: Excalibur Dehydrator Living Rhea
 legacyId: 4997

@@ -21,6 +21,23 @@ categories:
     slug: recipes
   - name: Scientific Wellness
     slug: scientific-wellness
+tags:
+  - name: "cleanse"
+    slug: cleanse
+  - name: "detoxification"
+    slug: detoxification
+  - name: "Digital Detox"
+    slug: digital-detox
+  - name: "digital detoxification"
+    slug: digital-detoxification
+  - name: "Health"
+    slug: health
+  - name: "healthhacks"
+    slug: healthhacks
+  - name: "optimal living"
+    slug: optimal-living
+  - name: "smoothies"
+    slug: smoothies-2
 featuredImage: images/detox-for-entrepreneurs.webp
 featuredImageAlt: ""
 legacyId: 1834

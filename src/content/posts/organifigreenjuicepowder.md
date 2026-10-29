@@ -28,6 +28,19 @@ categories:
     slug: product-reviews
   - name: Recipes
     slug: recipes
+tags:
+  - name: "green powder"
+    slug: green-powder
+  - name: "green smoothie"
+    slug: green-smoothie-2
+  - name: "greenjuice"
+    slug: greenjuice
+  - name: "Nutrition"
+    slug: nutrition
+  - name: "optimalliving"
+    slug: optimalliving
+  - name: "superfood"
+    slug: superfood-2
 featuredImage: images/organifigreenjuicepowder.webp
 featuredImageAlt: ""
 legacyId: 1946

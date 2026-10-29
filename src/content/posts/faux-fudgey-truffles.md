@@ -24,6 +24,15 @@ author: Dr Rhea
 categories:
   - name: Recipes
     slug: recipes
+tags:
+  - name: "clean living"
+    slug: clean-living
+  - name: "dessert"
+    slug: dessert
+  - name: "healthy recipes"
+    slug: healthy-recipes
+  - name: "real food"
+    slug: real-food
 featuredImage: images/faux-fudgey-truffles.webp
 featuredImageAlt: faux fudgey truffles living rhea
 recipe:

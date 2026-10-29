@@ -24,6 +24,19 @@ author: Dr Rhea
 categories:
   - name: Scientific Wellness
     slug: scientific-wellness
+tags:
+  - name: "clean eating"
+    slug: clean-eating
+  - name: "food"
+    slug: food
+  - name: "food awareness"
+    slug: food-awareness
+  - name: "meditation"
+    slug: meditation
+  - name: "relationship with food"
+    slug: relationship-with-food
+  - name: "relationships"
+    slug: relationships
 featuredImage: images/2-practices-that-will-change-your-relationship-with-food.webp
 featuredImageAlt: ""
 legacyId: 2011

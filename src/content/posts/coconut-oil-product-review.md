@@ -28,6 +28,15 @@ categories:
     slug: product-reviews
   - name: Recipes
     slug: recipes
+tags:
+  - name: "body care"
+    slug: body-care
+  - name: "coconut"
+    slug: coconut
+  - name: "coconut oil"
+    slug: coconut-oil
+  - name: "cooking"
+    slug: cooking
 featuredImage: images/coconut-oil-product-review.webp
 featuredImageAlt: ""
 legacyId: 5104

@@ -24,6 +24,13 @@ author: Dr Rhea
 categories:
   - name: Recipes
     slug: recipes
+tags:
+  - name: "clean living"
+    slug: clean-living
+  - name: "healthy recipes"
+    slug: healthy-recipes
+  - name: "real food"
+    slug: real-food
 featuredImage: images/rawkin-vegan-tacos.webp
 featuredImageAlt: ""
 recipe:

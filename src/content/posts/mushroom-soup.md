@@ -25,6 +25,15 @@ author: Dr Rhea
 categories:
   - name: Recipes
     slug: recipes
+tags:
+  - name: "mushroom soup"
+    slug: mushroom-soup
+  - name: "recipes"
+    slug: recipes
+  - name: "soup recipe"
+    slug: soup-recipe
+  - name: "vegan recipe"
+    slug: vegan-recipe
 featuredImage: images/mushroom-soup.webp
 featuredImageAlt: ""
 recipe:

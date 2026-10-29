@@ -24,6 +24,15 @@ categories:
     slug: product-reviews
   - name: Recipes
     slug: recipes
+tags:
+  - name: "blending"
+    slug: blending
+  - name: "kitchen tools"
+    slug: kitchen-tools
+  - name: "products"
+    slug: products
+  - name: "smoothies"
+    slug: smoothies-2
 featuredImage: images/blendtec-blender-product-review.webp
 featuredImageAlt: bledntec blender
 legacyId: 4999

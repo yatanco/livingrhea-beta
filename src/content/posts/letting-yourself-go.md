@@ -24,6 +24,31 @@ author: Dr Rhea
 categories:
   - name: Scientific Wellness
     slug: scientific-wellness
+tags:
+  - name: "Accountability"
+    slug: accountability
+  - name: "Growth"
+    slug: growth
+  - name: "Health"
+    slug: health
+  - name: "healthhacks"
+    slug: healthhacks
+  - name: "mindbodymondays"
+    slug: mindbodymondays
+  - name: "Mindfulness"
+    slug: mindfulness
+  - name: "Personal development"
+    slug: personal-development
+  - name: "Self-Care"
+    slug: self-care
+  - name: "selfcare"
+    slug: selfcare
+  - name: "Support"
+    slug: support
+  - name: "Surrender"
+    slug: surrender
+  - name: "Wellness"
+    slug: wellness
 featuredImage: images/letting-yourself-go.webp
 featuredImageAlt: ""
 legacyId: 1648

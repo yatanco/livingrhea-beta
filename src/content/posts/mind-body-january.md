@@ -25,6 +25,17 @@ author: Dr Rhea
 categories:
   - name: Scientific Wellness
     slug: scientific-wellness
+tags:
+  - name: "cleanse"
+    slug: cleanse
+  - name: "detox"
+    slug: detox
+  - name: "mindbodymondays"
+    slug: mindbodymondays
+  - name: "newletter"
+    slug: newletter
+  - name: "rejuvenation"
+    slug: rejuvenation
 featuredImage: images/mind-body-january.webp
 featuredImageAlt: ""
 legacyId: 1237

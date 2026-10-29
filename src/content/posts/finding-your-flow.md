@@ -24,6 +24,27 @@ author: Dr Rhea
 categories:
   - name: Scientific Wellness
     slug: scientific-wellness
+tags:
+  - name: "Energy"
+    slug: energy
+  - name: "Focus"
+    slug: focus
+  - name: "Guidance"
+    slug: guidance
+  - name: "Health"
+    slug: health
+  - name: "healthhacks"
+    slug: healthhacks
+  - name: "Love"
+    slug: love
+  - name: "mindbodymondays"
+    slug: mindbodymondays
+  - name: "Mindfulness"
+    slug: mindfulness
+  - name: "Self-Care"
+    slug: self-care
+  - name: "Wellness"
+    slug: wellness
 featuredImage: images/finding-your-flow.webp
 featuredImageAlt: living rhea
 legacyId: 1522

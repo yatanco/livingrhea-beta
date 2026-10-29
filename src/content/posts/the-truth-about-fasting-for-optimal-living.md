@@ -25,6 +25,27 @@ author: Dr Rhea
 categories:
   - name: Scientific Wellness
     slug: scientific-wellness
+tags:
+  - name: "cleanse"
+    slug: cleanse
+  - name: "detox"
+    slug: detox
+  - name: "detox symptoms"
+    slug: detox-symptoms
+  - name: "diet"
+    slug: diet
+  - name: "fasting"
+    slug: fasting
+  - name: "health hacks"
+    slug: health-hacks
+  - name: "healthhacks"
+    slug: healthhacks
+  - name: "optimal health"
+    slug: optimal-health
+  - name: "optimal living"
+    slug: optimal-living
+  - name: "sauna"
+    slug: sauna
 featuredImage: images/the-truth-about-fasting-for-optimal-living.webp
 featuredImageAlt: ""
 legacyId: 1980

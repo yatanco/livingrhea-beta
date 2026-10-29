@@ -147,3 +147,39 @@ test("responsive blog images have generated candidates and do not enlarge their 
   }
   assert.ok(optimized > 0);
 });
+
+test("original category and frequent tag archives are served, linked and listed", async () => {
+  const terms = new Map();
+  for (const post of await json("migration/wordpress-posts.json"))
+    for (const term of (post._embedded?.["wp:term"] || []).flat())
+      if (term.taxonomy === "category") terms.set(term.slug, new URL(term.link).pathname);
+  const sitemap = await readFile("dist/sitemap.xml", "utf8");
+  const redirects = await readFile("public/_redirects", "utf8");
+  assert.ok(terms.size > 0);
+  for (const [slug, path] of terms) {
+    assert.equal(path, `/category/${slug}/`);
+    const $ = load(await readFile(`dist${path}index.html`, "utf8"));
+    assert.ok($(".masonry-blog-item").length > 0, slug);
+    assert.ok(sitemap.includes(`https://livingrhea.com${path}`), slug);
+  }
+  assert.doesNotMatch(redirects, /^\/category\/\* /m);
+  // Tags used on several posts keep their archive; rarer tags were thin pages.
+  const tagPosts = new Map();
+  for (const post of await json("migration/wordpress-posts.json"))
+    if (post.slug !== "choice")
+      for (const term of (post._embedded?.["wp:term"] || []).flat())
+        if (term.taxonomy === "post_tag") tagPosts.set(term.slug, (tagPosts.get(term.slug) || 0) + 1);
+  const archived = [...tagPosts].filter(([, count]) => count >= 3);
+  assert.ok(archived.length > 0);
+  for (const [slug, count] of archived) {
+    const $tag = load(await readFile(`dist/tag/${slug}/index.html`, "utf8"));
+    assert.equal($tag(".masonry-blog-item").length, count, slug);
+    assert.ok(sitemap.includes(`https://livingrhea.com/tag/${slug}/`), slug);
+  }
+  const $ = load(await readFile("dist/blog/faux-fudgey-truffles/index.html", "utf8"));
+  assert.equal($("a.article-category").attr("href"), "/category/recipes/");
+  // Cloudflare Pages applies the first match, so wildcards must come last.
+  const rules = redirects.split("\n").filter((line) => line && !line.startsWith("#"));
+  const firstWildcard = rules.findIndex((line) => line.split(" ")[0].includes("*"));
+  assert.ok(rules.slice(firstWildcard).every((line) => line.split(" ")[0].includes("*")));
+});

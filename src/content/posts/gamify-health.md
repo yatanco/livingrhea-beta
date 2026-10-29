@@ -24,6 +24,23 @@ author: Dr Rhea
 categories:
   - name: Scientific Wellness
     slug: scientific-wellness
+tags:
+  - name: "Changemaker"
+    slug: changemaker
+  - name: "Digital Detox"
+    slug: digital-detox
+  - name: "Gamification"
+    slug: gamification
+  - name: "Habits"
+    slug: habits
+  - name: "health hacks"
+    slug: health-hacks
+  - name: "optimal living"
+    slug: optimal-living
+  - name: "Productivity"
+    slug: productivity
+  - name: "Routine Building"
+    slug: routine-building
 featuredImage: images/gamify-health.webp
 featuredImageAlt: ""
 legacyId: 1829

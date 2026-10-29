@@ -24,6 +24,15 @@ author: Dr Rhea
 categories:
   - name: Poetic Reflections
     slug: poetic-reflections
+tags:
+  - name: "creative expression"
+    slug: creative-expression
+  - name: "inspiration"
+    slug: inspiration
+  - name: "poetry"
+    slug: poetry
+  - name: "self love"
+    slug: self-love
 featuredImage: images/health-poetry-consequences.webp
 featuredImageAlt: ""
 legacyId: 5129

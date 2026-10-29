@@ -16,6 +16,19 @@ author: Dr Rhea
 categories:
   - name: Poetic Reflections
     slug: poetic-reflections
+tags:
+  - name: "eating disorder"
+    slug: eating-disorder
+  - name: "emotional eating"
+    slug: emotional-eating
+  - name: "Health"
+    slug: health
+  - name: "health poetry"
+    slug: health-poetry
+  - name: "Love"
+    slug: love
+  - name: "poetry"
+    slug: poetry
 featuredImage: images/emotional-eating.webp
 featuredImageAlt: Emotional Eating
 legacyId: 4888

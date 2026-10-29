@@ -27,6 +27,13 @@ categories:
     slug: product-reviews
   - name: Recipes
     slug: recipes
+tags:
+  - name: "healthy eating"
+    slug: healthy-eating
+  - name: "product review"
+    slug: product-review
+  - name: "spiralizer"
+    slug: spiralizer
 featuredImage: images/vegetable-spiralizer-product-review.webp
 featuredImageAlt: Veggie Spiralizer
 legacyId: 4988

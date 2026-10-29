@@ -23,6 +23,25 @@ author: Dr Rhea
 categories:
   - name: Scientific Wellness
     slug: scientific-wellness
+tags:
+  - name: "California"
+    slug: california
+  - name: "Conservation"
+    slug: conservation
+  - name: "DIY"
+    slug: diy
+  - name: "education"
+    slug: education
+  - name: "Environment"
+    slug: environment
+  - name: "Health"
+    slug: health
+  - name: "Health Consciousness"
+    slug: health-consciousness
+  - name: "Sustainability"
+    slug: sustainability
+  - name: "Water"
+    slug: water
 featuredImage: images/waterconservationtips.webp
 featuredImageAlt: ""
 legacyId: 1771

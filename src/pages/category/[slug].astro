@@ -1,0 +1,18 @@
+---
+import ArchivePage from "../../components/ArchivePage.astro";
+import { getAllPosts, termsWithPosts } from "../../lib/posts.js";
+
+// Category descriptions as saved in WordPress (only Recipes had one).
+const descriptions = { recipes: "recipe" };
+
+export async function getStaticPaths() {
+  return termsWithPosts(await getAllPosts()).map((term) => ({
+    params: { slug: term.slug },
+    props: { term },
+  }));
+}
+
+const { term } = Astro.props;
+---
+
+<ArchivePage label="Category" term={term} description={descriptions[term.slug]} />

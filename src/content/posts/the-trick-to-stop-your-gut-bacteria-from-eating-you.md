@@ -19,6 +19,19 @@ author: Dr Rhea
 categories:
   - name: Scientific Wellness
     slug: scientific-wellness
+tags:
+  - name: "arthritis"
+    slug: arthritis
+  - name: "autoimmune disease"
+    slug: autoimmune-disease
+  - name: "Energy"
+    slug: energy
+  - name: "flora"
+    slug: flora
+  - name: "gut bacteria"
+    slug: gut-bacteria
+  - name: "probiotics"
+    slug: probiotics
 featuredImage: images/the-trick-to-stop-your-gut-bacteria-from-eating-you.webp
 featuredImageAlt: ""
 legacyId: 2033

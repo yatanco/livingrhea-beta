@@ -25,6 +25,13 @@ author: Dr Rhea
 categories:
   - name: Recipes
     slug: recipes
+tags:
+  - name: "nut meat recipe"
+    slug: nut-meat-recipe
+  - name: "nut meet"
+    slug: nut-meet
+  - name: "tacos"
+    slug: tacos
 featuredImage: images/neat-nut-meat.webp
 featuredImageAlt: ""
 recipe:

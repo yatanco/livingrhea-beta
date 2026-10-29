@@ -25,6 +25,15 @@ author: Dr Rhea
 categories:
   - name: Recipes
     slug: recipes
+tags:
+  - name: "clean living"
+    slug: clean-living
+  - name: "pasta"
+    slug: pasta
+  - name: "real food"
+    slug: real-food
+  - name: "zucchini pasta"
+    slug: zucchini-pasta
 featuredImage: images/zenzini-pasta.webp
 featuredImageAlt: ""
 recipe:

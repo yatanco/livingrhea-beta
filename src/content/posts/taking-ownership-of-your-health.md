@@ -18,6 +18,19 @@ author: Dr Rhea
 categories:
   - name: Poetic Reflections
     slug: poetic-reflections
+tags:
+  - name: "Accountability"
+    slug: accountability
+  - name: "creative expression"
+    slug: creative-expression
+  - name: "Health"
+    slug: health
+  - name: "optimal health"
+    slug: optimal-health
+  - name: "optimal living"
+    slug: optimal-living
+  - name: "poetry"
+    slug: poetry
 featuredImage: images/taking-ownership-of-your-health.webp
 featuredImageAlt: Prevention
 legacyId: 4891

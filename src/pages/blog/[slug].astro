@@ -58,7 +58,7 @@ const { Content } = await render(post.entry);
       plainImage && <img src={plainImage} alt="" fetchpriority="high" />
     )}
     <div class="article-hero-content">
-      <span class="article-category">{cat.name}</span>
+      <a class="article-category" href={`/category/${cat.slug}/`}>{cat.name}</a>
       <h1>{post.title}</h1>
       <div class="article-meta">
         <span>By {post.author}</span>

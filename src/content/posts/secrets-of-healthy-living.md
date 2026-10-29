@@ -25,6 +25,19 @@ author: Dr Rhea
 categories:
   - name: Scientific Wellness
     slug: scientific-wellness
+tags:
+  - name: "changes for healthy living"
+    slug: changes-for-healthy-living
+  - name: "healthy diet"
+    slug: healthy-diet
+  - name: "healthy eating"
+    slug: healthy-eating
+  - name: "healthy living"
+    slug: healthy-living
+  - name: "healthy living tips"
+    slug: healthy-living-tips
+  - name: "secrets of healthy living"
+    slug: secrets-of-healthy-living
 featuredImage: images/secrets-of-healthy-living.webp
 featuredImageAlt: ""
 legacyId: 8777

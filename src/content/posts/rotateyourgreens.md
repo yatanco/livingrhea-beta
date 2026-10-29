@@ -25,6 +25,27 @@ author: Dr Rhea
 categories:
   - name: Scientific Wellness
     slug: scientific-wellness
+tags:
+  - name: "clean living"
+    slug: clean-living
+  - name: "cleanse"
+    slug: cleanse
+  - name: "detoxification"
+    slug: detoxification
+  - name: "green juice"
+    slug: green-juice
+  - name: "green smoothies"
+    slug: green-smoothies
+  - name: "Nutrition"
+    slug: nutrition
+  - name: "rawfood"
+    slug: rawfood
+  - name: "rawvegan"
+    slug: rawvegan
+  - name: "real food"
+    slug: real-food
+  - name: "vegan"
+    slug: vegan-3
 featuredImage: images/rotateyourgreens.webp
 featuredImageAlt: Rotate Greens - Living Rhea
 legacyId: 1778

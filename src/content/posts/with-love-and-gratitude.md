@@ -24,6 +24,17 @@ author: Dr Rhea
 categories:
   - name: Poetic Reflections
     slug: poetic-reflections
+tags:
+  - name: "Appreciation"
+    slug: appreciation
+  - name: "community"
+    slug: community
+  - name: "Gratitude"
+    slug: gratitude
+  - name: "Love"
+    slug: love
+  - name: "Support"
+    slug: support
 featuredImage: images/with-love-and-gratitude.webp
 featuredImageAlt: ""
 legacyId: 1463

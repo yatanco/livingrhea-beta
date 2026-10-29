@@ -67,6 +67,17 @@ collections:
               name: slug,
               widget: string,
             }
+      - label: Tags
+        name: tags
+        widget: list
+        required: false
+        fields:
+          - { label: Name, name: name, widget: string }
+          - {
+              label: "Slug (lowercase, hyphens only, e.g. clean-living)",
+              name: slug,
+              widget: string,
+            }
       - label: "Featured image"
         name: featuredImage
         widget: image

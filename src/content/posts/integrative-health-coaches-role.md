@@ -27,6 +27,13 @@ author: Dr Rhea
 categories:
   - name: Scientific Wellness
     slug: scientific-wellness
+tags:
+  - name: "covid"
+    slug: covid
+  - name: "healthcare"
+    slug: healthcare
+  - name: "integrative health coaches"
+    slug: integrative-health-coaches
 featuredImage: images/integrative-health-coaches-role.webp
 featuredImageAlt: ""
 legacyId: 8778

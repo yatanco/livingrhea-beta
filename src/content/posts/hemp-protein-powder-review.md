@@ -23,6 +23,15 @@ categories:
     slug: product-reviews
   - name: Recipes
     slug: recipes
+tags:
+  - name: "hemp"
+    slug: hemp
+  - name: "hemp protein"
+    slug: hemp-protein
+  - name: "hemp protein powder"
+    slug: hemp-protein-powder
+  - name: "protein powder"
+    slug: protein-powder
 featuredImage: images/hemp-protein-powder-review.webp
 featuredImageAlt: ""
 legacyId: 5121

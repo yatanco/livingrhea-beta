@@ -25,6 +25,17 @@ author: Dr Rhea
 categories:
   - name: Recipes
     slug: recipes
+tags:
+  - name: "blending"
+    slug: blending
+  - name: "clean living"
+    slug: clean-living
+  - name: "healthy recipes"
+    slug: healthy-recipes
+  - name: "real food"
+    slug: real-food
+  - name: "smoothies"
+    slug: smoothies-2
 featuredImage: images/mango-tango-faux-lassi.webp
 featuredImageAlt: ""
 recipe:

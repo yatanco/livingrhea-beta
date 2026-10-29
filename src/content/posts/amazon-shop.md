@@ -24,6 +24,21 @@ author: Dr Rhea
 categories:
   - name: Scientific Wellness
     slug: scientific-wellness
+tags:
+  - name: "cleanse"
+    slug: cleanse
+  - name: "detoxification"
+    slug: detoxification
+  - name: "health hacks"
+    slug: health-hacks
+  - name: "healthy groceries"
+    slug: healthy-groceries
+  - name: "Nutrition"
+    slug: nutrition
+  - name: "optimal living"
+    slug: optimal-living
+  - name: "shopping list"
+    slug: shopping-list
 featuredImage: images/amazon-shop.webp
 featuredImageAlt: ""
 legacyId: 1844

@@ -25,6 +25,17 @@ author: Dr Rhea
 categories:
   - name: Scientific Wellness
     slug: scientific-wellness
+tags:
+  - name: "cleanse"
+    slug: cleanse
+  - name: "detox"
+    slug: detox
+  - name: "detoxification"
+    slug: detoxification
+  - name: "healthhacks"
+    slug: healthhacks
+  - name: "selfcare"
+    slug: selfcare
 featuredImage: images/cleanse-body-spring-simple-activities.webp
 featuredImageAlt: ""
 legacyId: 1231

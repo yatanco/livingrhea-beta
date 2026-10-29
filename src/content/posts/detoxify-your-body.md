@@ -24,6 +24,21 @@ author: Dr Rhea
 categories:
   - name: Scientific Wellness
     slug: scientific-wellness
+tags:
+  - name: "cleanse"
+    slug: cleanse
+  - name: "detox"
+    slug: detox
+  - name: "detoxification"
+    slug: detoxification
+  - name: "Health"
+    slug: health
+  - name: "optimal living"
+    slug: optimal-living
+  - name: "Self-Care"
+    slug: self-care
+  - name: "toxicity"
+    slug: toxicity
 featuredImage: images/detoxify-your-body.webp
 featuredImageAlt: ""
 legacyId: 1750

@@ -25,6 +25,15 @@ author: Dr Rhea
 categories:
   - name: Scientific Wellness
     slug: scientific-wellness
+tags:
+  - name: "Life struggle"
+    slug: life-struggle
+  - name: "Molecular Toxicologist"
+    slug: molecular-toxicologist
+  - name: "Molecular toxicology"
+    slug: molecular-toxicology
+  - name: "Rhea Mehta"
+    slug: rhea-mehta
 featuredImage: images/get-rid-of-home-of-toxins-with-dr-rhea-mehta-molecular-toxicologist.webp
 featuredImageAlt: ""
 legacyId: 5825

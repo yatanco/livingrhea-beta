@@ -24,6 +24,17 @@ author: Dr Rhea
 categories:
   - name: Recipes
     slug: recipes
+tags:
+  - name: "clean living"
+    slug: clean-living
+  - name: "elixirs"
+    slug: elixirs
+  - name: "healthy recipes"
+    slug: healthy-recipes
+  - name: "real food"
+    slug: real-food
+  - name: "smoothies"
+    slug: smoothies-2
 featuredImage: images/foffee-my-high-energy-coffee-substitute-2.webp
 featuredImageAlt: foffee_living rhea
 recipe:

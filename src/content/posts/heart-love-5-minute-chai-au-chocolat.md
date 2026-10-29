@@ -24,6 +24,19 @@ author: Dr Rhea
 categories:
   - name: Recipes
     slug: recipes
+tags:
+  - name: "blended drinks"
+    slug: blended-drinks
+  - name: "dairyfree"
+    slug: dairyfree-2
+  - name: "delicious"
+    slug: delicious
+  - name: "paleo"
+    slug: paleo-2
+  - name: "rawvegan"
+    slug: rawvegan
+  - name: "recipe"
+    slug: recipe-3
 featuredImage: images/heart-love-5-minute-chai-au-chocolat.webp
 featuredImageAlt: ""
 recipe:

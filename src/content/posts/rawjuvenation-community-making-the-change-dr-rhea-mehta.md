@@ -25,6 +25,13 @@ author: Dr Rhea
 categories:
   - name: Scientific Wellness
     slug: scientific-wellness
+tags:
+  - name: "inspiration"
+    slug: inspiration
+  - name: "RAWjuvenation Community"
+    slug: rawjuvenation-community
+  - name: "Rhea Mehta"
+    slug: rhea-mehta
 featuredImage: images/rawjuvenation-community-making-the-change-dr-rhea-mehta.webp
 featuredImageAlt: ""
 legacyId: 5830

@@ -7,6 +7,17 @@ author: Dr Rhea
 categories:
   - name: Recipes
     slug: recipes
+tags:
+  - name: "clean living"
+    slug: clean-living
+  - name: "healthy recipes"
+    slug: healthy-recipes
+  - name: "home brew"
+    slug: home-brew
+  - name: "real food"
+    slug: real-food
+  - name: "smoothies"
+    slug: smoothies-2
 featuredImage: images/turmeric-faux-latte-my-anti-inflammatory-fix.webp
 featuredImageAlt: ""
 recipe:

@@ -1,0 +1,15 @@
+---
+import ArchivePage from "../../components/ArchivePage.astro";
+import { getAllPosts, archivedTags } from "../../lib/posts.js";
+
+export async function getStaticPaths() {
+  return archivedTags(await getAllPosts()).map((term) => ({
+    params: { slug: term.slug },
+    props: { term },
+  }));
+}
+
+const { term } = Astro.props;
+---
+
+<ArchivePage label="Tag" term={term} />

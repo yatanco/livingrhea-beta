@@ -82,8 +82,6 @@
 /cleanse-body-spring-simple-activities/ /blog/cleanse-body-spring-simple-activities/ 301
 /green-smoothie-guide-nutshell/ /blog/green-smoothie-guide-nutshell/ 301
 /mind-body-january/ /blog/mind-body-january/ 301
-/recipes/* /blog/:splat 301
-/category/* /blog/ 301
 /inspiration/affects-of-physical-environment/ /blog/affects-of-physical-environment/ 301
 /inspiration/get-rid-of-home-of-toxins-with-dr-rhea-mehta-molecular-toxicologist/ /blog/get-rid-of-home-of-toxins-with-dr-rhea-mehta-molecular-toxicologist/ 301
 /recipes/green-warrior-smoothie/ /blog/green-warrior-smoothie/ 301
@@ -116,3 +114,10 @@
 /blog/page/6/ /blog/ 301
 /blog/page/7/ /blog/ 301
 /blog/page/8/ /blog/ 301
+# WordPress archives with no published posts, and the single author archive.
+/category/press/ /press/ 301
+/category/uncategorized/ /blog/ 301
+/author/superadzmin/ /about/ 301
+# Wildcards last: Cloudflare Pages applies the first matching rule.
+/category/:cat/page/* /category/:cat/ 301
+/recipes/* /blog/:splat 301

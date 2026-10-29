@@ -25,6 +25,15 @@ author: Dr Rhea
 categories:
   - name: Recipes
     slug: recipes
+tags:
+  - name: "clean living"
+    slug: clean-living
+  - name: "healthy recipes"
+    slug: healthy-recipes
+  - name: "pesto"
+    slug: pesto
+  - name: "real food"
+    slug: real-food
 featuredImage: images/pesto-pizazz.webp
 featuredImageAlt: ""
 recipe:

@@ -24,6 +24,17 @@ author: Dr Rhea
 categories:
   - name: Scientific Wellness
     slug: scientific-wellness
+tags:
+  - name: "cleanse"
+    slug: cleanse
+  - name: "community"
+    slug: community
+  - name: "detox"
+    slug: detox
+  - name: "healing"
+    slug: healing
+  - name: "selfcare"
+    slug: selfcare
 featuredImage: images/cleansing-life-insights-disclosed.webp
 featuredImageAlt: ""
 legacyId: 1221

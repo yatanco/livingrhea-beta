@@ -24,6 +24,21 @@ author: Dr Rhea
 categories:
   - name: Scientific Wellness
     slug: scientific-wellness
+tags:
+  - name: "detoxification"
+    slug: detoxification
+  - name: "empowerment"
+    slug: empowerment
+  - name: "optimal living"
+    slug: optimal-living
+  - name: "Self-Care"
+    slug: self-care
+  - name: "superfoods"
+    slug: superfoods-2
+  - name: "Wellness"
+    slug: wellness
+  - name: "workshop"
+    slug: workshop
 featuredImage: images/clean-out-your-kitchen.webp
 featuredImageAlt: ""
 legacyId: 1865

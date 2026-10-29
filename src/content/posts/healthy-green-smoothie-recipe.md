@@ -28,6 +28,31 @@ categories:
     slug: recipes
   - name: Scientific Wellness
     slug: scientific-wellness
+tags:
+  - name: "blended drinks"
+    slug: blended-drinks
+  - name: "cleanse"
+    slug: cleanse
+  - name: "dairyfree"
+    slug: dairyfree-2
+  - name: "delicious"
+    slug: delicious
+  - name: "detox"
+    slug: detox
+  - name: "education"
+    slug: education
+  - name: "greensmoothies"
+    slug: greensmoothies
+  - name: "Health"
+    slug: health
+  - name: "Nutrition"
+    slug: nutrition
+  - name: "recipe"
+    slug: recipe-3
+  - name: "Self-Care"
+    slug: self-care
+  - name: "Wellness"
+    slug: wellness
 featuredImage: images/healthy-green-smoothie-recipe.webp
 featuredImageAlt: ""
 recipe:

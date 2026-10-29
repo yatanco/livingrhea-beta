@@ -6,3 +6,6 @@
 .env*
 !.env.example
 .dev.vars*
+
+# Local WordPress exports (contain drafts, comments and account emails)
+reference/

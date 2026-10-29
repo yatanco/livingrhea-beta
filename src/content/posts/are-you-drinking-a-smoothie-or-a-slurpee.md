@@ -27,6 +27,19 @@ author: Dr Rhea
 categories:
   - name: Scientific Wellness
     slug: scientific-wellness
+tags:
+  - name: "Global Smoothie Day"
+    slug: global-smoothie-day
+  - name: "green smoothie"
+    slug: green-smoothie-2
+  - name: "simple green smoothies"
+    slug: simple-green-smoothies
+  - name: "smoothie"
+    slug: smoothie-2
+  - name: "Smoothie Movement"
+    slug: smoothie-movement
+  - name: "smoothies"
+    slug: smoothies-2
 featuredImage: images/are-you-drinking-a-smoothie-or-a-slurpee.webp
 featuredImageAlt: ""
 legacyId: 2061

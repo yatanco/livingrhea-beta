@@ -23,6 +23,21 @@ author: Dr Rhea
 categories:
   - name: Scientific Wellness
     slug: scientific-wellness
+tags:
+  - name: "amazing"
+    slug: amazing
+  - name: "Energy"
+    slug: energy
+  - name: "feel good"
+    slug: feel-good
+  - name: "feel great"
+    slug: feel-great
+  - name: "happiness"
+    slug: happiness
+  - name: "Health"
+    slug: health
+  - name: "optimal health"
+    slug: optimal-health
 featuredImage: images/how-to-feel-great-every-day.webp
 featuredImageAlt: ""
 legacyId: 2084

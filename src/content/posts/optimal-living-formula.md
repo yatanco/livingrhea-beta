@@ -25,6 +25,19 @@ categories:
     slug: publications-interviews
   - name: Scientific Wellness
     slug: scientific-wellness
+tags:
+  - name: "authenticity"
+    slug: authenticity
+  - name: "cleanse"
+    slug: cleanse
+  - name: "detoxification"
+    slug: detoxification
+  - name: "healing"
+    slug: healing
+  - name: "optimal living"
+    slug: optimal-living
+  - name: "podcast"
+    slug: podcast
 featuredImage: images/optimal-living-formula.webp
 featuredImageAlt: ""
 legacyId: 1849

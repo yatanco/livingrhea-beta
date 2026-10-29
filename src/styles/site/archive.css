@@ -1,0 +1,57 @@
+/* Category/tag archive header, matching the saved Salient archive header. */
+.archive-hero {
+  position: relative;
+  overflow: hidden;
+  padding: 8% 0;
+  background: #191919;
+  color: #fff;
+}
+.archive-hero > img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+}
+.archive-hero::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: rgba(25, 25, 25, 0.35);
+}
+.archive-hero .container {
+  position: relative;
+  z-index: 1;
+}
+.archive-hero .archive-label {
+  display: block;
+  margin-bottom: 15px;
+  font-family: Courier, monospace;
+  font-size: 12px;
+  line-height: 30px;
+  font-weight: 100;
+}
+.archive-hero h1 {
+  margin: 0 0 8px;
+  color: #fff;
+  font-family: ogg-regular, serif;
+  font-size: 69.3px;
+  line-height: 1;
+  font-weight: 400;
+  text-transform: uppercase;
+}
+.archive-hero p {
+  margin: 0;
+  padding: 0;
+  color: #fff;
+  font-size: 18px;
+  line-height: 32px;
+}
+@media (max-width: 690px) {
+  .archive-hero h1 {
+    font-size: 40.3px;
+    line-height: 50px;
+    margin-bottom: 4px;
+  }
+}

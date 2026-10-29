@@ -1,7 +1,9 @@
 /* Native article framing, matching the saved Salient article treatment. */
 .livingrhea-article .article-hero {
   position: relative;
-  height: 550px;
+  min-height: 550px;
+  padding: 60px 0;
+  box-sizing: border-box;
   display: flex;
   align-items: center;
   justify-content: center;

@@ -23,6 +23,17 @@ author: Dr Rhea
 categories:
   - name: Scientific Wellness
     slug: scientific-wellness
+tags:
+  - name: "clean living"
+    slug: clean-living
+  - name: "detoxification"
+    slug: detoxification
+  - name: "eco-beauty"
+    slug: eco-beauty
+  - name: "health hacks"
+    slug: health-hacks
+  - name: "natural beauty"
+    slug: natural-beauty
 featuredImage: images/naturaldeodorantexperiment.webp
 featuredImageAlt: Natural Deodorant Experiment - Living Rhea
 legacyId: 1787

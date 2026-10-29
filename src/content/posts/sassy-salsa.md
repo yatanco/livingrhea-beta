@@ -25,6 +25,11 @@ author: Dr Rhea
 categories:
   - name: Recipes
     slug: recipes
+tags:
+  - name: "healthy recipe"
+    slug: healthy-recipe
+  - name: "real food"
+    slug: real-food
 featuredImage: images/sassy-salsa.webp
 featuredImageAlt: ""
 recipe:

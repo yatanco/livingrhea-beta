@@ -27,6 +27,15 @@ categories:
     slug: product-reviews
   - name: Recipes
     slug: recipes
+tags:
+  - name: "coconut sweetener"
+    slug: coconut-sweetener
+  - name: "natural sweeteners"
+    slug: natural-sweeteners
+  - name: "stevia"
+    slug: stevia
+  - name: "sugar"
+    slug: sugar
 featuredImage: images/coconut-sweetener-product-review.webp
 featuredImageAlt: ""
 legacyId: 5078

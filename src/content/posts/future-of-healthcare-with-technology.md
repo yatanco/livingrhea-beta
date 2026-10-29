@@ -25,6 +25,11 @@ author: Dr Rhea
 categories:
   - name: Scientific Wellness
     slug: scientific-wellness
+tags:
+  - name: "future of healthcare"
+    slug: future-of-healthcare
+  - name: "healthcare technology"
+    slug: healthcare-technology
 featuredImage: images/future-of-healthcare-with-technology.webp
 featuredImageAlt: ""
 legacyId: 5898

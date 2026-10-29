@@ -24,6 +24,21 @@ author: Dr Rhea
 categories:
   - name: Scientific Wellness
     slug: scientific-wellness
+tags:
+  - name: "Accountability"
+    slug: accountability
+  - name: "Coaching"
+    slug: coaching
+  - name: "education"
+    slug: education
+  - name: "Guidance"
+    slug: guidance
+  - name: "Health"
+    slug: health
+  - name: "Support"
+    slug: support
+  - name: "Wellness"
+    slug: wellness
 featuredImage: images/health-and-wellness-coach.webp
 featuredImageAlt: health and wellness coach Dr. Rhea
 legacyId: 1501
