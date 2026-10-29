@@ -20,6 +20,8 @@ This continues the interrupted dead-link, image, and CSS audit. Source and gener
 
 Claude's recovered probe returned 404 for the bit.ly/2dpfKsF shortlink, laudadio.ca, advancedmedicine.ca/rhea-mehta, the Better by Bowhead Apple app, two FineMinds articles, a historical Mindbodygreen detox article, and a malformed WHFoods path. The pharmacy links in the removed Choice article also failed. Source locations and the exact probe statuses are in the JSON and reflect the audit before the post was removed. The retired IIN interview path was corrected. No unrelated replacement destinations were invented.
 
+Update (28 October, later): the remaining 404s were re-probed and, at the owner's request, unlinked so their text remains as plain text. The GSD starter kit link now points to the homepage free guide (`/#freeGuide`). Malformed archive.org links in recipe posts were removed. Inconclusive statuses were not re-probed.
+
 Booking and Fullscript calls to action still point to Contact. Real replacement URLs must come from the owner. The inherited search form submits `?s=` to the homepage; there is no static search index. The saved header currently disables its search control.
 
 ## Images

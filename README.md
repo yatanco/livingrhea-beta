@@ -37,7 +37,7 @@ For anything the CMS doesn't expose yet (page layout or new fields), edit the lo
 
 ## Current status
 
-The latest pushed commits are on `astro-headless-migration`. Check the Cloudflare Pages production-branch setting and deployment status before treating the site as a reviewed production release; the branch's configured role has not been independently verified in this workspace. No DNS change was made. Desktop and mobile review of the restored article layout is still pending because browser access was unavailable.
+The Astro site is live on https://livingrhea.com (confirmed 28 October 2026). Pushing `astro-headless-migration` deploys to production, so commit and push only when the owner asks. Screenshot review of the latest article header change is still pending. See [the current handoff](docs/HANDOFF-2026-10-28.md) for status and next steps.
 
 The contaminated “Choice – Our Global Impact” post was removed from the live content collection. `/choice/` redirects to `/blog/`; its historical WordPress export remains under `migration/`. Restore replacement copy only from a trusted source.
 
@@ -69,7 +69,7 @@ Imported source images live under `src/assets/images/`, organized by year/month.
 - [Launch checklist](LAUNCH-TODO.md)
 - [Migration status](MIGRATION-TODO.md)
 
-Older audit and launch documents describe earlier states; use the dated current audit and handoff log for recent work. Confirm deployment settings and account-side checks before production cutover.
+Older audit and launch documents describe earlier states; use the dated current audit and handoff log for recent work.
 
 See [Astro-native assets and editing](docs/astro-native-assets.md) for the current local CSS pipeline, native hero, popup removal, and retained service integrations.
 
