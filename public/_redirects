@@ -5,7 +5,8 @@
 /feed/rss/ /blog/rss.xml 301
 /blog/feed/ /blog/rss.xml 301
 /gsd-community-party-croatia/ /blog/gsd-community-party-croatia/ 301
-/test-post-for-press-page/ /blog/test-post-for-press-page/ 301
+/test-post-for-press-page/ /blog/gsd-community-party-kenya/ 301
+/blog/test-post-for-press-page/ /blog/gsd-community-party-kenya/ 301
 /the-changemaker-formula-smoothie-challenge/ /blog/the-changemaker-formula-smoothie-challenge/ 301
 /centre-for-advanced-medicine/ /blog/centre-for-advanced-medicine/ 301
 /benefit-from-medicinal-mushroom/ /blog/benefit-from-medicinal-mushroom/ 301

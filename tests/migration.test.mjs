@@ -5,17 +5,20 @@ import { load } from "cheerio";
 import { parse } from "yaml";
 const frontmatter = s => parse(s.match(/^---\n([\s\S]*?)\n---/)[1]);
 const json = async (p) => JSON.parse(await readFile(p, "utf8"));
+// Slugs deliberately renamed after migration (old slug -> current slug).
+const renamed = { "test-post-for-press-page": "gsd-community-party-kenya" };
+const current = (slug) => renamed[slug] || slug;
 test("every exported published post has a page and an intact title", async () => {
   const original = await json("migration/wordpress-posts.json");
   const active = original.filter((post) => post.slug !== "choice");
   assert.equal((await readdir("src/content/posts")).filter((name) => name.endsWith(".md")).length, active.length);
   for (const post of active) {
-    const migrated = frontmatter(await readFile(`src/content/posts/${post.slug}.md`, "utf8"));
+    const migrated = frontmatter(await readFile(`src/content/posts/${current(post.slug)}.md`, "utf8"));
     assert.equal(
       migrated.title,
       load(post.title.rendered).text().replace(/\s+/g, " ").trim(),
     );
-    const $ = load(await readFile(`dist/blog/${post.slug}/index.html`, "utf8"));
+    const $ = load(await readFile(`dist/blog/${current(post.slug)}/index.html`, "utf8"));
     assert.equal($("h1").first().text(), migrated.title);
     assert.ok($(".wp-content").text().trim().length > 0);
   }
@@ -65,9 +68,11 @@ test("all original post permalinks that changed have exact redirects", async () 
   const redirects = await readFile("public/_redirects", "utf8");
   for (const post of await json("migration/wordpress-posts.json")) {
     const old = new URL(post.link).pathname;
-    const target = post.slug === "choice" ? "/blog/" : `/blog/${post.slug}/`;
+    const target = post.slug === "choice" ? "/blog/" : `/blog/${current(post.slug)}/`;
     if (old !== target)
       assert.ok(redirects.includes(`${old} ${target} 301`), old);
+    if (current(post.slug) !== post.slug)
+      assert.ok(redirects.includes(`/blog/${post.slug}/ ${target} 301`), post.slug);
   }
 });
 

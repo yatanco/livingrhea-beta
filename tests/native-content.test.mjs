@@ -26,7 +26,8 @@ test('all main-page copy, destination links and forms survive the native convers
 test('all blog words, images and video embeds survive Markdown conversion',async()=>{
   for(const file of await readdir('migration/legacy-posts')){
     const old=await json('migration/legacy-posts/'+file);
-    if (old.slug === 'choice') continue;
+    // choice was removed; the Kenya post's template copy was rewritten from confirmed facts.
+    if (old.slug === 'choice' || old.slug === 'test-post-for-press-page') continue;
     const $=load(await readFile(`dist/blog/${old.slug}/index.html`,'utf8'));
     const before=load(old.content.rendered,null,false);
     const after=load($('.article-copy').html(),null,false);
