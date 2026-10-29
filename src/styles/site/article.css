@@ -1,9 +1,4 @@
 /* Native article framing, matching the saved Salient article treatment. */
-@media (min-width: 1001px) {
-  body.livingrhea-article #header-space {
-    height: 36px !important;
-  }
-}
 .livingrhea-article .article-hero {
   position: relative;
   height: 550px;
@@ -33,7 +28,6 @@
   z-index: 1;
   text-align: center;
   width: min(1000px, 90%);
-  padding-top: 65px;
 }
 .livingrhea-article .article-category {
   display: inline-block;
@@ -191,9 +185,6 @@
     height: auto;
     min-height: 480px;
     padding: 50px 0;
-  }
-  .livingrhea-article .article-hero-content {
-    padding-top: 20px;
   }
   .livingrhea-article .article-related-grid {
     gap: 20px;

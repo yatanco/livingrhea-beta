@@ -47,13 +47,6 @@ if (article) {
     ...layout.bodyAttrs,
     class: `${layout.bodyAttrs.class} livingrhea-article`,
   };
-  layout.header = {
-    ...layout.header,
-    class: "transparent",
-    "data-transparent-header": "true",
-    "data-transparent-shadow-helper": "true",
-    "data-remove-border": "true",
-  };
 }
 const canonical = new URL(Astro.url.pathname, Astro.site);
 const plainTitle = plainText(title);
